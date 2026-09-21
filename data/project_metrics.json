@@ -1,21 +1,21 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 5,
-    "case_locators": 1606,
-    "declared_cases": 1606,
+    "case_level_documents": 11,
+    "case_locators": 4192,
+    "declared_cases": 4192,
     "document_level_seed_documents": 33,
-    "documents": 38
+    "documents": 44
   },
   "corpus": {
-    "all_corpus_cjk_characters": 583291,
+    "all_corpus_cjk_characters": 917776,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
-      "partial_selected_witness": 7
+      "partial_selected_witness": 13
     },
-    "content_cjk_characters": 553011,
+    "content_cjk_characters": 855603,
     "content_shapes": {
-      "cases": 5,
+      "cases": 11,
       "chapters": 1,
       "dialogues": 2,
       "five_ranks": 1,
@@ -23,9 +23,9 @@
       "sections": 25,
       "stanzas": 4
     },
-    "documents": 38,
+    "documents": 44,
     "excerpt_seed_documents": 31,
-    "incomplete_documents": 38,
+    "incomplete_documents": 44,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 348,
@@ -40,8 +40,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -71,8 +71,8 @@
         "source_review": {
           "content_fields_collated": 2,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -104,8 +104,8 @@
         "source_review": {
           "content_fields_collated": 353,
           "content_fields_total": 395,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 128,
           "probe_refs": [],
           "refs_total": 1,
@@ -134,8 +134,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -166,8 +166,8 @@
         "source_review": {
           "content_fields_collated": 84,
           "content_fields_total": 84,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T47n1987B",
@@ -202,8 +202,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -232,8 +232,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 7,
           "probe_refs": [
             "X80n1565"
@@ -266,8 +266,8 @@
         "source_review": {
           "content_fields_collated": 1274,
           "content_fields_total": 1274,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 0,
           "probe_refs": [],
           "refs_total": 1,
@@ -299,8 +299,8 @@
         "source_review": {
           "content_fields_collated": 500,
           "content_fields_total": 500,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 0,
           "probe_refs": [],
           "refs_total": 1,
@@ -330,8 +330,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 11,
           "probe_refs": [],
           "refs_total": 3,
@@ -363,8 +363,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -380,6 +380,42 @@
           "sections": 3
         }
       },
+      "dahui_yulu_full": {
+        "all_cjk_chars": 217999,
+        "cbeta_id": "T1998A + T1998B",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 202073,
+        "coverage": "1354/1354 cases",
+        "coverage_note": "All 1354 units are verbatim and contiguous in the claimed witness(es) T47n1998A + T47n1998B under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (202073 CJK characters across 2 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document represents the whole of T47n1998A (三十卷, the 書 letters of juan 二十五–三十 included — 答張侍郎 and the other lay-correspondent letters are individual heading-and-paragraph units inside the tiling) and T47n1998B (宗門武庫). Hongzhi's side of the exchanges — the 宏智禪師廣錄 T48n2001 — is carried as a probe reference only: nothing is claimed from it and it is not ingested here; the corpus's six-field `dahui_hongzhi` selection stays its untouched sibling. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 202073,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 1354,
+          "content_fields_total": 1354,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "T48n2001"
+          ],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): the complete Dahui Yulu T47n1998A (30 juan — the juan 25–30 letters included) plus the Zongmen huku T47n1998B: 1,354 units tiling 202,073 CJK characters verbatim. Hongzhi's Guanglu T48n2001 is a probe only — this document claims nothing from it; the six-field `dahui_hongzhi` selection stays its untouched sibling.",
+          "witness_refs": [
+            "T47n1998A",
+            "T47n1998B"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "The Recorded Sayings of Dahui Zonggao, Complete (大慧普覺禪師語錄)",
+        "unit_counts": {
+          "cases": 1354
+        }
+      },
       "dazhu_huihai": {
         "all_cjk_chars": 373,
         "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
@@ -393,8 +429,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -424,8 +460,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 10,
           "probe_refs": [
             "X68n1315",
@@ -459,8 +495,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 21,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 27,
           "probe_refs": [],
           "refs_total": 2,
@@ -478,6 +514,44 @@
           "five_ranks": 5
         }
       },
+      "dongshan_yulu_full": {
+        "all_cjk_chars": 28548,
+        "cbeta_id": "T1986A + T1986B",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 24439,
+        "coverage": "322/322 cases",
+        "coverage_note": "All 322 units are verbatim and contiguous in the claimed witness(es) T47n1986A + T47n1986B under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (24439 CJK characters across 2 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. Both Taishō parts of number 1986 are claimed witnesses of this single document; the sibling part of number 1987, the Caoshan record (T47n1987A), which carries the appended treatises explaining Dongshan's Five Ranks, is the separate corpus document `caoshan_benji`, and its 解釋洞山五位顯訣 is a cross-reference, not merged here. The standalone 寶鏡三昧歌 selection lives in `baojing_sanmei` (its 2026-09-16 stanzas re-keyed against 1986A) and is untouched; this document carries the 1986A 歌頌寶鏡三昧歌 blocks as part of the whole fascicle. The corpus's earlier `dongshan_yulu` seed is left exactly as it stands. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 24439,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 322,
+          "content_fields_total": 322,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "T47n1987A",
+            "X68n1315",
+            "T51n2076"
+          ],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): both Taishō parts of number 1986 (筠州洞山悟本禪師語錄 and 瑞州洞山良价禪師語錄), 322 units tiling 24,439 CJK characters verbatim. T47n1987A (which appends the Five Ranks treatises) is a probe; the treatises themselves are collated in `caoshan_benji`.",
+          "witness_refs": [
+            "T47n1986A",
+            "T47n1986B"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "The Recorded Sayings of Dongshan Liangjie, Complete (洞山良价禪師語錄)",
+        "unit_counts": {
+          "cases": 322
+        }
+      },
       "fayan_yulu": {
         "all_cjk_chars": 423,
         "cbeta_id": "T1991 / X1226 (宗門十規論)",
@@ -491,8 +565,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 16,
           "probe_refs": [],
           "refs_total": 1,
@@ -521,8 +595,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -551,8 +625,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -581,8 +655,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 0,
@@ -609,8 +683,8 @@
         "source_review": {
           "content_fields_collated": 2,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 18,
           "probe_refs": [],
           "refs_total": 1,
@@ -626,6 +700,42 @@
           "sections": 10
         }
       },
+      "huangbo_fayao_full": {
+        "all_cjk_chars": 6918,
+        "cbeta_id": "T2012A",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 6632,
+        "coverage": "19/19 cases",
+        "coverage_note": "All 19 units are verbatim and contiguous in the claimed witness(es) T48n2012A under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (6632 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document represents the T48n2012A part of Taishō number 2012 only: the sibling 宛陵錄 (T48n2012B) is a separate corpus document (`huangbo_wanling`) and is carried here as a probe, not claimed; the parallel Huangbo record inside the Guzunsu yulu anthology (X68n1315) is not merged. The corpus's earlier ten-section `huangbo_chuanxin` seed is left exactly as it stands. The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 6632,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 19,
+          "content_fields_total": 19,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "T48n2012B",
+            "X68n1315"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): full-witness ingestion of the Transmission of Mind. All 19 units tile T48n2012A's 6,632 CJK characters verbatim. The sibling 宛陵錄 T48n2012B and the anthology Huangbo record in X68n1315 are probes, not claimed witnesses of this document.",
+          "witness_refs": [
+            "T48n2012A"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "Huangbo's Transmission of Mind, Complete (黃檗山斷際禪師傳心法要)",
+        "unit_counts": {
+          "cases": 19
+        }
+      },
       "huangbo_wanling": {
         "all_cjk_chars": 324,
         "cbeta_id": "T2012B",
@@ -639,8 +749,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 7,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -669,8 +779,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 3,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -700,8 +810,8 @@
         "source_review": {
           "content_fields_collated": 79,
           "content_fields_total": 89,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 84,
           "probe_refs": [
             "X68n1315",
@@ -722,6 +832,42 @@
           "sections": 74
         }
       },
+      "mazu_guanglu_full": {
+        "all_cjk_chars": 5271,
+        "cbeta_id": "X1321",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 4732,
+        "coverage": "35/35 cases",
+        "coverage_note": "All 35 units are verbatim and contiguous in the claimed witness(es) X69n1321 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (4732 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document is the whole of X69n1321 as printed — the record catalogued at the work level as 馬祖道一禪師廣錄 (四家語錄卷一). It is not a merge of other Mazu witnesses: the 馬祖大寂行狀 (X68n1315 juan 1) and the 景德傳燈錄 account (T51n2076 juan 6–7) are carried as probes only, and the corpus's earlier eight-field `mazu_yulu` seed (with its 2026-09-16 re-keys) is untouched. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 4732,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 35,
+          "content_fields_total": 35,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "T51n2076",
+            "X68n1315"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): full ingestion of the record printed as X69n1321 (catalogued 馬祖道一禪師廣錄, 四家語錄卷一; the record's own opening heading reads 江西馬祖道一禪師語錄). All 35 units tile its 4,732 CJK characters verbatim. T51n2076 and X68n1315 carry Mazu material and are probes; no other Mazu witness is claimed or merged.",
+          "witness_refs": [
+            "X69n1321"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "Mazu's Recorded Sayings, Complete (馬祖道一禪師廣錄)",
+        "unit_counts": {
+          "cases": 35
+        }
+      },
       "mazu_yulu": {
         "all_cjk_chars": 731,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
@@ -735,8 +881,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 8,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 1,
@@ -765,8 +911,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -794,8 +940,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 0,
@@ -823,8 +969,8 @@
         "source_review": {
           "content_fields_collated": 4,
           "content_fields_total": 13,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 2,
@@ -855,8 +1001,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -886,8 +1032,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -916,8 +1062,8 @@
         "source_review": {
           "content_fields_collated": 6,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 2,
@@ -948,8 +1094,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 3,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 1,
@@ -980,8 +1126,8 @@
         "source_review": {
           "content_fields_collated": 113,
           "content_fields_total": 181,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 70,
           "probe_refs": [],
           "refs_total": 1,
@@ -1011,8 +1157,8 @@
         "source_review": {
           "content_fields_collated": 24,
           "content_fields_total": 37,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 14,
           "probe_refs": [],
           "refs_total": 1,
@@ -1041,8 +1187,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 2,
@@ -1072,8 +1218,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 2,
@@ -1103,8 +1249,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 2,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -1121,6 +1267,41 @@
           "sections": 2
         }
       },
+      "yunmen_guanglu_full": {
+        "all_cjk_chars": 53635,
+        "cbeta_id": "T1988",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 43678,
+        "coverage": "776/776 cases",
+        "coverage_note": "All 776 units are verbatim and contiguous in the claimed witness(es) T47n1988 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (43678 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. The corpus's earlier ten-section `yunmen_yulu` seed (with the withdrawn 'T1988' retelling claim) is left exactly as it stands. The parallel Yunmen printing inside the Guzunsu yulu anthology (X68n1315 juan 15–18) is a different recension and is not merged or claimed here. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 43678,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 776,
+          "content_fields_total": 776,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "X68n1315"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): the whole Yunmen Guanglu T47n1988 — 776 units tiling 43,678 CJK characters verbatim. The parallel anthology printing in X68n1315 is a probe, not claimed. The earlier `yunmen_yulu` seed's retellings are not patched here; the seed stays as it stands.",
+          "witness_refs": [
+            "T47n1988"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "The Expanded Record of Yunmen Kuangzhen, Complete (雲門匡真禪師廣錄)",
+        "unit_counts": {
+          "cases": 776
+        }
+      },
       "yunmen_yulu": {
         "all_cjk_chars": 403,
         "cbeta_id": "T1988",
@@ -1134,8 +1315,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 12,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 1,
@@ -1164,8 +1345,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 19,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 35,
           "probe_refs": [
             "X68n1315"
@@ -1185,6 +1366,42 @@
           "dialogues": 15
         }
       },
+      "zhaozhou_yulu_full": {
+        "all_cjk_chars": 22114,
+        "cbeta_id": "X1315 juan 13–14",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 21038,
+        "coverage": "80/80 cases",
+        "coverage_note": "All 80 units are verbatim and contiguous in the claimed witness(es) X68n1315 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (21038 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document is the Zhaozhou span of the Guzunsu yulu anthology (X68n1315 juan 13–14: the record with its 行狀 and the 語錄之餘), not the whole anthology — the other masters' juan lie outside the region and are not claimed. The corpus's prior 'T1987' witness claim remains recorded as false on the historical `zhaozhou_yulu` seed, which is left untouched (T1987 is the Caoshan record); this document never cites it. The 古尊宿語錄's own preface, the other forty juan, and the anthology colophons outside juan 13–14 are not part of this document. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 21038,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 80,
+          "content_fields_total": 80,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "flagged_entries": 0,
+          "probe_refs": [
+            "T51n2076",
+            "X80n1565"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Task 050 (2026-09-21): Zhaozhou's record as printed in the Guzunsu yulu anthology X68n1315 juan 13–14 (record + 行狀 + 語錄之餘), 80 units tiling 21,038 CJK characters of the anthology verbatim. The corpus's prior 'T1987' claim was false (T1987 is the Caoshan record) and stays recorded as such on the historical seed; this document claims only X68n1315, whose reference digest verifies against the authoritative manifest and carries recorded drift against the 2026-09-09 historical anchor.",
+          "witness_refs": [
+            "X68n1315"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "The Recorded Sayings of Zhaozhou, Complete (趙州真際禪師語錄)",
+        "unit_counts": {
+          "cases": 80
+        }
+      },
       "zhengdao_ge": {
         "all_cjk_chars": 202,
         "cbeta_id": "T2014",
@@ -1198,8 +1415,8 @@
         "source_review": {
           "content_fields_collated": 6,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
           "flagged_entries": 1,
           "probe_refs": [],
           "refs_total": 1,
@@ -1218,16 +1435,16 @@
     },
     "source_review": {
       "authoritative": {
-        "documents": 38,
-        "evidence_date": "2026-09-20",
+        "documents": 44,
+        "evidence_date": "2026-09-21",
         "flagged_entries": 630,
-        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
-        "register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
-        "report_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md"
+        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md"
       },
       "class_totals": {
         "DIVERGENT": 111,
-        "EXACT": 4004,
+        "EXACT": 9182,
         "MINOR": 30,
         "NOT_FOUND": 334,
         "SHORT_UNMATCHED": 109,
@@ -1251,8 +1468,8 @@
           "witness_unavailable": true
         }
       },
-      "content_fields_collated": 2451,
-      "content_fields_total": 2782,
+      "content_fields_collated": 5037,
+      "content_fields_total": 5368,
       "disclosure_ledgers": [
         {
           "key": "source_collation",
@@ -1275,9 +1492,9 @@
           "label": "Rights review"
         }
       ],
-      "documents": 38,
+      "documents": 44,
       "documents_without_collating_content": 22,
-      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the newest authoritative record (it inherits the Chuandeng Lu overlay's 37 per-document entries verbatim and records the T47n1987A record of Caoshan Benji as the 38th document); scripts/validate_data.py merges and re-derives both",
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630",
       "flagged_entries": 630,
       "historical": {
         "documents": 34,
@@ -1288,7 +1505,7 @@
       },
       "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
       "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
-      "metadata_fields_total": 1852,
+      "metadata_fields_total": 4444,
       "non_approval_statement": "Source collation does not approve reuse.",
       "reference_verification": {
         "counts": {
@@ -1313,7 +1530,7 @@
           "verified": 34
         },
         "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
-        "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt"
+        "manifest": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt"
       },
       "reproduction": {
         "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
@@ -1329,7 +1546,7 @@
         "historical_report_flagged_total": 637
       },
       "status_counts": {
-        "collated_to_claimed_witness": 4,
+        "collated_to_claimed_witness": 10,
         "partial_or_failed_w1_collation": 32,
         "witness_unavailable": 2
       },
@@ -1347,7 +1564,7 @@
       }
     },
     "source_review_statuses": {
-      "collated_to_claimed_witness": 4,
+      "collated_to_claimed_witness": 10,
       "partial_or_failed_w1_collation": 32,
       "witness_unavailable": 2
     }
@@ -1376,8 +1593,8 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 38,
-    "shared_manifest_items": 38
+    "corpus_files": 44,
+    "shared_manifest_items": 44
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",

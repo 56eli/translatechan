@@ -237,6 +237,16 @@ DOCS = {
     # claimed reference T47n1987A carries the same digest in the 2026-09-09 historical anchor and
     # in the 2026-09-20 Caoshan manifest (41 works), so the new-document waiver is declarative.
     'caoshan_benji': (['T47n1987A'], ['T47n1987B', 'X68n1315', 'T51n2076', 'T48n2006']),
+    # 2026-09-21 (task 050): six full-witness documents extracted by scripts/segment_full_witness.py
+    # from the pinned CBETA XML P5 revision, each tiling its witness's region contiguously
+    # (producer asserts concatenation == reference slice). All are new to the evidence record and
+    # declared via --new-document; probes annotate also_in only and never claim a field.
+    'huangbo_fayao_full': (['T48n2012A'], ['T48n2012B', 'X68n1315']),
+    'mazu_guanglu_full': (['X69n1321'], ['T51n2076', 'X68n1315']),
+    'yunmen_guanglu_full': (['T47n1988'], ['X68n1315']),
+    'dongshan_yulu_full': (['T47n1986A', 'T47n1986B'], ['T47n1987A', 'X68n1315', 'T51n2076']),
+    'zhaozhou_yulu_full': (['X68n1315'], ['T51n2076', 'X80n1565']),
+    'dahui_yulu_full': (['T47n1998A', 'T47n1998B'], ['T48n2001']),
     'wumenguan': (['T48n2005'], []),
     'xinxin_ming': (['T48n2010'], []),
     'biyanlu_cases': (['T48n2003'], []),
@@ -311,6 +321,35 @@ WITNESS_NOTES = {
                         '0.93-0.97, 1 NOT_FOUND: the 草庵歌 body, absent from T51n2076 and X80n1565 '
                         'alike), and the combined document title is a project composite. Witness '
                         'supported, collation partial — neither complete nor witness-unavailable.'),
+    'huangbo_fayao_full': ('Task 050 (2026-09-21): full-witness ingestion of the Transmission of Mind. '
+                           'All 19 units tile T48n2012A\'s 6,632 CJK characters verbatim. The sibling '
+                           '宛陵錄 T48n2012B and the anthology Huangbo record in X68n1315 are probes, '
+                           'not claimed witnesses of this document.'),
+    'mazu_guanglu_full': ('Task 050 (2026-09-21): full ingestion of the record printed as X69n1321 '
+                          '(catalogued 馬祖道一禪師廣錄, 四家語錄卷一; the record\'s own opening heading '
+                          'reads 江西馬祖道一禪師語錄). All 35 units tile its 4,732 CJK characters verbatim. '
+                          'T51n2076 and X68n1315 carry Mazu material and are probes; no other Mazu '
+                          'witness is claimed or merged.'),
+    'yunmen_guanglu_full': ('Task 050 (2026-09-21): the whole Yunmen Guanglu T47n1988 — 776 units '
+                            'tiling 43,678 CJK characters verbatim. The parallel anthology printing in '
+                            'X68n1315 is a probe, not claimed. The earlier `yunmen_yulu` seed\'s '
+                            'retellings are not patched here; the seed stays as it stands.'),
+    'dongshan_yulu_full': ('Task 050 (2026-09-21): both Taishō parts of number 1986 (筠州洞山悟本禪師語錄 '
+                           'and 瑞州洞山良价禪師語錄), 322 units tiling 24,439 CJK characters verbatim. '
+                           'T47n1987A (which appends the Five Ranks treatises) is a probe; the treatises '
+                           'themselves are collated in `caoshan_benji`.'),
+    'zhaozhou_yulu_full': ('Task 050 (2026-09-21): Zhaozhou\'s record as printed in the Guzunsu yulu '
+                           'anthology X68n1315 juan 13–14 (record + 行狀 + 語錄之餘), 80 units tiling '
+                           '21,038 CJK characters of the anthology verbatim. The corpus\'s prior '
+                           '\u0027T1987\u0027 claim was false (T1987 is the Caoshan record) and stays recorded as '
+                           'such on the historical seed; this document claims only X68n1315, whose '
+                           'reference digest verifies against the authoritative manifest and carries '
+                           'recorded drift against the 2026-09-09 historical anchor.'),
+    'dahui_yulu_full': ('Task 050 (2026-09-21): the complete Dahui Yulu T47n1998A (30 juan — the '
+                        'juan 25–30 letters included) plus the Zongmen huku T47n1998B: 1,354 units '
+                        'tiling 202,073 CJK characters verbatim. Hongzhi\'s Guanglu T48n2001 is a probe '
+                        'only — this document claims nothing from it; the six-field `dahui_hongzhi` '
+                        'selection stays its untouched sibling.'),
 }
 
 
