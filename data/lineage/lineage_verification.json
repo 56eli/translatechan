@@ -136,82 +136,82 @@
     {
       "teacher": "nanquan_puyuan",
       "disciple": "zhaozhou_congshen",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: X68n1315 古尊宿語錄 — candidate witness only, unverified; the prior T1987 claim was false (T1987 is the Caoshan record)",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 11, 0287a24 (前趙州從諗禪師法嗣)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "yunyan_tansheng",
       "disciple": "dongshan_liangjie",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1986 (Vol. 47, p. 507)",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 14, 0314c24 (潭州雲巖曇晟禪師)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "dongshan_liangjie",
       "disciple": "caoshan_benji",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1987A 撫州曹山元證禪師語錄 (Vol. 47) and the T2076 景德傳燈錄 heir lists (fasc. 17 洞山法嗣; fasc. 20 前撫州曹山本寂禪師法嗣)",
-      "note": "Traditional lineage relation represented in the current seed graph; the project's collated Chuandeng Lu and Caoshan records carry the anchor text, but no exact chart/record locator has been editorially reviewed, so the edge stays pending."
+      "reference": "T51n2076 fascicle 17, 0336a04 (撫州曹山本寂禪師)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "xuefeng_yicun",
       "disciple": "yunmen_wenyan",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1988 (Vol. 47, p. 545)",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 16, page-line 0329a01 (雪峰義存法嗣 → 雲門文偃)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "baizhang_huaihai",
       "disciple": "guishan_lingyou",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1989 / T2076 f.9",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 9, 0264b15 (潭州溈山靈祐禪師)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "luohan_guichen",
       "disciple": "fayan_wenyi",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1991 (Vol. 47, p. 588)",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 28, 0448a17 (大法眼文益禪師語)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "wuzu_fayan",
       "disciple": "yuanwu_keqin",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T1997 / X1357",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 20, page-line 0363c10 (五祖法演法嗣)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "yuelin_shiguan",
       "disciple": "wumen_huikai",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "yuelin-shiguan-record",
-      "reference": "Candidate source context: T2005 / X1355",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 24, page-line 0408a01 (無門慧開)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "huineng",
       "disciple": "nanyue_huairang",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "Candidate source context: T2076 f.5 / X1315",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 5, 0240c07 (南嶽懷讓禪師)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "huineng",
       "disciple": "qingyuan_xingsi",
-      "status": "traditional_link_pending_exact_locator",
+      "status": "source_verified",
       "source_id": "wudeng-huiyuan",
-      "reference": "Candidate source context: T2076 f.5 / X1565",
-      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+      "reference": "T51n2076 fascicle 5, 0235a11 (慧能法嗣 / 青原行思)",
+      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d)."
     },
     {
       "teacher": "mazu_daoyi",
