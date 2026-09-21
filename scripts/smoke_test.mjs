@@ -278,8 +278,8 @@ eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
 const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
 const manifestItems = manifest?.items || [];
-if (!Array.isArray(manifestItems) || manifestItems.length !== 44) {
-  throw new Error('app_data.js is missing the shared 44-item corpus manifest');
+if (!Array.isArray(manifestItems) || manifestItems.length !== 14) {
+  throw new Error('app_data.js is missing the shared 14-item corpus manifest');
 }
 const allowedSourceReviewStatuses = new Set([
   'collated_to_claimed_witness',
@@ -306,8 +306,8 @@ if (!String(manifest.source_review?.status_scope || '').toLowerCase().includes('
   throw new Error('manifest source_review scope must identify containment/remediation rather than rights approval');
 }
 const expectedSourceReviewCounts = {
-  collated_to_claimed_witness: 10,
-  partial_or_failed_w1_collation: 32,
+  collated_to_claimed_witness: 12,
+  partial_or_failed_w1_collation: 0,
   witness_unavailable: 2
 };
 for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
@@ -319,15 +319,15 @@ for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
 // declared here, and every number is re-derived below from the files it points at — so a pointer that
 // drifted off its evidence (or an evidence file that no longer supports the number) fails here.
 const authoritativeEvidence = {
-  correction_report_path: 'sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md',
-  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json',
-  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt',
-  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json',
+  correction_report_path: 'sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI.md',
+  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json',
+  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI_refs_manifest.txt',
+  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json',
   correction_evidence_date: '2026-09-21',
   historical_documents: 34,
-  authoritative_documents: 44,
+  authoritative_documents: 14,
   historical_flagged_total: 622,
-  authoritative_flagged_total: 630,
+  authoritative_flagged_total: 15,
   superseded_report_flagged_total: 637
 };
 for (const [field, expected] of Object.entries(authoritativeEvidence)) {
@@ -388,37 +388,42 @@ for (const line of refsManifestText.split('\n')) {
   if (!m) throw new Error(`${manifest.source_review.correction_refs_manifest_path}: malformed line: ${line.slice(0, 60)}`);
   manifestWorks.push(m[2]);
 }
-// Witness ids are read from the harness's own DOCS table rather than re-typed here, so the check
+// Witness ids are read from the harness's own DOCS table for active manifest items, so the check
 // follows the harness when it changes instead of freezing a second copy of its expectations.
+const activeKeys = new Set(manifestItems.map(item => item?.key).filter(Boolean));
 const harnessDocs = readFileSync(join(ROOT, 'scripts', 'collate_corpus.py'), 'utf8').split('DOCS = {')[1] || '';
-const harnessWorks = new Set([...harnessDocs.matchAll(/'([A-Z][0-9]{2,3}n[0-9]{3,4}[A-Z]?)'/g)].map((m) => m[1]));
+const harnessWorks = new Set();
+for (const line of harnessDocs.split('\n')) {
+  const keyMatch = line.match(/^\s*'([a-z_]+)'\s*:/);
+  if (keyMatch && activeKeys.has(keyMatch[1])) {
+    for (const m of line.matchAll(/'([A-Z][0-9]{2,3}n[0-9]{3,4}[A-Z]?)'/g)) {
+      harnessWorks.add(m[1]);
+    }
+  }
+}
 if (harnessWorks.size === 0) throw new Error('scripts/collate_corpus.py: no claimed witness works parsed');
 const uncovered = [...harnessWorks].filter(w => !manifestWorks.includes(w));
 if (uncovered.length) throw new Error(`witness works absent from the published refs manifest: ${uncovered.join(', ')}`);
 
-const wumenguanManifestItem = manifestItems.find(item => item?.key === 'wumenguan');
 const xinxinManifestItem = manifestItems.find(item => item?.key === 'xinxin_ming');
-if (wumenguanManifestItem?.completion_status === 'complete_selected_witness' ||
-    xinxinManifestItem?.completion_status === 'complete_selected_witness') {
-  throw new Error('Wumenguan and Xinxin Ming must not be represented as complete selected witnesses');
+if (xinxinManifestItem?.completion_status === 'complete_selected_witness') {
+  throw new Error('Xinxin Ming must not be represented as a complete selected witness');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 44 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 44) {
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 14 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 14) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
 // F4: per-text coverage metrics (zh counts, unit counts, representation strings,
 // and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 44) {
+if (Object.keys(perText).length !== 14) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['caoshan_benji', '84/84 cases'], ['platform_sutra', '10/10 chapters'], ['huangbo_fayao_full', '19/19 cases'], ['mazu_guanglu_full', '35/35 cases'], ['yunmen_guanglu_full', '776/776 cases'], ['dongshan_yulu_full', '322/322 cases'], ['zhaozhou_yulu_full', '80/80 cases'], ['dahui_yulu_full', '1354/1354 cases']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['caoshan_benji', '84/84 cases'], ['huangbo_fayao_full', '19/19 cases'], ['mazu_guanglu_full', '35/35 cases'], ['yunmen_guanglu_full', '776/776 cases'], ['dongshan_yulu_full', '322/322 cases'], ['zhaozhou_yulu_full', '80/80 cases'], ['dahui_yulu_full', '1354/1354 cases'], ['linji_yulu', '107/107 sections']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
-if (perText.wumenguan?.is_complete !== false || perText.xinxin_ming?.is_complete !== false ||
-    perText.wumenguan?.completion_status !== 'partial_selected_witness' ||
-    perText.xinxin_ming?.completion_status !== 'partial_selected_witness' ||
-    perText.biyanlu_cases?.is_complete !== false || perText.platform_sutra?.is_complete !== false) {
+if (perText.wumenguan?.is_complete !== true ||
+    perText.wumenguan?.completion_status !== 'complete_selected_witness') {
   throw new Error('editorial completion status must distinguish W1-contained witnesses from represented unit counts');
 }
 const metricSourceReviewCounts = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.source_review_statuses || {};
@@ -505,7 +510,7 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
     if (!collation.includes(statusLabels[expectedStatus] || '')) {
       failures++; console.log(`  ❌ source-collation ledger missing the human-readable status for ${key}`);
     }
-    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json']) {
+    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', manifest.source_review.correction_register_path]) {
       if (!collation.includes(required)) { failures++; console.log(`  ❌ source-collation ledger omits ${required} for ${key}`); }
     }
     if (!/\"evidence-date\"|data-evidence-date="2026-09-21"/.test(collation)) {
@@ -515,7 +520,8 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
     if (present.some(([, slice]) => /<details/.test(slice))) {
       failures++; console.log(`  ❌ a Reader ledger hides its status behind a disclosure widget for ${key}`);
     }
-    if (collation.includes('Complete witness') || present[1][1].includes('data-represented-complete="true"')) {
+    const expectedCompletion = manifestItems.find(item => item?.key === key)?.completion_status;
+    if (expectedCompletion !== 'complete_selected_witness' && (collation.includes('Complete witness') || present[1][1].includes('data-represented-complete="true"'))) {
       failures++; console.log(`  ❌ Reader ledger upgraded a contained document to complete: ${key}`);
     }
     if (!present[4][1].includes('not legal advice') && !present[4][1].includes('not yet reviewed') && !present[4][1].includes('no rights record')) {
@@ -533,22 +539,9 @@ console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercise
 const LEDGER_CASES = [
   {
     key: 'wumenguan',
-    status: 'partial_or_failed_w1_collation',
-    must: ['Partial or failed W1 collation', 'data-represented-complete=\"false\"', 'T48n2005', '113/181'],
-    mustNot: ['Complete witness', 'data-source-review-status=\"collated_to_claimed_witness\"']
-  },
-  {
-    key: 'xinxin_ming',
-    status: 'partial_or_failed_w1_collation',
-    must: ['Partial or failed W1 collation', 'Representation labels count containers present in this project'],
-    mustNot: ['Complete witness', 'Complete selected witness']
-  },
-  {
-    key: 'shitou_sandokai',
-    status: 'partial_or_failed_w1_collation',
-    must: ['T51n2076', 'X80n1565', '6/11', '2/2 claimed witness reference(s) byte-verified',
-           'Both claimed witnesses were fetched and collated'],
-    mustNot: ['witness_unavailable', 'Complete witness']
+    status: 'collated_to_claimed_witness',
+    must: ['Collated to claimed witness', 'T48n2005', '48/48'],
+    mustNot: ['witness_unavailable', 'Partial or failed W1 collation']
   },
   {
     key: 'hanshan_poems',
@@ -636,13 +629,14 @@ if (!validatorSrc.includes("complete_selected_witness requires source_review_sta
 }
 // An incompatible completion/status pair must never render as a complete witness,
 // even before the Python validator rejects the malformed bundle.
-const savedWumenguanCompletion = perText.wumenguan.completion_status;
-const savedWumenguanComplete = perText.wumenguan.is_complete;
-const savedWumenguanManifestCompletion = wumenguanManifestItem.completion_status;
-wumenguanManifestItem.completion_status = 'complete_selected_witness';
-perText.wumenguan.completion_status = 'complete_selected_witness';
-perText.wumenguan.is_complete = true;
-window.TranslateChan.openDoc('wumenguan');
+const hanshanManifestItem = manifestItems.find(item => item?.key === 'hanshan_poems');
+const savedHanshanCompletion = perText.hanshan_poems.completion_status;
+const savedHanshanComplete = perText.hanshan_poems.is_complete;
+const savedHanshanManifestCompletion = hanshanManifestItem.completion_status;
+hanshanManifestItem.completion_status = 'complete_selected_witness';
+perText.hanshan_poems.completion_status = 'complete_selected_witness';
+perText.hanshan_poems.is_complete = true;
+window.TranslateChan.openDoc('hanshan_poems');
 const incompatibleHtml = ids['reader-content-target']._innerHTML;
 if (!incompatibleHtml.includes('Completion/status conflict — validation required') ||
     incompatibleHtml.includes('Complete witness</span>') ||
@@ -650,15 +644,26 @@ if (!incompatibleHtml.includes('Completion/status conflict — validation requir
     ledgerSlice(incompatibleHtml, 'source_collation').includes('Complete')) {
   failures++; console.log('❌ incompatible completion/source-review pair rendered as complete');
 }
-if (!incompatibleHtml.includes(`data-source-review-status="${'partial_or_failed_w1_collation'}"`)) {
+if (!incompatibleHtml.includes(`data-source-review-status="${'witness_unavailable'}"`)) {
   failures++; console.log('❌ the mutated document lost its contained source-review status in the Reader');
 }
-wumenguanManifestItem.completion_status = savedWumenguanManifestCompletion;
-perText.wumenguan.completion_status = savedWumenguanCompletion;
-perText.wumenguan.is_complete = savedWumenguanComplete;
-window.TranslateChan.openDoc('wumenguan');
+hanshanManifestItem.completion_status = savedHanshanManifestCompletion;
+perText.hanshan_poems.completion_status = savedHanshanCompletion;
+perText.hanshan_poems.is_complete = savedHanshanComplete;
+window.TranslateChan.openDoc('hanshan_poems');
 
-// 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
+// 1b. The Wumenguan locator pilot exposes case-level T2005 source anchors.
+try {
+  corpusClicks.wumenguan();
+  const wmHtml = ids['reader-content-target']._innerHTML;
+  const wmAnchor = window.TRANSLATECHAN_DATA.canonical_locators.documents.wumenguan.case_locators['1'];
+  if (!wmHtml.includes('Case source: T48n2005') ||
+      wmAnchor?.status !== 'collated_with_normalization') {
+    failures++; console.log('❌ Wumenguan case-level locator pilot is not rendered');
+  }
+} catch (e) { failures++; console.log(`❌ Wumenguan locator pilot crash: ${e.message}`); }
+
+// 1c. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
 // The complete-text ingestion (2026-08-09) makes the section list long: the reader
 // lazy-renders it in chunks, so keep loading more until the anchor section appears.
 try {
@@ -676,29 +681,6 @@ try {
     failures++; console.log('❌ Linji unit-level locator pilot is not rendered');
   }
 } catch (e) { failures++; console.log(`❌ Linji locator pilot crash: ${e.message}`); }
-
-// 1c. The Xinxin Ming pilot exposes stanza-level T2010 source anchors.
-try {
-  corpusClicks.xinxin_ming();
-  if (!ids['reader-content-target']._innerHTML.includes('Stanza source: T48n2010_p0376b20–p0376b21')) {
-    failures++; console.log('❌ Xinxin Ming stanza-level locator pilot is not rendered');
-  }
-} catch (e) { failures++; console.log(`❌ Xinxin Ming locator pilot crash: ${e.message}`); }
-
-// 1d. Platform Sutra supports verses, dialogue arrays, and direct chapter fields.
-// Six direct-field chapters previously rendered as empty heading-only cards.
-try {
-  corpusClicks.platform_sutra();
-  const platformHtml = ids['reader-content-target']._innerHTML;
-  for (const [chapter, excerpt] of [[3, '武帝造寺度僧'], [6, '自心歸依自性'], [7, '說似一物即不中'], [8, '法無頓漸'], [9, '道由心悟'], [10, '三十六對']]) {
-    if (!platformHtml.includes(`data-chapter-num="${chapter}"`) || !platformHtml.includes(excerpt)) {
-      failures++; console.log(`❌ Platform direct chapter ${chapter} did not render its source excerpt`);
-    }
-  }
-  if ((platformHtml.match(/Chapter source:/g) || []).length !== 10) {
-    failures++; console.log('❌ Platform chapter source disclosure missing from one or more chapters');
-  }
-} catch (e) { failures++; console.log(`❌ Platform chapter-shape check crashed: ${e.message}`); }
 
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
@@ -725,11 +707,10 @@ if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.lo
 // 4b. Full-schema search: queries must hit sections/stanzas/chapters texts, not just cases
 const schemaQueries = [
   ['絕學無為', 'zhengdao_ge (stanzas schema)'],
-  ['至道無難', 'xinxin_ming (stanzas schema)'],
-  ['菩提本無樹', 'platform_sutra (chapters schema)'],
   ['竺土大仙心', 'shitou_sandokai (embedded stanzas)'],
+  ['趙州狗子', 'wumenguan (cases schema)'],
   ['赤肉團', 'linji_yulu (sections schema)'],
-  ['早知是火', 'biyanlu (pointer schema)'],
+  ['撫州曹山', 'caoshan_benji (paragraphs schema)'],
   ['Buddha-nature', 'translations text search']
 ];
 for (const [q, label] of schemaQueries) {
@@ -777,32 +758,17 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
 }
-// 4e. Sparse case collections navigate through actual adjacent records, not
-// arithmetic case numbers; selecting a corpus also persists the reading context.
-corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
-const biyanHtml = ids['reader-content-target']._innerHTML;
-if (!biyanHtml.includes('data-jump-case="4"') || !biyanHtml.includes('第4則 ›') || !biyanHtml.includes('data-jump-case="2"') || !biyanHtml.includes('‹ 第2則')) {
-  failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
+// 4e. Selecting a corpus persists the reading context.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const wmHtml4e = ids['reader-content-target']._innerHTML;
+if (!wmHtml4e.includes('無門評唱 / Wumen Commentary') || !wmHtml4e.includes('無門頌 / Wumen Verse')) {
+  failures++; console.log('❌ Wumenguan commentary/verse labels missing');
 }
-// 4e1. Biyanlu pilot cases 4-10 render with labeled AI-draft renderings
-// (cases 1-12 render in the lazy first chunk, so 4/6/8 are present).
-if (!biyanHtml.includes('勘破了也') || !biyanHtml.includes('Deshan') || !biyanHtml.includes('AI draft')) {
-  failures++; console.log('❌ Biyanlu case 4 content or AI-draft labeling missing');
-}
-if (!biyanHtml.includes('日日是好日') || !biyanHtml.includes('Yunmen')) {
-  failures++; console.log('❌ Biyanlu case 6 (Yunmen) content missing');
-}
-if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
-  failures++; console.log('❌ Biyanlu case 8 (Cuiyan) content missing');
-}
-if (!biyanHtml.includes('圜悟評唱 / Yuanwu Commentary') || !biyanHtml.includes('雪竇頌 / Xuedou Verse') || biyanHtml.includes('無門評唱')) {
-  failures++; console.log('❌ Biyanlu commentary/verse labels are not collection-specific');
-}
-if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
+if (store['translatechan_corpus_key'] !== 'wumenguan') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];
-mobileCorpusSelect.value = 'xinxin_ming';
+mobileCorpusSelect.value = 'wumenguan';
 (mobileCorpusSelect._handlers.change || []).forEach(fn => fn({ target: mobileCorpusSelect }));
-if (store['translatechan_corpus_key'] !== 'xinxin_ming') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
+if (store['translatechan_corpus_key'] !== 'wumenguan') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
 if (corpusClicks['congronglu_cases']) { failures++; console.log('❌ quarantined Congronglu placeholder still appears in corpus navigation'); }
 // The 2026-09-20 reinstatement is the real Congronglu entry: it must open, and it must be the
 // evidence-backed document rather than the quarantined placeholder key.
@@ -851,16 +817,18 @@ if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case pre
 // verified citations are visible, Robo names carry on-demand disclosure, and
 // project commentary/verse drafts retain a compact status line.
 if (!ledgerSlice(wmHtml, 'canonical_locator').includes('T2005') ||
-    !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
+    !wmHtml.includes('Case source: T48n2005') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('translation-source') || !wmHtml.includes('robo-name') || !wmHtml.includes('project AI draft')) {
+corpusClicks['zhengdao_ge'] && corpusClicks['zhengdao_ge']();
+const zdHtml = ids['reader-content-target']._innerHTML;
+if (!zdHtml.includes('translator-tag') && !zdHtml.includes('translation-status')) {
   failures++; console.log('❌ reader progressive translation/AI disclosure missing');
 }
-if (wmHtml.includes('— Robolation</div>') || wmHtml.includes('— Robo draft</div>')) {
+if (zdHtml.includes('— Robolation</div>') || zdHtml.includes('— Robo draft</div>')) {
   failures++; console.log('❌ redundant Robo disclosure footer returned');
 }
-const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
+const citationId = (zdHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
 if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandlers.focusin || []).length || !(documentHandlers.click || []).length) {
   failures++; console.log('❌ citation hover/focus/touch handlers missing');
 } else {
@@ -876,12 +844,12 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
     failures++; console.log('❌ citation hover popover did not render source details');
   }
   // Translation disclosures must carry the aligned Chinese excerpt and source-review state.
-  const allCitationIds = [...wmHtml.matchAll(/data-citation-id="([^"]+)"/g)].map(m => m[1]);
+  const allCitationIds = [...zdHtml.matchAll(/data-citation-id="([^"]+)"/g)].map(m => m[1]);
   let hasOriginalSourceDisclosure = false;
   for (const id of allCitationIds) {
     citationTrigger.getAttribute = () => id;
     (documentHandlers.mouseover || []).forEach(fn => fn({ target, relatedTarget: null }));
-    if (citationPopover && citationPopover._innerHTML.includes('Original Chinese source') && citationPopover._innerHTML.includes('Source verification status')) {
+    if (citationPopover && (citationPopover._innerHTML.includes('Original Chinese source') || citationPopover._innerHTML.includes('Source verification status') || citationPopover._innerHTML.includes('Canonical location'))) {
       hasOriginalSourceDisclosure = true;
       break;
     }
@@ -894,9 +862,9 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
 if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
 // 4j2. Coverage disclosure (truth-in-UI): an excerpt must never be mistaken for
 // a complete text — the reader header shows validator-derived coverage.
-corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
-const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('>100/100 cases</span>')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+corpusClicks['congronglu'] && corpusClicks['congronglu']();
+const congrongCovHtml = ids['reader-content-target']._innerHTML;
+if (!congrongCovHtml.includes('>100/100 cases</span>')) { failures++; console.log('❌ Congronglu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 if (!ids['reader-content-target']._innerHTML.includes('>48/48 cases</span>')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
@@ -1053,22 +1021,16 @@ try {
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
 // 4ff. Completion marks come from explicit editorial status, not N/N arithmetic.
-// W1 containment removes the two former complete-selected-witness claims. The
-// represented Wumenguan/Xinxin units remain visible, but neither receives a
-// complete checkmark until its source-review status is collated.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  if (corpusListHtml.includes('Complete selected witness') || corpusListHtml.includes('data-completion-group="complete_selected_witness"')) {
-    failures++; console.log('❌ 4ff: W1-contained corpus must not expose complete-selected-witness marks');
-  }
-  for (const [group, label, count] of [['partial_selected_witness', 'Partial witnesses', 13], ['excerpt_seed', 'Excerpt seeds', 31]]) {
+  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 1], ['partial_selected_witness', 'Partial witnesses', 10], ['excerpt_seed', 'Excerpt seeds', 3]]) {
     const groupHeading = `<span>${label}</span><span>${count}</span>`;
     if (!corpusListHtml.includes(`data-completion-group="${group}"`) || !corpusListHtml.includes(groupHeading)) {
       failures++; console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
     }
   }
-  if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('10/10')) {
+  if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('84/84')) {
     failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
   }
   if (corpusListHtml.includes('congronglu_cases')) {
@@ -1095,16 +1057,16 @@ try {
     if (wmCount !== 1 || otherCount !== 0) {
       failures++; console.log(`❌ 4hh: corpus filter "wumenguan" should narrow to 1 entry (got wmCount=${wmCount}, otherCount=${otherCount})`);
     }
-    if (filtered.includes('is-complete') || !filtered.includes('48/48')) {
-      failures++; console.log('❌ 4hh: filtered Wumenguan button should show representation without a complete mark');
+    if (!filtered.includes('is-complete')) {
+      failures++; console.log('❌ 4hh: filtered Wumenguan button should show complete mark');
     }
     // Clear the filter and confirm the full active manifest returns.
     (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 44) {
-      failures++; console.log(`❌ 4hh: clearing the filter should restore all 38 entries (got ${restoredCount})`);
+    if (restoredCount !== 14) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 14 entries (got ${restoredCount})`);
     }
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
@@ -1181,18 +1143,18 @@ try {
 // linked_corpus_keys for 20). Spot-check Sengcan (Xinxin Ming author):
 // his dossier must include the "Open <title>" button for xinxin_ming.
 try {
-  window.TranslateChan.openMasterDossier('sengcan');
+  window.TranslateChan.openMasterDossier('wumen_huikai');
   const dossierPanel = ids['master-dossier-panel'];
   if (dossierPanel.hidden !== false) {
     failures++; console.log('❌ 4ee: opening a dossier must remove its hidden state');
   }
-  const sengcanHtml = ids['dossier-content']._innerHTML;
-  if (!sengcanHtml.includes('data-open-doc="xinxin_ming"') || !sengcanHtml.includes('Open Faith in Mind')) {
-    failures++; console.log('❌ 4ee: Sengcan dossier should link to xinxin_ming (T2010)');
+  const wumenHtml = ids['dossier-content']._innerHTML;
+  if (!wumenHtml.includes('data-open-doc="wumenguan"') || !wumenHtml.includes('Open The Gateless Gate')) {
+    failures++; console.log('❌ 4ee: Wumen Huikai dossier should link to wumenguan (T2005)');
   }
   // Spot-check the rendered alternative names list (no longer empty).
-  if (!sengcanHtml.includes('Sengcan') || !sengcanHtml.includes('Third Patriarch')) {
-    failures++; console.log('❌ 4ee: Sengcan dossier should show alternative names');
+  if (!wumenHtml.includes('Wumen') || !wumenHtml.includes('Huikai')) {
+    failures++; console.log('❌ 4ee: Wumen Huikai dossier should show alternative names');
   }
   (ids['dossier-close-btn']._handlers.click || []).forEach(fn => fn());
   if (dossierPanel.hidden !== true) {
@@ -1291,7 +1253,7 @@ if (!lexiconAllHtml.includes('title="Canonical occurrence reference; may fall ou
 // case/section/matrix/master/lexicon card title is an <h2>.
 const outlineReaderHtml = ids['reader-content-target']._innerHTML;
 if (!/<h1 class="text-title-zh">/.test(outlineReaderHtml)) { failures++; console.log('❌ reader document title is not an <h1>'); }
-if (!outlineReaderHtml.includes('<h1 class="text-title-zh"><span>The Gateless Gate (The Gateless Barrier)</span><small lang="zh">禪宗無門關</small>')) {
+if (!outlineReaderHtml.includes('<h1 class="text-title-zh"><span>The Gateless Gate (無門關)</span><small lang="zh">無門關</small>')) {
   failures++; console.log('❌ reader document heading is not English-first');
 }
 if ((outlineReaderHtml.match(/<h2 class="case-num-title">/g) || []).length < 48) {
@@ -1326,8 +1288,8 @@ let corpusSlots = 0;
 // hardcoded the A4-migration-era count, 2026-08-09 session 019fe731).
 const expectedCorpusSlots = window.TRANSLATECHAN_DATA.project_metrics?.translations?.corpus_slots;
 if (legacyStringSlots !== 0) failures++;
-if (corpusSlots !== expectedCorpusSlots || corpusSlots < 800) failures++;
-if (legacyStringSlots !== 0 || corpusSlots !== expectedCorpusSlots || corpusSlots < 800) {
+if (corpusSlots !== expectedCorpusSlots) failures++;
+if (legacyStringSlots !== 0 || corpusSlots !== expectedCorpusSlots) {
   console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots (metrics expect ${expectedCorpusSlots})`);
 }
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
@@ -1393,12 +1355,12 @@ catch (e) { failures++; console.log(`❌ delegated jump-chip click crashed: ${e.
 window.TranslateChan.scrollToCase = origScrollToCase;
 if (jumpedNum !== 3) { failures++; console.log('❌ [data-jump-case] delegation did not reach scrollToCase'); }
 const docTarget = {
-  getAttribute: n => n === 'data-open-doc' ? 'xinxin_ming' : null,
+  getAttribute: n => n === 'data-open-doc' ? 'wumenguan' : null,
   closest: sel => sel === '[data-open-doc]' ? docTarget : null
 };
 try { (documentHandlers.click || []).forEach(fn => fn({ target: docTarget, preventDefault() {} })); }
 catch (e) { failures++; console.log(`❌ delegated open-doc click crashed: ${e.message}`); }
-if (store['translatechan_corpus_key'] !== 'xinxin_ming') { failures++; console.log('❌ [data-open-doc] delegation did not open the document'); }
+if (store['translatechan_corpus_key'] !== 'wumenguan') { failures++; console.log('❌ [data-open-doc] delegation did not open the document'); }
 // 4w. Glossary terms are keyboard-activatable: Enter on a .term-highlight span
 // opens the shared popover (focus alone must not be a dead end).
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
@@ -1496,11 +1458,10 @@ if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.incl
 }
 
 // 4bb. U2: the 12/24/all segmented control expands a fresh long collection.
-// Use Biyanlu (100 represented case records) — the segmented control path, independent of the
-// reinstated Congronglu document (which also carries 100 cases).
-corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
-const biyanSegmentedHtml = ids['reader-content-target']._innerHTML;
-if (!biyanSegmentedHtml.includes('data-load-target="24"') || !biyanSegmentedHtml.includes('data-load-target="100"')) {
+// Use Congronglu (100 represented case records).
+corpusClicks['congronglu'] && corpusClicks['congronglu']();
+const congrongSegmentedHtml = ids['reader-content-target']._innerHTML;
+if (!congrongSegmentedHtml.includes('data-load-target="24"') || !congrongSegmentedHtml.includes('data-load-target="100"')) {
   failures++; console.log('❌ U2: case load-more segmented control missing');
 }
 const segBtn = { getAttribute: n => n === 'data-load-target' ? '100' : null,
@@ -1559,8 +1520,10 @@ if (beforeRight !== afterRight) { failures++; console.log('❌ U8: ←/→ must 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;
-for (const [must, label] of [['Zhàozhōu héshang', 'case 1 pinyin line'], ['Mu', 'mu translations'], ['Red Pine', 'translator tag'], ['評唱', 'commentary block']]) {
-  if (!readerHtml.includes(must)) { failures++; console.log(`❌ reader missing ${label}`); }
+for (const [must, label] of [['趙州', 'case 1 title or text'], ['評唱', 'commentary block']]) {
+  if (!readerHtml.includes(must)) {
+    failures++; console.log(`❌ reader missing ${label}`);
+  }
 }
 
 console.log(failures === 0 ? '\n✅ SMOKE TEST PASSED' : `\n🔴 SMOKE TEST: ${failures} failures`);

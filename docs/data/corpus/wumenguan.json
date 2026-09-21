@@ -1,0 +1,962 @@
+{
+  "id": "wumenguan",
+  "title_zh": "無門關",
+  "title_pinyin": "Wúmén Guān",
+  "title_en": "The Gateless Gate (無門關)",
+  "cbeta_id": "T2005",
+  "taisho_vol": "T48",
+  "author_zh": "無門慧開",
+  "author_en": "Wumen Huikai",
+  "era": "Southern Song Dynasty (1228)",
+  "genre": "Gong'an (Koan) Collection with Commentary and Verses",
+  "overview": "The Gateless Gate (無門關 Wumenguan) is a foundational 48-case koan collection compiled in 1228 by Master Wumen Huikai (1183–1260). Each case features the main dialogue, Wumen's prose commentary, and his verse.",
+  "cases": [
+    {
+      "case_num": 1,
+      "title_zh": "趙州狗子",
+      "title_pinyin": "Zhàozhōu Gǒuzi",
+      "title_en": "Zhaozhou's Dog",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "趙州和尚因僧問狗子還有佛性也無州云無"
+        }
+      ],
+      "commentary_zh": "無門曰參禪須透祖師關妙悟要窮心路絕祖關不透心路不絕盡是依草附木精靈且道如何是祖師關只者一箇無字乃宗門一關也遂目之曰禪宗無門關透得過者非但親見趙州便可與歷代祖師把手共行眉毛廝結同一眼見同一耳聞豈不慶快莫有要透關底麼將三百六十骨節八萬四千毫竅通身起箇疑團參箇無字晝夜提撕莫作虛無會莫作有無會如吞了箇熱鐵丸相似吐又吐不出蕩盡從前惡知惡覺久久純熟自然內外打成一片如啞子得夢只許自知驀然打發驚天動地如奪得關將軍大刀入手逢佛殺佛逢祖殺祖於生死岸頭得大自在向六道四生中遊戲三昧且作麼生提撕盡平生氣力舉箇無字若不間斷好似法燭一點便著",
+      "verse_zh": "頌曰狗子佛性全提正令纔涉有無喪身失命",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0292c23",
+        "lb_range": "T48n2005_p0292c23–p0293a14"
+      }
+    },
+    {
+      "case_num": 2,
+      "title_zh": "百丈野狐",
+      "title_pinyin": "Bǎi Zhàng Yěhú",
+      "title_en": "Baizhang's Wild Fox",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "百丈和尚凡參次有一老人常隨眾聽法眾人退老人亦退忽一日不退師遂問面前立者復是何人老人云諾某甲非人也於過去迦葉佛時曾住此山因學人問大修行底人還落因果也無某甲對云不落因果五百生墮野狐身今請和尚代一轉語貴脫野狐遂問大修行底人還落因果也無師云不昧因果老人於言下大悟作禮云某甲已脫野狐身住在山後敢告和尚乞依亡僧事例師令維那白槌告眾食後送亡僧大眾言議一眾皆安涅槃堂又無人病何故如是食後只見師領眾至山後巖下以杖挑出一死野狐乃依火葬師至晚上堂舉前因緣黃蘗便問古人錯祇對一轉語墮五百生野狐身轉轉不錯合作箇甚麼師云近前來與伊道黃蘗遂近前與師一掌師拍手笑云將謂胡鬚赤更有赤鬚胡"
+        }
+      ],
+      "commentary_zh": "無門曰不落因果為甚墮野狐不昧因果為甚脫野狐若向者裏著得一隻眼便知得前百丈贏得風流五百生",
+      "verse_zh": "頌曰不落不昧兩采一賽不昧不落千錯萬錯",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293a16",
+        "lb_range": "T48n2005_p0293a16–p0293b09"
+      }
+    },
+    {
+      "case_num": 3,
+      "title_zh": "俱胝竪指",
+      "title_pinyin": "Jù Zhī Shù Zhǐ",
+      "title_en": "Juzhi Raises One Finger",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "俱胝和尚凡有詰問唯舉一指後有童子因外人問和尚說何法要童子亦竪指頭胝聞遂以刃斷其指童子負痛號哭而去胝復召之童子迴首胝却竪起指童子忽然領悟胝將順世謂眾曰吾得天龍一指頭禪一生受用不盡言訖示滅"
+        }
+      ],
+      "commentary_zh": "無門曰俱胝并童子悟處不在指頭上若向者裏見得天龍同俱胝并童子與自己一串穿却",
+      "verse_zh": "頌曰俱胝鈍置老天龍利刃單提勘小童巨靈擡手無多子分破華山千萬重",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293b11",
+        "lb_range": "T48n2005_p0293b11–p0293b22"
+      }
+    },
+    {
+      "case_num": 4,
+      "title_zh": "胡子無鬚",
+      "title_pinyin": "Hú Zǐ Wú Xū",
+      "title_en": "The Beardless Barbarian",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "或庵曰西天胡子因甚無鬚"
+        }
+      ],
+      "commentary_zh": "無門曰參須實參悟須實悟者箇胡子直須親見一回始得說親見早成兩箇",
+      "verse_zh": "頌曰癡人面前不可說夢胡子無鬚惺惺添懵",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293b24",
+        "lb_range": "T48n2005_p0293b24–p0293b29"
+      }
+    },
+    {
+      "case_num": 5,
+      "title_zh": "香嚴上樹",
+      "title_pinyin": "Xiāng Yán Shàng Shù",
+      "title_en": "Xiangyan Up a Tree",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "香嚴和尚云如人上樹口樹枝手不攀枝脚不踏樹樹下有人問西來意不對即違他所問若對又喪身失命正恁麼時作麼生對"
+        }
+      ],
+      "commentary_zh": "無門曰縱有懸河之辨總用不著說得一大藏教亦用不著若向者裏對得著活却從前死路頭死却從前活路頭其或未然直待當來問彌勒",
+      "verse_zh": "頌曰香嚴真杜撰惡毒無盡限啞却衲僧口通身迸鬼眼",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293c02",
+        "lb_range": "T48n2005_p0293c02–p0293c11"
+      }
+    },
+    {
+      "case_num": 6,
+      "title_zh": "世尊拈花",
+      "title_pinyin": "Shì Zūn Niān Huā",
+      "title_en": "The World-Honored One Holds Up a Flower",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "世尊昔在靈山會上拈花示眾是時眾皆默然惟迦葉尊者破顏微笑世尊云吾有正法眼藏涅槃妙心實相無相微妙法門不立文字教外別傳付囑摩訶迦葉"
+        }
+      ],
+      "commentary_zh": "無門曰黃面瞿曇傍若無人壓良為賤懸羊頭賣狗肉將謂多少奇特只如當時大眾都笑正法眼藏作麼生傳設使迦葉不笑正法眼藏又作麼生傳若道正法眼藏有傳授黃面老子誑謼閭閻若道無傳授為甚麼獨許迦葉",
+      "verse_zh": "頌曰拈起花來尾巴已露迦葉破顏人天罔措",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293c13",
+        "lb_range": "T48n2005_p0293c13–p0293c25"
+      }
+    },
+    {
+      "case_num": 7,
+      "title_zh": "趙州洗鉢",
+      "title_pinyin": "Zhàozhōu Xǐ Bō",
+      "title_en": "Zhaozhou's Wash Your Bowl",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "趙州因僧問某甲乍入叢林乞師指示州云喫粥了也未僧云喫粥了也州云洗鉢盂去其僧有省"
+        }
+      ],
+      "commentary_zh": "無門曰趙州開口見膽露出心肝者僧聽事不真喚鐘作甕",
+      "verse_zh": "頌曰只為分明極翻令所得遲早知燈是火飯熟已多時",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0293c27",
+        "lb_range": "T48n2005_p0293c27–p0294a05"
+      }
+    },
+    {
+      "case_num": 8,
+      "title_zh": "奚仲造車",
+      "title_pinyin": "Xī Zhòng Zào Chē",
+      "title_en": "Xizhong Makes Carts",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "月庵和尚問僧奚仲造車一百輻拈却兩頭去却軸明甚麼邊事"
+        }
+      ],
+      "commentary_zh": "無門曰若也直下明得眼似流星機如掣電",
+      "verse_zh": "頌曰機輪轉處達者猶迷四維上下南北東西",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294a07",
+        "lb_range": "T48n2005_p0294a07–p0294a13"
+      }
+    },
+    {
+      "case_num": 9,
+      "title_zh": "大通智勝",
+      "title_pinyin": "Dà Tōng Zhì Shèng",
+      "title_en": "Great Truly Accomplished Buddha",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "興陽讓和尚因僧問大通智勝佛十劫坐道場佛法不現前不得成佛道時如何讓曰其問甚諦當僧云既是坐道場為甚麼不得成佛道讓曰為伊不成佛"
+        }
+      ],
+      "commentary_zh": "無門曰只許老胡知不許老胡會凡夫若知即是聖人聖人若會即是凡夫",
+      "verse_zh": "頌曰了身何似了心休了得心兮身不愁若也身心俱了了神仙何必更封侯",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294a15",
+        "lb_range": "T48n2005_p0294a15–p0294a23"
+      }
+    },
+    {
+      "case_num": 10,
+      "title_zh": "清稅孤貧",
+      "title_pinyin": "Qīng Shuì Gū Pín",
+      "title_en": "Qingshui Poor and Destitute",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "曹山和尚因僧問云清稅孤貧乞師賑濟山云稅闍梨稅應諾山曰青原白家酒三盞喫了猶道未沾唇"
+        }
+      ],
+      "commentary_zh": "無門曰清稅輸機是何心行曹山具眼深辨來機然雖如是且道那裏是稅闍梨喫酒處",
+      "verse_zh": "頌曰貧似范丹氣如項羽活計雖無敢與鬪富",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294a25",
+        "lb_range": "T48n2005_p0294a25–p0294b04"
+      }
+    },
+    {
+      "case_num": 11,
+      "title_zh": "州勘庵主",
+      "title_pinyin": "Zhōu Kān Ān Zhǔ",
+      "title_en": "Zhaozhou Tests the Hermits",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "趙州到一庵主處問有麼有麼主竪起拳頭州云水淺不是泊舡處便行又到一庵主處云有麼有麼主亦竪起拳頭州云能縱能奪能殺能活便作禮"
+        }
+      ],
+      "commentary_zh": "無門曰一般竪起拳頭為甚麼肯一箇不肯一箇且道誵訛在甚處若向者裏下得一轉語便見趙州舌頭無骨扶起放倒得大自在雖然如是爭奈趙州却被二庵主勘破若道二庵主有優劣未具參學眼若道無優劣亦未具參學眼",
+      "verse_zh": "頌曰眼流星機掣電殺人刀活人劍",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294b06",
+        "lb_range": "T48n2005_p0294b06–p0294b17"
+      }
+    },
+    {
+      "case_num": 12,
+      "title_zh": "巖喚主人",
+      "title_pinyin": "Yán Huàn Zhǔ Rén",
+      "title_en": "Ruiyan Calls His Master",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "瑞巖彥和尚每日自喚主人公復自應諾乃云惺惺著喏他時異日莫受人瞞喏喏"
+        }
+      ],
+      "commentary_zh": "無門曰瑞巖老子自買自賣弄出許多神頭鬼面何故一箇喚底一箇應底一箇惺惺底一箇不受人瞞底認著依前還不是若也俲他總是野狐見解",
+      "verse_zh": "頌曰學道之人不識真只為從前認識神無量劫來生死本癡人喚作本來人",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294b19",
+        "lb_range": "T48n2005_p0294b19–p0294b27"
+      }
+    },
+    {
+      "case_num": 13,
+      "title_zh": "德山托鉢",
+      "title_pinyin": "Dé Shān Tuō Bō",
+      "title_en": "Deshan Carries His Bowl",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "德山一日托鉢下堂見雪峯問者老漢鐘未鳴鼓未響托鉢向甚處去山便回方丈峯舉似巖頭頭云大小德山未會末後句山聞令侍者喚巖頭來問曰汝不肯老僧那巖頭密啟其意山乃休去明日陞座果與尋常不同巖頭至僧堂前拊掌大笑云且喜得老漢會末後句他後天下人不奈伊何"
+        }
+      ],
+      "commentary_zh": "無門曰若是末後句巖頭德山俱未夢見在撿點將來好似一棚傀儡",
+      "verse_zh": "頌曰識得最初句便會末後句末後與最初不是者一句",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294b29",
+        "lb_range": "T48n2005_p0294b29–p0294c11"
+      }
+    },
+    {
+      "case_num": 14,
+      "title_zh": "南泉斬猫",
+      "title_pinyin": "Nán Quán Zhǎn Māo",
+      "title_en": "Nanquan Cuts the Cat",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "南泉和尚因東西堂爭猫兒泉乃提起云大眾道得即救道不得即斬却也眾無對泉遂斬之晚趙州外歸泉舉似州州乃脫履安頭上而出泉云子若在即救得猫兒"
+        }
+      ],
+      "commentary_zh": "無門曰且道趙州頂草鞋意作麼生若向者裏下得一轉語便見南泉令不虛行其或未然險",
+      "verse_zh": "頌曰趙州若在倒行此令奪却刀子南泉乞命",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294c13",
+        "lb_range": "T48n2005_p0294c13–p0294c22"
+      }
+    },
+    {
+      "case_num": 15,
+      "title_zh": "洞山三頓",
+      "title_pinyin": "Dòng Shān Sān Dùn",
+      "title_en": "Dongshan's Sixty Blows",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "雲門因洞山參次門問曰近離甚處山云査渡門曰夏在甚處山云湖南報慈門曰幾時離彼山云八月二十五門曰放汝三頓棒山至明日却上問訊昨日蒙和尚放三頓棒不知過在甚麼處門曰飯袋子江西湖南便恁麼去山於此大悟"
+        }
+      ],
+      "commentary_zh": "無門曰雲門當時便與本分草料使洞山別有生機一路家門不致寂寥一夜在是非海裏著到直待天明再來又與他注破洞山直下悟去未是性燥且問諸人洞山三頓棒合喫不合喫若道合喫草木叢林皆合喫棒若道不合喫雲門又成誑語向者裏明得方與洞山出一口氣",
+      "verse_zh": "頌曰獅子教兒迷子訣擬前跳躑早翻身無端再敘當頭著前箭猶輕後箭深",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0294c24",
+        "lb_range": "T48n2005_p0294c24–p0295a10"
+      }
+    },
+    {
+      "case_num": 16,
+      "title_zh": "鐘聲七條",
+      "title_pinyin": "Zhōng Shēng Qī Tiáo",
+      "title_en": "Bell Sound and Monk's Robe",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "雲門曰世界恁麼廣闊因甚向鐘聲裏披七條"
+        }
+      ],
+      "commentary_zh": "無門曰大凡參禪學道切忌隨聲逐色縱使聞聲悟道見色明心也是尋常殊不知衲僧家騎聲蓋色頭頭上明著著上妙然雖如是且道聲來耳畔耳往聲邊直饒響寂双忘到此如何話會若將耳聽應難會眼處聞聲方始親",
+      "verse_zh": "頌曰會則事同一家不會萬別千差不會事同一家會則萬別千差",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295a12",
+        "lb_range": "T48n2005_p0295a12–p0295a22"
+      }
+    },
+    {
+      "case_num": 17,
+      "title_zh": "國師三喚",
+      "title_pinyin": "Guó Shī Sān Huàn",
+      "title_en": "The National Teacher Calls Three Times",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "國師三喚侍者侍者三應國師云將謂吾辜負汝元來却是汝辜負吾"
+        }
+      ],
+      "commentary_zh": "無門曰國師三喚舌頭墮地侍者三應和光吐出國師年老心孤按牛頭喫草侍者未肯承當美食不中飽人飡且道那裏是他辜負處國清才子貴家富小兒嬌",
+      "verse_zh": "頌曰鐵枷無孔要人擔累及兒孫不等閑欲得撑門并拄戶更須赤脚上刀山",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295a24",
+        "lb_range": "T48n2005_p0295a24–p0295b03"
+      }
+    },
+    {
+      "case_num": 18,
+      "title_zh": "洞山三斤",
+      "title_pinyin": "Dòng Shān Sān Jīn",
+      "title_en": "Dongshan's Three Pounds of Flax",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "洞山和尚因僧問如何是佛山云麻三斤"
+        }
+      ],
+      "commentary_zh": "無門曰洞山老人參得些蚌蛤禪纔開兩片露出肝膓然雖如是且道向甚處見洞山",
+      "verse_zh": "頌曰突出麻三斤言親意更親來說是非者便是是非人",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295b05",
+        "lb_range": "T48n2005_p0295b05–p0295b12"
+      }
+    },
+    {
+      "case_num": 19,
+      "title_zh": "平常是道",
+      "title_pinyin": "Píng Cháng Shì Dào",
+      "title_en": "Ordinary Mind is the Way",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "南泉因趙州問如何是道泉云平常心是道州云還可趣向否泉云擬向即乖州云不擬爭知是道泉云道不屬知不屬不知知是妄覺不知是無記若真達不擬之道猶如太虛廓然洞豁豈可強是非也州於言下頓悟"
+        }
+      ],
+      "commentary_zh": "無門曰南泉被趙州發問直得瓦解氷消分疎不下趙州縱饒悟去更參三十年始得",
+      "verse_zh": "頌曰春有百花秋有月夏有涼風冬有雪若無閑事挂心頭便是人間好時節",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295b14",
+        "lb_range": "T48n2005_p0295b14–p0295b24"
+      }
+    },
+    {
+      "case_num": 20,
+      "title_zh": "大力量人",
+      "title_pinyin": "Dà Lì Liàng Rén",
+      "title_en": "Person of Great Strength",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "松源和尚云大力量人因甚擡脚不起又云開口不在舌頭上"
+        }
+      ],
+      "commentary_zh": "無門曰松源可謂傾膓倒腹只是欠人承當縱饒直下承當正好來無門處喫痛棒何故要識真金火裏看",
+      "verse_zh": "頌曰擡脚踏翻香水海低頭俯視四禪天一箇渾身無處著請續一句",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295b26",
+        "lb_range": "T48n2005_p0295b26–p0295c04"
+      }
+    },
+    {
+      "case_num": 21,
+      "title_zh": "雲門屎橛",
+      "title_pinyin": "Yún Mén Shǐ Jué",
+      "title_en": "Yunmen's Dried Dung-Scraper",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "雲門因僧問如何是佛門云乾屎橛"
+        }
+      ],
+      "commentary_zh": "無門曰雲門可謂家貧難辨素食事忙不及草書動便將屎橛來撑門拄戶佛法興衰可見",
+      "verse_zh": "頌曰閃電光擊石火眨得眼已蹉過",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295c06",
+        "lb_range": "T48n2005_p0295c06–p0295c11"
+      }
+    },
+    {
+      "case_num": 22,
+      "title_zh": "迦葉剎竿",
+      "title_pinyin": "Jiā Yè Chà Gān",
+      "title_en": "Kasyapa's Flagpole",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "迦葉因阿難問云世尊傳金襴袈裟外別傳何物葉喚云阿難難應諾葉云倒却門前剎竿著"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏下得一轉語親切便見靈山一會儼然未散其或未然毘婆尸佛早留心直至而今不得妙",
+      "verse_zh": "頌曰問處何如答處親幾人於此眼生筋兄呼弟應揚家醜不屬陰陽別是春",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295c13",
+        "lb_range": "T48n2005_p0295c13–p0295c21"
+      }
+    },
+    {
+      "case_num": 23,
+      "title_zh": "不思善惡",
+      "title_pinyin": "Bù Sī Shàn È",
+      "title_en": "Think Neither Good Nor Evil",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "六祖因明上座趁至大庾嶺祖見明至即擲衣鉢於石上云此衣表信可力爭耶任君將去明遂舉之如山不動踟蹰悚慄明曰我來求法非為衣也願行者開示祖云不思善不思惡正與麼時那箇是明上座本來面目明當下大悟遍體汗流泣淚作禮問曰上來密語密意外還更有意旨否祖曰我今為汝說者即非密也汝若返照自己面目密却在汝邊明云某甲雖在黃梅隨眾實未省自己面目今蒙指授入處如人飲水冷暖自知今行者即是某甲師也祖云汝若如是則吾與汝同師黃梅善自護持"
+        }
+      ],
+      "commentary_zh": "無門曰六祖可謂是事出急家老婆心切譬如新荔支剝了殼去了核送在爾口裏只要爾嚥一嚥",
+      "verse_zh": "頌曰描不成兮畫不就贊不及兮休生受本來面目沒處藏世界壞時渠不朽",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0295c23",
+        "lb_range": "T48n2005_p0295c23–p0296a11"
+      }
+    },
+    {
+      "case_num": 24,
+      "title_zh": "離却語言",
+      "title_pinyin": "Lí Què Yǔ Yán",
+      "title_en": "Leaving Behind Language and Speech",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "風穴和尚因僧問語默涉離微如何通不犯穴云長憶江南三月裏鷓鴣啼處百花香"
+        }
+      ],
+      "commentary_zh": "無門曰風穴機如掣電得路便行爭奈坐前人舌頭不斷若向者裏見得親切自有出身之路且離却語言三昧道將一句來",
+      "verse_zh": "頌曰不露風骨句未語先分付進步口喃喃知君大罔措",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296a13",
+        "lb_range": "T48n2005_p0296a13–p0296a20"
+      }
+    },
+    {
+      "case_num": 25,
+      "title_zh": "三座說法",
+      "title_pinyin": "Sān Zuò Shuō Fǎ",
+      "title_en": "The Third Seat Preaches",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "仰山和尚夢見往彌勒所安第三座有一尊者白槌云今日當第三座說法山乃起白槌云摩訶衍法離四句絕百非諦聽諦聽"
+        }
+      ],
+      "commentary_zh": "無門曰且道是說法不說法開口即失閉口又喪不開不閉十萬八千",
+      "verse_zh": "頌曰白日青天夢中說夢揑怪揑怪誑謼一眾",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296a22",
+        "lb_range": "T48n2005_p0296a22–p0296a29"
+      }
+    },
+    {
+      "case_num": 26,
+      "title_zh": "二僧卷簾",
+      "title_pinyin": "Èr Sēng Juǎn Lián",
+      "title_en": "Two Monks Roll Up the Blinds",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "清涼大法眼因僧齋前上參眼以手指簾時有二僧同去卷簾眼曰一得一失"
+        }
+      ],
+      "commentary_zh": "無門曰且道是誰得誰失若向者裏著得一隻眼便知清涼國師敗闕處然雖如是切忌向得失裏商量",
+      "verse_zh": "頌曰卷起明明徹太空太空猶未合吾宗爭似從空都放下綿綿密密不通風",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296b02",
+        "lb_range": "T48n2005_p0296b02–p0296b09"
+      }
+    },
+    {
+      "case_num": 27,
+      "title_zh": "不是心佛",
+      "title_pinyin": "Bú Shì Xīn Fó",
+      "title_en": "Not Mind, Not Buddha",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "南泉和尚因僧問云還有不與人說底法麼泉云有僧云如何是不與人說底法泉云不是心不是佛不是物"
+        }
+      ],
+      "commentary_zh": "無門曰南泉被者一問直得揣盡家私郎當不少",
+      "verse_zh": "頌曰叮嚀損君德無言真有功任從滄海變終不為君通",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296b11",
+        "lb_range": "T48n2005_p0296b11–p0296b18"
+      }
+    },
+    {
+      "case_num": 28,
+      "title_zh": "久響龍潭",
+      "title_pinyin": "Jiǔ Xiǎng Lóng Tán",
+      "title_en": "Long Famed Longtan",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "龍潭因德山請益抵夜潭云夜深子何不下去山遂珍重揭簾而出見外面黑却回云外面黑潭乃點紙燭度與山擬接潭便吹滅山於此忽然有省便作禮潭云子見箇甚麼道理山云某甲從今日去不疑天下老和尚舌頭也至明日龍潭陞堂云可中有箇漢牙如劍樹口似血盆一棒打不回頭他時異日向孤峯頂上立吾道在山遂取疏抄於法堂前將一炬火提起云窮諸玄辨若一毫致於太虛竭世樞機似一滴投於巨壑將疏抄便燒於是禮辭"
+        }
+      ],
+      "commentary_zh": "無門曰德山未出關時心憤憤口悱悱得得來南方要滅却教外別傳之旨及到澧州路上問婆子買點心婆云大德車子內是甚麼文字山云金剛經抄疏婆云只如經中道過去心不可得見在心不可得未來心不可得大德要點那箇心德山被者一問直得口似匾檐然雖如是未肯向婆子句下死却遂問婆子近處有甚麼宗師婆云五里外有龍潭和尚及到龍潭納盡敗闕可謂是前言不應後語龍潭大似憐兒不覺醜見他有些子火種郎忙將惡水驀頭一澆澆殺冷地看來一場好笑",
+      "verse_zh": "頌曰聞名不如見面見面不如聞名雖然救得鼻孔爭奈瞎却眼睛",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296b20",
+        "lb_range": "T48n2005_p0296b20–p0296c16"
+      }
+    },
+    {
+      "case_num": 29,
+      "title_zh": "非風非幡",
+      "title_pinyin": "Fēi Fēng Fēi Fān",
+      "title_en": "Not Wind, Not Flag",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "六祖因風颺剎幡有二僧對論一云幡動一云風動往復曾未契理祖云不是風動不是幡動仁者心動二僧悚然"
+        }
+      ],
+      "commentary_zh": "無門曰不是風動不是幡動不是心動甚處見祖師若向者裏見得親切方知二僧買鐵得金祖師忍俊不禁一場漏逗",
+      "verse_zh": "頌曰風幡心動一狀領過只知開口不覺話墮",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296c18",
+        "lb_range": "T48n2005_p0296c18–p0296c26"
+      }
+    },
+    {
+      "case_num": 30,
+      "title_zh": "即心即佛",
+      "title_pinyin": "Jí Xīn Jí Fó",
+      "title_en": "This Mind is Buddha",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "馬祖因大梅問如何是佛祖云即心是佛"
+        }
+      ],
+      "commentary_zh": "無門曰若能直下領略得去著佛衣喫佛飯說佛話行佛行即是佛也然雖如是大梅引多少人錯認定盤星爭知道說箇佛字三日漱口若是箇漢見說即心是佛掩耳便走",
+      "verse_zh": "頌曰青天白日切忌尋覓更問如何抱贜叫屈",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0296c28",
+        "lb_range": "T48n2005_p0296c28–p0297a07"
+      }
+    },
+    {
+      "case_num": 31,
+      "title_zh": "趙州勘婆",
+      "title_pinyin": "Zhàozhōu Kān Pó",
+      "title_en": "Zhaozhou Investigates the Old Woman",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "趙州因僧問婆子臺山路向甚處去婆云驀直去僧纔行三五步婆云好箇師僧又恁麼去後有僧舉似州州云待我去與爾勘過這婆子明日便去亦如是問婆亦如是答州歸謂眾曰臺山婆子我與爾勘破了也"
+        }
+      ],
+      "commentary_zh": "無門曰婆子只解坐籌帷幄要且著賊不知趙州老人善用偷營劫塞之機又且無大人相撿點將來二俱有過且道那裏是趙州勘破婆子處",
+      "verse_zh": "頌曰問既一般答亦相似飯裏有砂泥中有刺",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297a09",
+        "lb_range": "T48n2005_p0297a09–p0297a20"
+      }
+    },
+    {
+      "case_num": 32,
+      "title_zh": "外道問佛",
+      "title_pinyin": "Wài Dào Wèn Fó",
+      "title_en": "A Non-Buddhist Asks Buddha",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "世尊因外道問不問有言不問無言世尊據座外道贊歎云世尊大慈大悲開我迷雲令我得入乃具禮而去阿難尋問佛外道有何所證贊歎而去世尊云如世良馬見鞭影而行"
+        }
+      ],
+      "commentary_zh": "無門曰阿難乃佛弟子宛不如外道見解且道外道與佛弟子相去多少",
+      "verse_zh": "頌曰劍刃上行氷稜上走不涉階梯懸崖撒手",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297a22",
+        "lb_range": "T48n2005_p0297a22–p0297b02"
+      }
+    },
+    {
+      "case_num": 33,
+      "title_zh": "非心非佛",
+      "title_pinyin": "Fēi Xīn Fēi Fó",
+      "title_en": "Not Mind, Not Buddha",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "馬祖因僧問如何是佛祖曰非心非佛"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏見得參學事畢",
+      "verse_zh": "頌曰路逢劍客須呈不遇詩人莫献逢人且說三分未可全施一片",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297b04",
+        "lb_range": "T48n2005_p0297b04–p0297b08"
+      }
+    },
+    {
+      "case_num": 34,
+      "title_zh": "智不是道",
+      "title_pinyin": "Zhì Bú Shì Dào",
+      "title_en": "Wisdom is Not the Way",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "南泉云心不是佛智不是道"
+        }
+      ],
+      "commentary_zh": "無門曰南泉可謂老不識羞纔開臭口家醜外揚然雖如是知恩者少",
+      "verse_zh": "頌曰天晴日頭出雨下地上濕盡情都說了只恐信不及",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297b10",
+        "lb_range": "T48n2005_p0297b10–p0297b15"
+      }
+    },
+    {
+      "case_num": 35,
+      "title_zh": "倩女離魂",
+      "title_pinyin": "Qiàn Nǚ Lí Hún",
+      "title_en": "Qiannü's Soul Departs",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "五祖問僧云倩女離魂那箇是真底"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏悟得真底便知出殼入殼如宿旅舍其或未然切莫亂走驀然地水火風一散如落湯螃蠏七手八脚那時莫言不道",
+      "verse_zh": "頌曰雲月是同溪山各異萬福萬福是一是二",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297b17",
+        "lb_range": "T48n2005_p0297b17–p0297b24"
+      }
+    },
+    {
+      "case_num": 36,
+      "title_zh": "路逢達道",
+      "title_pinyin": "Lù Féng Dá Dào",
+      "title_en": "Meeting a Person of the Way on the Road",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "五祖曰路逢達道人不將語默對且道將甚麼對"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏對得親切不妨慶快其或未然也須一切處著眼",
+      "verse_zh": "頌曰路逢達道人不將語默對攔腮劈面拳直下會便會",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297b26",
+        "lb_range": "T48n2005_p0297b26–p0297c03"
+      }
+    },
+    {
+      "case_num": 37,
+      "title_zh": "庭前柏樹",
+      "title_pinyin": "Tíng Qián Bǎi Shù",
+      "title_en": "Oak Tree in the Courtyard",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "趙州因僧問如何是祖師西來意州云庭前柏樹子"
+        }
+      ],
+      "commentary_zh": "無門曰若向趙州答處見得親切前無釋迦後無彌勒",
+      "verse_zh": "頌曰言無展事語不投機承言者喪滯句者迷",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297c05",
+        "lb_range": "T48n2005_p0297c05–p0297c11"
+      }
+    },
+    {
+      "case_num": 38,
+      "title_zh": "牛過窓櫺",
+      "title_pinyin": "Niú Guò Chuāng Líng",
+      "title_en": "A Buffalo Passes Through the Window",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "五祖曰譬如水牯牛過窓櫺頭角四蹄都過了因甚麼尾巴過不得"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏顛倒著得一隻眼下得一轉語可以上報四恩下資三有其或未然更須照顧尾巴始得",
+      "verse_zh": "頌曰過去墮坑塹回來却被壞者些尾巴子直是甚奇怪",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297c13",
+        "lb_range": "T48n2005_p0297c13–p0297c20"
+      }
+    },
+    {
+      "case_num": 39,
+      "title_zh": "雲門話墮",
+      "title_pinyin": "Yún Mén Huà Duò",
+      "title_en": "Yunmen Off the Mark",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "雲門因僧問光明寂照遍河沙一句未絕門遽曰豈不是張拙秀才語僧云是門云話墮也後來死心拈云且道那裏是者僧話墮處"
+        }
+      ],
+      "commentary_zh": "無門曰若向者裏見得雲門用處孤危者僧因甚話墮堪與人天為師若也未明自救不了",
+      "verse_zh": "頌曰急流垂釣貪餌者著口縫纔開性命喪却",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0297c22",
+        "lb_range": "T48n2005_p0297c22–p0298a01"
+      }
+    },
+    {
+      "case_num": 40,
+      "title_zh": "趯倒淨瓶",
+      "title_pinyin": "Tì Dǎo Jìng Píng",
+      "title_en": "Kicking Over the Water Pitcher",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "溈山和尚始在百丈會中充典座百丈將選大溈主人乃請同首座對眾下語出格者可往百丈遂拈淨瓶置地上設問云不得喚作淨瓶汝喚作甚麼首座乃云不可喚作木也百丈却問於山山乃趯倒淨瓶而去百丈笑云第一座輪却山子也因命之為開山"
+        }
+      ],
+      "commentary_zh": "無門曰溈山一期之勇爭奈跳百丈圈圚不出檢點將來便重不便輕何故脫得盤頭擔起鐵枷",
+      "verse_zh": "頌曰颺下笟籬并木杓當陽一突絕周遮百丈重關攔不住脚尖趯出佛如麻",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298a03",
+        "lb_range": "T48n2005_p0298a03–p0298a14"
+      }
+    },
+    {
+      "case_num": 41,
+      "title_zh": "達磨安心",
+      "title_pinyin": "Dá Mó Ān Xīn",
+      "title_en": "Bodhidharma Pacifies the Mind",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "達磨面壁二祖立雪斷臂云弟子心未安乞師安心磨云將心來與汝安祖云覓心了不可得磨云為汝安心竟"
+        }
+      ],
+      "commentary_zh": "無門曰缺齒老胡十萬里航海特特而來可謂是無風起浪末後接得一箇門人又却六根不具咦謝三郎不識四字",
+      "verse_zh": "頌曰西來直指事因囑起撓聒叢林元來是爾",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298a16",
+        "lb_range": "T48n2005_p0298a16–p0298a24"
+      }
+    },
+    {
+      "case_num": 42,
+      "title_zh": "女子出定",
+      "title_pinyin": "Nǚ Zǐ Chū Dìng",
+      "title_en": "The Woman Comes Out of Samadhi",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "世尊昔因文殊至諸佛集處值諸佛各還本處惟有一女人近彼佛坐入於三昧文殊乃白佛云何女人得近佛坐而我不得佛告文殊汝但覺此女令從三昧起汝自問之文殊遶女人三匝鳴指一下乃托至梵天盡其神力而不能出世尊云假使百千文殊亦出此女人定不得下方過一十二億河沙國土有罔明菩薩能出此女人定須臾罔明大士從地湧出禮拜世尊世尊勅罔明却至女人前鳴指一下女人於是從定而出"
+        }
+      ],
+      "commentary_zh": "無門曰釋迦老子做者一場雜劇不通小小且道文殊是七佛之師因甚出女人定不得罔明初地菩薩為甚却出得若向者裏見得親切業識忙忙那伽大定",
+      "verse_zh": "頌曰出得出不得渠儂得自由神頭并鬼面敗闕當風流",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298a26",
+        "lb_range": "T48n2005_p0298a26–p0298b13"
+      }
+    },
+    {
+      "case_num": 43,
+      "title_zh": "首山竹篦",
+      "title_pinyin": "Shǒu Shān Zhú Bì",
+      "title_en": "Shoushan's Bamboo Stick",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "首山和尚拈竹篦示眾云汝等諸人若喚作竹篦則觸不喚作竹篦則背汝諸人且道喚作甚麼"
+        }
+      ],
+      "commentary_zh": "無門曰喚作竹篦則觸不喚作竹篦則背不得有語不得無語速道速道",
+      "verse_zh": "頌曰拈起竹篦行殺活令背觸交馳佛祖乞命",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298b15",
+        "lb_range": "T48n2005_p0298b15–p0298b22"
+      }
+    },
+    {
+      "case_num": 44,
+      "title_zh": "芭蕉拄杖",
+      "title_pinyin": "Bā Jiāo Zhǔ Zhàng",
+      "title_en": "Bajiao's Staff",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "芭蕉和尚示眾云爾有拄杖子我與爾拄杖子爾無拄杖子我奪爾拄杖子"
+        }
+      ],
+      "commentary_zh": "無門曰扶過斷橋水伴歸無月村若喚作拄杖入地獄如箭",
+      "verse_zh": "頌曰諸方深與淺都在掌握中撑天并拄地隨處振宗風",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298b24",
+        "lb_range": "T48n2005_p0298b24–p0298c01"
+      }
+    },
+    {
+      "case_num": 45,
+      "title_zh": "他是阿誰",
+      "title_pinyin": "Tā Shì Ā Shuí",
+      "title_en": "Who is He?",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "東山演師祖曰釋迦彌勒猶是他奴且道他是阿誰"
+        }
+      ],
+      "commentary_zh": "無門曰若也見得他分曉譬如十字街頭撞見親爺相似更不須問別人道是與不是",
+      "verse_zh": "頌曰他弓莫挽他馬莫騎他非莫辨他事莫知",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298c03",
+        "lb_range": "T48n2005_p0298c03–p0298c10"
+      }
+    },
+    {
+      "case_num": 46,
+      "title_zh": "竿頭進步",
+      "title_pinyin": "Gān Tóu Jìn Bù",
+      "title_en": "Stepping Forward From the Pole's Top",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "石霜和尚云百尺竿頭如何進步又古德云百尺竿頭坐底人雖然得入未為真百尺竿頭須進步十方世界現全身"
+        }
+      ],
+      "commentary_zh": "無門曰進得步翻得身更嫌何處不稱尊然雖如是且道百尺竿頭如何進步嗄",
+      "verse_zh": "頌曰瞎却頂門眼錯認定盤星身能捨命一盲引眾盲",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298c12",
+        "lb_range": "T48n2005_p0298c12–p0298c19"
+      }
+    },
+    {
+      "case_num": 47,
+      "title_zh": "兜率三關",
+      "title_pinyin": "Dōu Shuài Sān Guān",
+      "title_en": "Doushui's Three Gates",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "兜率悅和尚設三關問學者撥草參玄只圖見性即今上人性在甚處識得自性方脫生死眼光落時作麼生脫脫得生死便知去處四大分離向甚處去"
+        }
+      ],
+      "commentary_zh": "無門曰若能下得此三轉語便可以隨處作主遇緣即宗其或未然麁飡易飽細嚼難飢",
+      "verse_zh": "頌曰一念普觀無量劫無量劫事即如今如今覻破箇一念覻破如今覻底人",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0298c21",
+        "lb_range": "T48n2005_p0298c21–p0298c30"
+      }
+    },
+    {
+      "case_num": 48,
+      "title_zh": "乾峯一路",
+      "title_pinyin": "Qiān Fēng Yī Lù",
+      "title_en": "Qianfeng's One Way",
+      "dialogue": [
+        {
+          "speaker": "本則 / The Case",
+          "zh": "乾峯和尚因僧問十方薄伽梵一路涅槃門未審路頭在甚麼處峯拈起拄杖劃一劃云在者裏後僧請益雲門門拈起扇子云扇子跳上三十三天築著帝釋鼻孔東海鯉魚打一棒雨似盆傾"
+        }
+      ],
+      "commentary_zh": "無門曰一人向深深海底行簸土揚塵一人於高高山頂立白浪滔天把定放行各出一隻手扶竪宗乘大似兩箇駞子相撞著世上應無直底人正眼觀來二大老總未識路頭在",
+      "verse_zh": "頌曰未舉步時先已到未動舌時先說了直饒著著在機先更須知有向上竅",
+      "locator": {
+        "source_id": "wumenguan",
+        "reference": "T48n2005_p0299a02",
+        "lb_range": "T48n2005_p0299a02–p0299a26"
+      }
+    }
+  ],
+  "preface": [
+    {
+      "title_zh": "禪宗無門關",
+      "zh": "禪宗無門關禪宗無門關說道無門盡大地人得入說道有門無阿師分第一強添幾箇注脚大似笠上頂笠硬要習翁贊揚又是乾竹絞汁著得這些哮本不消習翁一擲一擲莫教一滴落江湖千里烏騅追不得紹定改元七月晦習菴陳寫紹定二年正月初五日恭遇天基聖節臣僧慧開預於元年十二月初五日印行拈提佛祖機緣四十八則祝延今上皇帝聖躬萬歲萬歲萬萬歲皇帝陛下恭願聖明齊日月叡算等乾坤八方歌有道之君四海樂無為之化慈懿皇后功德報因佑慈禪寺前住持傳法臣僧慧開謹言"
+    },
+    {
+      "title_zh": "禪宗無門關",
+      "zh": "禪宗無門關禪宗無門關佛語心為宗無門為法門既是無門且作麼生透豈不見道從門入者不是家珍從緣得者始終成壞恁麼說話大似無風起浪好肉剜瘡何況滯言句覓解會掉棒打月隔靴爬痒有甚交涉慧開紹定戊子夏首眾于東嘉龍翔因衲子請益遂將古人公案作敲門瓦子隨機引導學者竟爾抄錄不覺成集初不以前後敘列共成四十八則通曰無門關若是箇漢不顧危亡單刀直入八臂那吒攔他不住縱使西天四七東土二三只得望風乞命設或躊躇也似隔窓看馬騎眨得眼來早已蹉過頌曰大道無門千差有路透得此關乾坤獨步"
+    }
+  ],
+  "epilogue": [
+    {
+      "title_zh": "禪箴",
+      "zh": "無量宗壽書禪箴禪箴循規守矩無繩自縛縱橫無礙外道魔軍存心澄寂默照邪禪恣意忘緣墮落深坑惺惺不昧帶鎖擔枷思善思惡地獄天堂佛見法見二銕圍山念起即覺弄精魂漢兀然習定鬼家活計進則迷理退則乖宗不進不退有氣死人且道如何履踐努力今生須了却莫教永劫受餘殃黃龍三關黃龍三關我手何似佛手摸得枕頭背後不覺大笑呵呵元來通身是手我脚何似驢脚未舉步時踏著一任四海橫行倒跨楊岐三脚人人有箇生緣各各透徹機先那吒折骨還父五祖豈藉爺緣佛手驢脚生緣非佛非道非禪莫怪無門關險結盡衲子深冤瑞巖近日有無門掇向繩床判古今凡聖路頭俱截斷幾多蟠蟄起雷音請無門首座立僧山偈奉謝紹定庚寅季春無量書"
+    },
+    {
+      "title_zh": "黃龍三關",
+      "zh": "黃龍三關黃龍三關我手何似佛手摸得枕頭背後不覺大笑呵呵元來通身是手我脚何似驢脚未舉步時踏著一任四海橫行倒跨楊岐三脚人人有箇生緣各各透徹機先那吒折骨還父五祖豈藉爺緣佛手驢脚生緣非佛非道非禪莫怪無門關險結盡衲子深冤瑞巖近日有無門掇向繩床判古今凡聖路頭俱截斷幾多蟠蟄起雷音"
+    },
+    {
+      "title_zh": "無門關",
+      "zh": "孟珙跋達磨西來不執文字直指人心見性成佛說箇直指已是迂曲更言成佛郎當不少既是無門因甚有關老婆心切惡聲流布無庵欲贅一語又成四十九則其間些子誵訛剔起眉毛薦取淳祐乙巳夏重刊檢校少保寧武軍節度使京湖安撫制置大使兼屯田大使兼蘷路策應大使兼知江陵府漢東郡開國公食邑二千一百戶食實封陸佰戶孟珙跋"
+    },
+    {
+      "title_zh": "無門關",
+      "zh": "安晚居士書無門老禪作四十八則語判斷古德公案大似賣油餅人令買家開口接了更吞吐不得然雖如是安晚欲就渠熱爐熬上再打一枚足成大衍之數却仍前送似未知老師從何處下牙如一口喫得放光動地若猶未也連見在四十八箇都成熱沙去速道速道第四十九則語第四十九則語經云止止不須說我法妙難思安晚曰法從何來妙從何有說時又作麼生豈但豐干饒舌元是釋迦多口這老子造作妖怪令千百代兒孫被葛藤纏倒未得頭出似這般奇特話靶匙挑不上甑蒸不熟有多少錯認底傍人問云畢竟作如何結斷安晚合十指爪曰止止不須說我法妙難思却急去難思兩字上打箇小圓相子指示眾人大藏五千卷維摩不二門總在裏許頌曰語火是燈掉頭弗譍惟賊識賊一問即承淳祐丙午季夏初吉安晚居士書于西湖漁莊舊板磨滅故重命工鋟梓畢這板置于武藏州兜率山廣園禪寺也應永乙酉十月十三日幹緣比丘常牧"
+    },
+    {
+      "title_zh": "第四十九則語",
+      "zh": "第四十九則語第四十九則語經云止止不須說我法妙難思安晚曰法從何來妙從何有說時又作麼生豈但豐干饒舌元是釋迦多口這老子造作妖怪令千百代兒孫被葛藤纏倒未得頭出似這般奇特話靶匙挑不上甑蒸不熟有多少錯認底傍人問云畢竟作如何結斷安晚合十指爪曰止止不須說我法妙難思却急去難思兩字上打箇小圓相子指示眾人大藏五千卷維摩不二門總在裏許頌曰語火是燈掉頭弗譍惟賊識賊一問即承"
+    }
+  ],
+  "coverage_note": "All 48 cases verbatim and contiguous in claimed witness T48n2005 under pinned extraction rule cbeta-p5-body-cjk-v1, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d.",
+  "cbeta_note": "Claimed witness T48n2005 (no. 2005 禪宗無門關, 1 fascicle, compiled by Wumen Huikai 慧開 and 宗紹, printed in 1229 / Shaoding 2, Song woodblock edition). The 48 cases represent the main text body (Divs 3–50). Prefaces (Xi An Chen, Wumen Huikai) and postscripts/treatises (Chan Zhen, Huanglong San Guan, Meng Gong Postscript, Anwan Jushi Postscript, 49th Case Note) in T48n2005 are documented in the preface/epilogue sections.",
+  "zh_chars": 7663
+}

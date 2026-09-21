@@ -1,0 +1,1538 @@
+{
+ "kind": "linji-yulu-rekey",
+ "document": "linji_yulu",
+ "work_id": "T47n1985",
+ "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+ "witness_sha256": "d095b9ca7e7b0c4818541889f16ae07bfbee04ff5812a7aa94c5108190c113d5",
+ "reference_sha256": "4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359",
+ "reference_cjk": 16366,
+ "region": [
+  0,
+  16366
+ ],
+ "region_cjk": 16366,
+ "units": 107,
+ "kinds": {
+  "colophon": 1,
+  "colophon-heading": 1,
+  "fascicle-close": 1,
+  "fascicle-heading": 1,
+  "kanbian": 23,
+  "kanbian-heading": 1,
+  "preface": 14,
+  "preface-heading": 4,
+  "record": 38,
+  "record-heading": 1,
+  "xinglu": 21,
+  "xinglu-heading": 1
+ },
+ "record_title_chars": 12,
+ "content_cjk": 16366,
+ "section_ids": [
+  "preface-heading-01",
+  "preface-01",
+  "preface-heading-02",
+  "preface-02",
+  "preface-03",
+  "preface-04",
+  "preface-05",
+  "preface-06",
+  "preface-07",
+  "preface-08",
+  "preface-heading-03",
+  "preface-09",
+  "preface-10",
+  "preface-11",
+  "preface-12",
+  "preface-13",
+  "preface-heading-04",
+  "preface-14",
+  "fascicle-heading-01",
+  "record-heading-01",
+  "record-01",
+  "true_person_of_no_rank",
+  "record-03",
+  "record-04",
+  "record-05",
+  "record-06",
+  "record-07",
+  "record-08",
+  "record-09",
+  "record-10",
+  "record-11",
+  "record-12",
+  "record-13",
+  "record-14",
+  "record-15",
+  "record-16",
+  "record-17",
+  "record-18",
+  "record-19",
+  "record-20",
+  "record-21",
+  "record-22",
+  "record-23",
+  "record-24",
+  "record-25",
+  "record-26",
+  "record-27",
+  "record-28",
+  "record-29",
+  "record-30",
+  "record-31",
+  "record-32",
+  "record-33",
+  "record-34",
+  "record-35",
+  "record-36",
+  "record-37",
+  "record-38",
+  "kanbian-heading-01",
+  "kanbian-01",
+  "kanbian-02",
+  "kanbian-03",
+  "kanbian-04",
+  "kanbian-05",
+  "kanbian-06",
+  "kanbian-07",
+  "kanbian-08",
+  "kanbian-09",
+  "kanbian-10",
+  "kanbian-11",
+  "kanbian-12",
+  "kanbian-13",
+  "kanbian-14",
+  "kanbian-15",
+  "kanbian-16",
+  "kanbian-17",
+  "kanbian-18",
+  "four_shouts",
+  "kanbian-20",
+  "kanbian-21",
+  "kanbian-22",
+  "kanbian-23",
+  "xinglu-heading-01",
+  "conduct_record_biography",
+  "xinglu-02",
+  "xinglu-03",
+  "xinglu-04",
+  "xinglu-05",
+  "xinglu-06",
+  "xinglu-07",
+  "xinglu-08",
+  "xinglu-09",
+  "xinglu-10",
+  "xinglu-11",
+  "xinglu-12",
+  "xinglu-13",
+  "xinglu-14",
+  "xinglu-15",
+  "xinglu-16",
+  "xinglu-17",
+  "xinglu-18",
+  "xinglu-19",
+  "death_record",
+  "xinglu-21",
+  "fascicle-close-01",
+  "colophon-heading-01",
+  "colophon-01"
+ ],
+ "unit_list": [
+  {
+   "section_num": 1,
+   "section_id": "preface-heading-01",
+   "kind": "preface-heading",
+   "span": [
+    0,
+    24
+   ],
+   "cjk": 24,
+   "title_zh": "臨濟慧照玄公大宗師語錄序",
+   "head_line": "0495a03",
+   "close_line": "0495a03"
+  },
+  {
+   "section_num": 2,
+   "section_id": "preface-01",
+   "kind": "preface",
+   "span": [
+    24,
+    307
+   ],
+   "cjk": 283,
+   "title_zh": "曹溪派列淘涌而流注無窮南",
+   "head_line": "0495a05",
+   "close_line": "0495a22"
+  },
+  {
+   "section_num": 3,
+   "section_id": "preface-heading-02",
+   "kind": "preface-heading",
+   "span": [
+    307,
+    331
+   ],
+   "cjk": 24,
+   "title_zh": "臨濟慧照玄公大宗師語錄序",
+   "head_line": "0495a25",
+   "close_line": "0495a25"
+  },
+  {
+   "section_num": 4,
+   "section_id": "preface-02",
+   "kind": "preface",
+   "span": [
+    331,
+    437
+   ],
+   "cjk": 106,
+   "title_zh": "薄伽梵正法眼藏涅槃妙心付",
+   "head_line": "0495a27",
+   "close_line": "0495b04"
+  },
+  {
+   "section_num": 5,
+   "section_id": "preface-03",
+   "kind": "preface",
+   "span": [
+    437,
+    574
+   ],
+   "cjk": 137,
+   "title_zh": "其中一大苾芻為一大事因緣",
+   "head_line": "0495b04",
+   "close_line": "0495b12"
+  },
+  {
+   "section_num": 6,
+   "section_id": "preface-04",
+   "kind": "preface",
+   "span": [
+    574,
+    682
+   ],
+   "cjk": 108,
+   "title_zh": "若夫三玄三要奪境奪人金章",
+   "head_line": "0495b12",
+   "close_line": "0495b18"
+  },
+  {
+   "section_num": 7,
+   "section_id": "preface-05",
+   "kind": "preface",
+   "span": [
+    682,
+    770
+   ],
+   "cjk": 88,
+   "title_zh": "師之出處具載傳燈等錄茲不",
+   "head_line": "0495b18",
+   "close_line": "0495b23"
+  },
+  {
+   "section_num": 8,
+   "section_id": "preface-06",
+   "kind": "preface",
+   "span": [
+    770,
+    861
+   ],
+   "cjk": 91,
+   "title_zh": "今雪堂大禪師臨濟十八代嫡",
+   "head_line": "0495b23",
+   "close_line": "0495b29"
+  },
+  {
+   "section_num": 9,
+   "section_id": "preface-07",
+   "kind": "preface",
+   "span": [
+    861,
+    930
+   ],
+   "cjk": 69,
+   "title_zh": "嗚呼雪堂老師行從上祖師難",
+   "head_line": "0495b29",
+   "close_line": "0495c04"
+  },
+  {
+   "section_num": 10,
+   "section_id": "preface-08",
+   "kind": "preface",
+   "span": [
+    930,
+    949
+   ],
+   "cjk": 19,
+   "title_zh": "大德二年八月前監察御史郭",
+   "head_line": "0495c05",
+   "close_line": "0495c06"
+  },
+  {
+   "section_num": 11,
+   "section_id": "preface-heading-03",
+   "kind": "preface-heading",
+   "span": [
+    949,
+    973
+   ],
+   "cjk": 24,
+   "title_zh": "臨濟慧照玄公大宗師語錄序",
+   "head_line": "0495c09",
+   "close_line": "0495c09"
+  },
+  {
+   "section_num": 12,
+   "section_id": "preface-09",
+   "kind": "preface",
+   "span": [
+    973,
+    1065
+   ],
+   "cjk": 92,
+   "title_zh": "竊以黃蘗山高便敢當頭捋虎",
+   "head_line": "0495c11",
+   "close_line": "0495c16"
+  },
+  {
+   "section_num": 13,
+   "section_id": "preface-10",
+   "kind": "preface",
+   "span": [
+    1065,
+    1159
+   ],
+   "cjk": 94,
+   "title_zh": "茲者總統雪堂和尚憫巴歌唱",
+   "head_line": "0495c16",
+   "close_line": "0495c21"
+  },
+  {
+   "section_num": 14,
+   "section_id": "preface-11",
+   "kind": "preface",
+   "span": [
+    1159,
+    1360
+   ],
+   "cjk": 201,
+   "title_zh": "噫臨濟祖師六傳而至汾陽大",
+   "head_line": "0495c21",
+   "close_line": "0496a04"
+  },
+  {
+   "section_num": 15,
+   "section_id": "preface-12",
+   "kind": "preface",
+   "span": [
+    1360,
+    1491
+   ],
+   "cjk": 131,
+   "title_zh": "琅瑘覺傳泐潭月月傳毘陵真",
+   "head_line": "0496a04",
+   "close_line": "0496a12"
+  },
+  {
+   "section_num": 16,
+   "section_id": "preface-13",
+   "kind": "preface",
+   "span": [
+    1491,
+    1542
+   ],
+   "cjk": 51,
+   "title_zh": "雪堂禪師乃吾三世祖囑予為",
+   "head_line": "0496a12",
+   "close_line": "0496a15"
+  },
+  {
+   "section_num": 17,
+   "section_id": "preface-heading-04",
+   "kind": "preface-heading",
+   "span": [
+    1542,
+    1599
+   ],
+   "cjk": 57,
+   "title_zh": "鎮州臨濟慧照禪師語錄序鎮",
+   "head_line": "0496a18",
+   "close_line": "0496a22"
+  },
+  {
+   "section_num": 18,
+   "section_id": "preface-14",
+   "kind": "preface",
+   "span": [
+    1599,
+    1840
+   ],
+   "cjk": 241,
+   "title_zh": "黃檗山頭曾遭痛棒大愚肋下",
+   "head_line": "0496a23",
+   "close_line": "0496b08"
+  },
+  {
+   "section_num": 19,
+   "section_id": "fascicle-heading-01",
+   "kind": "fascicle-heading",
+   "span": [
+    1840,
+    1860
+   ],
+   "cjk": 20,
+   "title_zh": "鎮州臨濟慧照禪師語錄",
+   "head_line": "0496b11",
+   "close_line": "0496b13"
+  },
+  {
+   "section_num": 20,
+   "section_id": "record-heading-01",
+   "kind": "record-heading",
+   "span": [
+    1860,
+    2168
+   ],
+   "cjk": 308,
+   "title_zh": "府主王常侍與諸官請師升座",
+   "head_line": "0496b14",
+   "close_line": "0496c03"
+  },
+  {
+   "section_num": 21,
+   "section_id": "record-01",
+   "kind": "record",
+   "span": [
+    2168,
+    2254
+   ],
+   "cjk": 86,
+   "title_zh": "師因一日到河府府主王常侍",
+   "head_line": "0496c04",
+   "close_line": "0496c09"
+  },
+  {
+   "section_num": 22,
+   "section_id": "true_person_of_no_rank",
+   "kind": "record",
+   "span": [
+    2254,
+    2326
+   ],
+   "cjk": 72,
+   "title_zh": "上堂云赤肉團上有一無位真",
+   "head_line": "0496c10",
+   "close_line": "0496c14"
+  },
+  {
+   "section_num": 23,
+   "section_id": "record-03",
+   "kind": "record",
+   "span": [
+    2326,
+    2452
+   ],
+   "cjk": 126,
+   "title_zh": "上堂有僧出禮拜師便喝僧云",
+   "head_line": "0496c15",
+   "close_line": "0496c22"
+  },
+  {
+   "section_num": 24,
+   "section_id": "record-04",
+   "kind": "record",
+   "span": [
+    2452,
+    2586
+   ],
+   "cjk": 134,
+   "title_zh": "上堂僧問如何是佛法大意師",
+   "head_line": "0496c23",
+   "close_line": "0497a01"
+  },
+  {
+   "section_num": 25,
+   "section_id": "record-05",
+   "kind": "record",
+   "span": [
+    2586,
+    2697
+   ],
+   "cjk": 111,
+   "title_zh": "上堂僧問如何是劍刃上事師",
+   "head_line": "0497a02",
+   "close_line": "0497a08"
+  },
+  {
+   "section_num": 26,
+   "section_id": "record-06",
+   "kind": "record",
+   "span": [
+    2697,
+    2743
+   ],
+   "cjk": 46,
+   "title_zh": "上堂云一人在孤峯頂上無出",
+   "head_line": "0497a09",
+   "close_line": "0497a11"
+  },
+  {
+   "section_num": 27,
+   "section_id": "record-07",
+   "kind": "record",
+   "span": [
+    2743,
+    2779
+   ],
+   "cjk": 36,
+   "title_zh": "上堂云有一人論劫在途中不",
+   "head_line": "0497a12",
+   "close_line": "0497a14"
+  },
+  {
+   "section_num": 28,
+   "section_id": "record-08",
+   "kind": "record",
+   "span": [
+    2779,
+    2883
+   ],
+   "cjk": 104,
+   "title_zh": "上堂僧問如何是第一句師云",
+   "head_line": "0497a15",
+   "close_line": "0497a21"
+  },
+  {
+   "section_num": 29,
+   "section_id": "record-09",
+   "kind": "record",
+   "span": [
+    2883,
+    3917
+   ],
+   "cjk": 1034,
+   "title_zh": "師晚參示眾云有時奪人不奪",
+   "head_line": "0497a22",
+   "close_line": "0497c25"
+  },
+  {
+   "section_num": 30,
+   "section_id": "record-10",
+   "kind": "record",
+   "span": [
+    3917,
+    4225
+   ],
+   "cjk": 308,
+   "title_zh": "師示眾云道流切要求取真正",
+   "head_line": "0497c26",
+   "close_line": "0498a15"
+  },
+  {
+   "section_num": 31,
+   "section_id": "record-11",
+   "kind": "record",
+   "span": [
+    4225,
+    4463
+   ],
+   "cjk": 238,
+   "title_zh": "師示眾云道流佛法無用功處",
+   "head_line": "0498a16",
+   "close_line": "0498b01"
+  },
+  {
+   "section_num": 32,
+   "section_id": "record-12",
+   "kind": "record",
+   "span": [
+    4463,
+    4835
+   ],
+   "cjk": 372,
+   "title_zh": "問如何是佛魔師云爾一念心",
+   "head_line": "0498b02",
+   "close_line": "0498b24"
+  },
+  {
+   "section_num": 33,
+   "section_id": "record-13",
+   "kind": "record",
+   "span": [
+    4835,
+    5200
+   ],
+   "cjk": 365,
+   "title_zh": "問如何是真正見解師云爾但",
+   "head_line": "0498b25",
+   "close_line": "0498c17"
+  },
+  {
+   "section_num": 34,
+   "section_id": "record-14",
+   "kind": "record",
+   "span": [
+    5200,
+    5452
+   ],
+   "cjk": 252,
+   "title_zh": "問如何是四種無相境師云爾",
+   "head_line": "0498c18",
+   "close_line": "0499a03"
+  },
+  {
+   "section_num": 35,
+   "section_id": "record-15",
+   "kind": "record",
+   "span": [
+    5452,
+    5845
+   ],
+   "cjk": 393,
+   "title_zh": "師示眾云如今學道人且要自",
+   "head_line": "0499a04",
+   "close_line": "0499a27"
+  },
+  {
+   "section_num": 36,
+   "section_id": "record-16",
+   "kind": "record",
+   "span": [
+    5845,
+    6582
+   ],
+   "cjk": 737,
+   "title_zh": "問如何是三眼國土師云我共",
+   "head_line": "0499a28",
+   "close_line": "0499c13"
+  },
+  {
+   "section_num": 37,
+   "section_id": "record-17",
+   "kind": "record",
+   "span": [
+    6582,
+    6882
+   ],
+   "cjk": 300,
+   "title_zh": "問如何是心心不異處師云爾",
+   "head_line": "0499c14",
+   "close_line": "0500a02"
+  },
+  {
+   "section_num": 38,
+   "section_id": "record-18",
+   "kind": "record",
+   "span": [
+    6882,
+    7043
+   ],
+   "cjk": 161,
+   "title_zh": "爾道佛有六通是不可思議一",
+   "head_line": "0500a02",
+   "close_line": "0500a12"
+  },
+  {
+   "section_num": 39,
+   "section_id": "record-19",
+   "kind": "record",
+   "span": [
+    7043,
+    7293
+   ],
+   "cjk": 250,
+   "title_zh": "道流真佛無形真法無相爾秖",
+   "head_line": "0500a12",
+   "close_line": "0500a26"
+  },
+  {
+   "section_num": 40,
+   "section_id": "record-20",
+   "kind": "record",
+   "span": [
+    7293,
+    7691
+   ],
+   "cjk": 398,
+   "title_zh": "道流如諸方有學人來主客相",
+   "head_line": "0500a26",
+   "close_line": "0500b21"
+  },
+  {
+   "section_num": 41,
+   "section_id": "record-21",
+   "kind": "record",
+   "span": [
+    7691,
+    7925
+   ],
+   "cjk": 234,
+   "title_zh": "道流爾欲得如法見解但莫受",
+   "head_line": "0500b21",
+   "close_line": "0500c06"
+  },
+  {
+   "section_num": 42,
+   "section_id": "record-22",
+   "kind": "record",
+   "span": [
+    7925,
+    8282
+   ],
+   "cjk": 357,
+   "title_zh": "道流是爾目前用底與祖佛不",
+   "head_line": "0500c06",
+   "close_line": "0500c27"
+  },
+  {
+   "section_num": 43,
+   "section_id": "record-23",
+   "kind": "record",
+   "span": [
+    8282,
+    8577
+   ],
+   "cjk": 295,
+   "title_zh": "道流大丈夫漢更疑箇什麼目",
+   "head_line": "0500c27",
+   "close_line": "0501a15"
+  },
+  {
+   "section_num": 44,
+   "section_id": "record-24",
+   "kind": "record",
+   "span": [
+    8577,
+    8939
+   ],
+   "cjk": 362,
+   "title_zh": "大德山僧如是所舉皆是辨魔",
+   "head_line": "0501a15",
+   "close_line": "0501b08"
+  },
+  {
+   "section_num": 45,
+   "section_id": "record-25",
+   "kind": "record",
+   "span": [
+    8939,
+    9052
+   ],
+   "cjk": 113,
+   "title_zh": "大德到這裏學人著力處不通",
+   "head_line": "0501b08",
+   "close_line": "0501b14"
+  },
+  {
+   "section_num": 46,
+   "section_id": "record-26",
+   "kind": "record",
+   "span": [
+    9052,
+    9134
+   ],
+   "cjk": 82,
+   "title_zh": "道流一剎那間便入華藏世界",
+   "head_line": "0501b14",
+   "close_line": "0501b19"
+  },
+  {
+   "section_num": 47,
+   "section_id": "record-27",
+   "kind": "record",
+   "span": [
+    9134,
+    9296
+   ],
+   "cjk": 162,
+   "title_zh": "道流山僧佛法的的相承從麻",
+   "head_line": "0501b19",
+   "close_line": "0501b29"
+  },
+  {
+   "section_num": 48,
+   "section_id": "record-28",
+   "kind": "record",
+   "span": [
+    9296,
+    9727
+   ],
+   "cjk": 431,
+   "title_zh": "但有來求者我即便出看渠渠",
+   "head_line": "0501b29",
+   "close_line": "0501c25"
+  },
+  {
+   "section_num": 49,
+   "section_id": "record-29",
+   "kind": "record",
+   "span": [
+    9727,
+    9761
+   ],
+   "cjk": 34,
+   "title_zh": "道流真佛無形真道無體真法",
+   "head_line": "0501c25",
+   "close_line": "0501c27"
+  },
+  {
+   "section_num": 50,
+   "section_id": "record-30",
+   "kind": "record",
+   "span": [
+    9761,
+    9899
+   ],
+   "cjk": 138,
+   "title_zh": "問如何是真佛真法真道乞垂",
+   "head_line": "0501c28",
+   "close_line": "0502a07"
+  },
+  {
+   "section_num": 51,
+   "section_id": "record-31",
+   "kind": "record",
+   "span": [
+    9899,
+    10231
+   ],
+   "cjk": 332,
+   "title_zh": "問如何是西來意師云若有意",
+   "head_line": "0502a08",
+   "close_line": "0502a27"
+  },
+  {
+   "section_num": 52,
+   "section_id": "record-32",
+   "kind": "record",
+   "span": [
+    10231,
+    10481
+   ],
+   "cjk": 250,
+   "title_zh": "問大通智勝佛十劫坐道場佛",
+   "head_line": "0502a28",
+   "close_line": "0502b13"
+  },
+  {
+   "section_num": 53,
+   "section_id": "record-33",
+   "kind": "record",
+   "span": [
+    10481,
+    10799
+   ],
+   "cjk": 318,
+   "title_zh": "問如何是五無間業師云殺父",
+   "head_line": "0502b14",
+   "close_line": "0502c03"
+  },
+  {
+   "section_num": 54,
+   "section_id": "record-34",
+   "kind": "record",
+   "span": [
+    10799,
+    10916
+   ],
+   "cjk": 117,
+   "title_zh": "道流莫取山僧說處何故說無",
+   "head_line": "0502c03",
+   "close_line": "0502c10"
+  },
+  {
+   "section_num": 55,
+   "section_id": "record-35",
+   "kind": "record",
+   "span": [
+    10916,
+    11121
+   ],
+   "cjk": 205,
+   "title_zh": "道流有一般禿子便向裏許著",
+   "head_line": "0502c10",
+   "close_line": "0502c22"
+  },
+  {
+   "section_num": 56,
+   "section_id": "record-36",
+   "kind": "record",
+   "span": [
+    11121,
+    11196
+   ],
+   "cjk": 75,
+   "title_zh": "大德莫因循過日山僧往日未",
+   "head_line": "0502c22",
+   "close_line": "0502c27"
+  },
+  {
+   "section_num": 57,
+   "section_id": "record-37",
+   "kind": "record",
+   "span": [
+    11196,
+    11314
+   ],
+   "cjk": 118,
+   "title_zh": "儞諸方聞道有箇臨濟老漢出",
+   "head_line": "0502c27",
+   "close_line": "0503a05"
+  },
+  {
+   "section_num": 58,
+   "section_id": "record-38",
+   "kind": "record",
+   "span": [
+    11314,
+    11492
+   ],
+   "cjk": 178,
+   "title_zh": "夫如至理之道非諍論而求激",
+   "head_line": "0503a05",
+   "close_line": "0503a15"
+  },
+  {
+   "section_num": 59,
+   "section_id": "kanbian-heading-01",
+   "kind": "kanbian-heading",
+   "span": [
+    11492,
+    11496
+   ],
+   "cjk": 4,
+   "title_zh": "勘辨",
+   "head_line": "0503a16",
+   "close_line": "0503a16"
+  },
+  {
+   "section_num": 60,
+   "section_id": "kanbian-01",
+   "kind": "kanbian",
+   "span": [
+    11496,
+    11691
+   ],
+   "cjk": 195,
+   "title_zh": "黃蘗因入厨次問飯頭作什麼",
+   "head_line": "0503a17",
+   "close_line": "0503a28"
+  },
+  {
+   "section_num": 61,
+   "section_id": "kanbian-02",
+   "kind": "kanbian",
+   "span": [
+    11691,
+    11741
+   ],
+   "cjk": 50,
+   "title_zh": "師問僧什麼處來僧便喝師便",
+   "head_line": "0503a29",
+   "close_line": "0503b02"
+  },
+  {
+   "section_num": 62,
+   "section_id": "kanbian-03",
+   "kind": "kanbian",
+   "span": [
+    11741,
+    11848
+   ],
+   "cjk": 107,
+   "title_zh": "師一日同普化赴施主家齋次",
+   "head_line": "0503b03",
+   "close_line": "0503b09"
+  },
+  {
+   "section_num": 63,
+   "section_id": "kanbian-04",
+   "kind": "kanbian",
+   "span": [
+    11848,
+    11953
+   ],
+   "cjk": 105,
+   "title_zh": "師一日與河陽木塔長老同在",
+   "head_line": "0503b10",
+   "close_line": "0503b16"
+  },
+  {
+   "section_num": 64,
+   "section_id": "kanbian-05",
+   "kind": "kanbian",
+   "span": [
+    11953,
+    11990
+   ],
+   "cjk": 37,
+   "title_zh": "一日普化在僧堂前喫生菜師",
+   "head_line": "0503b17",
+   "close_line": "0503b19"
+  },
+  {
+   "section_num": 65,
+   "section_id": "kanbian-06",
+   "kind": "kanbian",
+   "span": [
+    11990,
+    12076
+   ],
+   "cjk": 86,
+   "title_zh": "因普化常於街市搖鈴云明頭",
+   "head_line": "0503b20",
+   "close_line": "0503b24"
+  },
+  {
+   "section_num": 66,
+   "section_id": "kanbian-07",
+   "kind": "kanbian",
+   "span": [
+    12076,
+    12192
+   ],
+   "cjk": 116,
+   "title_zh": "有一老宿參師未曾人事便問",
+   "head_line": "0503b25",
+   "close_line": "0503c02"
+  },
+  {
+   "section_num": 67,
+   "section_id": "kanbian-08",
+   "kind": "kanbian",
+   "span": [
+    12192,
+    12235
+   ],
+   "cjk": 43,
+   "title_zh": "師因入軍營赴齋門首見員僚",
+   "head_line": "0503c03",
+   "close_line": "0503c05"
+  },
+  {
+   "section_num": 68,
+   "section_id": "kanbian-09",
+   "kind": "kanbian",
+   "span": [
+    12235,
+    12445
+   ],
+   "cjk": 210,
+   "title_zh": "師問院主什麼處來主云州中",
+   "head_line": "0503c06",
+   "close_line": "0503c18"
+  },
+  {
+   "section_num": 69,
+   "section_id": "kanbian-10",
+   "kind": "kanbian",
+   "span": [
+    12445,
+    12551
+   ],
+   "cjk": 106,
+   "title_zh": "師聞第二代德山垂示云道得",
+   "head_line": "0503c19",
+   "close_line": "0503c25"
+  },
+  {
+   "section_num": 70,
+   "section_id": "kanbian-11",
+   "kind": "kanbian",
+   "span": [
+    12551,
+    12640
+   ],
+   "cjk": 89,
+   "title_zh": "王常侍一日訪師同師於僧堂",
+   "head_line": "0503c26",
+   "close_line": "0504a02"
+  },
+  {
+   "section_num": 71,
+   "section_id": "kanbian-12",
+   "kind": "kanbian",
+   "span": [
+    12640,
+    12671
+   ],
+   "cjk": 31,
+   "title_zh": "師問杏山如何是露地白牛山",
+   "head_line": "0504a03",
+   "close_line": "0504a04"
+  },
+  {
+   "section_num": 72,
+   "section_id": "kanbian-13",
+   "kind": "kanbian",
+   "span": [
+    12671,
+    12709
+   ],
+   "cjk": 38,
+   "title_zh": "師問樂普云從上來一人行棒",
+   "head_line": "0504a05",
+   "close_line": "0504a07"
+  },
+  {
+   "section_num": 73,
+   "section_id": "kanbian-14",
+   "kind": "kanbian",
+   "span": [
+    12709,
+    12739
+   ],
+   "cjk": 30,
+   "title_zh": "師見僧來展開兩手僧無語師",
+   "head_line": "0504a08",
+   "close_line": "0504a09"
+  },
+  {
+   "section_num": 74,
+   "section_id": "kanbian-15",
+   "kind": "kanbian",
+   "span": [
+    12739,
+    12809
+   ],
+   "cjk": 70,
+   "title_zh": "大覺到參師舉起拂子大覺敷",
+   "head_line": "0504a10",
+   "close_line": "0504a14"
+  },
+  {
+   "section_num": 75,
+   "section_id": "kanbian-16",
+   "kind": "kanbian",
+   "span": [
+    12809,
+    12861
+   ],
+   "cjk": 52,
+   "title_zh": "趙州行脚時參師遇師洗脚次",
+   "head_line": "0504a15",
+   "close_line": "0504a18"
+  },
+  {
+   "section_num": 76,
+   "section_id": "kanbian-17",
+   "kind": "kanbian",
+   "span": [
+    12861,
+    12908
+   ],
+   "cjk": 47,
+   "title_zh": "有定上座到參問如何是佛法",
+   "head_line": "0504a19",
+   "close_line": "0504a21"
+  },
+  {
+   "section_num": 77,
+   "section_id": "kanbian-18",
+   "kind": "kanbian",
+   "span": [
+    12908,
+    12973
+   ],
+   "cjk": 65,
+   "title_zh": "麻谷到參敷坐具問十二面觀",
+   "head_line": "0504a22",
+   "close_line": "0504a25"
+  },
+  {
+   "section_num": 78,
+   "section_id": "four_shouts",
+   "kind": "kanbian",
+   "span": [
+    12973,
+    13026
+   ],
+   "cjk": 53,
+   "title_zh": "師問僧有時一喝如金剛王寶",
+   "head_line": "0504a26",
+   "close_line": "0504a29"
+  },
+  {
+   "section_num": 79,
+   "section_id": "kanbian-20",
+   "kind": "kanbian",
+   "span": [
+    13026,
+    13051
+   ],
+   "cjk": 25,
+   "title_zh": "師問一尼善來惡來尼便喝師",
+   "head_line": "0504b01",
+   "close_line": "0504b02"
+  },
+  {
+   "section_num": 80,
+   "section_id": "kanbian-21",
+   "kind": "kanbian",
+   "span": [
+    13051,
+    13181
+   ],
+   "cjk": 130,
+   "title_zh": "龍牙問如何是祖師西來意師",
+   "head_line": "0504b03",
+   "close_line": "0504b10"
+  },
+  {
+   "section_num": 81,
+   "section_id": "kanbian-22",
+   "kind": "kanbian",
+   "span": [
+    13181,
+    13295
+   ],
+   "cjk": 114,
+   "title_zh": "徑山有五百眾少人參請黃蘗",
+   "head_line": "0504b11",
+   "close_line": "0504b17"
+  },
+  {
+   "section_num": 82,
+   "section_id": "kanbian-23",
+   "kind": "kanbian",
+   "span": [
+    13295,
+    13445
+   ],
+   "cjk": 150,
+   "title_zh": "普化一日於街市中就人乞直",
+   "head_line": "0504b18",
+   "close_line": "0504b26"
+  },
+  {
+   "section_num": 83,
+   "section_id": "xinglu-heading-01",
+   "kind": "xinglu-heading",
+   "span": [
+    13445,
+    13449
+   ],
+   "cjk": 4,
+   "title_zh": "行錄",
+   "head_line": "0504b27",
+   "close_line": "0504b27"
+  },
+  {
+   "section_num": 84,
+   "section_id": "conduct_record_biography",
+   "kind": "xinglu",
+   "span": [
+    13449,
+    14031
+   ],
+   "cjk": 582,
+   "title_zh": "師初在黃蘗會下行業純一首",
+   "head_line": "0504b28",
+   "close_line": "0505a04"
+  },
+  {
+   "section_num": 85,
+   "section_id": "xinglu-02",
+   "kind": "xinglu",
+   "span": [
+    14031,
+    14214
+   ],
+   "cjk": 183,
+   "title_zh": "師栽松次黃蘗問深山裏栽許",
+   "head_line": "0505a05",
+   "close_line": "0505a15"
+  },
+  {
+   "section_num": 86,
+   "section_id": "xinglu-03",
+   "kind": "xinglu",
+   "span": [
+    14214,
+    14334
+   ],
+   "cjk": 120,
+   "title_zh": "師普請鋤地次見黃蘗來拄钁",
+   "head_line": "0505a16",
+   "close_line": "0505a23"
+  },
+  {
+   "section_num": 87,
+   "section_id": "xinglu-04",
+   "kind": "xinglu",
+   "span": [
+    14334,
+    14421
+   ],
+   "cjk": 87,
+   "title_zh": "師一日在僧堂前坐見黃蘗來",
+   "head_line": "0505a23",
+   "close_line": "0505a28"
+  },
+  {
+   "section_num": 88,
+   "section_id": "xinglu-05",
+   "kind": "xinglu",
+   "span": [
+    14421,
+    14523
+   ],
+   "cjk": 102,
+   "title_zh": "師在堂中睡黃蘗下來見以拄",
+   "head_line": "0505a29",
+   "close_line": "0505b06"
+  },
+  {
+   "section_num": 89,
+   "section_id": "xinglu-06",
+   "kind": "xinglu",
+   "span": [
+    14523,
+    14653
+   ],
+   "cjk": 130,
+   "title_zh": "一日普請次師在後行黃蘗回",
+   "head_line": "0505b07",
+   "close_line": "0505b14"
+  },
+  {
+   "section_num": 90,
+   "section_id": "xinglu-07",
+   "kind": "xinglu",
+   "span": [
+    14653,
+    14857
+   ],
+   "cjk": 204,
+   "title_zh": "師為黃蘗馳書去溈山時仰山",
+   "head_line": "0505b15",
+   "close_line": "0505b26"
+  },
+  {
+   "section_num": 91,
+   "section_id": "xinglu-08",
+   "kind": "xinglu",
+   "span": [
+    14857,
+    15151
+   ],
+   "cjk": 294,
+   "title_zh": "師因半夏上黃蘗見和尚看經",
+   "head_line": "0505b27",
+   "close_line": "0506a06"
+  },
+  {
+   "section_num": 92,
+   "section_id": "xinglu-09",
+   "kind": "xinglu",
+   "span": [
+    15151,
+    15194
+   ],
+   "cjk": 43,
+   "title_zh": "師到達磨塔頭塔主云長老先",
+   "head_line": "0506a07",
+   "close_line": "0506a09"
+  },
+  {
+   "section_num": 93,
+   "section_id": "xinglu-10",
+   "kind": "xinglu",
+   "span": [
+    15194,
+    15247
+   ],
+   "cjk": 53,
+   "title_zh": "師行脚時到龍光光上堂師出",
+   "head_line": "0506a10",
+   "close_line": "0506a13"
+  },
+  {
+   "section_num": 94,
+   "section_id": "xinglu-11",
+   "kind": "xinglu",
+   "span": [
+    15247,
+    15361
+   ],
+   "cjk": 114,
+   "title_zh": "到三峯平和尚問曰什麼處來",
+   "head_line": "0506a14",
+   "close_line": "0506a20"
+  },
+  {
+   "section_num": 95,
+   "section_id": "xinglu-12",
+   "kind": "xinglu",
+   "span": [
+    15361,
+    15426
+   ],
+   "cjk": 65,
+   "title_zh": "到大慈慈在方丈內坐師問端",
+   "head_line": "0506a21",
+   "close_line": "0506a24"
+  },
+  {
+   "section_num": 96,
+   "section_id": "xinglu-13",
+   "kind": "xinglu",
+   "span": [
+    15426,
+    15481
+   ],
+   "cjk": 55,
+   "title_zh": "到襄州華嚴嚴倚拄杖作睡勢",
+   "head_line": "0506a25",
+   "close_line": "0506a28"
+  },
+  {
+   "section_num": 97,
+   "section_id": "xinglu-14",
+   "kind": "xinglu",
+   "span": [
+    15481,
+    15539
+   ],
+   "cjk": 58,
+   "title_zh": "到翠峯峯問甚處來師云黃蘗",
+   "head_line": "0506a29",
+   "close_line": "0506b03"
+  },
+  {
+   "section_num": 98,
+   "section_id": "xinglu-15",
+   "kind": "xinglu",
+   "span": [
+    15539,
+    15574
+   ],
+   "cjk": 35,
+   "title_zh": "到象田師問不凡不聖請師速",
+   "head_line": "0506b04",
+   "close_line": "0506b06"
+  },
+  {
+   "section_num": 99,
+   "section_id": "xinglu-16",
+   "kind": "xinglu",
+   "span": [
+    15574,
+    15610
+   ],
+   "cjk": 36,
+   "title_zh": "到明化化問來來去去作什麼",
+   "head_line": "0506b07",
+   "close_line": "0506b09"
+  },
+  {
+   "section_num": 100,
+   "section_id": "xinglu-17",
+   "kind": "xinglu",
+   "span": [
+    15610,
+    15653
+   ],
+   "cjk": 43,
+   "title_zh": "往鳳林路逢一婆婆問甚處去",
+   "head_line": "0506b10",
+   "close_line": "0506b12"
+  },
+  {
+   "section_num": 101,
+   "section_id": "xinglu-18",
+   "kind": "xinglu",
+   "span": [
+    15653,
+    15848
+   ],
+   "cjk": 195,
+   "title_zh": "到鳳林林問有事相借問得麼",
+   "head_line": "0506b13",
+   "close_line": "0506b24"
+  },
+  {
+   "section_num": 102,
+   "section_id": "xinglu-19",
+   "kind": "xinglu",
+   "span": [
+    15848,
+    15959
+   ],
+   "cjk": 111,
+   "title_zh": "到金牛牛見師來橫按拄杖當",
+   "head_line": "0506b25",
+   "close_line": "0506c02"
+  },
+  {
+   "section_num": 103,
+   "section_id": "death_record",
+   "kind": "xinglu",
+   "span": [
+    15959,
+    16032
+   ],
+   "cjk": 73,
+   "title_zh": "師臨遷化時據坐云吾滅後不",
+   "head_line": "0506c03",
+   "close_line": "0506c07"
+  },
+  {
+   "section_num": 104,
+   "section_id": "xinglu-21",
+   "kind": "xinglu",
+   "span": [
+    16032,
+    16324
+   ],
+   "cjk": 292,
+   "title_zh": "師諱義玄曹州南華人也俗姓",
+   "head_line": "0506c08",
+   "close_line": "0506c25"
+  },
+  {
+   "section_num": 105,
+   "section_id": "fascicle-close-01",
+   "kind": "fascicle-close",
+   "span": [
+    16324,
+    16335
+   ],
+   "cjk": 11,
+   "title_zh": "鎮州臨濟慧照禪師語錄終",
+   "head_line": "0506c26",
+   "close_line": "0506c26"
+  },
+  {
+   "section_num": 106,
+   "section_id": "colophon-heading-01",
+   "kind": "colophon-heading",
+   "span": [
+    16335,
+    16349
+   ],
+   "cjk": 14,
+   "title_zh": "住大名府興化嗣法小師存獎",
+   "head_line": "0506c27",
+   "close_line": "0506c27"
+  },
+  {
+   "section_num": 107,
+   "section_id": "colophon-01",
+   "kind": "colophon",
+   "span": [
+    16349,
+    16366
+   ],
+   "cjk": 17,
+   "title_zh": "永享九年八月十五日板在法",
+   "head_line": "0506c28",
+   "close_line": "0506c28"
+  }
+ ],
+ "tiling": {
+  "asserted": true,
+  "concatenation_equals_region_slice": true
+ },
+ "document_sha256": "d1004987b6e9c886b58a6a6ea13a3f692c4037db424116d54cee7d15c70eb419"
+}

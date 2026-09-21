@@ -1,10 +1,13 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T16:45:26Z",
-  "commit": "198e597cb27d37402d2c52b173ec5f9160a2c98b",
+  "export_timestamp": "2026-09-22T12:00:00Z",
+  "commit": "1753ca0d13c9dc68456334eb69397030c7483762",
   "only_collated": true,
   "w1_filter": "collated_to_claimed_witness",
-  "description": "TranslateChan export PURGED — retellings removed, 12 docs remain (10 collated +2 unavailable), 10 exported to wiki per Q7 W3. No imperfections.",
+  "description": "TranslateChan export — combined Wumenguan + Linji re-key overlay: 14 docs remain (12 collated +2 unavailable), 12 exported to wiki per Q7 W3. No imperfections.",
+  "purged_retellings": 32,
+  "remaining_docs": 14,
+  "exported_to_wiki": 12,
   "files": [
     {
       "path": "data/corpus/caoshan_benji.json",
@@ -32,14 +35,14 @@
       "size": 241126
     },
     {
-      "path": "data/corpus/hanshan_poems.json",
-      "sha256": "db727a6a087ac327085aed9d6fa1e068ccac8ad65d080e2f69ea01f44b12979e",
-      "size": 6820
-    },
-    {
       "path": "data/corpus/huangbo_fayao_full.json",
       "sha256": "6ad312d41a73122e7e2310b901ebb4675ee04e8af0923a0dd7164187127cb673",
       "size": 32982
+    },
+    {
+      "path": "data/corpus/linji_yulu.json",
+      "sha256": "d1004987b6e9c886b58a6a6ea13a3f692c4037db424116d54cee7d15c70eb419",
+      "size": 116028
     },
     {
       "path": "data/corpus/mazu_guanglu_full.json",
@@ -47,9 +50,9 @@
       "size": 35131
     },
     {
-      "path": "data/corpus/niutou_juezhu.json",
-      "sha256": "2bc0db58324dc55f6b57ca9980ccb6de3482e33ad8ef0642526a3b23a039531a",
-      "size": 8274
+      "path": "data/corpus/wumenguan.json",
+      "sha256": "11b2fb349a74771c0ea6064bcb653cf8625c2780d9113caab2ced4a97b146eb5",
+      "size": 47472
     },
     {
       "path": "data/corpus/yunmen_guanglu_full.json",
@@ -67,57 +70,69 @@
       "size": 10356
     },
     {
-      "path": "data/lineage/masters.json",
-      "sha256": "9805ea161bb52165caff0d652d82d5d8964834765b2aec559159316317deed34",
-      "size": 62811
-    },
-    {
-      "path": "data/lineage/lineage_verification.json",
-      "sha256": "0e6dcc4f3e70c3f24452c7495474de89b8e9738896ec813ec2b53d3dd81c56f0",
-      "size": 36763
-    },
-    {
       "path": "data/corpus_manifest.json",
-      "sha256": "31a2dd1d78d2d9df39d965001abd0b77d03cac2c326aef0877e80987a3dd69a5",
-      "size": 6218
+      "sha256": "cece9d6ecf076593e794d7356c12a0f685172736af6449f37919f90a5340bb41",
+      "size": 7331
     },
     {
       "path": "data/canonical_locators.json",
-      "sha256": "a0dde0d82bdfb14651e3698a35a176c4375a006c0f8148bb522f0f487cf03183",
-      "size": 3348006
+      "sha256": "2cdef4a67c49a0308b8ef2a797e01726fa82f9a3a7eb26899fff2943ad2ec134",
+      "size": 3494049
     },
     {
-      "path": "docs/SCHEMA.md",
-      "sha256": "77f4ad8a18a36f1971f553ede0b7778025bdbb4b240fe2c66d8fb1af716163e4",
-      "size": 11106
+      "path": "data/editorial/traceability_queue.json",
+      "sha256": "b788037424a8eeda6de6251145ba91ab4eafb30cdf305f8f4d78f2a2a1f4ecfa",
+      "size": 1826
     },
     {
-      "path": "docs/BODY_FORMAT.md",
-      "sha256": "2ee210186fcbf4ff35cd3500750a1e68165af451033d5db8abf0db3806d07dfd",
-      "size": 3418
+      "path": "data/project_metrics.json",
+      "sha256": "a187793e189b635d20c062a57b13626be5d19ef4a4bb53bd6e2d1fc232fcb136",
+      "size": 46240
     },
     {
-      "path": "docs/GATE.md",
-      "sha256": "d3114ebf04225adb8c88b6b01517c5d64c9332a5abc4a3ee5351cb2e20277cc7",
-      "size": 6908
+      "path": "data/lineage/masters.json",
+      "sha256": "0515c7c73236d1c447e451d089648499d8bafbebe0f64c4a0c6f2f7cc4554f8f",
+      "size": 63832
     },
     {
-      "path": "docs/CHANGELOG.md",
-      "sha256": "62e5443ea4fa494be612a9129814735efa3090b2e6db9ddb6db0804310e9b5d3",
-      "size": 5536
-    },
-    {
-      "path": "docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md",
-      "sha256": "b39b2568b277cdc0f2d4a16b2883346d4898b8291b744dd1f2a78c864086ae66",
-      "size": 26519
+      "path": "data/gongan/gongan_index.json",
+      "sha256": "8d18afd8001a641ce91e1c04e6b6dd38e4fb9e5a795bf59ef061dc3936fcb964",
+      "size": 13906
     },
     {
       "path": "docs/sample_export.jsonl",
-      "sha256": "360648b43a6c85dc8042aa019a3fddd436d23f36e05f5d0db888a34aa203c23a",
-      "size": 16258
+      "sha256": "6123cc27b35d032319bc32b9304844feb6c3d5742feb016110d9f29b139f740a",
+      "size": 20055
+    },
+    {
+      "path": "docs/SCHEMA.md",
+      "sha256": "a1e0edc263da3e1ac74141ed856b345e0607a22578459d1a6f06cb27a0fbc2d6",
+      "size": 11210
+    },
+    {
+      "path": "docs/BOTRUNNER_REVIEW_2026-09-21_LAW.md",
+      "sha256": "6e2c55fdd90c1905d21b7978dfeeddd95899db66086cf8d170861644b12e900a",
+      "size": 19508
+    },
+    {
+      "path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json",
+      "sha256": "b8cd90a12a6f5b047c3836af2298042d7bd522fb5f572894244bbc37d9a8ca8b",
+      "size": 91513
+    },
+    {
+      "path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
+      "sha256": "9d970373cfd6d988b5fa9a77065edba0faef61e4d9307c9632a36a50f5890824",
+      "size": 62050
+    },
+    {
+      "path": "sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
+      "sha256": "5b014b875771d6afceca60ba6ece2c06e4334c7b650b6a6a22f9cc925f59b444",
+      "size": 61623
+    },
+    {
+      "path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+      "sha256": "3fdcb14312be3afcf18bf4501ced2d44fc757abc0b85fa8ffdca28036b82a805",
+      "size": 39596
     }
-  ],
-  "purged_retellings": 32,
-  "remaining_docs": 12,
-  "exported_to_wiki": 10
+  ]
 }

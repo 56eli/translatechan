@@ -167,24 +167,28 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 ## 4. Measured snapshot
 
 ```text
-corpus=12 | slots=46 | verified=1 | matrix=21 | locators=4044/4044
-content CJK=855,603 | all-string CJK=918,065
-source-review: collated=10 | partial/failed=0 | unavailable=2
-w1-evidence: flagged=630 (authoritative 2026-09-21 enthusiast fulls overlay) | historical=622 (2026-09-09) | report-figure-superseded=637
+corpus=14 | slots=46 | verified=1 | matrix=21 | locators=4092/4092
+content CJK=775,113 | all-string CJK=832,897
+source-review: collated=12 | partial/failed=0 | unavailable=2
+w1-evidence: active flagged=15 (authoritative 2026-09-21 combined Wumenguan/Linji overlay, 14 documents) | register designation=630 (owner ruling 2026-09-12) | historical=622 (2026-09-09) | report-figure-superseded=637
 w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled
 w1-inventories: WITNESS_INVENTORY.md + WITNESS_INVENTORY_T48_T51.md + WITNESS_INVENTORY_XSERIES.md → PHASE2_PLAN.md
-w1-fresh-collation: flagged=486 on current main vs register=630 (2026-09-21 overlay, re-run 2026-09-21 over 44 docs) — register **not** superseded: owner ruled 2026-09-12 that the post-remediation evidence pass (PR #41) does not replace it, so 630 stays authoritative
-complete=0 | partial=13 | excerpt seeds=31
+w1-fresh-collation (dated measurement, 2026-09-21 over the then-44-document main): flagged=486 vs the register designation=630 — two different claims, neither a completion claim
+linji-rekey: 107 sections tiling the whole 16,366-CJK T47n1985 witness / 215 fields EXACT / 0 flagged (P2.9, 2026-09-21; sessions/COLLATION_REGISTER_2026-09-21_LINJI.json)
+wumenguan-rekey: 48 cases tiling the whole 7,663-CJK T48n2005 witness / 207 fields EXACT / 0 flagged (P2.8, 2026-09-21; sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json)
+combined-overlay: both re-keys ship as ONE dated overlay (sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json, 14 documents / 15 flagged) because the two single-re-key overlays rewrote the same manifest/queue/register surfaces and could not merge sequentially
+gates: py_compile OK; validate_data.py PASS (full + --write-metrics); build_data_bundle.py deterministic (run twice, identical bytes; data/ mirror byte-identical). The combined overlay turns the previously RED gate suite GREEN: scripts/test_source_preservation.py now declares both re-keys in DECLARED_NEW_CORPUS (base repinned to f1207eaf), scripts/test_source_review_rules.py repoints AUTH_REGISTER/CORRECTION_REPORT at the combined WUMENGUAN_LINJI records with 4717/4223 partition originals, and scripts/smoke_test.mjs carries the 14-item manifest pin plus the Linji expectations (Section source: T47n1985_p0504a26–p0504a29 for sections.four_shouts, collated_with_normalization, 赤肉團 search hit) — register **not** superseded: owner ruled 2026-09-12 that the post-remediation evidence pass (PR #41) does not replace it, so 630 stays the register designation while the active 14-document corpus carries 15
+complete=1 (wumenguan) | partial=10 | excerpt seeds=3
 lineage=35 masters / 31 edges | glossary=31 | gong'an=24
-app_data.js=8,729,363 B raw / 44 documents (the authoritative byte count is printed by scripts/build_data_bundle.py at build time)
-local first-load 787,454 B gzipped across app_data.js + app.js + app.css + index.html (raw 2,525,870 B ~2.41 MB, above the retired 2 MB tracking line)
+app_data.js raw size as printed by scripts/build_data_bundle.py at build time / 14 documents
+local first-load: measure with `gzip -c app_data.js app.js app.css index.html | wc -c` (raw + gzipped); the retired 2 MB Phase-3 tracking line no longer applies since the 2026-09-21 ingests
 pages-revamp: tokens 43 (35+8) + 6 scoped, 0 style= in index.html/app.js, CSP without unsafe-inline, 4 CSSOM writes, render-lazy
 frozen: PR-B CSP folded Phase3, PR-D perf folded Phase2, PR-A real-browser still frozen
 ```
 
 Reproduce with `gzip -c app_data.js app.js app.css index.html | wc -c`. The raw total was the
 Pages revamp phases' tracking line (2 MB ceiling, measured after Phase 3 at 1,925,366 B / 586,529 B
-gzipped); it was never a CI gate, and the 44-document bundle of 2026-09-21 exceeds it, so the
+gzipped); it was never a CI gate, and the 13-document bundle of 2026-09-21 exceeds it, so the
 current `app_data.js` byte count (printed at build time; 4,851,526 B before the 2026-09-21 ingest) —
 not the ceiling — is the authoritative figure.
 
@@ -192,7 +196,7 @@ Verified citation reference coverage is **2 / 3**; the remaining **3** reference
 
 **W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item, and each status is re-derived from the merged evidence records (historical 2026-09-09 register + authoritative 2026-09-21 enthusiast fulls overlay, which inherits the chain back to the 2026-09-10 overlay's 35 entries). This is a containment/remediation state, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
 
-W1 evidence: **12 documents, 15 flagged source fields** (authoritative 2026-09-21 enthusiast fulls overlay: `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json`, inheriting the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json` verbatim — itself inheriting the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 5,037 of 5,368 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
+W1 evidence: **14 documents, 15 flagged source fields** (authoritative 2026-09-21 combined Wumenguan/Linji overlay: `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` — the re-keyed Gateless Gate T48n2005 as the 13th document and the re-keyed Record of Linji T47n1985 as the 14th, inheriting the 12 entries of the 2026-09-21 enthusiast fulls overlay `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json` verbatim, which itself inherits the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json`, the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of the 2026-09-20 correction overlay `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 4,708 of 4,717 source-content fields collate to their claimed witness, and 2 documents have no collating source-content field at all.
 
 Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
@@ -209,7 +213,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 
 - All 14 translation-rights records remain `needs_rights_review` or `jurisdiction_review_required`.
 - W1 found only one of the 35 documents in the 2026-09-10 register fully collated to its claimed witness; the 2026-09-20 overlays record the Congronglu reinstatement (100/100 cases, 0 flagged), the full 30-fascicle Jingde Chuandeng Lu (1,274/1,274) and the Caoshan Benji record (84/84) as the second, third and fourth, while Wumenguan and Xinxin Ming need per-document remediation, while the remaining partial/failed and unavailable states remain contained. Zhaozhou's claimed witness T1987 is the Caoshan record — W1 found the claim false, and re-pointing to X68n1315 is R-A work, deliberately not done here.
-- Biyanlu, Linji, Platform, and excerpt seeds need broader field-level review.
+- The three excerpt seeds (`zhengdao_ge`, `hanshan_poems`, `niutou_juezhu`) still need witnesses before any source claim; the Record of Linji was re-keyed verbatim on 2026-09-21 (107 sections tiling the whole T47n1985, 0 flagged).
 - Two lineage profiles lack linked corpus keys (yangqi_fanghui, dahong_zuzheng); Prajñātāra is linked to chuandenglu_full case 38. Ten of 31 edges are exact_locator_verified; 21 await locators. All four teacher frontiers remain; profile review is not completed by edge review.
 - Congronglu is no longer quarantined: the 2026-09-20 reinstatement rebuilt it from the pinned T48n2004 witness (field-level collation 500/500, 0 flagged, no quarantined record copied) and recorded the one historical-anchor waiver in the dated overlay. What remains open is the human editorial sign-off, the unrepresented front matter / 著語 apparatus, and the unindexed cases — not the source claim.
 
@@ -335,6 +339,8 @@ PR [#18](https://github.com/56eli/translatechan/pull/18) merged into `main` as `
 
 > **Measured status refresh 2026-09-21 (P2 Tier2 + enthusiast final):** the corpus carries **184** provenance-note strings across four keys (`cbeta_note` 30, `coverage_note` 42, `editorial_note` 98, `recension_note` 14), **142 of 184** rendering beside a passage, **37** documents carrying at least one label.
 
-> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **12 documents, 15 flagged source fields**.
+> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **13 documents, 15 flagged source fields**.
+> **Measured status refresh 2026-09-21 (task P2.9, Linji re-key):** the corpus carries **23** provenance-note strings across four keys (`cbeta_note` 12, `coverage_note` 11, `editorial_note` 0, `recension_note` 0), **12 of 23** rendering beside a passage, **12** documents carrying at least one label. **13 documents, 15 flagged source fields** — the re-keyed Record of Linji (T47n1985, 107 verbatim sections, 215 measured fields, 215 EXACT, 0 flagged) joins as the 13th document.
+> **Measured status refresh 2026-09-21 (tasks P2.8 + P2.9, combined Wumenguan/Linji overlay):** the corpus carries **25** provenance-note strings across four keys (`cbeta_note` 13, `coverage_note` 12, `editorial_note` 0, `recension_note` 0), **13 of 25** rendering beside a passage, **13** documents carrying at least one label. **14 documents, 15 flagged source fields** — the re-keyed Gateless Gate (T48n2005, 48 cases, 207 measured fields, 207 EXACT, 0 flagged) joins as the 13th document beside the re-keyed Record of Linji as the 14th.
 
 > the remaining **1**

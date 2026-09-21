@@ -1,5 +1,20 @@
 # Changelog — TranslateChan Export Schema
 
+## Export re-issue — 2026-09-22 — after the combined Wumenguan + Linji re-key overlay — `schema_version` stays `1.1`
+
+**Why:** the previous re-issue pinned the 13-document Linji-only tree; corpus has since gained BOTH re-keys as one combined overlay — the re-keyed Gateless Gate (T48n2005, 48 cases, 207/207 EXACT, 0 flagged) and the re-keyed Record of Linji (T47n1985, 107 sections, 215/215 EXACT, 0 flagged) — under the combined authoritative register `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` (14 documents, 15 flagged). The two single-re-key overlays rewrote the same manifest/queue/register surfaces and could not merge sequentially, so this re-issue ships them together.
+
+**Law unchanged:** sha256 verification of every manifest file is **mandatory**; official delivery is **git clone at the manifest commit** (`git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT`); gate stays unprivileged, disposable-clone, stdlib-only, read-only; Python minimum 3.11, tested set 3.11/3.12.
+
+**Changed (files, not schema):**
+- `export_manifest.json` — 25 files: 12 collated corpus documents (the previous 10 plus `data/corpus/wumenguan.json` and `data/corpus/linji_yulu.json`), the 6 shared data registries, `docs/sample_export.jsonl`, `docs/SCHEMA.md`, `docs/BOTRUNNER_REVIEW_2026-09-21_LAW.md`, and the four dated evidence registers (combined WUMENGUAN_LINJI authoritative + WUMENGUAN + LINJI single-re-key overlays + inherited ENTHUSIAST_100PCT); all sha256/size recomputed from the overlay's content tree; `commit` names the first commit carrying this re-issued manifest, and the living CHANGELOG is deliberately outside the hashed set; only_collated true, w1_filter collated_to_claimed_witness, remaining_docs 14, exported_to_wiki 12, purged_retellings 32
+- `export_ready.json` — same timestamp+commit as manifest, written last
+
+**Unchanged:** record schema and enums (schema_version stays 1.1 — export re-issue, not schema change); 1.1 rulings Q1-Q7 W3, only_collated, fail-closed badges, tombstones; the sample export (5 masters +6 passages, including the first section-type record `linji_yulu_section_078`) already covered both re-keys' schema shapes.
+
+**Honest note:** no script generates export_manifest.json / export_ready.json — produced with sha256 computed from the content commit named in the manifest (verified: `jq -r '.files[] | "\(.sha256)  \(.path)"' export_manifest.json | sha256sum -c -` passes).
+
+
 ## Export re-issue — 2026-09-21 — after the Linji re-key (task P2.9) + law amendments — `schema_version` stays `1.1`
 
 **Why:** the 1.1 manifest was written in the purge commit and pinned `commit: a77d577`, a pre-purge tree whose hashes no longer matched three files, and corpus has since gained re-keyed Record of Linji (107 sections, 215/215 EXACT, 0 flagged, T47n1985). The re-issue recomputes every hash from one tree and includes law amendments for official delivery.
