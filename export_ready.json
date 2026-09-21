@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T15:27:31Z",
-  "commit": "a77d577662a168e4db437f781da4d7c16c642573",
+  "export_timestamp": "2026-09-21T16:45:26Z",
+  "commit": "2f40065585ff2037c11818eda8bfd5c702bafa34",
   "ready": true,
   "only_collated": true,
   "purged": true
