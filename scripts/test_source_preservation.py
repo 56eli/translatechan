@@ -788,7 +788,26 @@ ALLOWED_CHANGES = {
         # are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
         # metadata flag), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this document
         # declares none).
+        # 2026-09-20 P2 core yulu re-key attempt (task 048, target fix/p2-dazhu-nanquan-rekey,
+        # P2-2): the R-A re-key from the recorded witnesses X63n1223/X63n1224 was measured on
+        # the 40-work pinned set (refs 40 verified / 0 drift at
+        # dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — 0 of 6 source-content
+        # fields are EXACT in any of the 40 refs, far below the 80-percent (5 of 6) re-key
+        # threshold; X63n1223 contributes zero runs of 8 or more graphs to every field and
+        # X63n1224 rearranges the material (35/60, 40/54, 28/32, 16/43). The `.coverage_note`
+        # above is rewritten to record the attempt and its measured outcome, and the six
+        # dialogue `editorial_note` labels below give each field its measured carrier state
+        # (s0.d0: X80n1565 55/60 best, X69n1321 27/60; s0.d1: T51n2076 44/54 best;
+        # s1.d0/s1.d1: no run of 8 or more graphs in any of the 40 refs; s2.d0: X63n1224
+        # 28/32; s2.d1: split 16/43 three ways). No `zh`/`pinyin`/translation field changes,
+        # no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no `zh_chars` pointer.
         ".coverage_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[2].dialogue[1].editorial_note",
     }),
     "data/corpus/deshan_yulu.json": frozenset({
         # 2026-09-14 LABEL fix (task 011 bundle 3, PHASE2_PLAN ranks 29/62): the additive honest
@@ -899,7 +918,27 @@ ALLOWED_CHANGES = {
         # retellings are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh`
         # (composite-title metadata flag), no `cbeta_id` (the 2026-08-08 correction stands), and
         # no `zh_chars` pointer (this document declares none).
+        # 2026-09-20 P2 core yulu re-key attempt (task 048, target fix/p2-dazhu-nanquan-rekey,
+        # P2-2): the R-A re-key from the claimed X68n1315 was measured on the 40-work pinned
+        # set (refs 40 verified / 0 drift at
+        # dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — 0 of 6 source-content
+        # fields are EXACT in the claimed witness, far below the 80-percent (5 of 6) re-key
+        # threshold; largest shared run 23 of 27 (s2.d0, split at variant points), s1.d0 has
+        # no run of 8 or more graphs in any of the 40 refs. The `.coverage_note` above is
+        # rewritten to record the attempt and its measured outcome, and the six dialogue
+        # `editorial_note` labels below give each field its measured carrier state —
+        # including that the only verbatim carrier of any field is the uncited T47n1997
+        # (the Yuanwu Fuguo record), which carries s2.d0 27 of 27 at offset 114,323; its
+        # re-key is a separate RE-KEY work item, not landed here. No `zh`/`pinyin`/translation
+        # field changes, no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no
+        # `zh_chars` pointer.
         ".coverage_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[2].dialogue[1].editorial_note",
     }),
     "data/corpus/qinggui_monastic_codes.json": frozenset({
         # 2026-09-14 LABEL fix (task 013 bundle 5, PHASE2_PLAN ranks 22/48): the additive honest

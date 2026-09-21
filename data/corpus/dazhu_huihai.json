@@ -33,7 +33,8 @@
               "text": "Huihai visited Mazu. Mazu asked, 'Where do you come from?' 'From Dayun temple.' 'What are you seeking here?' 'Seeking the Buddha Dharma.' Mazu said, 'I have not a single thing here; what Buddha Dharma are you seeking? Neglecting your own treasure at home and wandering around outside—what are you doing?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 53 eight-graph windows occur in the claimed X63n1223, which has no run of 8 or more graphs of the field; X63n1224 carries 35 of the 60 graphs rearranged in three runs (offsets 23, 32, 54); the best measured carriers are the uncited X80n1565 at 55 of 60 (three runs, longest 30 graphs at offset 71,318) and the uncited X69n1321 (the Mazu fascicle of the Sijia yulu) at 27 of 60. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Huihai / 慧海",
@@ -52,7 +53,8 @@
               "text": "Huihai asked, 'Which is Huihai's own treasure?' Mazu said, 'That which is asking me right now is your treasure. Everything is complete, lacking nothing, freely used. Why seek outside?' At these words Huihai recognized his original mind.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 47 eight-graph windows occur in the claimed X63n1223 (no run of 8 or more graphs of the field); X63n1224 carries 40 of the 54 graphs in a single run (offset 88); the best measured carrier is the uncited T51n2076 at 44 of 54 in a single run (offset 58,336), with X69n1321 carrying 36 of 54 in a single run (offset 2,400). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -79,7 +81,8 @@
               "text": "Question: Dharma-nature has no form; through what is it seen? Master said: That which is able to see right now is the Dharma-nature.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-20, task 048). 0 of this field's 14 eight-graph windows occur in any of the 40 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift); the claimed witnesses X63n1223/X63n1224 carry no run of 8 or more graphs of the 21-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Questioner / 問曰",
@@ -98,7 +101,8 @@
               "text": "Question: The blind have no eyes; do they see? Master said: The blind see darkness. 'Can seeing darkness be called seeing?' Master said: Sighted people see light; blind people see darkness. Light and darkness differ, but the seeing nature is not different.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-20, task 048). 0 of this field's 43 eight-graph windows occur in any of the 40 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift); the claimed witnesses X63n1223/X63n1224 carry no run of 8 or more graphs of the 50-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -125,7 +129,8 @@
               "text": "Vinaya Master Yuan asked, 'Do you apply effort in practicing the Way?' The Master said, 'I apply effort.' 'How do you apply effort?' 'When hungry I eat, when tired I sleep.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 25 eight-graph windows occur in the claimed X63n1223 (no run of 8 or more graphs of the field); X63n1224 carries 28 of the 32 graphs (offset 1,353) with 4 graphs not carried as written; other measured carriers X80n1565 23 of 32 (offset 72,566) and T51n2076 20 of 32 (offset 59,580). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Vinaya Master / 律師",
@@ -144,11 +149,12 @@
               "text": "Yuan said, 'Everyone does that; is their effort the same as yours?' The Master said, 'Not the same. When they eat they crave a hundred things; when they sleep they worry about ten thousand things. Therefore it is not the same.' The Vinaya Master was silent.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 36 eight-graph windows are carried by a single complete copy in any of the 40 refs; X63n1224 carries the opening 16 of the 43 graphs (offset 1,381) — the field's closing attribution adds a one-graph name prefix the witness does not carry, and its middle is a compressed form of the witness's longer answer — the same 16-graph span also occurs in the uncited X80n1565 (offset 72,597) and T51n2076 (offset 59,608). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰).",
-  "coverage_note": "0/6 collated, s1.d0/s1.d1 no ≥8-graph run in all 39 refs, X63n1223 listed first contributes zero runs, best carrier T51n2076 44/54 @58,336 for s0.d1, project retellings retained"
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work."
 }
