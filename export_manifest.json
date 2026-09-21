@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.1",
+  "export_timestamp": "2026-09-21T15:05:02Z",
+  "commit": "dea0c2685ff479af1927ce516919380610d8c9d6",
+  "only_collated": true,
+  "w1_filter": "collated_to_claimed_witness",
+  "description": "TranslateChan export — ONLY 100% collated docs per owner ruling Q7 W3. No imperfections on wiki. 10 collated docs. 5 masters +5 passages sample.",
+  "files": [
+    {
+      "path": "data/corpus/zhengdao_ge.json",
+      "sha256": "7e66c28e3c470cc8fe8674d2adb2edefe7421b2530cd4b75c6d934c3507d5e0a",
+      "size": 10356
+    },
+    {
+      "path": "data/corpus/congronglu.json",
+      "sha256": "4b5eb6f4723d14362dbd8e74ef31080e30f234097c24edeeccc8ce74e1e4d0d6",
+      "size": 375574
+    },
+    {
+      "path": "data/corpus/chuandenglu_full.json",
+      "sha256": "325f7c62cd4d3037ff3a4c436b8efc503509e1ae892cb14a1f388ef7a3145d76",
+      "size": 1799640
+    },
+    {
+      "path": "data/corpus/caoshan_benji.json",
+      "sha256": "3a790e52c461f3a7cadcf69150d82978b84b0b9c3b31e0256998c886a1da5d71",
+      "size": 85055
+    },
+    {
+      "path": "data/corpus/huangbo_fayao_full.json",
+      "sha256": "6ad312d41a73122e7e2310b901ebb4675ee04e8af0923a0dd7164187127cb673",
+      "size": 32982
+    },
+    {
+      "path": "data/corpus/mazu_guanglu_full.json",
+      "sha256": "150222c07914a6b77d86a8204d76eb265c61a6cbe8ac65b7247dda975ccf3a4e",
+      "size": 35131
+    },
+    {
+      "path": "data/corpus/yunmen_guanglu_full.json",
+      "sha256": "b46337502bc37e36d1b17808c936fc361a3365d29024a72986499c585cdcb762",
+      "size": 526216
+    },
+    {
+      "path": "data/corpus/dongshan_yulu_full.json",
+      "sha256": "7c03aad95e930f5e45e06c0e6d70011c954a143d8fcb1d9c517eb5aceb86be1b",
+      "size": 241126
+    },
+    {
+      "path": "data/corpus/zhaozhou_yulu_full.json",
+      "sha256": "227ca40aebe6abd9cf1c9c7dc6eb6f90c8ba91c63bb09419f80a3ddb90c5b207",
+      "size": 107334
+    },
+    {
+      "path": "data/corpus/dahui_yulu_full.json",
+      "sha256": "af73aa19c9561c284b8d765170eb8c4d044b5f5f1623c1da9346fc4c39252a47",
+      "size": 1296442
+    },
+    {
+      "path": "data/lineage/masters.json",
+      "sha256": "531d1b652486db09e1e4f0a2aa6ea674df1ea57582ada710fbbd21af71b579b3",
+      "size": 63933
+    },
+    {
+      "path": "data/lineage/lineage_verification.json",
+      "sha256": "0e6dcc4f3e70c3f24452c7495474de89b8e9738896ec813ec2b53d3dd81c56f0",
+      "size": 36763
+    },
+    {
+      "path": "data/corpus_manifest.json",
+      "sha256": "0b48170658e91b3efe853d705fbb3679c8a1c8647b89a8370b024efd4850071e",
+      "size": 13009
+    },
+    {
+      "path": "docs/SCHEMA.md",
+      "sha256": "67f1745b4114b2af815ae2c80a5a75c76f126b599728392b9204a0326c61fd95",
+      "size": 9659
+    },
+    {
+      "path": "docs/BODY_FORMAT.md",
+      "sha256": "2ee210186fcbf4ff35cd3500750a1e68165af451033d5db8abf0db3806d07dfd",
+      "size": 3418
+    },
+    {
+      "path": "docs/GATE.md",
+      "sha256": "5d424efe01ca63ff30a4d80fcad2cc49ab7bd1c3468eda06e5b00280ad0a869a",
+      "size": 3286
+    },
+    {
+      "path": "docs/CHANGELOG.md",
+      "sha256": "cd941e60a8a3bf3057c2469a961a48167b34099158c67410275a968613045e59",
+      "size": 4310
+    },
+    {
+      "path": "docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md",
+      "sha256": "efdeb8979413de6e065e4a0d03594f8f7d4ae22d6de6c88860e201951b8ecd00",
+      "size": 20710
+    },
+    {
+      "path": "docs/sample_export.jsonl",
+      "sha256": "360648b43a6c85dc8042aa019a3fddd436d23f36e05f5d0db888a34aa203c23a",
+      "size": 16258
+    },
+    {
+      "path": "docs/sample_export.json",
+      "sha256": "ddbb05c72bd8136677587ca2cf7c7d607b7fd1a0ab0923a793f46048866f53a2",
+      "size": 19368
+    }
+  ]
+}

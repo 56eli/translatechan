@@ -275,3 +275,5 @@ translatechan/
 > Deployment is native GitHub Pages branch publishing (`main` + `/docs`). The GitHub Actions Quality workflow verifies repository quality only; it does not deploy Pages.
 
 > **Measured status refresh 2026-09-21 (P2 authenticity labels + enthusiast full-witness ingests):** the corpus carries **125** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **83 of 125** rendering beside a passage (the 42 `coverage_note` lines stay ledgered by exemption), **35** documents carrying at least one label — P2 added 14 `editorial_note` R-B labels and 2 `coverage_note` rewrites (87→113), enthusiast added 6 `cbeta_note` + 6 `coverage_note` (113→125); W1 register 38→44 docs, flagged total stays 630.
+
+> **Measured status refresh 2026-09-21 (P2 Tier2 + enthusiast final):** the corpus carries **184** provenance-note strings across four keys (`cbeta_note` 30, `coverage_note` 42, `editorial_note` 98, `recension_note` 14), **142 of 184** rendering beside a passage, **37** documents carrying at least one label.

@@ -20,9 +20,36 @@ We will add stable ids to every passage (e.g. `wumenguan_case_01`) plus explicit
 
 ## Q2 — What is the complete set of W1 codes, and what should each render as?
 
-**Plain language — what collation means:**
+**Plain language — what collation means + what is a claimed witness:**
 
-Collation = we take our Chinese text and check it character by character against the old woodblock prints that have been digitized in CBETA (Chinese Buddhist Electronic Text Association) XML P5 edition, revision `dbdea41071e1e260ad84b72faefd4587333cf76d`. The extraction rule `cbeta-p5-body-cjk-v1` takes the TEI body, drops footnotes and apparatus, keeps only CJK characters U+3400-U+9FFF/U+F900-U+FAFF, writes one line. Then collator compares our field's CJK against that reference, looking for contiguous runs ≥8 characters. If our field appears verbatim as contiguous run, it's EXACT. If not, it's DIVERGENT, NOT_FOUND, etc.
+Your understanding is right: collation means our Chinese corpus correlates to Chinese woodblock prints, which are the authority of our work.
+
+**Claimed witness = the specific old print we claim we copied from.**
+
+For every fascicle/file we say: "This text is supposed to be exactly this old book, this edition." Example:
+
+- `wumenguan` claims witness `T48n2005` Wumenguan — Song dynasty woodblock preserved in Taisho canon vol 48 no 2005, digitized as CBETA XML P5 revision `dbdea410`
+- `chuandenglu_full` claims witness `T51n2076` Jingde Chuandenglu — Song 1004, 30 fascicles
+- `linji_yulu` claims witness `T47n1985`
+- `huangbo_yulu` claims witness `T48n2012A` + `X69n1360` (X = Xuzangjing, supplement)
+
+That claimed witness is our authority. We publish its key in the file: `source_id: jingde-chuandenglu`, `source_edition: T51n2076`, `witness_path: T51n2076.xml`, `extraction_rule: cbeta-p5-body-cjk-v1`.
+
+**Collation = proving the claim.** We take our field's CJK (e.g. dialogue zh), normalize it by rule `cbeta-p5-body-cjk-v1` (TEI body only, drop notes/g, keep only CJK U+3400-U+9FFF/U+F900-U+FAFF, NFC), and search for contiguous runs ≥8 chars inside the claimed witness's normalized body. If every content field appears verbatim as contiguous run, it's EXACT. If not, it's DIVERGENT, NOT_FOUND, etc.
+
+So:
+
+- **Claimed witness** = which old woodblock we say we are reproducing (the source of truth).
+- **Collation** = mechanical proof that we actually did reproduce it character-for-character.
+- **collated_to_claimed_witness** = proof succeeded 100% for content fields — our text = old print.
+- **partial_or_failed_w1_collation** = proof failed — our text is NOT in that old print, it's our own retelling/composition, we label it honestly with coverage_note like `s1.d0 24/34 @60,222` (24 of 34 chars found at offset 60,222) + editorial_note "Project retelling — no witness attribution".
+- **witness_unavailable** = we don't even have that old print digitized to check.
+
+That is why `collated_to_claimed_witness` = 100% real old text, partial = hallucinated/project retelling.
+
+**Original collation detail preserved:**
+
+Collation checks character by character against CBETA XML P5 edition `dbdea41071e1e260ad84b72faefd4587333cf76d`. Rule `cbeta-p5-body-cjk-v1` takes TEI body, drops footnotes/apparatus, keeps only CJK, writes one line. Collator looks for contiguous runs ≥8 chars. If verbatim contiguous run found, EXACT.
 
 **Complete set of W1 codes (source_review_status):**
 
@@ -85,7 +112,9 @@ Ledger separation note: "Separate ledgers: none of these answers implies another
 
 The other 32 partial docs (baizhang_guanglu 0/6, dazhu_huihai 0/6, nanquan_yulu 0/6, guiyang_yulu 0/6, fayan_yulu 1/11, xuansha_yulu 0/5, xuefeng_yantou 0/4, deshan_yulu 0/6, etc) ARE hallucinated/reconstructed/project compositions — we measured 0/6 EXACT in 43 pinned refs (43 verified /0 drift), largest shared run 23/27 or no run ≥8. They have honest coverage_note saying "project retelling — no witness attribution" and editorial_note R-B labels. They should NOT be on public wiki as if real; they should stay as research projects, or be flagged with W1 badge partial_or_failed and maybe private.
 
-**Recommendation:** Wiki shows ONLY `collated_to_claimed_witness` docs as public Books/Pages. The 32 partial docs stay in translatechan as research projects, not exported to BookStack, or exported to a separate private Shelf "Research Projects — Not Verified" with W1 badge partial and is_ai_styled false but clearly marked "Project retelling — not verbatim, do not cite as source". That matches your fear and keeps wiki 100% verified.
+**Owner ruling 2026-09-21 update (Q7 W3): Wiki receives ONLY 100% collated docs. Everything not 100% will NOT be exported at all. No imperfections on the wiki.**
+
+**Recommendation now locked:** Wiki shows ONLY `collated_to_claimed_witness` docs as public Books/Pages. The 32 partial docs stay in translatechan as research projects, **not exported to BookStack at all**. No private "Research Projects" Shelf on wiki. Wiki = 100% real old texts only. This is simplest and avoids any risk of hallucinated text being cited.
 
 ---
 
@@ -99,24 +128,26 @@ The other 32 partial docs (baizhang_guanglu 0/6, dazhu_huihai 0/6, nanquan_yulu 
 
 ---
 
-## Q5 — Does any content need to be non-public at page granularity, or whole wiki public-read? — Owner wants flags
+## Q5 — Does any content need to be non-public at page granularity, or whole wiki public-read? — Owner consideration, not decided
 
 **Plain:** Is everything allowed to be public on internet, or are some pages supposed to be hidden/private/embargoed?
 
-**Owner answer:** If maintenance burden isn't too high, want copyrighted material flagged as such and leave it up to me to change access as I see fit based on flags provided. Might make everything private with wiki account access only even.
+**Owner answer 2026-09-21: Consideration only, not decided.** If maintenance burden isn't too high, want copyrighted material flagged as such and leave it up to me to change access as I see fit based on flags provided. Might make everything private with wiki account access only even. Proposal below is consideration, not ruling.
 
-**Elaboration:** So we need per-page visibility control based on flags.
+**Elaboration (consideration):** So we need per-page visibility control based on flags, but owner hasn't decided to use it yet.
 
 **Current:** Charter says public read, owner-locked write, no embargoed material currently. But English translations have rights_status: in_copyright, public_domain_candidate, needs_review. And is_ai_styled boolean.
 
-**What botrunner needs to do:**
+**What botrunner could do if owner decides (consideration, not requirement):**
 - Add tags per page: W1 badge, source key, rights_status, is_ai_styled, lifecycle_status, plus maybe `copyrighted` boolean.
-- For BookStack, pages have permissions — can be public or private or restricted to role. Owner wants to be able to change access as he sees fit based on flags.
-- Proposal: Every page gets tags: `rights_status=in_copyright|public_domain_candidate|needs_review`, `is_ai_styled=true|false`, `w1_status=collated_to_claimed_witness|partial|unavailable`, `lifecycle_status=active|withdrawn|superseded|retracted`. Then BookStack Shelves: public Shelf "Verified Chan Texts (100% collated)" with only collated_to_claimed_witness and public_domain_candidate or is_ai_styled true (Robo fake is ours, not copyrighted), and private Shelf "Research Projects" with partial docs, and maybe private Shelf "Copyrighted English References" with in_copyright flagged.
-- Owner can then make whole wiki private with wiki account access only if he wants — BookStack supports private Shelves/Books requiring login.
+- For BookStack, pages have permissions — can be public or private or restricted to role.
+- Consideration: Every page gets tags: `rights_status=in_copyright|public_domain_candidate|needs_review`, `is_ai_styled=true|false`, `w1_status=collated_to_claimed_witness|partial|unavailable`, `lifecycle_status=active|withdrawn|superseded|retracted`. Then BookStack Shelves: public Shelf "Verified Chan Texts (100% collated)" with only collated_to_claimed_witness and public_domain_candidate or is_ai_styled true (Robo fake is ours, not copyrighted), and maybe private Shelf "Copyrighted English References" with in_copyright flagged.
+- Owner could make whole wiki private with wiki account access only — BookStack supports private Shelves/Books requiring login.
 - Maintenance burden: low if flags are machine-readable — botrunner can set BookStack permissions based on flags mechanically, e.g. if rights_status=in_copyright then Book private, else public. Owner can override.
 
-**Recommendation:** Add `rights_status` and `visibility` fields to export per R4 + R5, and botrunner importer sets BookStack permissions based on flags, plus dry-run diff so owner can see what would be public vs private before import.
+**But per Q7 W3 ruling:** wiki receives ONLY 100% collated docs, no imperfections. So Q5 flags would only apply to that 100% subset. Since those are old texts (public domain) plus our AI-styled English (ours), likely all can be public, but we still emit rights_status for future audit.
+
+**Recommendation (consideration):** Add `rights_status` and `visibility` fields to export per R4 + R5 as metadata, even if wiki stays all-public for now. Botrunner importer reads flags but does not need to enforce private yet. If owner later decides private wiki, flags already present, no schema change needed. Provide dry-run diff so owner can see what would be public vs private before import.
 
 ---
 
@@ -136,9 +167,9 @@ The other 32 partial docs (baizhang_guanglu 0/6, dazhu_huihai 0/6, nanquan_yulu 
 
 2. **Schema doc + changelog:** Publish `docs/SCHEMA.md` or `schemas/translatechan-data.schema.json` with all enums documented: VALID_SOURCE_REVIEW_STATUSES (collated_to_claimed_witness, partial_or_failed_w1_collation, witness_unavailable), VALID_COMPLETION_STATUSES (complete_selected_witness, partial_selected_witness, excerpt_seed), VALID_LINEAGE_EDGE_STATUSES (exact_locator_verified, source_verified, traditional_link_pending_exact_locator, disputed), profile_status enum, editorial_note types, disclosure ledgers 5, collation classes 9, plus mapping rule work=Book fascicle=Chapter passage=Page (Q1 confirmed), plus BODY_FORMAT.md (plain CJK + Markdown subset bold/italic/code/links, no arbitrary HTML, footnotes as separate field, Unicode NFC), plus GATE.md (exact command `python3 scripts/validate_data.py` exit 0 safe non-zero do not publish read-only, plus `build_data_bundle.py` determinism check, needs checkout + Python 3.11). Changelog CHANGELOG.md with version bumps.
 
-3. **W1 filtering for wiki:** Per owner fear of hallucinated, wiki shows ONLY 100% collated docs (10 docs currently) as public Books/Pages. The 32 partial docs stay as research projects in separate private Shelf "Research Projects — Not Verified" with W1 badge partial_or_failed and editorial_note "Project retelling — no witness attribution" or not exported at all. This is reasonable and keeps wiki 100% verified. Botrunner importer should have config flag `only_collated=true` to filter export by w1_status.
+3. **W1 filtering for wiki — LOCKED per owner ruling Q7 W3:** Wiki receives ONLY 100% collated docs (`collated_to_claimed_witness`). Everything not 100% will NOT be exported at all. No imperfections on the wiki. No private "Research Projects" Shelf on wiki. Translatechan keeps 32 partial docs as research projects locally, never emitted in export. Export manifest lists only 10 collated docs. Botrunner importer can still have config `only_collated=true` but export already filtered — defense in depth: importer must fail if it ever sees partial_or_failed_w1_collation.
 
-4. **Rights + visibility flags:** Add rights_status per unit (in_copyright, public_domain_candidate, needs_review) + is_ai_styled boolean + visibility suggestion. Botrunner sets BookStack permissions based on flags: e.g. if rights_status=in_copyright then Book private, else public; if w1_status!=collated then private research Shelf; if lifecycle_status=withdrawn then unpublish. Owner can make everything private with wiki account access only even — BookStack supports private Shelves requiring login, low maintenance if flags machine-readable. Provide dry-run diff before import so owner can see public vs private.
+4. **Rights + visibility flags — Consideration only:** Add rights_status per unit (in_copyright, public_domain_candidate, needs_review) + is_ai_styled boolean + visibility suggestion as metadata, even if wiki stays all-public for now. Since only 100% collated old texts (public domain) + our AI-styled English (ours) are exported, likely all public. But emit flags for future audit. If owner later decides private wiki, flags already present. Provide dry-run diff before import so owner can see what would be public vs private. Owner has not decided, so this is consideration, not requirement.
 
 5. **Tombstones (R7):** Implement lifecycle_status tombstones, never delete on absence alone. Export manifest with checksums proves complete export not half-written. Botrunner reports absences as warnings.
 
