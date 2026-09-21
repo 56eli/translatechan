@@ -1,6 +1,15 @@
 # Changelog — TranslateChan Export Schema
 
-## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones
+## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones — amended same day official delivery + mandatory sha256 + gate execution env
+
+**Amendment 2026-09-21 (owner + botrunner agreement):**
+- (a) sha256 verification of every manifest file is **mandatory**, not optional — manifest nobody verifies proves nothing
+- (b) gate executed **unprivileged in disposable clone** and must stay **stdlib-only and read-only** — adding dependency or network access is new decision not impl detail
+- (c) GATE.md states **minimum version 3.11 and tested set 3.11, 3.12** — system python3 on br1 is 3.12.3 accepted without container, future 3.13 must be re-validated and doc updated
+- Official delivery: **git clone at manifest commit** is official — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT` — no release tarball, no container, read-only by charter
+- Docs updated: `docs/GATE.md` rewritten with official delivery + mandatory sha256 example + execution env + Python min/tested, `docs/SCHEMA.md` R6 and R12 updated, `docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md` Q7 updated, `docs/BOTRUNNER_REVIEW_2026-09-21_PURGED.md` gate section updated
+
+## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones (original)
 
 **Owner rulings:**
 - Q1: work=Book, fascicle=Chapter, passage=Page — confirmed

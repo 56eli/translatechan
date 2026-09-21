@@ -98,9 +98,15 @@ See `docs/SCHEMA.md` full.
 
 ---
 
-## 4. Gate
+## 4. Gate — official delivery git clone at manifest commit, mandatory sha256, unprivileged stdlib-only
 
-`python3 scripts/validate_data.py` — exit 0 safe, non-zero do not publish, read-only unless --write-metrics, needs checkout + Python 3.11, no extra deps. Secondary `build_data_bundle.py` determinism 7,230,634 B, `smoke_test.mjs`. See `docs/GATE.md`.
+**Official delivery (owner decision 2026-09-21):** git clone at commit pinned in `export_manifest.json` — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT`. No release tarball. Botrunner read-only by charter, clone is read-only, no credentials. System `python3` on br1 is 3.12.3 accepted without container.
+
+`python3 scripts/validate_data.py` — exit 0 safe, non-zero do not publish, read-only unless --write-metrics, executed unprivileged in disposable clone, must stay stdlib-only and read-only — adding dependency or network is new decision not impl detail. Python minimum 3.11, tested set 3.11 and 3.12 (CI uses 3.12, br1 3.12.3), future 3.13 must be re-validated and doc updated. No container.
+
+**Mandatory integrity (not optional):** verify `export_ready.json` timestamp+commit matches manifest, and verify sha256+size of every file in `files[]` via `sha256sum -c -`. A manifest nobody verifies proves nothing. If any mismatch, abort import.
+
+Secondary `build_data_bundle.py` determinism 7,230,634 B, `smoke_test.mjs`. See `docs/GATE.md`.
 
 ---
 
@@ -115,18 +121,19 @@ Example passage:
 
 ---
 
-## 6. What botrunner should do
+## 6. What botrunner should do — mandatory sha256, unprivileged disposable clone
 
-1. Checkout at commit from export_manifest.json
-2. Run gate `python3 scripts/validate_data.py` — capture output, abort if non-zero
-3. Verify `export_ready.json` exists and timestamp+commit matches manifest, verify file sha256
-4. Filter `only_collated=true` — export already filtered to 10 collated, defense-in-depth fail if sees partial_or_failed
-5. Map work=Book, fascicle=Chapter, passage=Page by id+parent_id+order, idempotent keyed by stable id, never duplicates, title change keeps id
-6. Render W1 badge verbatim code+label+explanation, link to evidence register, 5 ledgers separate
-7. Emit provenance source_key + is_ai_styled boolean + import_reference on every page
-8. Rights flags as metadata, dry-run diff public vs private, owner decides
-9. Tombstones: never delete on absence alone, report warnings
-10. Body format plain_cjk_markdown_subset_v1, no arbitrary HTML, no absolute wiki URLs, NFC
+1. Checkout at commit from export_manifest.json — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT` — disposable, unprivileged, no credentials — official delivery
+2. Verify `export_ready.json` exists and timestamp+commit matches manifest — **mandatory**, not optional — if missing/mismatched, abort
+3. Verify sha256+size of every file in `export_manifest.json.files[]` via `sha256sum -c -` — **mandatory**, not optional — a manifest nobody verifies proves nothing — if any mismatch, abort
+4. Run gate `python3 scripts/validate_data.py` — unprivileged, stdlib-only, read-only, no network, no container (system python3 3.12.3 accepted, minimum 3.11 tested set 3.11+3.12 future 3.13 must be re-validated) — capture output, abort if non-zero
+5. Filter `only_collated=true` — export already filtered to 10 collated, defense-in-depth fail if sees partial_or_failed
+6. Map work=Book, fascicle=Chapter, passage=Page by id+parent_id+order, idempotent keyed by stable id, never duplicates, title change keeps id
+7. Render W1 badge verbatim code+label+explanation, link to evidence register, 5 ledgers separate
+8. Emit provenance source_key + is_ai_styled boolean + import_reference on every page
+9. Rights flags as metadata, dry-run diff public vs private, owner decides
+10. Tombstones: never delete on absence alone, report warnings
+11. Body format plain_cjk_markdown_subset_v1, no arbitrary HTML, no absolute wiki URLs, NFC
 
 ---
 
