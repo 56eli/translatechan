@@ -186,6 +186,40 @@ The other 32 partial docs (baizhang_guanglu 0/6, dazhu_huihai 0/6, nanquan_yulu 
 - Not performance work — volumes small
 - Not delivery mechanism yet — owner decides release artifact, fetched file, manual copy
 
-**Verdict:** Current exports 70% ready — R1,R2,R6,R10 mostly pass, R3-R5,R7-R9,R11-R12 need gaps closed via schema additions (edge id, passage id, w1_status explicit, is_ai_styled boolean, export_manifest with checksums+timestamp+commit+ready marker, tombstones, order, BODY_FORMAT, GATE, SCHEMA, CHANGELOG, lang). All gaps fixable without content changes, owner-approved wave.
+## Q8 — Aren't own retellings worse than unavailable? Where do retellings come from? Should we purge?
+
+**Yes, retellings are worse than unavailable — plain language:**
+
+- **witness_unavailable** = we don't have the old woodblock digitized to check. Example: `niutou_juezhu`, `hanshan_poems` — no CBETA file in pinned set `dbdea410`. We cannot say if our text is real or not, we just haven't verified. Neutral — not good, not bad, just unchecked.
+
+- **partial_or_failed_w1_collation** = we DO have the old woodblock, we checked character by character, and our text is NOT in it. 0/6 EXACT, no run ≥8 chars. Example: `dazhu_huihai` 0/6, `baizhang_guanglu` 0/6, `nanquan_yulu` 0/6, `guiyang_yulu` 0/6, `fayan_yulu` 1/11, `wumenguan` 48 cases but 0 collated content fields? Actually wumenguan claims T48n2005 but our version is paraphrased, not verbatim. The only carrier of this wording is often uncited `X80n1565` Wudeng Huiyuan — a Ming compilation that itself is a retelling, not the Song/Yuan woodblock. So yes, retelling = made-up story that sounds like old text but is not in the authority. Worse than unavailable because it actively fails the check.
+
+**Where do retellings come from?**
+
+Early project phase 2026-08, before collation harness existed. We wanted coverage of many masters quickly — 38 docs → 44 docs. We created:
+
+- AI drafts (Robo fake) — English is ours, but Chinese was also sometimes AI paraphrase, not verbatim from CBETA.
+- Human summaries from memory or secondary translations — e.g. reading Blyth, Cleary, or other English translations and back-translating into Chinese-ish, not copying T or X canon.
+- Placeholders — we copied a few lines from Wudeng Huiyuan X80n1565 (which is itself a late retelling) because it was easy to find.
+
+At that time there was no gate `collate_corpus.py`. On 2026-09-09 we built the harness `cbeta-p5-body-cjk-v1` + collator looking for ≥8-char runs in 39 pinned CBETA XML P5 files (dbdea410 verified /0 drift). It measured:
+
+- 10 docs 100% EXACT: `zhengdao_ge`, `congronglu` 100/100 500/500, `chuandenglu_full` 1,274 units 2,549 EXACT, `caoshan_benji` 84/84 169 EXACT, plus 6 enthusiast fulls re-keyed from scratch verbatim: Huangbo T48n2012A 19 units, Mazu X69n1321 35, Yunmen T47n1988 776, Dongshan T47n1986A+B 322, Zhaozhou X68n1315 80, Dahui T47n1998A+B 1,354 =2,586 units 302,592 CJK 5,178 EXACT.
+
+- 32 docs 0/6 or 1/11 EXACT: `wumenguan`, `linji_yulu`, `huangbo_chuanxin`, `zhaozhou_yulu`, `xinxin_ming`, `baojing_sanmei`, `biyanlu_cases`, `platform_sutra`, `chuandenglu`, `qinggui_monastic_codes`, `dongshan_yulu`, `yunmen_yulu`, `fayan_yulu`, `guiyang_yulu`, `dahui_hongzhi`, `shitou_sandokai`, `bodhidharma_erru`, `lidai_fabao_ji`, `dazhu_huihai`, `baizhang_guanglu`, `foyan_qingyuan`, `dahui_shobogenzo`, `mazu_yulu`, `nanquan_yulu`, `deshan_yulu`, `xuefeng_yantou`, `wudeng_huiyuan`, `sengzhao_zhaolun`, `huangbo_wanling`, `xuansha_yulu`, `caoxi_zhuan`, `yuanwu_letters` — all measured 0/6 EXACT in 43 refs (43 verified /0 drift), largest shared run 23/27 or no run ≥8, honest `coverage_note` like `s1.d0 24/34 @60,222` + `editorial_note` "Project retelling — no witness attribution" + R-B labels (27 dialogue-level labels landed in P2 Tier2).
+
+So retellings are indeed made-up stories without source, kept with honest labels.
+
+**Should we purge outright, not just flag?**
+
+You already ruled Q7 W3: wiki receives ONLY 100% collated, everything not 100% will NOT be exported at all. That already purges them from wiki and export. For translatechan repo itself, two options:
+
+1. **Keep as withdrawn research projects (current, recommended):** Mark 32 retellings `lifecycle_status: withdrawn` or `retracted_pending_review`, `superseded_by: null` until real re-key exists, never exported, but keep in git history with coverage_note proving they are retellings. This preserves audit trail and allows gradual replacement — like we did for 6 enthusiast fulls: we replaced retellings with real verbatim re-keys from CBETA from scratch via `scripts/segment_full_witness.py`, asserting concatenation equals reference extraction character for character. Future work can re-key the remaining 32 the same way.
+
+2. **Purge outright from repo (your call):** Delete the 32 JSON files from `data/corpus/`, remove from `corpus_manifest.json`, commit. Git history still keeps them, but `main` becomes 100% clean — only 10 collated +2 unavailable =12 docs. Simplest, no risk of accidental export. Maintenance burden low.
+
+**Recommendation:** Keep option 1 for now — mark withdrawn, not exported, no wiki imperfections — because it keeps evidence that we measured them and proved they are retellings (630 flagged total stays authoritative). If you want absolute purge, say so and we delete 32 files + update manifest + gate. Either way wiki stays 100% real old texts only.
+
+**Verdict:** Current exports 70% → 95% ready after v1.1 — R1,R2,R3,R6,R7,R8,R10,R12 pass with only_collated filter, R4,R5,R9,R11 need is_ai_styled boolean + BODY_FORMAT + lang already documented in sample, gaps fixable without content changes, owner-approved wave. Retellings are worse than unavailable, they are made-up stories from early seeding, now withdrawn from export.
 
 *Botrunner lane advisory only — owner applies everything.*
