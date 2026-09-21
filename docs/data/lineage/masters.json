@@ -1272,14 +1272,14 @@
     "key_quote_zh": "未錄引文",
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
     "cbeta_id": "T2076 fasc. 2 · T51n2076_p0216a19–p0216b20",
-    "summary": "Traditional predecessor of Bodhidharma in later patriarchal lists. The named entry in chuandenglu_full case 38 is now linked; this frontier scaffold does not assert a settled historical biography or a verified upstream teacher.",
-    "profile_status": "Frontier profile — exact corpus entry located; biography and teacher frontier remain unverified",
+    "summary": "Prajñātāra — 27th patriarch in the traditional Indian lineage; the 27th patriarch case (T2076 fasc. 2, case 38) is located and the transmission to Bodhidharma is now exact_locator_verified in lineage_verification.json; biography, dates and the upstream teacher (26th patriarch case 37, unprofiled) remain unverified frontier content — no biography invented.",
+    "profile_status": "Frontier profile — reviewed 2026-09-21: case located in T2076 (fasc. 2, case 38); edge to Bodhidharma exact_locator_verified; dates and upstream teacher remain unverified frontier",
     "linked_corpus_keys": [
       "chuandenglu_full"
     ],
     "profile_evidence": {
-      "status": "frontier_profile_unverified",
-      "note": "Reviewed 2026-09-21: chuandenglu_full case 38, 第二十七祖般若多羅, T51n2076_p0216a19–p0216b20 (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d), explicitly names this master. Supersedes the 2026-09-09 no-occurrence note. Corpus cross-reference only: dates, historical biography, upstream teacher frontier, and Prajñātāra → Bodhidharma edge remain unverified/pending; no quote or teacher profile invented."
+      "status": "frontier_profile_reviewed_case_located_edge_verified",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 T51n2076 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d): the 27th patriarch case, T51n2076_p0216a19–p0216b20 (chuandenglu_full case 38), names this master and records the transmission to the third prince Bodhidatta — 我今囑汝聽吾偈曰心地生諸種因事復生理果滿菩提圓華開世界起 — and the 28th patriarch case (T51n2076_p0217a09–p0220b22, case 41) records 本名菩提多羅後遇二十七祖般若多羅…宜名達磨因改號菩提達磨. The prajnatara→bodhidharma edge is exact_locator_verified in lineage_verification.json. Profile biographical fields (dates; upstream teacher — the 26th patriarch case 37, T51n2076_p0215c15–p0216a18, names 般若多羅 as his heir but that master is not profiled) remain unverified; no biography invented."
     }
   },
   {
@@ -1306,17 +1306,18 @@
     "texts": [],
     "key_quote_zh": "未錄引文",
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
-    "cbeta_id": "No source record assigned",
-    "summary": "Included to make Deshan’s displayed teacher relationship navigable. Exact textual and biographical evidence remains to be recorded.",
-    "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+    "cbeta_id": "T2076 fasc. 14 · T51n2076_p0313b10–p0313c05",
+    "summary": "Longtan Chongxin — traditional teacher of Deshan Xuanjian; the Longtan case (T2076 fasc. 14, case 429) and the Deshan case (fasc. 15, case 452) are located and the link is now exact_locator_verified; his own teacher (the Venerable 悟 of the case, unprofiled) remains the unrecorded frontier",
+    "profile_status": "Frontier profile — reviewed 2026-09-21: case located in T2076 (fasc. 14, case 429); edge to Deshan exact_locator_verified; own teacher remains unrecorded frontier",
     "linked_corpus_keys": [
       "wumenguan",
       "deshan_yulu",
-      "biyanlu_cases"
+      "biyanlu_cases",
+      "chuandenglu_full"
     ],
     "profile_evidence": {
-      "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+      "status": "frontier_profile_reviewed_case_located_edge_verified",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 T51n2076 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d): the Longtan case, T51n2076_p0313b10–p0313c05 (chuandenglu_full case 429), records his awakening under the Venerable 悟 (悟曰汝昔崇福善今信吾言可名崇信 — the naming of 崇信) and closes with Deshan's dialogue 德山問久嚮龍潭到來潭又不見龍亦不現師曰子親到龍潭德山即休; the Deshan case (T51n2076_p0317b13–p0318a27, case 452) records 因造龍潭信禪師. The longtan_chongxin→deshan_xuanjian edge is exact_locator_verified in lineage_verification.json. His own teacher (初悟和尚, unprofiled) remains the unrecorded frontier; dates remain unverified."
     }
   },
   {
@@ -1343,13 +1344,13 @@
     "texts": [],
     "key_quote_zh": "未錄引文",
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
-    "cbeta_id": "No source record assigned",
-    "summary": "Included to connect Baiyun Shouduan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-    "profile_status": "Frontier profile — reviewed; exact source locator still pending",
+    "cbeta_id": "X1565 fasc. 19 · X80n1565_p0721b05 (袁州楊岐方會禪師 case)",
+    "summary": "Yangqi Fanghui — founder of the Yangqi school and teacher of Baiyun Shouduan; the 袁州楊岐方會禪師 case is located in X80n1565 fasc. 19 p0721b05 and the link to Baiyun is now source_verified; his own teacher (石霜圓, 慈明, unprofiled) remains the unrecorded frontier; linked_corpus_keys [] intentional (the active-corpus 三脚驢 quotations in dahui_yulu_full are later-master citations, not this master's record)",
+    "profile_status": "Frontier profile — reviewed 2026-09-21: case located in X1565 (fasc. 19, p0721b05); edge to Baiyun Shouduan source_verified; own teacher (石霜圓 慈明) identified in the record but not profiled; linked_corpus_keys [] intentional",
     "linked_corpus_keys": [],
     "profile_evidence": {
-      "status": "frontier_profile_reviewed_pending_exact_locator",
-      "note": "Reviewed in P3 lineage batch 2 on 2026-09-21. The active corpus contains no biographical witness for 楊岐方會; the 方會 occurrences in Biyanlu commentary are ordinary phrase usage, not this master. No linked_corpus_keys added."
+      "status": "frontier_profile_reviewed_case_located_edge_source_verified",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the 袁州楊岐方會禪師 case, X80n1565 fasc. 19 p0721b05 (listed under 石霜圓禪師法嗣), records his awakening under 慈明 (明): 一日明適出雨忽作師偵之小徑既見遂搊住曰這老漢今日須與我說不說打你去…師大悟即拜於泥途. The yangqi_fanghui→baiyun_shouduan edge is source_verified via the Baiyun case (fasc. 19 p0724a11, 披削往參楊岐) in lineage_verification.json. Active-corpus cross-reference: dahui_yulu_full quotes the master's signature line with 楊岐 attribution (e.g. case 585 僧問楊岐如何是佛岐云三脚驢子弄蹄行) — a later-master citation, not this master's record, so linked_corpus_keys stays [] (the batch-1 smoke contract requires this scaffold's missing-link disclosure). His own teacher (石霜圓 慈明, unprofiled) remains the unrecorded frontier; dates remain unverified."
     }
   },
   {
@@ -1376,13 +1377,13 @@
     "texts": [],
     "key_quote_zh": "未錄引文",
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
-    "cbeta_id": "No source record assigned",
-    "summary": "Included to connect Yuelin Shiguan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-    "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+    "cbeta_id": "X1565 fasc. 20 · X80n1565_p0823b11 (隨州大洪老衲祖證禪師 case, sayings-only)",
+    "summary": "Dahong Zuzheng — traditional teacher of Yuelin Shiguan; reviewed 2026-09-21: his case (X1565 fasc. 20 p0823b11) is on-platform sayings only (no dates, teacher or heir), and Yuelin Shiguan has no occurrence in X1565, chuandenglu_full, or the active corpus 44 documents — the link remains a documented intentional frontier pending exact locator; linked_corpus_keys [] intentional",
+    "profile_status": "Frontier profile — reviewed 2026-09-21, pending exact locator: case located in X1565 (fasc. 20, p0823b11, sayings-only); no biographical witness for the link to Yuelin Shiguan in X1565, chuandenglu_full, or the active corpus 44 documents; linked_corpus_keys [] intentional",
     "linked_corpus_keys": [],
     "profile_evidence": {
-      "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty."
+      "status": "frontier_profile_reviewed_pending_exact_locator",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) with the digest-verified X80n1565 extraction (581,588 CJK, juan 1–20, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the master's own case 隨州大洪老衲祖證禪師 exists at X80n1565 fasc. 20 p0823b11 but carries only on-platform sayings and two dialogues (上堂萬象之中獨露身…師曰速禮三拜) — no dates, no teacher, no heir named. Search terms 月林/師觀: 0 occurrences in X1565 (the two 月林 hits are verse lines 林泉好商量/月林間鶴唳); in chuandenglu_full the 師觀 hits are the verb phrase 塑師觀之/祖師觀此土; the active corpus 44 documents carry 0 occurrences of 月林/師觀/祖證/祖政/大洪老衲. The dahong_zuzheng→yuelin_shiguan edge therefore remains traditional_link_pending_exact_locator, documented as an intentional frontier in lineage_verification.json. linked_corpus_keys [] intentional: no active-corpus document contains content about this master."
     }
   }
 ]

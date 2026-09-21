@@ -13,7 +13,7 @@
       "source_id": "wudeng-huiyuan",
       "title": "五燈會元 / Wudeng Huiyuan (Compendium of Five Lamps)",
       "canonical_id": "X1565",
-      "reference": "Exact fascicle/entry locator pending per edge",
+      "reference": "X80n1565 五燈會元, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; digest-verified extraction 581,588 CJK (sha256 a3d20a107ff69495609d555f261d28af9c4de62952fde0b32ac630dbcfe56766, extraction rule cbeta-p5-body-cjk-v1; manifest and digest recorded in sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md); reviewed edge locators below (fasc. 19: 袁州楊岐方會禪師 p0721b05, 舒州白雲守端禪師 p0724a11, 蘄州五祖法演禪師 p0729a07; fasc. 20: 隨州大洪老衲祖證禪師 p0823b11, sayings-only case)",
       "source_type": "later lineage compilation"
     },
     {
@@ -266,40 +266,40 @@
       "disciple": "wuzu_fayan",
       "status": "source_verified",
       "source_id": "wudeng-huiyuan",
-      "reference": "X80n1565 fascicle 19, page-line pending (Wudeng Huiyuan) · Baiyun Shouduan → Wuzu Fayan traditional heir-list; T51n2076 does not contain Song masters beyond fasc 30",
-      "note": "Reviewed 2026-09-21: Song masters Baiyun Shouduan (1025-1072) and Wuzu Fayan (1024-1104) postdate Jingde Chuandenglu (1004). Their teacher-disciple link is carried in Wudeng Huiyuan X80n1565 fascicle 19 heir-list. Active corpus chuandenglu_full (T51n2076, 30 fascicles) ends before Song, so no T2076 lb anchor exists for this edge. Status source_verified (not exact_locator_verified) with X1565 reference. Frontier pending exact X1565 lb extraction via CBETA XML P5 X1565. This verifies the record's traditional transmission claim, not independent historical fact."
+      "reference": "X80n1565 fasc. 19, p0729a07 (蘄州五祖法演禪師 case, listed under the 白雲端禪師法嗣 heir section) + p0724a11 (舒州白雲守端禪師 case) · Wudeng Huiyuan, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK; sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md). Verbatim text (XML apparatus omitted; whitespace joined): 恐虗度子光陰可往依白雲此老雖後生吾未識面但見其頌臨濟三頓棒話有過人處必能了子大事師潸然禮辭至白雲 — Fayan's case records his being sent to Baiyun and arriving there — and 遂舉僧問南泉摩尼珠話請問雲叱之師領悟獻投機偈 — his certification and verse. He is listed under the 白雲端禪師法嗣 heir section. Supersedes the 2026-09-21 batch 2 page-line-pending locator."
     },
     {
       "teacher": "prajnatara",
       "disciple": "bodhidharma",
-      "status": "traditional_link_pending_exact_locator",
-      "source_id": "frontier-master-record",
-      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
-      "note": "Frontier: Indian patriarch Prajñātāra → Bodhidharma traditional lineage, no Chinese biographical witness in T2076. Prajñātāra linked via chuandenglu_full case 38 (T51n2076_p0216a19–p0216b20) as 27th patriarch, teacher link remains traditional_link_pending_exact_locator frontier, no exact locator in Chinese canon. Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+      "status": "exact_locator_verified",
+      "source_id": "jingde-chuandenglu",
+      "reference": "T51n2076_p0216a19–p0216b20 · fasc. 2 · 第二十七祖般若多羅 · chuandenglu_full case 38 + T51n2076_p0217a09–p0220b22 · fasc. 3 · 第二十八祖菩提達磨 · case 41",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 本名菩提多羅後遇二十七祖般若多羅至本國受王供養知師密迹因試令與二兄辨所施寶珠發明心要既而尊者謂曰汝於諸法已得通量夫達磨者通大之義也宜名達磨因改號菩提達磨 — the 28th patriarch's case records the meeting with the 27th patriarch Prajñātāra and the renaming of Bodhidatta to Bodhidharma; the 27th patriarch's case closes with the transmission 我今囑汝聽吾偈曰心地生諸種因事復生理果滿菩提圓華開世界起. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md."
     },
     {
       "teacher": "longtan_chongxin",
       "disciple": "deshan_xuanjian",
-      "status": "traditional_link_pending_exact_locator",
-      "source_id": "frontier-master-record",
-      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
-      "note": "Frontier: Longtan Chongxin → Deshan Xuanjian, Longtan linked via wumenguan/deshan_yulu/biyanlu_cases but no exact biographical locator in T2076 for teacher link, remains frontier. Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+      "status": "exact_locator_verified",
+      "source_id": "jingde-chuandenglu",
+      "reference": "T51n2076_p0317b13–p0318a27 · fasc. 15 · 朗州德山宣鑑禪師 · chuandenglu_full case 452 + T51n2076_p0313b10–p0313c05 · fasc. 14 · 澧州龍潭崇信禪師 · case 429",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 因造龍潭信禪師問答皆一語而已師即時辭去龍潭留之一夕於室外默坐龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅師乃禮拜龍曰見什麼曰從今向去不疑天下老和尚舌頭也 — Deshan's case records his going to Longtan Xin (Longtan Chongxin) and the lamp-candle encounter; the Longtan case itself closes with 德山問久嚮龍潭到來潭又不見龍亦不現師曰子親到龍潭德山即休. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md."
     },
     {
       "teacher": "yangqi_fanghui",
       "disciple": "baiyun_shouduan",
-      "status": "traditional_link_pending_exact_locator",
-      "source_id": "frontier-master-record",
-      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
-      "note": "Frontier: Yangqi Fanghui → Baiyun Shouduan, Yangqi reviewed 2026-09-21 batch2, active corpus has no biographical witness for 楊岐方會, 方會 hits in Biyanlu commentary are grammatical phrase, linked_corpus_keys [] intentional, remains frontier pending exact locator. Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+      "status": "source_verified",
+      "source_id": "wudeng-huiyuan",
+      "reference": "X80n1565 fasc. 19, p0724a11 (舒州白雲守端禪師 case, listed under the 楊歧會禪師法嗣 heir section) + p0721b05 (袁州楊岐方會禪師 case, listed under the 石霜圓禪師法嗣 section) · Wudeng Huiyuan, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK; sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md). Verbatim text (XML apparatus omitted; whitespace joined): 冠依茶陵郁禪師披削往參楊岐 — Baiyun's case records his going to Yangqi (Fanghui) — and 歧曰渠愛人笑汝怕人笑師大悟巾侍久之 — his awakening at 'he loves people's laughter, you fear people's laughter'. He is listed under the 楊歧會禪師法嗣 heir section; Yangqi Fanghui's own case (p0721b05) sits under 石霜圓禪師法嗣. Status source_verified: the X1565 heir-list plus case attests the link; the exact_locator_verified tier requires a T51n2076 lb range with source_id jingde-chuandenglu, and this Song-era pair postdates T2076's 1004 closing date, so no T2076 lb anchor exists for this edge. This verifies the record's traditional transmission claim, not independent historical fact."
     },
     {
       "teacher": "dahong_zuzheng",
       "disciple": "yuelin_shiguan",
       "status": "traditional_link_pending_exact_locator",
       "source_id": "frontier-master-record",
-      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
-      "note": "Frontier: Dahong Zuzheng → Yuelin Shiguan, Dahong no biographical witness in active corpus, linked_corpus_keys [] intentional, remains frontier. Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+      "reference": "Documented intentional frontier pending exact locator (reviewed 2026-09-21): no biographical witness located in the searched witnesses — X80n1565 (juan 1–20, 581,588 CJK, revision dbdea41071e1e260ad84b72faefd4587333cf76d), T51n2076 (chuandenglu_full, 1,274 units), and the active corpus (44 documents)",
+      "note": "Review 2026-09-21 (P3 frontier final): search terms 月林/師觀 have 0 occurrences in X80n1565 (the two 月林 hits are verse lines, 林泉好商量 and 月林間鶴唳); in chuandenglu_full the 師觀 hits are the verb phrase 塑師觀之/祖師觀此土, not a name; the active corpus 44 documents carry 0 occurrences of 月林/師觀/祖證/祖政/大洪老衲. The master's own case 隨州大洪老衲祖證禪師 exists at X80n1565 fasc. 20 p0823b11 but is on-platform sayings and two dialogues only — no dates, no teacher, no heir named — so it cannot attest the link to Yuelin Shiguan. The traditional relationship is retained as an explicit, documented frontier (profile evidence: data/lineage/masters.json dahong_zuzheng), not a silent pending. This records the search method, not a found witness."
     }
   ],
   "frontiers": [

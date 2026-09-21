@@ -853,6 +853,15 @@ ALLOWED_CHANGES = {
         # s1.d0/s1.d1: no run of 8 or more graphs in any of the 40 refs; s2.d0: X63n1224
         # 28/32; s2.d1: split 16/43 three ways). No `zh`/`pinyin`/translation field changes,
         # no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no `zh_chars` pointer.
+        # 2026-09-21 P2 retry (task 054, landed on main before this tree): the
+        # document-level and section-level `editorial_note` labels record that the
+        # retained sections are project retellings with no witness attribution
+        # (0/6 EXACT). Additive disclosure notes only — no `zh`/`pinyin`/translation
+        # field, no `title_zh`, no `cbeta_id`, no `zh_chars` pointer.
+        ".editorial_note",
+        ".sections[0].editorial_note",
+        ".sections[1].editorial_note",
+        ".sections[2].editorial_note",
         ".coverage_note",
         ".sections[0].dialogue[0].editorial_note",
         ".sections[0].dialogue[1].editorial_note",
@@ -984,6 +993,15 @@ ALLOWED_CHANGES = {
         # re-key is a separate RE-KEY work item, not landed here. No `zh`/`pinyin`/translation
         # field changes, no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no
         # `zh_chars` pointer.
+        # 2026-09-21 P2 retry (task 054, landed on main before this tree): the
+        # document-level and section-level `editorial_note` labels record that the
+        # retained sections are project retellings with no witness attribution
+        # (0/6 EXACT). Additive disclosure notes only — no `zh`/`pinyin`/translation
+        # field, no `title_zh`, no `cbeta_id`, no `zh_chars` pointer.
+        ".editorial_note",
+        ".sections[0].editorial_note",
+        ".sections[1].editorial_note",
+        ".sections[2].editorial_note",
         ".coverage_note",
         ".sections[0].dialogue[0].editorial_note",
         ".sections[0].dialogue[1].editorial_note",

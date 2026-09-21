@@ -1208,7 +1208,12 @@ try {
       failures++; console.log(`❌ 4ee: ${master} must disclose the missing corpus link`);
     }
   }
-  if (!lineageSummaryHtml.includes('10 exact locators') || !lineageSummaryHtml.includes('21 locator pending')) {
+  // Census pin (P3 frontier final 2026-09-21): 20 exact_locator_verified + 10
+  // source_verified + 1 documented intentional frontier
+  // (dahong_zuzheng → yuelin_shiguan, traditional_link_pending_exact_locator).
+  // Batch 1's pin was 10 exact / 21 pending; batches 2–3 and the frontier final
+  // moved the remaining T2076-attested edges to verified.
+  if (!lineageSummaryHtml.includes('20 exact locators') || !lineageSummaryHtml.includes('1 locator pending')) {
     failures++; console.log('❌ lineage exact/pending census drift');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }

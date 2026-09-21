@@ -55,8 +55,15 @@ def main():
     cases = {c['case_num']: c for c in load('data/corpus/chuandenglu_full.json')['cases']}
     edges = {(e['teacher'], e['disciple']): e for e in registry['edges']}
     assert len(evidence['edges']) == 10
-    assert sum(e['status'] == 'exact_locator_verified' for e in edges.values()) == 10
-    assert sum(e['status'] == 'traditional_link_pending_exact_locator' for e in edges.values()) == 21
+    # Census (P3 frontier final 2026-09-21): batch 1 was 10 exact / 21 pending;
+    # batches 2–3 verified 17 more edges and the frontier final moved
+    # prajnatara→bodhidharma and longtan_chongxin→deshan_xuanjian to
+    # exact_locator_verified and yangqi_fanghui→baiyun_shouduan to source_verified.
+    # dahong_zuzheng→yuelin_shiguan remains the single documented intentional
+    # frontier pending exact locator (see sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md).
+    assert sum(e['status'] == 'exact_locator_verified' for e in edges.values()) == 20
+    assert sum(e['status'] == 'source_verified' for e in edges.values()) == 10
+    assert sum(e['status'] == 'traditional_link_pending_exact_locator' for e in edges.values()) == 1
     lines = witness_lines(args.xml, evidence['sha256']) if args.xml else None
     for record in evidence['edges']:
         edge = edges[record['teacher'], record['disciple']]
@@ -89,7 +96,8 @@ def main():
         issues = Issues()
         validate_lineage_verification(masters, bad, issues)
         assert issues.errors, (field, value)
-    print('✅ LINEAGE BATCH 1: 10 exact edges, 21 pending, 4 frontiers; 33/35 profiles linked; 4 negative checks passed')
+    print('✅ LINEAGE BATCH 1: 20 exact edges, 10 source-verified, 1 documented frontier pending, '
+          '4 frontiers; 33/35 profiles linked; 4 negative checks passed (census per P3 frontier final)')
     print('✅ Pinned XML: digest, lb ranges and verbatim quotations replayed' if lines is not None else
           'XML replay not requested; offline corpus/registry/evidence checks passed')
 
