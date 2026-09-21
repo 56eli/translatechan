@@ -1,10 +1,13 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T15:27:31Z",
-  "commit": "a77d577662a168e4db437f781da4d7c16c642573",
+  "export_timestamp": "2026-09-21T16:40:02Z",
+  "commit": "a1c01e9cff58ac826881e2fc4051de40ce25f4e0",
   "only_collated": true,
   "w1_filter": "collated_to_claimed_witness",
-  "description": "TranslateChan export PURGED — retellings removed, 12 docs remain (10 collated +2 unavailable), 10 exported to wiki per Q7 W3. No imperfections.",
+  "description": "TranslateChan export re-issued after the 2026-09-21 Linji re-key (task P2.9) — retellings purged, 13 docs remain (11 collated + 2 witness_unavailable excerpts), 11 exported to wiki per Q7 W3. Every sha256/size below was recomputed from the content commit named above; export_manifest.json and export_ready.json are the release artifacts committed immediately after it, so the hashes verify against that tree. No in-repo script generates this file (documented in docs/CHANGELOG.md).",
+  "purged_retellings": 32,
+  "remaining_docs": 13,
+  "exported_to_wiki": 11,
   "files": [
     {
       "path": "data/corpus/caoshan_benji.json",
@@ -32,24 +35,19 @@
       "size": 241126
     },
     {
-      "path": "data/corpus/hanshan_poems.json",
-      "sha256": "db727a6a087ac327085aed9d6fa1e068ccac8ad65d080e2f69ea01f44b12979e",
-      "size": 6820
-    },
-    {
       "path": "data/corpus/huangbo_fayao_full.json",
       "sha256": "6ad312d41a73122e7e2310b901ebb4675ee04e8af0923a0dd7164187127cb673",
       "size": 32982
     },
     {
+      "path": "data/corpus/linji_yulu.json",
+      "sha256": "d1004987b6e9c886b58a6a6ea13a3f692c4037db424116d54cee7d15c70eb419",
+      "size": 116028
+    },
+    {
       "path": "data/corpus/mazu_guanglu_full.json",
       "sha256": "150222c07914a6b77d86a8204d76eb265c61a6cbe8ac65b7247dda975ccf3a4e",
       "size": 35131
-    },
-    {
-      "path": "data/corpus/niutou_juezhu.json",
-      "sha256": "2bc0db58324dc55f6b57ca9980ccb6de3482e33ad8ef0642526a3b23a039531a",
-      "size": 8274
     },
     {
       "path": "data/corpus/yunmen_guanglu_full.json",
@@ -68,8 +66,8 @@
     },
     {
       "path": "data/lineage/masters.json",
-      "sha256": "9805ea161bb52165caff0d652d82d5d8964834765b2aec559159316317deed34",
-      "size": 62811
+      "sha256": "baed69d040386f3ab9697b9f40a8f84c95a67f602e3e38e9668cdcb207d762f9",
+      "size": 63808
     },
     {
       "path": "data/lineage/lineage_verification.json",
@@ -78,18 +76,18 @@
     },
     {
       "path": "data/corpus_manifest.json",
-      "sha256": "31a2dd1d78d2d9df39d965001abd0b77d03cac2c326aef0877e80987a3dd69a5",
-      "size": 6218
+      "sha256": "aab7feb1a3b3863b0d5bc9083b169ccb814d8e5b4fd3d451465adc4d7ef1b0b6",
+      "size": 6963
     },
     {
       "path": "data/canonical_locators.json",
-      "sha256": "a0dde0d82bdfb14651e3698a35a176c4375a006c0f8148bb522f0f487cf03183",
-      "size": 3348006
+      "sha256": "d2ecd813c2b9599378412932f5421e4fd822edcfb3b7fb94ed15b8e6db52fbf0",
+      "size": 3458001
     },
     {
       "path": "docs/SCHEMA.md",
-      "sha256": "67f1745b4114b2af815ae2c80a5a75c76f126b599728392b9204a0326c61fd95",
-      "size": 9659
+      "sha256": "49f65391a9e6adbb66956d56137863f37c6fe73280ad31db47b433b5c54a047a",
+      "size": 9723
     },
     {
       "path": "docs/BODY_FORMAT.md",
@@ -103,21 +101,18 @@
     },
     {
       "path": "docs/CHANGELOG.md",
-      "sha256": "cd941e60a8a3bf3057c2469a961a48167b34099158c67410275a968613045e59",
-      "size": 4310
+      "sha256": "c4bc0704e459acd7b19c228842d3cbb1589bf0d19b5a82474a71d3214d16686b",
+      "size": 7359
     },
     {
       "path": "docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md",
-      "sha256": "4487182e4936695a5746bb209de634ce6e428f1534c73b588a1a58087b9c2135",
+      "sha256": "b97ae130840253acab0965ffde28c17153769f51773e0e6b2b1128688a27fabb",
       "size": 25568
     },
     {
       "path": "docs/sample_export.jsonl",
-      "sha256": "360648b43a6c85dc8042aa019a3fddd436d23f36e05f5d0db888a34aa203c23a",
-      "size": 16258
+      "sha256": "6123cc27b35d032319bc32b9304844feb6c3d5742feb016110d9f29b139f740a",
+      "size": 20055
     }
-  ],
-  "purged_retellings": 32,
-  "remaining_docs": 12,
-  "exported_to_wiki": 10
+  ]
 }
