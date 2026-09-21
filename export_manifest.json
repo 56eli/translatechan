@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T16:40:02Z",
-  "commit": "a1c01e9cff58ac826881e2fc4051de40ce25f4e0",
+  "export_timestamp": "2026-09-21T17:10:45Z",
+  "commit": "3d5a5f627e758cdb3b34ac51e677008558741321",
   "only_collated": true,
   "w1_filter": "collated_to_claimed_witness",
   "description": "TranslateChan export re-issued after the 2026-09-21 Linji re-key (task P2.9) — retellings purged, 13 docs remain (11 collated + 2 witness_unavailable excerpts), 11 exported to wiki per Q7 W3. Every sha256/size below was recomputed from the content commit named above; export_manifest.json and export_ready.json are the release artifacts committed immediately after it, so the hashes verify against that tree. No in-repo script generates this file (documented in docs/CHANGELOG.md).",
@@ -86,8 +86,8 @@
     },
     {
       "path": "docs/SCHEMA.md",
-      "sha256": "49f65391a9e6adbb66956d56137863f37c6fe73280ad31db47b433b5c54a047a",
-      "size": 9723
+      "sha256": "a1e0edc263da3e1ac74141ed856b345e0607a22578459d1a6f06cb27a0fbc2d6",
+      "size": 11210
     },
     {
       "path": "docs/BODY_FORMAT.md",
@@ -96,13 +96,13 @@
     },
     {
       "path": "docs/GATE.md",
-      "sha256": "5d424efe01ca63ff30a4d80fcad2cc49ab7bd1c3468eda06e5b00280ad0a869a",
-      "size": 3286
+      "sha256": "d3114ebf04225adb8c88b6b01517c5d64c9332a5abc4a3ee5351cb2e20277cc7",
+      "size": 6908
     },
     {
       "path": "docs/CHANGELOG.md",
-      "sha256": "c4bc0704e459acd7b19c228842d3cbb1589bf0d19b5a82474a71d3214d16686b",
-      "size": 7359
+      "sha256": "ef9c75555d3f75e6948a384714cef757a19447e893ff6ad857a51589c7d8a369",
+      "size": 8357
     },
     {
       "path": "docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md",
