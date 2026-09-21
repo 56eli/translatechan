@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "export_timestamp": "2026-09-21T16:45:26Z",
-  "commit": "2f40065585ff2037c11818eda8bfd5c702bafa34",
+  "commit": "4ff62a77dff71063e38164ef537396e1cc776e1b",
   "only_collated": true,
   "w1_filter": "collated_to_claimed_witness",
   "description": "TranslateChan export PURGED — retellings removed, 12 docs remain (10 collated +2 unavailable), 10 exported to wiki per Q7 W3. No imperfections.",
