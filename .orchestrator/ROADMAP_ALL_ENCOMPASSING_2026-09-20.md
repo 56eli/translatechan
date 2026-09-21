@@ -1,5 +1,8 @@
 # All-Encompassing Chan Scope Roadmap — Ideal Vision — 2026-09-20
 
+> **OPEN-ENDED DRAFT NOTICE — 2026-09-21 addendum:** This 102-master / 134-work / 129-English-reference inventory is a **snapshot as of 2026-09-20, NOT an exhaustive closed list**. The target ceiling **150–200 masters** is a current estimate for Chan 600–1400 named figures, but **more material is in circulation** — additional Tang/Song masters, Song genealogists, frontier Dunhuang witnesses, variant recensions, and English translations exist beyond this draft. The 55-entry `aliases.json` and 129-entry `english_references.json` are `draft_seed` registries (16 ISBNs verified on fetched pages, 89 `needs_lookup`, 24 `none` including the finding that no complete English Mazu yulu exists) — **agents must NOT assume 102/134/129 is final**. Continue live web search, CBETA/CBETA supplement checks, and publisher catalog scans for additional masters, works, and English books. This document is the map of *what "everything" would have to mean*, not a closure claim.
+
+
 **Kind:** ideal-vision roadmap document. It lands on `main` as a complete drafting of the all-encompassing
 Chan scope (600–1400). **It does not have to be followed yet** — it is a target map, not a work order.
 No corpus ingestion is performed here; nothing in this document changes a byte under `data/corpus/`.
@@ -280,7 +283,7 @@ record should carry a `role: master | compiler | both` field).
   (§2.1 note); Dazhu Huihai's exact dates (trad. 720–804 — not re-verified this session, the
   existing profile stands); Fayan Wenyi's dates (trad. 847–955 — same).
 
-**Session tally: 35 profiled + 25 Tang + 23 Song + 13 genealogists + 6 frontier = 102 masters
+**Session tally (SNAPSHOT, NOT EXHAUSTIVE): 35 profiled + 25 Tang + 23 Song + 13 genealogists + 6 frontier = 102 masters (target 150–200, more in circulation)
 inventoried with sources; the path to 150–200 is the Guzunsu yulu + denglu tail above.**
 
 ---
@@ -471,7 +474,7 @@ authoritative).
 
 What this session verified from fetched pages: the corpus-relevant T47 ids 1983/1985/1986(b)/1987(A/B)/1988/1989/1990/1991/1992/1993/1996/1997/1998(A/B) and T48 ids 2001/2003/2006 [18](https://www.academia.edu/41075850/Poetics_of_Silence_Hongzhi_Zhengjue_1091-1157_and_the_Practice_of_Poetry_in_Song_Dynasty_Chan_Yulu)[19](https://kramerius.lib.cas.cz/search/nimg/IMG_FULL/uuid:c377ee68-d1c4-4d5c-94e0-2f5dc2ae9568); T51n2076 for Jingde [1](https://terebess.hu/zen/textindex.html); the X68 family (n1307, n1309, n1315, n1316, n1319) [1](https://terebess.hu/zen/textindex.html)[19](https://kramerius.lib.cas.cz/search/nimg/IMG_FULL/uuid:c377ee68-d1c4-4d5c-94e0-2f5dc2ae9568); the X-series yulu scatter (X1223, X1224, X1303, X1315, X1321, X1323, X1333, X1357, X1445, X1451, X1556–X1565, X1598, X62/X70/X71/X72) from MASTER_REFERENCE + fetched scholarship. The *full* T47/T48/T51/X inventories (hundreds of entries) are the job of a dedicated CBETA crawl (§5 step 1), not a hand list.
 
-**Session tally: 10 (Tier 1) + 7 (Tier 1 missing) + 13 (Tier 2) + 19 (denglu) + 20 (gong'an) + 27 (yulu) + 18 (treatises) + 7 (codes) + 8 (histories) = 134 works inventoried, of which 38 are already in the corpus.**
+**Session tally (SNAPSHOT, NOT EXHAUSTIVE): 10 (Tier 1) + 7 (Tier 1 missing) + 13 (Tier 2) + 19 (denglu) + 20 (gong'an) + 27 (yulu) + 18 (treatises) + 7 (codes) + 8 (histories) = 134 works inventoried, of which 38 are already in the corpus — more yulu/denglu/qinggui variants exist in circulation.**
 
 ---
 

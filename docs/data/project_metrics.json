@@ -1590,7 +1590,8 @@
     "source_records": 7,
     "statuses": {
       "exact_locator_verified": 10,
-      "traditional_link_pending_exact_locator": 21
+      "source_verified": 8,
+      "traditional_link_pending_exact_locator": 13
     }
   },
   "manifest_integrity": {

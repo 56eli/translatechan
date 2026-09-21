@@ -2,62 +2,776 @@
   "_note": "DRAFT popular-name registry for task 049 (all-encompassing roadmap, 2026-09-20). Schema per .orchestrator/ROADMAP_ALL_ENCOMPASSING_2026-09-20.md §1. Not yet a bundle member; promote with owner ratification. Masters mirror data/lineage/masters.json (35 entries, verified against the file 2026-09-21). Every popular_name must map to exactly one canonical id (function invariant).",
   "_status": "draft_seed",
   "masters": [
-    {"id": "bodhidharma", "name_zh": "菩提達摩", "name_en_popular": "Bodhidharma", "name_en_formal": "Bodhidharma", "aliases": ["Damo", "菩提達磨", "Bodhidharma / Damo"], "works": ["bodhidharma_erru"]},
-    {"id": "prajnatara", "name_zh": "般若多羅", "name_en_popular": "Prajñātāra", "name_en_formal": "Prajñātāra", "aliases": ["Prajna Tara", "般若多罗"], "works": []},
-    {"id": "huike", "name_zh": "二祖慧可", "name_en_popular": "Dazu Huike", "name_en_formal": "Dazu Huike (Eka)", "aliases": ["Huike", "神光", "Shénguāng", "Second Patriarch", "大祖慧可"], "works": []},
-    {"id": "sengcan", "name_zh": "三祖僧璨", "name_en_popular": "Sengcan", "name_en_formal": "Jianzhi Sengcan", "aliases": ["Third Patriarch", "鑒智僧璨", "Sanzu"], "works": ["xinxin_ming"]},
-    {"id": "daoxin", "name_zh": "四祖道信", "name_en_popular": "Daoxin", "name_en_formal": "Dayi Daoxin", "aliases": ["Fourth Patriarch", "大醫道信", "Sizu"], "works": []},
-    {"id": "hongren", "name_zh": "五祖弘忍", "name_en_popular": "Hongren", "name_en_formal": "Daman Hongren", "aliases": ["Fifth Patriarch", "大滿弘忍", "Wuzu"], "works": []},
-    {"id": "huineng", "name_zh": "六祖慧能", "name_en_popular": "Huineng", "name_en_formal": "Dajian Huineng", "aliases": ["Hui-neng", "Sixth Patriarch", "Liuzu", "The Sixth Patriarch"], "works": ["platform_sutra"]},
-    {"id": "nanyue_huairang", "name_zh": "南嶽懷讓", "name_en_popular": "Nanyue", "name_en_formal": "Nanyue Huairang", "aliases": ["Nanyue (South Peak)", "南岳懷讓", "Nan-yue Hui-rang"], "works": []},
-    {"id": "qingyuan_xingsi", "name_zh": "青原行思", "name_en_popular": "Qingyuan", "name_en_formal": "Qingyuan Xingsi", "aliases": ["Qingyuan (青原)", "青原行思", "Great Master Qingyuan"], "works": []},
-    {"id": "mazu_daoyi", "name_zh": "馬祖道一", "name_en_popular": "Mazu", "name_en_formal": "Mazu Daoyi", "aliases": ["Ma-tsu Tao-i", "Baso Dōitsu", "Ma Zu", "Ma-tsu", "Baso"], "works": ["mazu_yulu"]},
-    {"id": "shitou_xiqian", "name_zh": "石頭希遷", "name_en_popular": "Shitou", "name_en_formal": "Shitou Xiqian", "aliases": ["Shitou (石頭)", "Shitou the Stone Head", "Seki-tō Kisen", "Stone Head"], "works": ["shitou_sandokai"]},
-    {"id": "baizhang_huaihai", "name_zh": "百丈懷海", "name_en_popular": "Baizhang", "name_en_formal": "Baizhang Huaihai", "aliases": ["Great Master Baizhang", "Hyakujo Ekai", "百丈懷海禪師", "Baizhang the Great"], "works": ["baizhang_guanglu"]},
-    {"id": "yaoshan_weiyan", "name_zh": "藥山惟儼", "name_en_popular": "Yaoshan", "name_en_formal": "Yaoshan Weiyan", "aliases": ["Yakusan Igen", "藥山惟儼", "Great Master Yaoshan"], "works": []},
-    {"id": "nanquan_puyuan", "name_zh": "南泉普願", "name_en_popular": "Nanquan", "name_en_formal": "Nanquan Puyuan", "aliases": ["池州南泉", "Chizhou Nanquan", "Nanquan (南泉)", "Nansen Fugan"], "works": ["nanquan_yulu"]},
-    {"id": "huangbo_xiyun", "name_zh": "黃檗希運", "name_en_popular": "Huangbo", "name_en_formal": "Huangbo Xiyun", "aliases": ["Huang-po Hsi-yün", "Ōbaku Kiun", "Master Huangbo", "Huangpo Xiyun", "Huang Po"], "works": ["huangbo_chuanxin", "huangbo_wanling"]},
-    {"id": "linji_yixuan", "name_zh": "臨濟義玄", "name_en_popular": "Linji", "name_en_formal": "Linji Yixuan", "aliases": ["Lin-chi I-hsüan", "Rinzai Gigen", "Lin Ji", "Rinzai", "The Zen Master of Linji"], "works": ["linji_yulu"]},
-    {"id": "zhaozhou_congshen", "name_zh": "趙州從諗", "name_en_popular": "Zhaozhou", "name_en_formal": "Zhaozhou Congshen", "aliases": ["Joshu", "Joshu Jushin", "Jōshū Jūshin", "Chao-chou Ts'ung-shen", "Joshu the Zen Master", "Zhaozhou Zhenji"], "works": ["zhaozhou_yulu"]},
-    {"id": "deshan_xuanjian", "name_zh": "德山宣鑑", "name_en_popular": "Deshan", "name_en_formal": "Deshan Xuanjian", "aliases": ["Sima Xuanjian", "司馬宣鑑", "Tokusan Senkan", "德山宣鑒", "Deshan the Fierce"], "works": ["deshan_yulu"]},
-    {"id": "xuefeng_yicun", "name_zh": "雪峰義存", "name_en_popular": "Xuefeng", "name_en_formal": "Xuefeng Yicun", "aliases": ["Seppō Gison", "雪峰禪師", "Snow Peak", "Xue Feng"], "works": ["xuefeng_yantou"]},
-    {"id": "longtan_chongxin", "name_zh": "龍潭崇信", "name_en_popular": "Longtan", "name_en_formal": "Longtan Chongxin", "aliases": ["Lung-tan Ch'ung-hsin", "龍潭崇信禪師", "Dragon Pool"], "works": []},
-    {"id": "yunyan_tansheng", "name_zh": "雲巖曇晟", "name_en_popular": "Yunyan", "name_en_formal": "Yunyan Tansheng", "aliases": ["Ungan Donjō", "雲巖禪師", "Cloud Cliff"], "works": []},
-    {"id": "dongshan_liangjie", "name_zh": "洞山良价", "name_en_popular": "Dongshan", "name_en_formal": "Dongshan Liangjie", "aliases": ["Tung-shan Liang-chieh", "Tōzan Ryōkai", "Cave Mountain", "Dong Shan"], "works": ["dongshan_yulu", "baojing_sanmei"]},
-    {"id": "caoshan_benji", "name_zh": "曹山本寂", "name_en_popular": "Caoshan", "name_en_formal": "Caoshan Benji", "aliases": ["元證禪師", "撫州曹山本寂禪師", "Sōzan Honjaku", "Ts'ao-shan Pen-chi", "Mound Mountain"], "works": ["caoshan_benji"]},
-    {"id": "yunmen_wenyan", "name_zh": "雲門文偃", "name_en_popular": "Yunmen", "name_en_formal": "Yunmen Wenyan", "aliases": ["Yün-men Wen-yen", "Ummon Bun'en", "雲門匡真", "Master Yunmen", "Gate of the Clouds"], "works": ["yunmen_yulu"]},
-    {"id": "guishan_lingyou", "name_zh": "溈山靈祐", "name_en_popular": "Guishan", "name_en_formal": "Guishan Lingyou", "aliases": ["Isan Reiyū", "Great Master Guishan", "溈山禪師", "Guiyang Lingyou"], "works": ["guiyang_yulu"]},
-    {"id": "fayan_wenyi", "name_zh": "法眼文益", "name_en_popular": "Fayan", "name_en_formal": "Fayan Wenyi", "aliases": ["Hōgen Bun'eki", "Great Master Fayan", "法眼", "Dharma Eye"], "works": ["fayan_yulu"]},
-    {"id": "xuansha_shibei", "name_zh": "玄沙師備", "name_en_popular": "Xuansha", "name_en_formal": "Xuansha Shibei", "aliases": ["Gensha Shibi", "玄沙禪師", "Xuan Sha"], "works": ["xuansha_yulu"]},
-    {"id": "luohan_guichen", "name_zh": "羅漢桂琛", "name_en_popular": "Luohan", "name_en_formal": "Luohan Guichen", "aliases": ["Rakan Keichin", "羅漢禪師", "Arhat"], "works": []},
-    {"id": "yangqi_fanghui", "name_zh": "楊岐方會", "name_en_popular": "Yangqi", "name_en_formal": "Yangqi Fanghui", "aliases": ["Yang-ch'i Fang-hui", "Yōki Hōe", "楊岐方会", "Yang Chi"], "works": []},
-    {"id": "baiyun_shouduan", "name_zh": "白雲守端", "name_en_popular": "Baiyun", "name_en_formal": "Baiyun Shouduan", "aliases": ["Hakuun Shutan", "白雲守端禪師", "White Cloud"], "works": []},
-    {"id": "wuzu_fayan", "name_zh": "五祖法演", "name_en_popular": "Wuzu Fayan", "name_en_formal": "Wuzu Fayan (Goso Hōen)", "aliases": ["Goso Hōen", "五祖法演", "Fifth Patriarch of the Linji-Yangqi line", "Fayan Wuzu"], "works": []},
-    {"id": "yuanwu_keqin", "name_zh": "圓悟克勤", "name_en_popular": "Yuanwu", "name_en_formal": "Yuanwu Keqin", "aliases": ["Yüan-wu K'o-ch'in", "Engo Kokugon", "圓悟佛果", "Yuanwu Foguo", "Yuanwu K'uei-chin"], "works": ["yuanwu_letters", "biyanlu_cases"]},
-    {"id": "wumen_huikai", "name_zh": "無門慧開", "name_en_popular": "Wumen", "name_en_formal": "Wumen Huikai", "aliases": ["Wu-men Hui-k'ai", "Mumon Ekai", "無門慧開禪師", "The Gateless Monk"], "works": ["wumenguan"]},
-    {"id": "yuelin_shiguan", "name_zh": "月林師觀", "name_en_popular": "Yuelin", "name_en_formal": "Yuelin Shiguan", "aliases": ["Getsurin Shikan", "月林禪師", "Moon Grove"], "works": []},
-    {"id": "dahong_zuzheng", "name_zh": "大洪老衲祖證", "name_en_popular": "Dahong Zuzheng", "name_en_formal": "Dahong Laoniu Zuzheng", "aliases": ["大洪祖證", "大洪老衲", "The Old Recluse of Dahong"], "works": []}
+    {
+      "id": "bodhidharma",
+      "name_zh": "菩提達摩",
+      "name_en_popular": "Bodhidharma",
+      "name_en_formal": "Bodhidharma",
+      "aliases": [
+        "Damo",
+        "菩提達磨",
+        "Bodhidharma / Damo"
+      ],
+      "works": [
+        "bodhidharma_erru"
+      ]
+    },
+    {
+      "id": "prajnatara",
+      "name_zh": "般若多羅",
+      "name_en_popular": "Prajñātāra",
+      "name_en_formal": "Prajñātāra",
+      "aliases": [
+        "Prajna Tara",
+        "般若多罗"
+      ],
+      "works": []
+    },
+    {
+      "id": "huike",
+      "name_zh": "二祖慧可",
+      "name_en_popular": "Dazu Huike",
+      "name_en_formal": "Dazu Huike (Eka)",
+      "aliases": [
+        "Huike",
+        "神光",
+        "Shénguāng",
+        "Second Patriarch",
+        "大祖慧可"
+      ],
+      "works": []
+    },
+    {
+      "id": "sengcan",
+      "name_zh": "三祖僧璨",
+      "name_en_popular": "Sengcan",
+      "name_en_formal": "Jianzhi Sengcan",
+      "aliases": [
+        "Third Patriarch",
+        "鑒智僧璨",
+        "Sanzu"
+      ],
+      "works": [
+        "xinxin_ming"
+      ]
+    },
+    {
+      "id": "daoxin",
+      "name_zh": "四祖道信",
+      "name_en_popular": "Daoxin",
+      "name_en_formal": "Dayi Daoxin",
+      "aliases": [
+        "Fourth Patriarch",
+        "大醫道信",
+        "Sizu"
+      ],
+      "works": []
+    },
+    {
+      "id": "hongren",
+      "name_zh": "五祖弘忍",
+      "name_en_popular": "Hongren",
+      "name_en_formal": "Daman Hongren",
+      "aliases": [
+        "Fifth Patriarch",
+        "大滿弘忍",
+        "Wuzu"
+      ],
+      "works": []
+    },
+    {
+      "id": "huineng",
+      "name_zh": "六祖慧能",
+      "name_en_popular": "Huineng",
+      "name_en_formal": "Dajian Huineng",
+      "aliases": [
+        "Hui-neng",
+        "Sixth Patriarch",
+        "Liuzu",
+        "The Sixth Patriarch"
+      ],
+      "works": [
+        "platform_sutra"
+      ]
+    },
+    {
+      "id": "nanyue_huairang",
+      "name_zh": "南嶽懷讓",
+      "name_en_popular": "Nanyue",
+      "name_en_formal": "Nanyue Huairang",
+      "aliases": [
+        "Nanyue (South Peak)",
+        "南岳懷讓",
+        "Nan-yue Hui-rang"
+      ],
+      "works": []
+    },
+    {
+      "id": "qingyuan_xingsi",
+      "name_zh": "青原行思",
+      "name_en_popular": "Qingyuan",
+      "name_en_formal": "Qingyuan Xingsi",
+      "aliases": [
+        "Qingyuan (青原)",
+        "青原行思",
+        "Great Master Qingyuan"
+      ],
+      "works": []
+    },
+    {
+      "id": "mazu_daoyi",
+      "name_zh": "馬祖道一",
+      "name_en_popular": "Mazu",
+      "name_en_formal": "Mazu Daoyi",
+      "aliases": [
+        "Ma-tsu Tao-i",
+        "Baso Dōitsu",
+        "Ma Zu",
+        "Ma-tsu",
+        "Baso"
+      ],
+      "works": [
+        "mazu_yulu"
+      ]
+    },
+    {
+      "id": "shitou_xiqian",
+      "name_zh": "石頭希遷",
+      "name_en_popular": "Shitou",
+      "name_en_formal": "Shitou Xiqian",
+      "aliases": [
+        "Shitou (石頭)",
+        "Shitou the Stone Head",
+        "Seki-tō Kisen",
+        "Stone Head"
+      ],
+      "works": [
+        "shitou_sandokai"
+      ]
+    },
+    {
+      "id": "baizhang_huaihai",
+      "name_zh": "百丈懷海",
+      "name_en_popular": "Baizhang",
+      "name_en_formal": "Baizhang Huaihai",
+      "aliases": [
+        "Great Master Baizhang",
+        "Hyakujo Ekai",
+        "百丈懷海禪師",
+        "Baizhang the Great"
+      ],
+      "works": [
+        "baizhang_guanglu"
+      ]
+    },
+    {
+      "id": "yaoshan_weiyan",
+      "name_zh": "藥山惟儼",
+      "name_en_popular": "Yaoshan",
+      "name_en_formal": "Yaoshan Weiyan",
+      "aliases": [
+        "Yakusan Igen",
+        "藥山惟儼",
+        "Great Master Yaoshan"
+      ],
+      "works": []
+    },
+    {
+      "id": "nanquan_puyuan",
+      "name_zh": "南泉普願",
+      "name_en_popular": "Nanquan",
+      "name_en_formal": "Nanquan Puyuan",
+      "aliases": [
+        "池州南泉",
+        "Chizhou Nanquan",
+        "Nanquan (南泉)",
+        "Nansen Fugan"
+      ],
+      "works": [
+        "nanquan_yulu"
+      ]
+    },
+    {
+      "id": "huangbo_xiyun",
+      "name_zh": "黃檗希運",
+      "name_en_popular": "Huangbo",
+      "name_en_formal": "Huangbo Xiyun",
+      "aliases": [
+        "Huang-po Hsi-yün",
+        "Ōbaku Kiun",
+        "Master Huangbo",
+        "Huangpo Xiyun",
+        "Huang Po"
+      ],
+      "works": [
+        "huangbo_chuanxin",
+        "huangbo_wanling"
+      ]
+    },
+    {
+      "id": "linji_yixuan",
+      "name_zh": "臨濟義玄",
+      "name_en_popular": "Linji",
+      "name_en_formal": "Linji Yixuan",
+      "aliases": [
+        "Lin-chi I-hsüan",
+        "Rinzai Gigen",
+        "Lin Ji",
+        "Rinzai",
+        "The Zen Master of Linji"
+      ],
+      "works": [
+        "linji_yulu"
+      ]
+    },
+    {
+      "id": "zhaozhou_congshen",
+      "name_zh": "趙州從諗",
+      "name_en_popular": "Zhaozhou",
+      "name_en_formal": "Zhaozhou Congshen",
+      "aliases": [
+        "Joshu",
+        "Joshu Jushin",
+        "Jōshū Jūshin",
+        "Chao-chou Ts'ung-shen",
+        "Joshu the Zen Master",
+        "Zhaozhou Zhenji"
+      ],
+      "works": [
+        "zhaozhou_yulu"
+      ]
+    },
+    {
+      "id": "deshan_xuanjian",
+      "name_zh": "德山宣鑑",
+      "name_en_popular": "Deshan",
+      "name_en_formal": "Deshan Xuanjian",
+      "aliases": [
+        "Sima Xuanjian",
+        "司馬宣鑑",
+        "Tokusan Senkan",
+        "德山宣鑒",
+        "Deshan the Fierce"
+      ],
+      "works": [
+        "deshan_yulu"
+      ]
+    },
+    {
+      "id": "xuefeng_yicun",
+      "name_zh": "雪峰義存",
+      "name_en_popular": "Xuefeng",
+      "name_en_formal": "Xuefeng Yicun",
+      "aliases": [
+        "Seppō Gison",
+        "雪峰禪師",
+        "Snow Peak",
+        "Xue Feng"
+      ],
+      "works": [
+        "xuefeng_yantou"
+      ]
+    },
+    {
+      "id": "longtan_chongxin",
+      "name_zh": "龍潭崇信",
+      "name_en_popular": "Longtan",
+      "name_en_formal": "Longtan Chongxin",
+      "aliases": [
+        "Lung-tan Ch'ung-hsin",
+        "龍潭崇信禪師",
+        "Dragon Pool"
+      ],
+      "works": []
+    },
+    {
+      "id": "yunyan_tansheng",
+      "name_zh": "雲巖曇晟",
+      "name_en_popular": "Yunyan",
+      "name_en_formal": "Yunyan Tansheng",
+      "aliases": [
+        "Ungan Donjō",
+        "雲巖禪師",
+        "Cloud Cliff"
+      ],
+      "works": []
+    },
+    {
+      "id": "dongshan_liangjie",
+      "name_zh": "洞山良价",
+      "name_en_popular": "Dongshan",
+      "name_en_formal": "Dongshan Liangjie",
+      "aliases": [
+        "Tung-shan Liang-chieh",
+        "Tōzan Ryōkai",
+        "Cave Mountain",
+        "Dong Shan"
+      ],
+      "works": [
+        "dongshan_yulu",
+        "baojing_sanmei"
+      ]
+    },
+    {
+      "id": "caoshan_benji",
+      "name_zh": "曹山本寂",
+      "name_en_popular": "Caoshan",
+      "name_en_formal": "Caoshan Benji",
+      "aliases": [
+        "元證禪師",
+        "撫州曹山本寂禪師",
+        "Sōzan Honjaku",
+        "Ts'ao-shan Pen-chi",
+        "Mound Mountain"
+      ],
+      "works": [
+        "caoshan_benji"
+      ]
+    },
+    {
+      "id": "yunmen_wenyan",
+      "name_zh": "雲門文偃",
+      "name_en_popular": "Yunmen",
+      "name_en_formal": "Yunmen Wenyan",
+      "aliases": [
+        "Yün-men Wen-yen",
+        "Ummon Bun'en",
+        "雲門匡真",
+        "Master Yunmen",
+        "Gate of the Clouds"
+      ],
+      "works": [
+        "yunmen_yulu"
+      ]
+    },
+    {
+      "id": "guishan_lingyou",
+      "name_zh": "溈山靈祐",
+      "name_en_popular": "Guishan",
+      "name_en_formal": "Guishan Lingyou",
+      "aliases": [
+        "Isan Reiyū",
+        "Great Master Guishan",
+        "溈山禪師",
+        "Guiyang Lingyou"
+      ],
+      "works": [
+        "guiyang_yulu"
+      ]
+    },
+    {
+      "id": "fayan_wenyi",
+      "name_zh": "法眼文益",
+      "name_en_popular": "Fayan",
+      "name_en_formal": "Fayan Wenyi",
+      "aliases": [
+        "Hōgen Bun'eki",
+        "Great Master Fayan",
+        "法眼",
+        "Dharma Eye"
+      ],
+      "works": [
+        "fayan_yulu"
+      ]
+    },
+    {
+      "id": "xuansha_shibei",
+      "name_zh": "玄沙師備",
+      "name_en_popular": "Xuansha",
+      "name_en_formal": "Xuansha Shibei",
+      "aliases": [
+        "Gensha Shibi",
+        "玄沙禪師",
+        "Xuan Sha"
+      ],
+      "works": [
+        "xuansha_yulu"
+      ]
+    },
+    {
+      "id": "luohan_guichen",
+      "name_zh": "羅漢桂琛",
+      "name_en_popular": "Luohan",
+      "name_en_formal": "Luohan Guichen",
+      "aliases": [
+        "Rakan Keichin",
+        "羅漢禪師",
+        "Arhat"
+      ],
+      "works": []
+    },
+    {
+      "id": "yangqi_fanghui",
+      "name_zh": "楊岐方會",
+      "name_en_popular": "Yangqi",
+      "name_en_formal": "Yangqi Fanghui",
+      "aliases": [
+        "Yang-ch'i Fang-hui",
+        "Yōki Hōe",
+        "楊岐方会",
+        "Yang Chi"
+      ],
+      "works": []
+    },
+    {
+      "id": "baiyun_shouduan",
+      "name_zh": "白雲守端",
+      "name_en_popular": "Baiyun",
+      "name_en_formal": "Baiyun Shouduan",
+      "aliases": [
+        "Hakuun Shutan",
+        "白雲守端禪師",
+        "White Cloud"
+      ],
+      "works": []
+    },
+    {
+      "id": "wuzu_fayan",
+      "name_zh": "五祖法演",
+      "name_en_popular": "Wuzu Fayan",
+      "name_en_formal": "Wuzu Fayan (Goso Hōen)",
+      "aliases": [
+        "Goso Hōen",
+        "五祖法演",
+        "Fifth Patriarch of the Linji-Yangqi line",
+        "Fayan Wuzu"
+      ],
+      "works": []
+    },
+    {
+      "id": "yuanwu_keqin",
+      "name_zh": "圓悟克勤",
+      "name_en_popular": "Yuanwu",
+      "name_en_formal": "Yuanwu Keqin",
+      "aliases": [
+        "Yüan-wu K'o-ch'in",
+        "Engo Kokugon",
+        "圓悟佛果",
+        "Yuanwu Foguo",
+        "Yuanwu K'uei-chin"
+      ],
+      "works": [
+        "yuanwu_letters",
+        "biyanlu_cases"
+      ]
+    },
+    {
+      "id": "wumen_huikai",
+      "name_zh": "無門慧開",
+      "name_en_popular": "Wumen",
+      "name_en_formal": "Wumen Huikai",
+      "aliases": [
+        "Wu-men Hui-k'ai",
+        "Mumon Ekai",
+        "無門慧開禪師",
+        "The Gateless Monk"
+      ],
+      "works": [
+        "wumenguan"
+      ]
+    },
+    {
+      "id": "yuelin_shiguan",
+      "name_zh": "月林師觀",
+      "name_en_popular": "Yuelin",
+      "name_en_formal": "Yuelin Shiguan",
+      "aliases": [
+        "Getsurin Shikan",
+        "月林禪師",
+        "Moon Grove"
+      ],
+      "works": []
+    },
+    {
+      "id": "dahong_zuzheng",
+      "name_zh": "大洪老衲祖證",
+      "name_en_popular": "Dahong Zuzheng",
+      "name_en_formal": "Dahong Laoniu Zuzheng",
+      "aliases": [
+        "大洪祖證",
+        "大洪老衲",
+        "The Old Recluse of Dahong"
+      ],
+      "works": []
+    }
   ],
   "works": [
-    {"id": "zhaozhou_yulu", "title_zh": "趙州真際禪師語錄", "title_en_popular": "Recorded Sayings of Zhaozhou (Joshu)", "title_en_scholarly": "Zhaozhou Zhenji Chanshi Yulu", "aliases": ["The Recorded Sayings of Zen Master Joshu", "Zhaozhou Yulu", "Joshu yulu", "Joshu's Recorded Sayings"], "cbeta_id": "X68n1315", "tier": "enthusiast", "note": "in Guzunsu yulu; fascicle pin unverified (manifest anomaly #1)"},
-    {"id": "mazu_yulu", "title_zh": "馬祖道一禪師廣錄", "title_en_popular": "Recorded Sayings of Mazu", "title_en_scholarly": "Mazu Daoyi Chanshi Guanglu", "aliases": ["Ma-tsu's Recorded Sayings", "Mazu Guanglu", "The Zen Teaching of Mazu (no complete EN translation exists)"], "cbeta_id": "X1321", "tier": "enthusiast", "note": "excerpt_seed in corpus"},
-    {"id": "baizhang_guanglu", "title_zh": "百丈懷海禪師廣錄", "title_en_popular": "Baizhang's Extensive Record", "title_en_scholarly": "Baizhang Huaihai Chanshi Guanglu", "aliases": ["Baizhang Huaihai's Recorded Sayings", "Baizhang Yulu"], "cbeta_id": "X1323", "tier": "core", "note": "0/6 collated — P2-1"},
-    {"id": "huangbo_chuanxin", "title_zh": "黃檗山斷際禪師傳心法要", "title_en_popular": "Huangbo's Essentials of Transmitting the Mind", "title_en_scholarly": "Huangbo Shan Duanji Chanshi Chuanxin Fayao", "aliases": ["Transmission of Mind", "Essentials of Mind-Transmission", "The Zen Teaching of Huang-Po (Blofeld title)"], "cbeta_id": "T2012A", "tier": "core", "note": "excerpt_seed in corpus"},
-    {"id": "huangbo_wanling", "title_zh": "黃檗宛陵錄", "title_en_popular": "Huangbo's Wanling Record", "title_en_scholarly": "Huangbo Wanling Lu", "aliases": ["The Second Record of Huangpo"], "cbeta_id": "T2012B", "tier": "core", "note": "0/7 collated — P2-1"},
-    {"id": "linji_yulu", "title_zh": "鎮州臨濟慧照禪師語錄", "title_en_popular": "Recorded Sayings of Linji", "title_en_scholarly": "Zhenzhou Linji Huizhao Chanshi Yulu", "aliases": ["Lin-Chi's Recorded Sayings", "Linji Yulu", "The Zen Teachings of Master Lin-Chi (Watson title)"], "cbeta_id": "T1985", "tier": "enthusiast", "note": "84/89 fields collating"},
-    {"id": "nanquan_yulu", "title_zh": "南泉普願禪師語要", "title_en_popular": "Nanquan's Essential Sayings", "title_en_scholarly": "Nanquan Puyuan Chanshi Yuyao", "aliases": ["Nanquan's Short Record", "Nanquan Yulu"], "cbeta_id": "X1315", "tier": "core", "note": "CBETA claim conflicts with foyan_qingyuan's X1315 claim (manifest anomaly #2)"},
-    {"id": "deshan_yulu", "title_zh": "德山宣鑑禪師語錄", "title_en_popular": "Deshan's Recorded Sayings", "title_en_scholarly": "Deshan Xuanjian Chanshi Yulu", "aliases": ["Deshan Xuanjian's Record"], "cbeta_id": "T2076f15/X1565f7", "tier": "core", "note": "unverified at unit level (manifest anomaly #3)"},
-    {"id": "dongshan_yulu", "title_zh": "瑞州洞山良价禪師語錄", "title_en_popular": "Recorded Sayings of Dongshan", "title_en_scholarly": "Ruizhou Dongshan Liangjie Chanshi Yulu", "aliases": ["Record of Tung-shan (Powell title)", "Dongshan Yulu"], "cbeta_id": "T1986", "tier": "core", "note": "T47n1986b per Poetics of Silence (2023); excerpt_seed in corpus"},
-    {"id": "yunmen_yulu", "title_zh": "雲門匡真禪師廣錄", "title_en_popular": "Recorded Sayings of Yunmen", "title_en_scholarly": "Yunmen Kuangzhen Chanshi Guanglu", "aliases": ["Yunmen's Extensive Record", "Master Yunmen (App title)"], "cbeta_id": "T1988", "tier": "core", "note": "excerpt_seed in corpus"},
-    {"id": "caoshan_benji", "title_zh": "撫州曹山本寂禪師語錄", "title_en_popular": "Caoshan's Recorded Sayings", "title_en_scholarly": "Fuzhou Caoshan Benji Chanshi Yulu", "aliases": ["Caoshan Benji's Record", "Caoshan Yulu"], "cbeta_id": "T47n1987A", "tier": "core", "note": "COLLATED 169/169 (P1-3); sibling T47n1987B"},
-    {"id": "wumenguan", "title_zh": "無門關", "title_en_popular": "The Gateless Gate", "title_en_scholarly": "Wu Men Guan", "aliases": ["Gateless Barrier (Aitken)", "Gateless Gateway (Sutherland)", "Mumonkan (Japanese)", "Wu-men kuan", "The Barrier That Has No Gate (Seung Sahn)"], "cbeta_id": "T2005", "tier": "enthusiast", "note": "48/48 case records; 113/181 fields collating"},
-    {"id": "biyanlu_cases", "title_zh": "碧巖錄", "title_en_popular": "The Blue Cliff Record", "title_en_scholarly": "Biyan Lu", "aliases": ["Blue Cliff Record", "Hekiganroku (Japanese)", "The Blue-Cliff Record (Hinton title)"], "cbeta_id": "T2003", "tier": "enthusiast", "note": "100/100 case records; 353/395 fields collating; compiler Yuanwu, verses Xuedou"},
-    {"id": "congronglu", "title_zh": "從容錄", "title_en_popular": "The Book of Serenity", "title_en_scholarly": "Congrong Lu", "aliases": ["Shōyōroku (Japanese)", "Book of Equanimity (Blyth)"], "cbeta_id": "T2004", "tier": "enthusiast", "note": "COLLATED 500/500 (P1-1); verses Hongzhi, compiler Wansong"},
-    {"id": "xinxin_ming", "title_zh": "信心銘", "title_en_popular": "Inscription on Trusting the Mind", "title_en_scholarly": "Xinxin Ming", "aliases": ["Faith in Mind (Sheng-yen)", "Meditation on Trusting the Mind (Watson)", "On Trusting the Heart (Waley)", "23+ EN versions indexed at Terebess"], "cbeta_id": "T2010", "tier": "enthusiast", "note": "24/37 fields collating"},
-    {"id": "zhengdao_ge", "title_zh": "證道歌", "title_en_popular": "Song of Enlightenment", "title_en_scholarly": "Zhengdao Ge", "aliases": ["Song of Realization (Senzaki & McCandless)", "Song of Certifying the Way", "The Song of the Way (Aitken & Shimano)"], "cbeta_id": "T2014", "tier": "enthusiast", "note": "COLLATED 6/6; Yongjia Xuanjue"},
-    {"id": "platform_sutra", "title_zh": "六祖壇經", "title_en_popular": "Platform Sutra of the Sixth Patriarch", "title_en_scholarly": "Liu Zu Tan Jing", "aliases": ["Tan Jing", "The Sutra of Hui-neng (Price & Wong)", "Platform Scripture (Chan)"], "cbeta_id": "T2007", "tier": "enthusiast", "note": "Dunhuang-primary recension pair; 13 source-content fields"},
-    {"id": "shitou_sandokai", "title_zh": "參同契", "title_en_popular": "Sandokai", "title_en_scholarly": "Shantan Qi", "aliases": ["Song of Identity (Cleary)", "Agreement of Difference and Unity", "Merging of Difference and Unity (Cleary)", "Song of the Grass-Roof Hermitage (Leighton — actually the related Song of the Grass Shack)"], "cbeta_id": "T2076f30", "tier": "core", "note": "excerpt_seed; Shitou Xiqian"},
-    {"id": "baojing_sanmei", "title_zh": "寶鏡三昧", "title_en_popular": "Jewel Mirror Samadhi", "title_en_scholarly": "Baojing Sanmei", "aliases": ["The Mirror of the Jewel", "Bao-jing san-mei"], "cbeta_id": "T1986", "tier": "core", "note": "Dongshan Liangjie"},
-    {"id": "qinggui_monastic_codes", "title_zh": "禪苑清規", "title_en_popular": "Rules of Purity for the Chan Monastery", "title_en_scholarly": "Chanyuan Qinggui", "aliases": ["Baizhang's Monastic Code (popular but imprecise — compiled by Changlu Zongze 1103, Baizhang tradition)", "勅修百丈清規 (Dongyang Dehui revision)", "Chan Monastery Rules"], "cbeta_id": "T2025", "tier": "core", "note": "no single master author — compiler Changlu Zongze (profile needed)"}
-  ]
+    {
+      "id": "zhaozhou_yulu",
+      "title_zh": "趙州真際禪師語錄",
+      "title_en_popular": "Recorded Sayings of Zhaozhou (Joshu)",
+      "title_en_scholarly": "Zhaozhou Zhenji Chanshi Yulu",
+      "aliases": [
+        "The Recorded Sayings of Zen Master Joshu",
+        "Zhaozhou Yulu",
+        "Joshu yulu",
+        "Joshu's Recorded Sayings"
+      ],
+      "cbeta_id": "X68n1315",
+      "tier": "enthusiast",
+      "note": "in Guzunsu yulu; fascicle pin unverified (manifest anomaly #1)"
+    },
+    {
+      "id": "mazu_yulu",
+      "title_zh": "馬祖道一禪師廣錄",
+      "title_en_popular": "Recorded Sayings of Mazu",
+      "title_en_scholarly": "Mazu Daoyi Chanshi Guanglu",
+      "aliases": [
+        "Ma-tsu's Recorded Sayings",
+        "Mazu Guanglu",
+        "The Zen Teaching of Mazu (no complete EN translation exists)"
+      ],
+      "cbeta_id": "X1321",
+      "tier": "enthusiast",
+      "note": "excerpt_seed in corpus"
+    },
+    {
+      "id": "baizhang_guanglu",
+      "title_zh": "百丈懷海禪師廣錄",
+      "title_en_popular": "Baizhang's Extensive Record",
+      "title_en_scholarly": "Baizhang Huaihai Chanshi Guanglu",
+      "aliases": [
+        "Baizhang Huaihai's Recorded Sayings",
+        "Baizhang Yulu"
+      ],
+      "cbeta_id": "X1323",
+      "tier": "core",
+      "note": "0/6 collated — P2-1"
+    },
+    {
+      "id": "huangbo_chuanxin",
+      "title_zh": "黃檗山斷際禪師傳心法要",
+      "title_en_popular": "Huangbo's Essentials of Transmitting the Mind",
+      "title_en_scholarly": "Huangbo Shan Duanji Chanshi Chuanxin Fayao",
+      "aliases": [
+        "Transmission of Mind",
+        "Essentials of Mind-Transmission",
+        "The Zen Teaching of Huang-Po (Blofeld title)"
+      ],
+      "cbeta_id": "T2012A",
+      "tier": "core",
+      "note": "excerpt_seed in corpus"
+    },
+    {
+      "id": "huangbo_wanling",
+      "title_zh": "黃檗宛陵錄",
+      "title_en_popular": "Huangbo's Wanling Record",
+      "title_en_scholarly": "Huangbo Wanling Lu",
+      "aliases": [
+        "The Second Record of Huangpo"
+      ],
+      "cbeta_id": "T2012B",
+      "tier": "core",
+      "note": "0/7 collated — P2-1"
+    },
+    {
+      "id": "linji_yulu",
+      "title_zh": "鎮州臨濟慧照禪師語錄",
+      "title_en_popular": "Recorded Sayings of Linji",
+      "title_en_scholarly": "Zhenzhou Linji Huizhao Chanshi Yulu",
+      "aliases": [
+        "Lin-Chi's Recorded Sayings",
+        "Linji Yulu",
+        "The Zen Teachings of Master Lin-Chi (Watson title)"
+      ],
+      "cbeta_id": "T1985",
+      "tier": "enthusiast",
+      "note": "84/89 fields collating"
+    },
+    {
+      "id": "nanquan_yulu",
+      "title_zh": "南泉普願禪師語要",
+      "title_en_popular": "Nanquan's Essential Sayings",
+      "title_en_scholarly": "Nanquan Puyuan Chanshi Yuyao",
+      "aliases": [
+        "Nanquan's Short Record",
+        "Nanquan Yulu"
+      ],
+      "cbeta_id": "X1315",
+      "tier": "core",
+      "note": "CBETA claim conflicts with foyan_qingyuan's X1315 claim (manifest anomaly #2)"
+    },
+    {
+      "id": "deshan_yulu",
+      "title_zh": "德山宣鑑禪師語錄",
+      "title_en_popular": "Deshan's Recorded Sayings",
+      "title_en_scholarly": "Deshan Xuanjian Chanshi Yulu",
+      "aliases": [
+        "Deshan Xuanjian's Record"
+      ],
+      "cbeta_id": "T2076f15/X1565f7",
+      "tier": "core",
+      "note": "unverified at unit level (manifest anomaly #3)"
+    },
+    {
+      "id": "dongshan_yulu",
+      "title_zh": "瑞州洞山良价禪師語錄",
+      "title_en_popular": "Recorded Sayings of Dongshan",
+      "title_en_scholarly": "Ruizhou Dongshan Liangjie Chanshi Yulu",
+      "aliases": [
+        "Record of Tung-shan (Powell title)",
+        "Dongshan Yulu"
+      ],
+      "cbeta_id": "T1986",
+      "tier": "core",
+      "note": "T47n1986b per Poetics of Silence (2023); excerpt_seed in corpus"
+    },
+    {
+      "id": "yunmen_yulu",
+      "title_zh": "雲門匡真禪師廣錄",
+      "title_en_popular": "Recorded Sayings of Yunmen",
+      "title_en_scholarly": "Yunmen Kuangzhen Chanshi Guanglu",
+      "aliases": [
+        "Yunmen's Extensive Record",
+        "Master Yunmen (App title)"
+      ],
+      "cbeta_id": "T1988",
+      "tier": "core",
+      "note": "excerpt_seed in corpus"
+    },
+    {
+      "id": "caoshan_benji",
+      "title_zh": "撫州曹山本寂禪師語錄",
+      "title_en_popular": "Caoshan's Recorded Sayings",
+      "title_en_scholarly": "Fuzhou Caoshan Benji Chanshi Yulu",
+      "aliases": [
+        "Caoshan Benji's Record",
+        "Caoshan Yulu"
+      ],
+      "cbeta_id": "T47n1987A",
+      "tier": "core",
+      "note": "COLLATED 169/169 (P1-3); sibling T47n1987B"
+    },
+    {
+      "id": "wumenguan",
+      "title_zh": "無門關",
+      "title_en_popular": "The Gateless Gate",
+      "title_en_scholarly": "Wu Men Guan",
+      "aliases": [
+        "Gateless Barrier (Aitken)",
+        "Gateless Gateway (Sutherland)",
+        "Mumonkan (Japanese)",
+        "Wu-men kuan",
+        "The Barrier That Has No Gate (Seung Sahn)"
+      ],
+      "cbeta_id": "T2005",
+      "tier": "enthusiast",
+      "note": "48/48 case records; 113/181 fields collating"
+    },
+    {
+      "id": "biyanlu_cases",
+      "title_zh": "碧巖錄",
+      "title_en_popular": "The Blue Cliff Record",
+      "title_en_scholarly": "Biyan Lu",
+      "aliases": [
+        "Blue Cliff Record",
+        "Hekiganroku (Japanese)",
+        "The Blue-Cliff Record (Hinton title)"
+      ],
+      "cbeta_id": "T2003",
+      "tier": "enthusiast",
+      "note": "100/100 case records; 353/395 fields collating; compiler Yuanwu, verses Xuedou"
+    },
+    {
+      "id": "congronglu",
+      "title_zh": "從容錄",
+      "title_en_popular": "The Book of Serenity",
+      "title_en_scholarly": "Congrong Lu",
+      "aliases": [
+        "Shōyōroku (Japanese)",
+        "Book of Equanimity (Blyth)"
+      ],
+      "cbeta_id": "T2004",
+      "tier": "enthusiast",
+      "note": "COLLATED 500/500 (P1-1); verses Hongzhi, compiler Wansong"
+    },
+    {
+      "id": "xinxin_ming",
+      "title_zh": "信心銘",
+      "title_en_popular": "Inscription on Trusting the Mind",
+      "title_en_scholarly": "Xinxin Ming",
+      "aliases": [
+        "Faith in Mind (Sheng-yen)",
+        "Meditation on Trusting the Mind (Watson)",
+        "On Trusting the Heart (Waley)",
+        "23+ EN versions indexed at Terebess"
+      ],
+      "cbeta_id": "T2010",
+      "tier": "enthusiast",
+      "note": "24/37 fields collating"
+    },
+    {
+      "id": "zhengdao_ge",
+      "title_zh": "證道歌",
+      "title_en_popular": "Song of Enlightenment",
+      "title_en_scholarly": "Zhengdao Ge",
+      "aliases": [
+        "Song of Realization (Senzaki & McCandless)",
+        "Song of Certifying the Way",
+        "The Song of the Way (Aitken & Shimano)"
+      ],
+      "cbeta_id": "T2014",
+      "tier": "enthusiast",
+      "note": "COLLATED 6/6; Yongjia Xuanjue"
+    },
+    {
+      "id": "platform_sutra",
+      "title_zh": "六祖壇經",
+      "title_en_popular": "Platform Sutra of the Sixth Patriarch",
+      "title_en_scholarly": "Liu Zu Tan Jing",
+      "aliases": [
+        "Tan Jing",
+        "The Sutra of Hui-neng (Price & Wong)",
+        "Platform Scripture (Chan)"
+      ],
+      "cbeta_id": "T2007",
+      "tier": "enthusiast",
+      "note": "Dunhuang-primary recension pair; 13 source-content fields"
+    },
+    {
+      "id": "shitou_sandokai",
+      "title_zh": "參同契",
+      "title_en_popular": "Sandokai",
+      "title_en_scholarly": "Shantan Qi",
+      "aliases": [
+        "Song of Identity (Cleary)",
+        "Agreement of Difference and Unity",
+        "Merging of Difference and Unity (Cleary)",
+        "Song of the Grass-Roof Hermitage (Leighton — actually the related Song of the Grass Shack)"
+      ],
+      "cbeta_id": "T2076f30",
+      "tier": "core",
+      "note": "excerpt_seed; Shitou Xiqian"
+    },
+    {
+      "id": "baojing_sanmei",
+      "title_zh": "寶鏡三昧",
+      "title_en_popular": "Jewel Mirror Samadhi",
+      "title_en_scholarly": "Baojing Sanmei",
+      "aliases": [
+        "The Mirror of the Jewel",
+        "Bao-jing san-mei"
+      ],
+      "cbeta_id": "T1986",
+      "tier": "core",
+      "note": "Dongshan Liangjie"
+    },
+    {
+      "id": "qinggui_monastic_codes",
+      "title_zh": "禪苑清規",
+      "title_en_popular": "Rules of Purity for the Chan Monastery",
+      "title_en_scholarly": "Chanyuan Qinggui",
+      "aliases": [
+        "Baizhang's Monastic Code (popular but imprecise — compiled by Changlu Zongze 1103, Baizhang tradition)",
+        "勅修百丈清規 (Dongyang Dehui revision)",
+        "Chan Monastery Rules"
+      ],
+      "cbeta_id": "T2025",
+      "tier": "core",
+      "note": "no single master author — compiler Changlu Zongze (profile needed)"
+    }
+  ],
+  "_meta": {
+    "note": "SNAPSHOT draft_seed 55 entries as of 2026-09-20, NOT exhaustive — more aliases in circulation, target 150-200 masters, continue searching"
+  }
 }

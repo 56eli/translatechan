@@ -1345,11 +1345,11 @@
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
     "cbeta_id": "No source record assigned",
     "summary": "Included to connect Baiyun Shouduan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-    "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+    "profile_status": "Frontier profile — reviewed; exact source locator still pending",
     "linked_corpus_keys": [],
     "profile_evidence": {
-      "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus (the 方會 hits in data/corpus/biyanlu_cases.json cases[21]/[23]/[87] commentary_zh are the grammatical phrase 方會 'would then understand', not the master's name); linked_corpus_keys intentionally left empty."
+      "status": "frontier_profile_reviewed_pending_exact_locator",
+      "note": "Reviewed in P3 lineage batch 2 on 2026-09-21. The active corpus contains no biographical witness for 楊岐方會; the 方會 occurrences in Biyanlu commentary are ordinary phrase usage, not this master. No linked_corpus_keys added."
     }
   },
   {
