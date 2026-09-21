@@ -1,6 +1,29 @@
 # Changelog — TranslateChan Export Schema
 
-## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones — amended same day official delivery + mandatory sha256 + gate execution env
+## Export re-issue — 2026-09-21 — after the Linji re-key (task P2.9) + law amendments — `schema_version` stays `1.1`
+
+**Why:** the 1.1 manifest was written in the purge commit and pinned `commit: a77d577`, a pre-purge tree whose hashes no longer matched three files, and corpus has since gained re-keyed Record of Linji (107 sections, 215/215 EXACT, 0 flagged, T47n1985). The re-issue recomputes every hash from one tree and includes law amendments for official delivery.
+
+**Law amendments 2026-09-21 (owner + botrunner agreement) — included in this re-issue:**
+- (a) sha256 verification of every manifest file is **mandatory**, not optional — manifest nobody verifies proves nothing
+- (b) gate executed **unprivileged in disposable clone** and must stay **stdlib-only and read-only** — adding dep/network is new decision
+- (c) GATE.md states **minimum version 3.11 and tested set 3.11, 3.12** — system python3 br1 3.12.3 accepted no container, future 3.13 must be re-validated
+- Official delivery: **git clone at manifest commit** is official — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT` — no tarball, no container, read-only by charter
+
+**Changed (files, not schema):**
+- `export_manifest.json` — 21 files (was 22): 11 collated docs now include `data/corpus/linji_yulu.json`; all sha256/size recomputed from content commit; commit names that commit; only_collated true, w1_filter collated_to_claimed_witness, remaining_docs 13, exported_to_wiki 11, purged_retellings 32
+- `export_ready.json` — same timestamp+commit as manifest, written last
+- **Scope correction (declared):** 1.1 manifest listed 12 corpus files including 2 witness_unavailable seeds while claiming 10 exported; Q7 W3 says wiki receives ONLY 100% collated, so re-issue lists 11 collated only
+- `docs/sample_export.jsonl` / `json` — 11 records (5 masters +6 passages): new `linji_yulu_section_078` first section-type unit
+- `docs/GATE.md` — rewritten with official delivery + mandatory sha256 + execution env + Python min/tested (law)
+- `docs/SCHEMA.md` — R6 and R12 updated with official delivery + mandatory sha256, sample export 5+6, work pattern includes linji_yulu
+- `docs/BOTRUNNER_REVIEW_2026-09-21_LAW.md` — new law version 13 docs 11 collated incl. Linji, official delivery, mandatory sha256, unprivileged disposable stdlib-only, Python min/tested
+
+**Unchanged:** record schema and enums (schema_version stays 1.1 — export re-issue not schema change); 1.1 rulings Q1-Q7 W3, only_collated, fail-closed badges, tombstones; gate command and read-only promise (now with law amendments).
+
+**Honest note:** no script generates export_manifest.json / export_ready.json — produced manually with sha256 computed from content commit named in manifest.
+
+## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones — amended same day official delivery + mandatory sha256 + gate execution env (main 58964d8)
 
 **Amendment 2026-09-21 (owner + botrunner agreement):**
 - (a) sha256 verification of every manifest file is **mandatory**, not optional — manifest nobody verifies proves nothing

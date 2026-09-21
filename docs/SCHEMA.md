@@ -12,9 +12,9 @@ This doc satisfies R1-R12 of TC-EXPORT-CONSUMER-REQUIREMENTS.md.
 
 - Every entity has `id`: lowercase, digits, hyphen/underscore, never reused, never renumbered on title change.
 - Pattern:
-  - work: `wumenguan`, `congronglu`, `chuandenglu_full`, `caoshan_benji`, `huangbo_fayao_full`, `mazu_guanglu_full`, `yunmen_guanglu_full`, `dongshan_yulu_full`, `zhaozhou_yulu_full`, `dahui_yulu_full`, `zhengdao_ge`
+  - work: `wumenguan`, `congronglu`, `chuandenglu_full`, `caoshan_benji`, `huangbo_fayao_full`, `mazu_guanglu_full`, `yunmen_guanglu_full`, `dongshan_yulu_full`, `zhaozhou_yulu_full`, `dahui_yulu_full`, `zhengdao_ge`, `linji_yulu`
   - fascicle: `{work}_fascicle_{nn}` e.g. `chuandenglu_full_fascicle_06`
-  - passage: `{work}_{type}_{nn}` e.g. `wumenguan_case_01`, `congronglu_case_001`, `chuandenglu_full_case_0128`, `zhengdao_ge_stanza_01`
+  - passage: `{work}_{type}_{nn}` e.g. `wumenguan_case_01`, `congronglu_case_001`, `chuandenglu_full_case_0128`, `zhengdao_ge_stanza_01`, `linji_yulu_section_078`
   - master: `master_{id}` e.g. `master_bodhidharma`
   - lineage_edge: `{teacher}_{disciple}` e.g. `bodhidharma_huike` (R1 explicit edge id)
   - gongan: `gongan_{nn}`
@@ -160,7 +160,7 @@ From `scripts/source_review.py`:
 - `export_ready.json` ready marker written last for atomicity — contains same timestamp+commit, written after all files.
 - **Mandatory verification (not optional):** botrunner must verify `export_ready.json` timestamp+commit matches manifest, and must verify sha256+size of every file in `files[]` via `sha256sum -c`. If any mismatch, abort import. Manifest nobody verifies proves nothing.
 - Format: JSONL preferred for diffability — one record per line, easiest to diff/stream. We publish both JSONL and JSON.
-- Sample export: 5 masters +5 passages with all required fields (see `docs/sample_export.jsonl`).
+- Sample export: 5 masters +6 passages with all required fields, including one `section`-type record (`linji_yulu_section_078`) (see `docs/sample_export.jsonl`).
 
 ---
 
