@@ -122,8 +122,8 @@ CORPUS_DIR = ROOT / "data" / "corpus"
 DOCS_CORPUS_DIR = ROOT / "docs" / "data" / "corpus"
 
 #: The tree the W1 work started from. Pinned deliberately: the base must not move
-#: when the corpus moves. (origin/main at the merge base of the W1 PR.)
-BASE_COMMIT = "3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43"
+#: when the corpus moves. (origin/main at commit f1207eaf461889d8819a9287904bdfaf354a3018.)
+BASE_COMMIT = "f1207eaf461889d8819a9287904bdfaf354a3018"
 
 #: Corpus files that may legitimately appear after the base commit, with the dated ruling that
 #: declares them. A new corpus file is corpus expansion — normally out of scope for W1 work — so
@@ -196,6 +196,15 @@ DECLARED_NEW_CORPUS = {
         "2,709/2,709 fields EXACT, 0 flagged. T48n2001 (Hongzhi's Guanglu — the corpus's "
         "dahui_hongzhi selection claims nothing from it and this record claims nothing from it "
         "either) is a probe; the six-field dahui_hongzhi selection is the untouched sibling."
+    ),
+    "data/corpus/wumenguan.json": (
+        "2026-09-21 Wumenguan proper re-key (Task P2.8): re-keyed from claimed witness T48n2005 "
+        "(48 cases, verbatim CJK content fields, 207/207 fields EXACT, 0 flagged)."
+    ),
+    "data/corpus/linji_yulu.json": (
+        "2026-09-21 Record of Linji re-key (Task P2.9): rebuilt from the pinned witness T47n1985 "
+        "(107 verbatim sections tiling the whole 16,366-CJK fascicle, 215/215 fields EXACT, "
+        "0 flagged); the purged retelling record is not read, patched or carried over."
     ),
 }
 
@@ -1274,17 +1283,17 @@ def focused_allowlist_regression() -> list[str]:
             problems.append("the temporary copy fails before any mutation, so it cannot prove "
                             f"the nested change is what fails: {clean.stdout[-400:]}{clean.stderr[-400:]}")
 
-        mutated = sandbox / "data" / "corpus" / "wumenguan.json"
+        mutated = sandbox / "data" / "corpus" / "zhengdao_ge.json"
         document = json.loads(mutated.read_text(encoding="utf-8"))
-        document["cases"][0]["coverage_note"] = "unauthorized nested note"
+        document["stanzas"][0]["coverage_note"] = "unauthorized nested note"
         mutated.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         result = run_in_sandbox()
         output = result.stdout + result.stderr
         if result.returncode == 0:
             problems.append("nested coverage_note change passed the temporary-copy run")
-        if ".cases[0].coverage_note" not in output:
+        if ".stanzas[0].coverage_note" not in output:
             problems.append("nested coverage_note failure did not name the exact path "
-                            ".cases[0].coverage_note in a temporary copy of the tree")
+                            ".stanzas[0].coverage_note in a temporary copy of the tree")
         if "0 unauthorized changes" in output:
             problems.append("nested coverage_note change was counted as authorized")
         print(f"Focused allowlist regression: unmutated copy exit={clean.returncode}, "

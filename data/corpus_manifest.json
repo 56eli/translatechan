@@ -6,14 +6,14 @@
     "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
     "evidence_date": "2026-09-09",
     "status_scope": "Containment/remediation state, not a rights decision.",
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI_refs_manifest.txt",
     "correction_evidence_date": "2026-09-21",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-    "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630; purged 2026-09-21 retellings removed, 12 docs remain, flagged total 15",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json",
+    "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th; the dated 2026-09-21 combined Wumenguan/Linji overlay (sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json) is the newest authoritative record: it inherits the enthusiast-fulls overlay's 12 per-document entries verbatim and records both re-keys — Wumenguan T48n2005 (48 cases, 207/207 fields EXACT, 0 flagged) and the Record of Linji T47n1985 (107 verbatim sections tiling the whole 16,366-CJK fascicle, 215 fields EXACT, 0 flagged) — as the 13th and 14th active documents, with both references added to the 19-work digest manifest; the designated flagged total stays 630 on the historical chain and the active flagged total stays 15 across the 14 active documents; purged 2026-09-21 retellings removed, 14 docs remain, flagged total 15",
     "historical_documents": 34,
-    "authoritative_documents": 12,
+    "authoritative_documents": 14,
     "historical_flagged_total": 622,
     "authoritative_flagged_total": 15,
     "superseded_report_flagged_total": 637,
@@ -128,6 +128,26 @@
       "cbeta": "T1998A + T1998B",
       "unit_targets": {
         "cases": 1354
+      },
+      "completion_status": "partial_selected_witness",
+      "source_review_status": "collated_to_claimed_witness"
+    },
+    {
+      "key": "wumenguan",
+      "title": "The Gateless Gate (無門關)",
+      "cbeta": "T2005",
+      "unit_targets": {
+        "cases": 48
+      },
+      "completion_status": "complete_selected_witness",
+      "source_review_status": "collated_to_claimed_witness"
+    },
+    {
+      "key": "linji_yulu",
+      "title": "The Record of Linji (臨濟語錄 / 鎮州臨濟慧照禪師語錄)",
+      "cbeta": "T1985",
+      "unit_targets": {
+        "sections": 107
       },
       "completion_status": "partial_selected_witness",
       "source_review_status": "collated_to_claimed_witness"

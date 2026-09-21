@@ -314,7 +314,13 @@ WITNESS_NOTES = {
     'zhaozhou_yulu': 'Corpus claims T1987; T1987 is the Caoshan record (misattribution). True Zhaozhou witness: Guzunsu yulu X68n1315.',
     'dahui_hongzhi': 'Hongzhi\'s Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.',
     'platform_sutra': 'Content mixes Dunhuang (T2007) and Zongbao (T2008) recension readings.',
-    'linji_yulu': 'Sections 67-73 are Xinglu-tradition retellings, not claimed T1985 text.',
+    'linji_yulu': ('Task P2.9 (2026-09-21): the purged retelling is replaced by a from-scratch extraction of '
+                   'the pinned witness T47n1985 — the producer scripts/segment_linji_yulu.py tiles the whole '
+                   '16,366-CJK fascicle in 107 sections (4 序 prefaces, heading, 38 record sections, 勘辨 23, '
+                   '行錄 21, close and printing colophon), asserting that their concatenation equals the '
+                   'digest-verified reference extraction character for character: 215 fields measured, 215 '
+                   'EXACT, 0 flagged. The purged record is not read, patched or carried over. The parallel '
+                   'X68n1315 printing, T51n2076 and X80n1565 are probes, not claimed witnesses.'),
     'deshan_yulu': 'Retellings; 0/6 content fields match T2076/X68n1315/X1565 phrasing.',
     'shitou_sandokai': ('Both claimed witnesses were fetched and collated. Sandokai content fields '
                         'collate 6/11 (6 EXACT against the T51n2076 embedding, 4 DIVERGENT at '

@@ -28409,6 +28409,1111 @@
           "source_edition": "CBETA XML P5 T47n1998B, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
         }
       }
+    },
+    "wumenguan": {
+      "canonical_id": "T2005",
+      "canonical_locator": "T2005",
+      "granularity": "case",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. The 48 case locators below are heading-line anchors read from the pinned CBETA XML P5 witness T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); each case is anchored at the lb printed before its div.",
+      "status": "case_level_anchor",
+      "case_locators": {
+        "1": {
+          "canonical_locator": "T48n2005 case 1 · T48n2005 p.0292c23–p.0293a14",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州狗子 and line head 0292c23 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 1 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "2": {
+          "canonical_locator": "T48n2005 case 2 · T48n2005 p.0293a16–p.0293b09",
+          "status": "collated_with_normalization",
+          "note": "Case heading 百丈野狐 and line head 0293a16 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 2 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "3": {
+          "canonical_locator": "T48n2005 case 3 · T48n2005 p.0293b11–p.0293b22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 俱胝竪指 and line head 0293b11 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 3 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "4": {
+          "canonical_locator": "T48n2005 case 4 · T48n2005 p.0293b24–p.0293b29",
+          "status": "collated_with_normalization",
+          "note": "Case heading 胡子無鬚 and line head 0293b24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 4 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "5": {
+          "canonical_locator": "T48n2005 case 5 · T48n2005 p.0293c02–p.0293c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 香嚴上樹 and line head 0293c02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 5 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "6": {
+          "canonical_locator": "T48n2005 case 6 · T48n2005 p.0293c13–p.0293c25",
+          "status": "collated_with_normalization",
+          "note": "Case heading 世尊拈花 and line head 0293c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 6 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "7": {
+          "canonical_locator": "T48n2005 case 7 · T48n2005 p.0293c27–p.0294a05",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州洗鉢 and line head 0293c27 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 7 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "8": {
+          "canonical_locator": "T48n2005 case 8 · T48n2005 p.0294a07–p.0294a13",
+          "status": "collated_with_normalization",
+          "note": "Case heading 奚仲造車 and line head 0294a07 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 8 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "9": {
+          "canonical_locator": "T48n2005 case 9 · T48n2005 p.0294a15–p.0294a23",
+          "status": "collated_with_normalization",
+          "note": "Case heading 大通智勝 and line head 0294a15 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 9 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "10": {
+          "canonical_locator": "T48n2005 case 10 · T48n2005 p.0294a25–p.0294b04",
+          "status": "collated_with_normalization",
+          "note": "Case heading 清稅孤貧 and line head 0294a25 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 10 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "11": {
+          "canonical_locator": "T48n2005 case 11 · T48n2005 p.0294b06–p.0294b17",
+          "status": "collated_with_normalization",
+          "note": "Case heading 州勘庵主 and line head 0294b06 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 11 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "12": {
+          "canonical_locator": "T48n2005 case 12 · T48n2005 p.0294b19–p.0294b27",
+          "status": "collated_with_normalization",
+          "note": "Case heading 巖喚主人 and line head 0294b19 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 12 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "13": {
+          "canonical_locator": "T48n2005 case 13 · T48n2005 p.0294b29–p.0294c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 德山托鉢 and line head 0294b29 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 13 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "14": {
+          "canonical_locator": "T48n2005 case 14 · T48n2005 p.0294c13–p.0294c22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 南泉斬猫 and line head 0294c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 14 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "15": {
+          "canonical_locator": "T48n2005 case 15 · T48n2005 p.0294c24–p.0295a10",
+          "status": "collated_with_normalization",
+          "note": "Case heading 洞山三頓 and line head 0294c24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 15 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "16": {
+          "canonical_locator": "T48n2005 case 16 · T48n2005 p.0295a12–p.0295a22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 鐘聲七條 and line head 0295a12 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 16 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "17": {
+          "canonical_locator": "T48n2005 case 17 · T48n2005 p.0295a24–p.0295b03",
+          "status": "collated_with_normalization",
+          "note": "Case heading 國師三喚 and line head 0295a24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 17 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "18": {
+          "canonical_locator": "T48n2005 case 18 · T48n2005 p.0295b05–p.0295b12",
+          "status": "collated_with_normalization",
+          "note": "Case heading 洞山三斤 and line head 0295b05 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 18 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "19": {
+          "canonical_locator": "T48n2005 case 19 · T48n2005 p.0295b14–p.0295b24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 平常是道 and line head 0295b14 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 19 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "20": {
+          "canonical_locator": "T48n2005 case 20 · T48n2005 p.0295b26–p.0295c04",
+          "status": "collated_with_normalization",
+          "note": "Case heading 大力量人 and line head 0295b26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 20 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "21": {
+          "canonical_locator": "T48n2005 case 21 · T48n2005 p.0295c06–p.0295c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 雲門屎橛 and line head 0295c06 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 21 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "22": {
+          "canonical_locator": "T48n2005 case 22 · T48n2005 p.0295c13–p.0295c21",
+          "status": "collated_with_normalization",
+          "note": "Case heading 迦葉剎竿 and line head 0295c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 22 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "23": {
+          "canonical_locator": "T48n2005 case 23 · T48n2005 p.0295c23–p.0296a11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 不思善惡 and line head 0295c23 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 23 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "24": {
+          "canonical_locator": "T48n2005 case 24 · T48n2005 p.0296a13–p.0296a20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 離却語言 and line head 0296a13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 24 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "25": {
+          "canonical_locator": "T48n2005 case 25 · T48n2005 p.0296a22–p.0296a29",
+          "status": "collated_with_normalization",
+          "note": "Case heading 三座說法 and line head 0296a22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 25 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "26": {
+          "canonical_locator": "T48n2005 case 26 · T48n2005 p.0296b02–p.0296b09",
+          "status": "collated_with_normalization",
+          "note": "Case heading 二僧卷簾 and line head 0296b02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 26 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "27": {
+          "canonical_locator": "T48n2005 case 27 · T48n2005 p.0296b11–p.0296b18",
+          "status": "collated_with_normalization",
+          "note": "Case heading 不是心佛 and line head 0296b11 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 27 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "28": {
+          "canonical_locator": "T48n2005 case 28 · T48n2005 p.0296b20–p.0296c16",
+          "status": "collated_with_normalization",
+          "note": "Case heading 久響龍潭 and line head 0296b20 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 28 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "29": {
+          "canonical_locator": "T48n2005 case 29 · T48n2005 p.0296c18–p.0296c26",
+          "status": "collated_with_normalization",
+          "note": "Case heading 非風非幡 and line head 0296c18 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 29 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "30": {
+          "canonical_locator": "T48n2005 case 30 · T48n2005 p.0296c28–p.0297a07",
+          "status": "collated_with_normalization",
+          "note": "Case heading 即心即佛 and line head 0296c28 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 30 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "31": {
+          "canonical_locator": "T48n2005 case 31 · T48n2005 p.0297a09–p.0297a20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州勘婆 and line head 0297a09 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 31 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "32": {
+          "canonical_locator": "T48n2005 case 32 · T48n2005 p.0297a22–p.0297b02",
+          "status": "collated_with_normalization",
+          "note": "Case heading 外道問佛 and line head 0297a22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 32 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "33": {
+          "canonical_locator": "T48n2005 case 33 · T48n2005 p.0297b04–p.0297b08",
+          "status": "collated_with_normalization",
+          "note": "Case heading 非心非佛 and line head 0297b04 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 33 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "34": {
+          "canonical_locator": "T48n2005 case 34 · T48n2005 p.0297b10–p.0297b15",
+          "status": "collated_with_normalization",
+          "note": "Case heading 智不是道 and line head 0297b10 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 34 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "35": {
+          "canonical_locator": "T48n2005 case 35 · T48n2005 p.0297b17–p.0297b24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 倩女離魂 and line head 0297b17 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 35 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "36": {
+          "canonical_locator": "T48n2005 case 36 · T48n2005 p.0297b26–p.0297c03",
+          "status": "collated_with_normalization",
+          "note": "Case heading 路逢達道 and line head 0297b26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 36 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "37": {
+          "canonical_locator": "T48n2005 case 37 · T48n2005 p.0297c05–p.0297c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 庭前柏樹 and line head 0297c05 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 37 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "38": {
+          "canonical_locator": "T48n2005 case 38 · T48n2005 p.0297c13–p.0297c20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 牛過窓櫺 and line head 0297c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 38 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "39": {
+          "canonical_locator": "T48n2005 case 39 · T48n2005 p.0297c22–p.0298a01",
+          "status": "collated_with_normalization",
+          "note": "Case heading 雲門話墮 and line head 0297c22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 39 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "40": {
+          "canonical_locator": "T48n2005 case 40 · T48n2005 p.0298a03–p.0298a14",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趯倒淨瓶 and line head 0298a03 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 40 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "41": {
+          "canonical_locator": "T48n2005 case 41 · T48n2005 p.0298a16–p.0298a24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 達磨安心 and line head 0298a16 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 41 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "42": {
+          "canonical_locator": "T48n2005 case 42 · T48n2005 p.0298a26–p.0298b13",
+          "status": "collated_with_normalization",
+          "note": "Case heading 女子出定 and line head 0298a26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 42 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "43": {
+          "canonical_locator": "T48n2005 case 43 · T48n2005 p.0298b15–p.0298b22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 首山竹篦 and line head 0298b15 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 43 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "44": {
+          "canonical_locator": "T48n2005 case 44 · T48n2005 p.0298b24–p.0298c01",
+          "status": "collated_with_normalization",
+          "note": "Case heading 芭蕉拄杖 and line head 0298b24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 44 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "45": {
+          "canonical_locator": "T48n2005 case 45 · T48n2005 p.0298c03–p.0298c10",
+          "status": "collated_with_normalization",
+          "note": "Case heading 他是阿誰 and line head 0298c03 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 45 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "46": {
+          "canonical_locator": "T48n2005 case 46 · T48n2005 p.0298c12–p.0298c19",
+          "status": "collated_with_normalization",
+          "note": "Case heading 竿頭進步 and line head 0298c12 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 46 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "47": {
+          "canonical_locator": "T48n2005 case 47 · T48n2005 p.0298c21–p.0298c30",
+          "status": "collated_with_normalization",
+          "note": "Case heading 兜率三關 and line head 0298c21 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 47 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "48": {
+          "canonical_locator": "T48n2005 case 48 · T48n2005 p.0299a02–p.0299a26",
+          "status": "collated_with_normalization",
+          "note": "Case heading 乾峯一路 and line head 0299a02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 48 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        }
+      }
+    },
+    "linji_yulu": {
+      "canonical_id": "T1985",
+      "canonical_locator": "T47n1985_p0495a01–p0506c28",
+      "granularity": "document",
+      "status": "collated_with_normalization",
+      "source_note": "Document locator: the whole of CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), p.0495a01 through p.0506c28, at revision dbdea41071e1e260ad84b72faefd4587333cf76d. The 107 section locators below are `lb` line-head anchors read from the same pinned witness: head = the last `lb` printed at or before the section start (the 2026-08-10 containment convention), close = the last `lb` inside the section. The document itself is a from-scratch extraction (task P2.9): every section is a verbatim, contiguous run of the witness, 107/107 source-content fields collating, 0 flagged.",
+      "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "collation_note": "Measured by scripts/collate_corpus.py --doc linji_yulu on the digest-verified reference set (sessions/COLLATION_W1_2026-09-21_LINJI_refs_manifest.txt, 18 works): 215 fields, 215 EXACT, 0 flagged; 107 of 107 source-content fields collate to the claimed witness T47n1985. The record of that measurement is sessions/COLLATION_REGISTER_2026-09-21_LINJI.json. Human sign-off remains pending and source collation does not approve reuse.",
+      "unit_locators": {
+        "sections.preface-heading-01": {
+          "canonical_locator": "T47n1985_p0495a03–p0495a03",
+          "status": "collated_with_normalization",
+          "note": "Section '臨濟慧照玄公大宗師語錄序' (preface-heading) and line head 0495a03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-01": {
+          "canonical_locator": "T47n1985_p0495a05–p0495a22",
+          "status": "collated_with_normalization",
+          "note": "Section '曹溪派列淘涌而流注無窮南' (preface) and line head 0495a05 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-heading-02": {
+          "canonical_locator": "T47n1985_p0495a25–p0495a25",
+          "status": "collated_with_normalization",
+          "note": "Section '臨濟慧照玄公大宗師語錄序' (preface-heading) and line head 0495a25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-02": {
+          "canonical_locator": "T47n1985_p0495a27–p0495b04",
+          "status": "collated_with_normalization",
+          "note": "Section '薄伽梵正法眼藏涅槃妙心付' (preface) and line head 0495a27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-03": {
+          "canonical_locator": "T47n1985_p0495b04–p0495b12",
+          "status": "collated_with_normalization",
+          "note": "Section '其中一大苾芻為一大事因緣' (preface) and line head 0495b04 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-04": {
+          "canonical_locator": "T47n1985_p0495b12–p0495b18",
+          "status": "collated_with_normalization",
+          "note": "Section '若夫三玄三要奪境奪人金章' (preface) and line head 0495b12 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-05": {
+          "canonical_locator": "T47n1985_p0495b18–p0495b23",
+          "status": "collated_with_normalization",
+          "note": "Section '師之出處具載傳燈等錄茲不' (preface) and line head 0495b18 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-06": {
+          "canonical_locator": "T47n1985_p0495b23–p0495b29",
+          "status": "collated_with_normalization",
+          "note": "Section '今雪堂大禪師臨濟十八代嫡' (preface) and line head 0495b23 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-07": {
+          "canonical_locator": "T47n1985_p0495b29–p0495c04",
+          "status": "collated_with_normalization",
+          "note": "Section '嗚呼雪堂老師行從上祖師難' (preface) and line head 0495b29 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-08": {
+          "canonical_locator": "T47n1985_p0495c05–p0495c06",
+          "status": "collated_with_normalization",
+          "note": "Section '大德二年八月前監察御史郭' (preface) and line head 0495c05 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-heading-03": {
+          "canonical_locator": "T47n1985_p0495c09–p0495c09",
+          "status": "collated_with_normalization",
+          "note": "Section '臨濟慧照玄公大宗師語錄序' (preface-heading) and line head 0495c09 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-09": {
+          "canonical_locator": "T47n1985_p0495c11–p0495c16",
+          "status": "collated_with_normalization",
+          "note": "Section '竊以黃蘗山高便敢當頭捋虎' (preface) and line head 0495c11 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-10": {
+          "canonical_locator": "T47n1985_p0495c16–p0495c21",
+          "status": "collated_with_normalization",
+          "note": "Section '茲者總統雪堂和尚憫巴歌唱' (preface) and line head 0495c16 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-11": {
+          "canonical_locator": "T47n1985_p0495c21–p0496a04",
+          "status": "collated_with_normalization",
+          "note": "Section '噫臨濟祖師六傳而至汾陽大' (preface) and line head 0495c21 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-12": {
+          "canonical_locator": "T47n1985_p0496a04–p0496a12",
+          "status": "collated_with_normalization",
+          "note": "Section '琅瑘覺傳泐潭月月傳毘陵真' (preface) and line head 0496a04 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-13": {
+          "canonical_locator": "T47n1985_p0496a12–p0496a15",
+          "status": "collated_with_normalization",
+          "note": "Section '雪堂禪師乃吾三世祖囑予為' (preface) and line head 0496a12 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-heading-04": {
+          "canonical_locator": "T47n1985_p0496a18–p0496a22",
+          "status": "collated_with_normalization",
+          "note": "Section '鎮州臨濟慧照禪師語錄序鎮' (preface-heading) and line head 0496a18 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.preface-14": {
+          "canonical_locator": "T47n1985_p0496a23–p0496b08",
+          "status": "collated_with_normalization",
+          "note": "Section '黃檗山頭曾遭痛棒大愚肋下' (preface) and line head 0496a23 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.fascicle-heading-01": {
+          "canonical_locator": "T47n1985_p0496b11–p0496b13",
+          "status": "collated_with_normalization",
+          "note": "Section '鎮州臨濟慧照禪師語錄' (fascicle-heading) and line head 0496b11 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-heading-01": {
+          "canonical_locator": "T47n1985_p0496b14–p0496c03",
+          "status": "collated_with_normalization",
+          "note": "Section '府主王常侍與諸官請師升座' (record-heading) and line head 0496b14 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-01": {
+          "canonical_locator": "T47n1985_p0496c04–p0496c09",
+          "status": "collated_with_normalization",
+          "note": "Section '師因一日到河府府主王常侍' (record) and line head 0496c04 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.true_person_of_no_rank": {
+          "canonical_locator": "T47n1985_p0496c10–p0496c14",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂云赤肉團上有一無位真' (record) and line head 0496c10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-03": {
+          "canonical_locator": "T47n1985_p0496c15–p0496c22",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂有僧出禮拜師便喝僧云' (record) and line head 0496c15 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-04": {
+          "canonical_locator": "T47n1985_p0496c23–p0497a01",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂僧問如何是佛法大意師' (record) and line head 0496c23 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-05": {
+          "canonical_locator": "T47n1985_p0497a02–p0497a08",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂僧問如何是劍刃上事師' (record) and line head 0497a02 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-06": {
+          "canonical_locator": "T47n1985_p0497a09–p0497a11",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂云一人在孤峯頂上無出' (record) and line head 0497a09 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-07": {
+          "canonical_locator": "T47n1985_p0497a12–p0497a14",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂云有一人論劫在途中不' (record) and line head 0497a12 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-08": {
+          "canonical_locator": "T47n1985_p0497a15–p0497a21",
+          "status": "collated_with_normalization",
+          "note": "Section '上堂僧問如何是第一句師云' (record) and line head 0497a15 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-09": {
+          "canonical_locator": "T47n1985_p0497a22–p0497c25",
+          "status": "collated_with_normalization",
+          "note": "Section '師晚參示眾云有時奪人不奪' (record) and line head 0497a22 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-10": {
+          "canonical_locator": "T47n1985_p0497c26–p0498a15",
+          "status": "collated_with_normalization",
+          "note": "Section '師示眾云道流切要求取真正' (record) and line head 0497c26 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-11": {
+          "canonical_locator": "T47n1985_p0498a16–p0498b01",
+          "status": "collated_with_normalization",
+          "note": "Section '師示眾云道流佛法無用功處' (record) and line head 0498a16 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-12": {
+          "canonical_locator": "T47n1985_p0498b02–p0498b24",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是佛魔師云爾一念心' (record) and line head 0498b02 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-13": {
+          "canonical_locator": "T47n1985_p0498b25–p0498c17",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是真正見解師云爾但' (record) and line head 0498b25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-14": {
+          "canonical_locator": "T47n1985_p0498c18–p0499a03",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是四種無相境師云爾' (record) and line head 0498c18 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-15": {
+          "canonical_locator": "T47n1985_p0499a04–p0499a27",
+          "status": "collated_with_normalization",
+          "note": "Section '師示眾云如今學道人且要自' (record) and line head 0499a04 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-16": {
+          "canonical_locator": "T47n1985_p0499a28–p0499c13",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是三眼國土師云我共' (record) and line head 0499a28 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-17": {
+          "canonical_locator": "T47n1985_p0499c14–p0500a02",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是心心不異處師云爾' (record) and line head 0499c14 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-18": {
+          "canonical_locator": "T47n1985_p0500a02–p0500a12",
+          "status": "collated_with_normalization",
+          "note": "Section '爾道佛有六通是不可思議一' (record) and line head 0500a02 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-19": {
+          "canonical_locator": "T47n1985_p0500a12–p0500a26",
+          "status": "collated_with_normalization",
+          "note": "Section '道流真佛無形真法無相爾秖' (record) and line head 0500a12 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-20": {
+          "canonical_locator": "T47n1985_p0500a26–p0500b21",
+          "status": "collated_with_normalization",
+          "note": "Section '道流如諸方有學人來主客相' (record) and line head 0500a26 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-21": {
+          "canonical_locator": "T47n1985_p0500b21–p0500c06",
+          "status": "collated_with_normalization",
+          "note": "Section '道流爾欲得如法見解但莫受' (record) and line head 0500b21 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-22": {
+          "canonical_locator": "T47n1985_p0500c06–p0500c27",
+          "status": "collated_with_normalization",
+          "note": "Section '道流是爾目前用底與祖佛不' (record) and line head 0500c06 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-23": {
+          "canonical_locator": "T47n1985_p0500c27–p0501a15",
+          "status": "collated_with_normalization",
+          "note": "Section '道流大丈夫漢更疑箇什麼目' (record) and line head 0500c27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-24": {
+          "canonical_locator": "T47n1985_p0501a15–p0501b08",
+          "status": "collated_with_normalization",
+          "note": "Section '大德山僧如是所舉皆是辨魔' (record) and line head 0501a15 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-25": {
+          "canonical_locator": "T47n1985_p0501b08–p0501b14",
+          "status": "collated_with_normalization",
+          "note": "Section '大德到這裏學人著力處不通' (record) and line head 0501b08 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-26": {
+          "canonical_locator": "T47n1985_p0501b14–p0501b19",
+          "status": "collated_with_normalization",
+          "note": "Section '道流一剎那間便入華藏世界' (record) and line head 0501b14 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-27": {
+          "canonical_locator": "T47n1985_p0501b19–p0501b29",
+          "status": "collated_with_normalization",
+          "note": "Section '道流山僧佛法的的相承從麻' (record) and line head 0501b19 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-28": {
+          "canonical_locator": "T47n1985_p0501b29–p0501c25",
+          "status": "collated_with_normalization",
+          "note": "Section '但有來求者我即便出看渠渠' (record) and line head 0501b29 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-29": {
+          "canonical_locator": "T47n1985_p0501c25–p0501c27",
+          "status": "collated_with_normalization",
+          "note": "Section '道流真佛無形真道無體真法' (record) and line head 0501c25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-30": {
+          "canonical_locator": "T47n1985_p0501c28–p0502a07",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是真佛真法真道乞垂' (record) and line head 0501c28 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-31": {
+          "canonical_locator": "T47n1985_p0502a08–p0502a27",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是西來意師云若有意' (record) and line head 0502a08 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-32": {
+          "canonical_locator": "T47n1985_p0502a28–p0502b13",
+          "status": "collated_with_normalization",
+          "note": "Section '問大通智勝佛十劫坐道場佛' (record) and line head 0502a28 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-33": {
+          "canonical_locator": "T47n1985_p0502b14–p0502c03",
+          "status": "collated_with_normalization",
+          "note": "Section '問如何是五無間業師云殺父' (record) and line head 0502b14 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-34": {
+          "canonical_locator": "T47n1985_p0502c03–p0502c10",
+          "status": "collated_with_normalization",
+          "note": "Section '道流莫取山僧說處何故說無' (record) and line head 0502c03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-35": {
+          "canonical_locator": "T47n1985_p0502c10–p0502c22",
+          "status": "collated_with_normalization",
+          "note": "Section '道流有一般禿子便向裏許著' (record) and line head 0502c10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-36": {
+          "canonical_locator": "T47n1985_p0502c22–p0502c27",
+          "status": "collated_with_normalization",
+          "note": "Section '大德莫因循過日山僧往日未' (record) and line head 0502c22 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-37": {
+          "canonical_locator": "T47n1985_p0502c27–p0503a05",
+          "status": "collated_with_normalization",
+          "note": "Section '儞諸方聞道有箇臨濟老漢出' (record) and line head 0502c27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.record-38": {
+          "canonical_locator": "T47n1985_p0503a05–p0503a15",
+          "status": "collated_with_normalization",
+          "note": "Section '夫如至理之道非諍論而求激' (record) and line head 0503a05 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-heading-01": {
+          "canonical_locator": "T47n1985_p0503a16–p0503a16",
+          "status": "collated_with_normalization",
+          "note": "Section '勘辨' (kanbian-heading) and line head 0503a16 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-01": {
+          "canonical_locator": "T47n1985_p0503a17–p0503a28",
+          "status": "collated_with_normalization",
+          "note": "Section '黃蘗因入厨次問飯頭作什麼' (kanbian) and line head 0503a17 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-02": {
+          "canonical_locator": "T47n1985_p0503a29–p0503b02",
+          "status": "collated_with_normalization",
+          "note": "Section '師問僧什麼處來僧便喝師便' (kanbian) and line head 0503a29 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-03": {
+          "canonical_locator": "T47n1985_p0503b03–p0503b09",
+          "status": "collated_with_normalization",
+          "note": "Section '師一日同普化赴施主家齋次' (kanbian) and line head 0503b03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-04": {
+          "canonical_locator": "T47n1985_p0503b10–p0503b16",
+          "status": "collated_with_normalization",
+          "note": "Section '師一日與河陽木塔長老同在' (kanbian) and line head 0503b10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-05": {
+          "canonical_locator": "T47n1985_p0503b17–p0503b19",
+          "status": "collated_with_normalization",
+          "note": "Section '一日普化在僧堂前喫生菜師' (kanbian) and line head 0503b17 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-06": {
+          "canonical_locator": "T47n1985_p0503b20–p0503b24",
+          "status": "collated_with_normalization",
+          "note": "Section '因普化常於街市搖鈴云明頭' (kanbian) and line head 0503b20 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-07": {
+          "canonical_locator": "T47n1985_p0503b25–p0503c02",
+          "status": "collated_with_normalization",
+          "note": "Section '有一老宿參師未曾人事便問' (kanbian) and line head 0503b25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-08": {
+          "canonical_locator": "T47n1985_p0503c03–p0503c05",
+          "status": "collated_with_normalization",
+          "note": "Section '師因入軍營赴齋門首見員僚' (kanbian) and line head 0503c03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-09": {
+          "canonical_locator": "T47n1985_p0503c06–p0503c18",
+          "status": "collated_with_normalization",
+          "note": "Section '師問院主什麼處來主云州中' (kanbian) and line head 0503c06 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-10": {
+          "canonical_locator": "T47n1985_p0503c19–p0503c25",
+          "status": "collated_with_normalization",
+          "note": "Section '師聞第二代德山垂示云道得' (kanbian) and line head 0503c19 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-11": {
+          "canonical_locator": "T47n1985_p0503c26–p0504a02",
+          "status": "collated_with_normalization",
+          "note": "Section '王常侍一日訪師同師於僧堂' (kanbian) and line head 0503c26 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-12": {
+          "canonical_locator": "T47n1985_p0504a03–p0504a04",
+          "status": "collated_with_normalization",
+          "note": "Section '師問杏山如何是露地白牛山' (kanbian) and line head 0504a03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-13": {
+          "canonical_locator": "T47n1985_p0504a05–p0504a07",
+          "status": "collated_with_normalization",
+          "note": "Section '師問樂普云從上來一人行棒' (kanbian) and line head 0504a05 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-14": {
+          "canonical_locator": "T47n1985_p0504a08–p0504a09",
+          "status": "collated_with_normalization",
+          "note": "Section '師見僧來展開兩手僧無語師' (kanbian) and line head 0504a08 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-15": {
+          "canonical_locator": "T47n1985_p0504a10–p0504a14",
+          "status": "collated_with_normalization",
+          "note": "Section '大覺到參師舉起拂子大覺敷' (kanbian) and line head 0504a10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-16": {
+          "canonical_locator": "T47n1985_p0504a15–p0504a18",
+          "status": "collated_with_normalization",
+          "note": "Section '趙州行脚時參師遇師洗脚次' (kanbian) and line head 0504a15 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-17": {
+          "canonical_locator": "T47n1985_p0504a19–p0504a21",
+          "status": "collated_with_normalization",
+          "note": "Section '有定上座到參問如何是佛法' (kanbian) and line head 0504a19 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-18": {
+          "canonical_locator": "T47n1985_p0504a22–p0504a25",
+          "status": "collated_with_normalization",
+          "note": "Section '麻谷到參敷坐具問十二面觀' (kanbian) and line head 0504a22 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.four_shouts": {
+          "canonical_locator": "T47n1985_p0504a26–p0504a29",
+          "status": "collated_with_normalization",
+          "note": "Section '師問僧有時一喝如金剛王寶' (kanbian) and line head 0504a26 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-20": {
+          "canonical_locator": "T47n1985_p0504b01–p0504b02",
+          "status": "collated_with_normalization",
+          "note": "Section '師問一尼善來惡來尼便喝師' (kanbian) and line head 0504b01 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-21": {
+          "canonical_locator": "T47n1985_p0504b03–p0504b10",
+          "status": "collated_with_normalization",
+          "note": "Section '龍牙問如何是祖師西來意師' (kanbian) and line head 0504b03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-22": {
+          "canonical_locator": "T47n1985_p0504b11–p0504b17",
+          "status": "collated_with_normalization",
+          "note": "Section '徑山有五百眾少人參請黃蘗' (kanbian) and line head 0504b11 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.kanbian-23": {
+          "canonical_locator": "T47n1985_p0504b18–p0504b26",
+          "status": "collated_with_normalization",
+          "note": "Section '普化一日於街市中就人乞直' (kanbian) and line head 0504b18 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-heading-01": {
+          "canonical_locator": "T47n1985_p0504b27–p0504b27",
+          "status": "collated_with_normalization",
+          "note": "Section '行錄' (xinglu-heading) and line head 0504b27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.conduct_record_biography": {
+          "canonical_locator": "T47n1985_p0504b28–p0505a04",
+          "status": "collated_with_normalization",
+          "note": "Section '師初在黃蘗會下行業純一首' (xinglu) and line head 0504b28 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-02": {
+          "canonical_locator": "T47n1985_p0505a05–p0505a15",
+          "status": "collated_with_normalization",
+          "note": "Section '師栽松次黃蘗問深山裏栽許' (xinglu) and line head 0505a05 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-03": {
+          "canonical_locator": "T47n1985_p0505a16–p0505a23",
+          "status": "collated_with_normalization",
+          "note": "Section '師普請鋤地次見黃蘗來拄钁' (xinglu) and line head 0505a16 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-04": {
+          "canonical_locator": "T47n1985_p0505a23–p0505a28",
+          "status": "collated_with_normalization",
+          "note": "Section '師一日在僧堂前坐見黃蘗來' (xinglu) and line head 0505a23 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-05": {
+          "canonical_locator": "T47n1985_p0505a29–p0505b06",
+          "status": "collated_with_normalization",
+          "note": "Section '師在堂中睡黃蘗下來見以拄' (xinglu) and line head 0505a29 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-06": {
+          "canonical_locator": "T47n1985_p0505b07–p0505b14",
+          "status": "collated_with_normalization",
+          "note": "Section '一日普請次師在後行黃蘗回' (xinglu) and line head 0505b07 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-07": {
+          "canonical_locator": "T47n1985_p0505b15–p0505b26",
+          "status": "collated_with_normalization",
+          "note": "Section '師為黃蘗馳書去溈山時仰山' (xinglu) and line head 0505b15 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-08": {
+          "canonical_locator": "T47n1985_p0505b27–p0506a06",
+          "status": "collated_with_normalization",
+          "note": "Section '師因半夏上黃蘗見和尚看經' (xinglu) and line head 0505b27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-09": {
+          "canonical_locator": "T47n1985_p0506a07–p0506a09",
+          "status": "collated_with_normalization",
+          "note": "Section '師到達磨塔頭塔主云長老先' (xinglu) and line head 0506a07 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-10": {
+          "canonical_locator": "T47n1985_p0506a10–p0506a13",
+          "status": "collated_with_normalization",
+          "note": "Section '師行脚時到龍光光上堂師出' (xinglu) and line head 0506a10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-11": {
+          "canonical_locator": "T47n1985_p0506a14–p0506a20",
+          "status": "collated_with_normalization",
+          "note": "Section '到三峯平和尚問曰什麼處來' (xinglu) and line head 0506a14 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-12": {
+          "canonical_locator": "T47n1985_p0506a21–p0506a24",
+          "status": "collated_with_normalization",
+          "note": "Section '到大慈慈在方丈內坐師問端' (xinglu) and line head 0506a21 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-13": {
+          "canonical_locator": "T47n1985_p0506a25–p0506a28",
+          "status": "collated_with_normalization",
+          "note": "Section '到襄州華嚴嚴倚拄杖作睡勢' (xinglu) and line head 0506a25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-14": {
+          "canonical_locator": "T47n1985_p0506a29–p0506b03",
+          "status": "collated_with_normalization",
+          "note": "Section '到翠峯峯問甚處來師云黃蘗' (xinglu) and line head 0506a29 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-15": {
+          "canonical_locator": "T47n1985_p0506b04–p0506b06",
+          "status": "collated_with_normalization",
+          "note": "Section '到象田師問不凡不聖請師速' (xinglu) and line head 0506b04 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-16": {
+          "canonical_locator": "T47n1985_p0506b07–p0506b09",
+          "status": "collated_with_normalization",
+          "note": "Section '到明化化問來來去去作什麼' (xinglu) and line head 0506b07 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-17": {
+          "canonical_locator": "T47n1985_p0506b10–p0506b12",
+          "status": "collated_with_normalization",
+          "note": "Section '往鳳林路逢一婆婆問甚處去' (xinglu) and line head 0506b10 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-18": {
+          "canonical_locator": "T47n1985_p0506b13–p0506b24",
+          "status": "collated_with_normalization",
+          "note": "Section '到鳳林林問有事相借問得麼' (xinglu) and line head 0506b13 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-19": {
+          "canonical_locator": "T47n1985_p0506b25–p0506c02",
+          "status": "collated_with_normalization",
+          "note": "Section '到金牛牛見師來橫按拄杖當' (xinglu) and line head 0506b25 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.death_record": {
+          "canonical_locator": "T47n1985_p0506c03–p0506c07",
+          "status": "collated_with_normalization",
+          "note": "Section '師臨遷化時據坐云吾滅後不' (xinglu) and line head 0506c03 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.xinglu-21": {
+          "canonical_locator": "T47n1985_p0506c08–p0506c25",
+          "status": "collated_with_normalization",
+          "note": "Section '師諱義玄曹州南華人也俗姓' (xinglu) and line head 0506c08 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.fascicle-close-01": {
+          "canonical_locator": "T47n1985_p0506c26–p0506c26",
+          "status": "collated_with_normalization",
+          "note": "Section '鎮州臨濟慧照禪師語錄終' (fascicle-close) and line head 0506c26 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.colophon-heading-01": {
+          "canonical_locator": "T47n1985_p0506c27–p0506c27",
+          "status": "collated_with_normalization",
+          "note": "Section '住大名府興化嗣法小師存獎' (colophon-heading) and line head 0506c27 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "sections.colophon-01": {
+          "canonical_locator": "T47n1985_p0506c28–p0506c28",
+          "status": "collated_with_normalization",
+          "note": "Section '永享九年八月十五日板在法' (colophon) and line head 0506c28 read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the section's text is verbatim and contiguous in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+          "collation_note": "The section's single source field (`dialogue[0].zh`) collates verbatim to the pinned witness, and the producer asserts that the 107 section texts concatenate to the whole reference extraction; the locator anchors the section at its `lb` line head and the last `lb` inside it.",
+          "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        }
+      }
     }
   },
   "policy": {

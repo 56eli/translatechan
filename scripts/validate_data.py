@@ -1362,7 +1362,7 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
                       f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
          "honest-status CJK counts"),
         ("README.md", f"manifest ({corpus['documents']} keys)", "manifest key count in repo tree"),
-        ("README.md", "48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`", "Wumenguan containment status in corpus table"),
+        ("README.md", "48 / 48 cases represented; W1 source-review status: `collated_to_claimed_witness`", "Wumenguan containment status in corpus table"),
         ("README.md", f"currently **{len(lineage)} master profiles**", "master profile count in lineage feature"),
         ("README.md", f"— **{len(gongan)} indexed cases** at present", "gong'an count in index feature"),
         ("README.md", f"**{len(glossary)} terms** today", "glossary count in lexicon feature"),
@@ -1407,7 +1407,7 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
         checks.append(("AUDIT.md", f"Biyanlu **{biyanlu['coverage']}**", "current-verdict Biyanlu coverage"))
     if wumenguan.get("coverage"):
-        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** represented; W1 source-review status: `partial_or_failed_w1_collation`", "current-verdict Wumenguan containment status"))
+        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** represented; W1 source-review status: `collated_to_claimed_witness`", "current-verdict Wumenguan containment status"))
     for filename, snippet, description in checks:
         path = ROOT / filename
         if not path.exists():

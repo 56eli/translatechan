@@ -2,7 +2,7 @@
 
 **From:** translatechan (Role 1) — corpus owner, integrity gates, content authority
 **To:** botrunner (Role 2) — VPS ops advisory, import pipeline, presentation — via owner
-**Base:** `pr-106` `cf53edd` / `main` `58964d8` + P2.9 Linji re-key — 13 docs, 11 collated 100% verified, 2 unavailable, 11 exported
+**Base:** `pr-106` `cf53edd` / `main` `58964d8` + P2.8/P2.9 Wumenguan & Linji re-keys (combined overlay) — 14 docs, 12 collated 100% verified, 2 unavailable, 12 exported
 **Charter:** ROLE_CHARTER_nonduality_wiki_2026-09-20.md — translatechan owns words/sources/verification, botrunner owns serving/hosting/presenting, owner holds secrets/merges
 **Consumer requirements:** TC-EXPORT-CONSUMER-REQUIREMENTS.md R1-R12
 **Law amendments 2026-09-21:** (a) sha256 verification mandatory not optional, (b) gate executed unprivileged in disposable clone stdlib-only read-only, adding dep/network is new decision, (c) Python minimum 3.11 tested set 3.11, 3.12 system python3 br1 3.12.3 accepted no container, future 3.13 must be re-validated
@@ -11,7 +11,7 @@
 
 ## 1. Current corpus — law
 
-**13 docs — 11 collated_to_claimed_witness 100% real old texts +2 witness_unavailable neutral — 11 exported to wiki per Q7 W3:**
+**14 docs — 12 collated_to_claimed_witness 100% real old texts +2 witness_unavailable neutral — 12 exported to wiki per Q7 W3:**
 
 - `zhengdao_ge` — Yongjia Zhengdao Ge, excerpt_seed, T51n2014
 - `congronglu` — Book of Serenity, 100 cases 500/500 EXACT, T48n2004
@@ -29,11 +29,11 @@
 - `hanshan_poems` — Hanshan Cold Mountain Poems, witness_unavailable neutral, SBCK/Zoku — no witness in pinned set
 - `niutou_juezhu` — Niutou Farong Juezhu Lun, witness_unavailable neutral, P.2885
 
-**Wiki receives ONLY 100% collated per owner ruling Q7 W3 — no imperfections on wiki.** Export manifest lists 11 collated docs (scope correction: previous 1.1 manifest listed 12 including 2 unavailable while claiming 10 exported; law lists 11 collated only per Q7 W3), botrunner defense-in-depth fails if it ever sees partial_or_failed.
+**Wiki receives ONLY 100% collated per owner ruling Q7 W3 — no imperfections on wiki.** Export manifest lists 12 collated docs (scope correction kept from the previous re-issue: manifests list only 100% collated documents, never the 2 witness_unavailable excerpt seeds, per Q7 W3), botrunner defense-in-depth fails if it ever sees partial_or_failed.
 
 **Metrics (law):**
 - corpus=13 | slots=46 | verified=1 | matrix=21 | locators=4044/4044 case-level + 107 section locators Linji lb-anchored
-- W1: collated=11 | partial/failed=0 | unavailable=2 | flagged=15 | evidence 2026-09-21 → sessions/COLLATION_REGISTER_2026-09-21_LINJI.json (13 docs 15 flagged, refs_manifest 18 works = previous 17 + T47n1985, digest byte-identical to historical anchor, no waiver)
+- W1: collated=12 | partial/failed=0 | unavailable=2 | flagged=15 | evidence 2026-09-21 → sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json (14 docs 15 flagged, refs_manifest 19 works = previous 17 + T48n2005 + T47n1985, both digests byte-identical to the historical anchor, no waiver)
 - CJK: ~767,450 content / 824,896 all-string (was 751,084/806,651 before Linji)
 - Provenance notes: 21+ total, 11+ rendered, cbeta_note 11+
 - Bundle: 7,440,122 B deterministic root/docs mirror diff clean (was 7,230,634 B before Linji)
@@ -64,7 +64,7 @@
 
 **Q3 tombstones — CONFIRMED:** lifecycle_status `active`, `withdrawn`, `superseded`, `retracted_pending_review` + `superseded_by` id. Entity stays with status, not vanish. Absence alone never means deletion — botrunner reports warnings. Manifest checksums prove complete export not half-written. **Mandatory sha256 verification (amendment a) is what makes tombstone distinction possible — a manifest nobody verifies proves nothing.**
 
-**Q5 rights — Consideration only, not decided:** If maintenance low, want copyrighted flagged, leave access to owner, might make everything private with wiki account. Proposal as consideration: every page gets `rights_status` in_copyright/public_domain_candidate/needs_review + `is_ai_styled` boolean + visibility suggestion. Since only 11 collated old texts (public domain) + our AI-styled English (ours) are exported, likely all public, but flags emitted for future audit. Botrunner reads flags, dry-run diff.
+**Q5 rights — Consideration only, not decided:** If maintenance low, want copyrighted flagged, leave access to owner, might make everything private with wiki account. Proposal as consideration: every page gets `rights_status` in_copyright/public_domain_candidate/needs_review + `is_ai_styled` boolean + visibility suggestion. Since only 12 collated old texts (public domain) + our AI-styled English (ours) are exported, likely all public, but flags emitted for future audit. Botrunner reads flags, dry-run diff.
 
 **Q6 append-mostly + revisions — AFFIRMED:** Both — added 7 full-witness docs append (6 enthusiast fulls + Linji) + revised labels (465 permitted /0 unauthorized vs base 3cc7a8e). Importer idempotent keyed by stable R1 id, never duplicates, title change keeps id.
 
@@ -182,7 +182,7 @@ Example Linji section:
 3. Verify `export_ready.json` exists and timestamp+commit matches manifest — **mandatory** not optional — if missing/mismatched, abort
 4. Verify sha256+size of every file in manifest via `sha256sum -c -` — **mandatory** not optional — a manifest nobody verifies proves nothing — if any mismatch, abort
 5. Run gate `python3 scripts/validate_data.py` — unprivileged, stdlib-only, read-only, no network, no container (system python3 3.12.3 accepted, minimum 3.11 tested set 3.11+3.12 future 3.13 must be re-validated) — capture output, abort if non-zero
-6. Filter `only_collated=true` — export already filtered to 11 collated, defense-in-depth fail if sees partial_or_failed or witness_unavailable
+6. Filter `only_collated=true` — export already filtered to 12 collated, defense-in-depth fail if sees partial_or_failed or witness_unavailable
 7. Map work=Book, fascicle=Chapter, passage=Page by id+parent_id+order, idempotent keyed by stable id, never duplicates, title change keeps id
 8. Render W1 badge verbatim code+label+explanation, link to evidence register, 5 ledgers separate — Linji badge "collated_to_claimed_witness — 107/107 content fields EXACT in T47n1985, 0 flagged, evidence sessions/COLLATION_REGISTER_2026-09-21_LINJI.json"
 9. Emit provenance source_key + is_ai_styled boolean + import_reference on every page
@@ -197,8 +197,8 @@ Example Linji section:
 - PR https://github.com/56eli/translatechan/pull/106 — branch `arena/01a0c4aa-translatechan` — 107 sections tiling whole 16,366-CJK T47n1985 fascicle, 215 measured fields 215 EXACT 0 flagged, `collated_to_claimed_witness`
 - Witness: CBETA XML P5 `dbdea41071e1e260ad84b72faefd4587333cf76d` work T47n1985, rule `cbeta-p5-body-cjk-v1`, reference `ref_T47n1985.txt` 16,366 CJK sha256 `4317e5fa14996b3f...9aeb8359`, document `data/corpus/linji_yulu.json` sha256 `d1004987b6e9c886...c70eb419`
 - Segmentation: `scripts/segment_linji_yulu.py` follows `segment_full_witness.py` pattern, asserts concatenation equals digest-verified reference extraction char for char
-- Evidence: `sessions/COLLATION_REGISTER_2026-09-21_LINJI.json` (13 docs 15 flagged) + `sessions/COLLATION_W1_2026-09-21_LINJI_refs_manifest.txt` 18-work manifest = previous 17 + T47n1985, digest byte-identical to historical anchor, no waiver
-- Export re-issue: 21 files, all hashes recomputed from one commit, only_collated true, 11 collated incl. linji_yulu, sample gains section-type record
+- Evidence: `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` (14 docs 15 flagged) + `sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI_refs_manifest.txt` 19-work manifest = previous 17 + T48n2005 + T47n1985, both digests byte-identical to the historical anchor, no waiver
+- Export re-issue: 25 files, all hashes recomputed from one commit, only_collated true, 12 collated incl. wumenguan + linji_yulu, sample keeps its first section-type record (linji_yulu_section_078)
 - Gates: validate_data PASS corpus=13 slots=46 verified=1 matrix=21 locators=4044/4044, build deterministic 7,440,122 B
 - Honest reds: test_source_preservation, test_source_review_rules, smoke_test still pin pre-purge 44-doc world — already red on f1207ea, scoped in STUB_P2.10_GATE_SUITE_REPIN.md, not caused by Linji branch
 

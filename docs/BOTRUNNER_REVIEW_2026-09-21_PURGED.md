@@ -27,7 +27,7 @@
 - `hanshan_poems` — Hanshan Cold Mountain Poems, witness_unavailable neutral, SBCK/Zoku — no witness in pinned set
 - `niutou_juezhu` — Niutou Farong Juezhu Lun, witness_unavailable neutral, P.2885
 
-**Wiki receives ONLY 100% collated per owner ruling Q7 W3 — no imperfections on wiki.** Export manifest lists 10 collated docs, botrunner defense-in-depth fails if it ever sees partial_or_failed.
+**Wiki receives ONLY 100% collated per owner ruling Q7 W3 — no imperfections on wiki.** Export manifest lists 12 collated docs, botrunner defense-in-depth fails if it ever sees partial_or_failed.
 
 **Metrics:**
 - corpus=12 | slots=46 | verified=1 | matrix=21 | locators=4044/4044
@@ -62,13 +62,13 @@
 
 **Q3 tombstones — CONFIRMED:** lifecycle_status `active`, `withdrawn`, `superseded`, `retracted_pending_review` + `superseded_by` id. Entity stays with status, not vanish. Absence alone never means deletion — botrunner reports warnings. Manifest checksums prove complete export not half-written.
 
-**Q5 rights — Consideration only, not decided:** If maintenance low, want copyrighted flagged, leave access to owner, might make everything private with wiki account. Proposal as consideration: every page gets `rights_status` in_copyright/public_domain_candidate/needs_review + `is_ai_styled` boolean + visibility suggestion. Since only 10 collated old texts (public domain) + our AI-styled English (ours) are exported, likely all public, but flags emitted for future audit. Botrunner reads flags, dry-run diff.
+**Q5 rights — Consideration only, not decided:** If maintenance low, want copyrighted flagged, leave access to owner, might make everything private with wiki account. Proposal as consideration: every page gets `rights_status` in_copyright/public_domain_candidate/needs_review + `is_ai_styled` boolean + visibility suggestion. Since only 12 collated old texts (public domain) + our AI-styled English (ours) are exported, likely all public, but flags emitted for future audit. Botrunner reads flags, dry-run diff.
 
 **Q6 append-mostly + revisions — AFFIRMED:** Both — added 6 full-witness docs append + revised labels (465 permitted /0 unauthorized vs base 3cc7a8e). Importer idempotent keyed by stable R1 id, never duplicates, title change keeps id.
 
 **Q7 recommendations — LOCKED Q7 W3 wiki only 100% collated, no imperfections:**
 
-1. Export manifest + sample: `export_manifest.json` schema_version 1.1, timestamp ISO8601, commit, files sha256 size, only_collated true, ready marker `export_ready.json` atomic (R12). Sample JSONL 5 masters +5 passages with all R1-R12 fields.
+1. Export manifest + sample: `export_manifest.json` schema_version 1.1, timestamp ISO8601, commit, files sha256 size, only_collated true, ready marker `export_ready.json` atomic (R12). Sample JSONL 5 masters +6 passages with all R1-R12 fields.
 2. Schema docs: SCHEMA.md, BODY_FORMAT.md, GATE.md, CHANGELOG.md with all enums, mapping rule, BODY_FORMAT plain_cjk_markdown_subset_v1 no arbitrary HTML NFC, GATE `python3 scripts/validate_data.py` exit 0 safe read-only.
 3. W1 filtering: export contains ONLY collated_to_claimed_witness, importer fails if sees partial.
 4. Rights flags as consideration.
@@ -112,7 +112,7 @@ Secondary `build_data_bundle.py` determinism 7,230,634 B, `smoke_test.mjs`. See 
 
 ## 5. Sample export
 
-`docs/sample_export.jsonl` 10 records: 5 masters +5 passages from collated docs with all fields: id, type, parent_id, order, lifecycle_status, w1_status {code,label,explanation}, provenance {source_key, source_edition, cbeta_id, witness_path, extraction_rule, witness_revision, is_ai_styled, import_reference {commit,timestamp,evidence_register_path}}, texts [{lang,script,transliteration_scheme,body,is_ai_styled}], body_format, rights_status, visibility, canonical_locator, cross_refs by id.
+`docs/sample_export.jsonl` 11 records: 5 masters +6 passages from collated docs (the 6th is the `section`-type `linji_yulu_section_078`, added with the 2026-09-21 Linji re-key) with all fields: id, type, parent_id, order, lifecycle_status, w1_status {code,label,explanation}, provenance {source_key, source_edition, cbeta_id, witness_path, extraction_rule, witness_revision, is_ai_styled, import_reference {commit,timestamp,evidence_register_path}}, texts [{lang,script,transliteration_scheme,body,is_ai_styled}], body_format, rights_status, visibility, canonical_locator, cross_refs by id.
 
 Example passage:
 ```json
@@ -127,7 +127,7 @@ Example passage:
 2. Verify `export_ready.json` exists and timestamp+commit matches manifest — **mandatory**, not optional — if missing/mismatched, abort
 3. Verify sha256+size of every file in `export_manifest.json.files[]` via `sha256sum -c -` — **mandatory**, not optional — a manifest nobody verifies proves nothing — if any mismatch, abort
 4. Run gate `python3 scripts/validate_data.py` — unprivileged, stdlib-only, read-only, no network, no container (system python3 3.12.3 accepted, minimum 3.11 tested set 3.11+3.12 future 3.13 must be re-validated) — capture output, abort if non-zero
-5. Filter `only_collated=true` — export already filtered to 10 collated, defense-in-depth fail if sees partial_or_failed
+5. Filter `only_collated=true` — export already filtered to 12 collated, defense-in-depth fail if sees partial_or_failed
 6. Map work=Book, fascicle=Chapter, passage=Page by id+parent_id+order, idempotent keyed by stable id, never duplicates, title change keeps id
 7. Render W1 badge verbatim code+label+explanation, link to evidence register, 5 ledgers separate
 8. Emit provenance source_key + is_ai_styled boolean + import_reference on every page
