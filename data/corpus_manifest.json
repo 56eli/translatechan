@@ -6,14 +6,14 @@
   "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
   "evidence_date": "2026-09-09",
   "status_scope": "Containment/remediation state, not a rights decision.",
-  "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md",
-  "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
-  "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
-  "correction_evidence_date": "2026-09-20",
-  "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
-  "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the newest authoritative record (it inherits the Chuandeng Lu overlay's 37 per-document entries verbatim and records the T47n1987A record of Caoshan Benji as the 38th document); scripts/validate_data.py merges and re-derives both",
+  "correction_report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md",
+  "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+  "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+  "correction_evidence_date": "2026-09-21",
+  "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+  "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630",
   "historical_documents": 34,
-  "authoritative_documents": 38,
+  "authoritative_documents": 44,
   "historical_flagged_total": 622,
   "authoritative_flagged_total": 630,
   "superseded_report_flagged_total": 637,
@@ -304,6 +304,66 @@
    "cbeta": "T1987A",
    "unit_targets": {
     "cases": 84
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "huangbo_fayao_full",
+   "title": "Huangbo's Transmission of Mind, Complete (黃檗山斷際禪師傳心法要)",
+   "cbeta": "T2012A",
+   "unit_targets": {
+    "cases": 19
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "mazu_guanglu_full",
+   "title": "Mazu's Recorded Sayings, Complete (馬祖道一禪師廣錄)",
+   "cbeta": "X1321",
+   "unit_targets": {
+    "cases": 35
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "yunmen_guanglu_full",
+   "title": "The Expanded Record of Yunmen Kuangzhen, Complete (雲門匡真禪師廣錄)",
+   "cbeta": "T1988",
+   "unit_targets": {
+    "cases": 776
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "dongshan_yulu_full",
+   "title": "The Recorded Sayings of Dongshan Liangjie, Complete (洞山良价禪師語錄)",
+   "cbeta": "T1986A + T1986B",
+   "unit_targets": {
+    "cases": 322
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "zhaozhou_yulu_full",
+   "title": "The Recorded Sayings of Zhaozhou, Complete (趙州真際禪師語錄)",
+   "cbeta": "X1315 juan 13–14",
+   "unit_targets": {
+    "cases": 80
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "dahui_yulu_full",
+   "title": "The Recorded Sayings of Dahui Zonggao, Complete (大慧普覺禪師語錄)",
+   "cbeta": "T1998A + T1998B",
+   "unit_targets": {
+    "cases": 1354
    },
    "completion_status": "partial_selected_witness",
    "source_review_status": "collated_to_claimed_witness"

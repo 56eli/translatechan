@@ -87,7 +87,16 @@ Rules
   units tiling all 12,343 CJK characters of the fascicle;
   `scripts/collate_corpus.py --doc caoshan_benji`: 169/169 EXACT, 0 flagged,
   84/84 source-content fields collating), the last of the Five Houses'
-  founders to enter the corpus. Any *other* new corpus file is a failure.
+  founders to enter the corpus — and 2026-09-21 (task 050), when six
+  full-witness records entered the corpus
+  (`data/corpus/huangbo_fayao_full.json`, `mazu_guanglu_full.json`,
+  `yunmen_guanglu_full.json`, `dongshan_yulu_full.json`,
+  `zhaozhou_yulu_full.json`, `dahui_yulu_full.json`), each produced by
+  `scripts/segment_full_witness.py` from its pinned CBETA XML P5 witness with run-time
+  tiling assertions (`scripts/collate_corpus.py --doc …`: 5,178/5,178 EXACT, 0 flagged,
+  2,586/2,586 source-content fields collating, 302,592 new source-content CJK characters;
+  declared evidence sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json).
+  Any *other* new corpus file is a failure.
 * The set of corpus files must not grow or shrink, except for the declared new
   documents above.
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
@@ -144,6 +153,49 @@ DECLARED_NEW_CORPUS = {
         "witnesses, and nothing is copied from them). Declared evidence: "
         "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json + "
         "sessions/P1_CAOSHAN_BENJI_2026-09-20.md."
+    ),
+    # 2026-09-21 (task 050, "enthusiast 100% closer"): the six full-witness records. Each is a new
+    # extraction by scripts/segment_full_witness.py from pinned CBETA XML P5 witnesses at revision
+    # dbdea41071e1e260ad84b72faefd4587333cf76d only — the four seeds they complete and the historical
+    # Zhaozhou seed are untouched, and nothing is copied from any probe. Declared evidence:
+    # sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json +
+    # sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md +
+    # sessions/P2_ENTHUSIAST_100PCT_2026-09-20.md.
+    "data/corpus/huangbo_fayao_full.json": (
+        "2026-09-21 task 050: 黃檗山斷際禪師傳心法要, complete from the pinned T48n2012A witness "
+        "(19 units tiling all 6,632 CJK characters; 39/39 fields EXACT, 0 flagged; T48n2012B and "
+        "X68n1315 are probes, not claimed, and the earlier huangbo_chuanxin seed is untouched)."
+    ),
+    "data/corpus/mazu_guanglu_full.json": (
+        "2026-09-21 task 050: the record printed as X69n1321 (catalogued 馬祖道一禪師廣錄, 四家語錄卷一), "
+        "complete (35 units tiling all 4,732 CJK characters; 71/71 fields EXACT, 0 flagged; "
+        "T51n2076 and X68n1315 are probes, and the earlier mazu_yulu seed is untouched)."
+    ),
+    "data/corpus/yunmen_guanglu_full.json": (
+        "2026-09-21 task 050: 雲門匡真禪師廣錄, complete from the pinned T47n1988 witness (776 units "
+        "tiling all 43,678 CJK characters; 1,553/1,553 fields EXACT, 0 flagged; the anthology "
+        "parallel in X68n1315 is a probe, and the earlier ten-section yunmen_yulu seed — whose "
+        "retellings collate 0 against their claim — is left as it stands, not patched)."
+    ),
+    "data/corpus/dongshan_yulu_full.json": (
+        "2026-09-21 task 050: 洞山良价禪師語錄, both Taishō parts (T47n1986A 15,843 + T47n1986B "
+        "8,596 CJK), 322 units tiling 24,439 CJK characters; 645/645 fields EXACT, 0 flagged; "
+        "T47n1987A is a probe (its Five Ranks treatises are collated in caoshan_benji), and the "
+        "earlier dongshan_yulu and baojing_sanmei records are untouched."
+    ),
+    "data/corpus/zhaozhou_yulu_full.json": (
+        "2026-09-21 task 050: 趙州真際禪師語錄 as printed in the Guzunsu yulu (X68n1315 juan 13–14, "
+        "region-pinned between the anthology work heading and 古尊宿語錄卷第十五), 80 units tiling "
+        "21,038 CJK characters; 161/161 fields EXACT, 0 flagged. X68n1315 carries recorded historical "
+        "reference drift (declared, not waived away); the corpus's prior 'T1987' claim stays "
+        "recorded as false on the historical zhaozhou_yulu seed, which is untouched."
+    ),
+    "data/corpus/dahui_yulu_full.json": (
+        "2026-09-21 task 050: 大慧普覺禪師語錄 T47n1998A (182,132 CJK, the juan 25–30 書 letters "
+        "included) + 宗門武庫 T47n1998B (19,941 CJK), 1,354 units tiling 202,073 CJK characters; "
+        "2,709/2,709 fields EXACT, 0 flagged. T48n2001 (Hongzhi's Guanglu — the corpus's "
+        "dahui_hongzhi selection claims nothing from it and this record claims nothing from it "
+        "either) is a probe; the six-field dahui_hongzhi selection is the untouched sibling."
     ),
 }
 

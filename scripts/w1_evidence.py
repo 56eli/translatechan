@@ -128,11 +128,20 @@ FIXED_METADATA = {
     # unmodified as the chain's historical record; the new overlay inherits its 37 per-document
     # entries verbatim and adds exactly one measured document. Its manifest also carries the task's
     # 41st reference work, the probe T48n2006 (人天眼目); the designated flagged total stays 630.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
-    "correction_evidence_date": "2026-09-20",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+    # 2026-09-21 (task 050): the authoritative overlay moves to the dated enthusiast-fulls record so
+    # the six full-witness documents (huangbo_fayao_full, mazu_guanglu_full, yunmen_guanglu_full,
+    # dongshan_yulu_full, zhaozhou_yulu_full, dahui_yulu_full — 2,586 units tiling 302,592 CJK
+    # characters across the pinned witnesses T48n2012A, X69n1321, T47n1988, T47n1986A+B, X68n1315
+    # juan 13–14 and T47n1998A+B; 5,178 fields measured, 5,178 EXACT, 0 flagged) can be recorded.
+    # The 2026-09-20 Caoshan overlay stays committed and unmodified as the chain's previous record;
+    # the new overlay inherits its 38 per-document entries verbatim and adds exactly the six measured
+    # documents. The reference set is unchanged as a set (the manifest is byte-identical to the
+    # Caoshan overlay's 41 works); the designated flagged total stays 630.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+    "correction_evidence_date": "2026-09-21",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.

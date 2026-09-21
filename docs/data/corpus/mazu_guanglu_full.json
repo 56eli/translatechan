@@ -1,0 +1,723 @@
+{
+ "id": "mazu_guanglu_full",
+ "title_zh": "江西馬祖道一禪師語錄",
+ "title_pinyin": "Jiāngxī Mǎzǔ Dàoyī Chánshī Yǔlù",
+ "title_en": "Mazu Daoyi's Recorded Sayings, Complete as Printed in the Manji Zokuzōkyō (X69n1321, Sijia yulu juan 1)",
+ "cbeta_id": "X1321",
+ "author_zh": "唐 馬祖道一 說",
+ "author_en": "Spoken by Mazu Daoyi (馬祖道一, 709–788)",
+ "era": "Mid-Tang Dynasty (8th century)",
+ "genre": "Linji Cornerstone / Discourse Record (語錄)",
+ "overview": "The whole of CBETA X69n1321 — the Manji Zokuzōkyō printing catalogued as 馬祖道一禪師廣錄 (四家語錄卷一), whose own opening heading reads 江西馬祖道一禪師語錄: the biography opening, the 即心即佛 / 非心非佛 and 即心 is-dao exchanges, the 三句 teachings, and the 四家 record of West Hall, Baizhang and Nanquan attending the master watching the moon — every paragraph verbatim and contiguous.",
+ "unit_structure": {
+  "heading": 1,
+  "juan-close": 1,
+  "juan-head": 1,
+  "record": 32
+ },
+ "cases": [
+  {
+   "case_num": 1,
+   "kind": "juan-head",
+   "witness": "X69n1321",
+   "title_zh": "江西馬祖道一禪師語錄",
+   "title_en": "Opening heading of the record",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "江西馬祖道一禪師語錄",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0810a01",
+    "case_close_line": "0810a01",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 2,
+   "kind": "heading",
+   "witness": "X69n1321",
+   "title_zh": "江西道一禪師漢州什方縣人",
+   "title_en": "Biographical opening (record unit 1)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "江西道一禪師漢州什方縣人也姓馬氏本邑羅漢寺出家容貌奇異牛行虎視引舌過鼻足下有二輪文幼歲依資州唐和尚落髮受具於渝州圓律師唐開元中習定於衡嶽傳法院遇讓和尚知是法器問曰大德坐禪圖什麼師曰圖作佛讓乃取一磚於彼菴前磨師曰磨磚作麼讓曰磨作鏡師曰磨磚豈得成鏡讓曰磨磚既不成鏡坐禪豈得成佛耶師曰如何即是讓曰如牛駕車車不行打車即是打牛即是師無對讓又曰汝為學坐禪為學坐佛若學坐禪禪非坐臥若學坐佛佛非定相於無住法不應取捨汝若坐佛即是殺佛若執坐相非達其理師聞示誨如飲醍醐禮拜問曰如何用心即合無相三昧讓曰汝學心地法門如下種子我說法要譬彼天澤汝緣合故當見其道又問曰道非色相云何能見讓曰心地法眼能見乎道無相三昧亦復然矣師曰有成壞否讓曰若以成壞聚散而見道者非見道也聽吾偈曰心地含諸種遇澤悉皆萌三昧華無相何壞復何成師蒙開悟心意超然侍奉十秋日益玄奧初六祖謂讓和尚云西天般若多羅讖汝足下出一馬駒蹋殺天下人葢謂師也讓弟子六人惟師密受心印始自建陽佛跡嶺遷至臨川次至南康龔公山大曆中隷名於鍾陵開元寺時連帥路嗣恭聆風景慕親受宗旨由是四方學者雲集座下讓和尚聞師闡化江西問眾曰道一為眾說法否眾曰已為眾說法讓曰總未見人持箇消息來遂遣一僧往彼俟伊上堂時但問作麼生待渠有語記取來僧依教往問之師曰自從胡亂後三十年不少鹽醬僧回舉似讓讓然之師入室弟子一百三十九人各為一方宗主轉化無窮師於貞元四年正月中登建昌石門山於林中經行見洞壑平坦謂侍者曰吾之朽質當於來月歸茲地矣言訖而回既而示疾院主問和尚近日尊候如何師曰日面佛月面佛二月一日沐浴跏趺入滅元和中諡大寂禪師塔曰大莊嚴",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0810a03",
+    "case_close_line": "0810b17",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 3,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "祖示眾云汝等諸人各信自心",
+   "title_en": "Record paragraph 3 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "祖示眾云汝等諸人各信自心是佛此心即佛達磨大師從南天竺國來至中華傳上乘一心之法令汝等開悟又引楞伽經以印眾生心地恐汝顛倒不信此一心之法各各有之故楞伽經以佛語心為宗無門為法門夫求法者應無所求心外無別佛佛外無別心不取善不捨惡淨穢兩邊俱不依怙達罪性空念念不可得無自性故故三界唯心森羅及萬象一法之所印凡所見色皆是見心心不自心因色故有汝但隨時言說即事即理都無所礙菩提道果亦復如是於心所生即名為色知色空故生即不生若了此意乃可隨時著衣喫飯長養聖胎任運過時更有何事汝受吾教聽吾偈曰心地隨時說菩提亦只寧事理俱無礙當生即不生",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0810b18",
+    "case_close_line": "0811a12",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 4,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "僧問如何是脩道曰道不屬脩",
+   "title_en": "Record paragraph 4 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "僧問如何是脩道曰道不屬脩若言脩得脩成還壞即同聲聞若言不脩即同凡夫又問作何見解即得達道祖曰自性本來具足但於善惡事中不滯喚作脩道人取善捨惡觀空入定即屬造作更若向外馳求轉疎轉遠但盡三界心量一念妄心即是三界生死根本但無一念即除生死根本即得法王無上珍寶無量劫來凡夫妄想諂曲邪偽我慢貢高合為一體故經云但以眾法合成此身起時唯法起滅時唯法滅此法起時不言我起滅時不言我滅前念後念中念念念不相待念念寂滅喚作海印三昧攝一切法如百千異流同歸大海都名海水住於一味即攝眾味住於大海即混諸流如人在大海中浴即用一切水所以聲聞悟迷凡夫迷悟聲聞不知聖心本無地位因果階級心量妄想脩因證果住於空定八萬劫二萬劫雖即已悟悟已却迷諸菩薩觀如地獄苦沈空滯寂不見佛性若是上根眾生忽爾遇善知識指示言下領會更不歷於階級地位頓悟本性故經云凡夫有反覆心而聲聞無也對迷說悟本既無迷悟亦不立一切眾生從無量劫來不出法性三昧長在法性三昧中著衣喫飯言談祗對六根運用一切施為盡是法性不解返源隨名逐相迷情妄起造種種業若能一念返照全體聖心汝等諸人各達自心莫記吾語縱饒說得河沙道理其心亦不增縱說不得其心亦不減說得亦是汝心說不得亦是汝心乃至分身放光現十八變不如還我死來淋過死無力喻聲聞妄脩因證果未淋過死有力喻菩薩道業純熟諸惡不染若說如來權教三藏河沙劫說不盡猶如鉤鎻亦不斷絕若悟聖心總無餘事久立珍重",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0811a13",
+    "case_close_line": "0812a05",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 5,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "示眾云道不用脩但莫汙染何",
+   "title_en": "Record paragraph 5 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "示眾云道不用脩但莫汙染何為汙染但有生死心造作趨向皆是汙染若欲直會其道平常心是道何謂平常心無造作無是非無取捨無斷常無凡無聖經云非凡夫行非聖賢行是菩薩行只如今行住坐臥應機接物盡是道道即是法界乃至河沙玅用不出法界若不然者云何言心地法門云何言無盡燈一切法皆是心法一切名皆是心名萬法皆從心生心為萬法之根本經云識心達本源故號為沙門名等義等一切諸法皆等純一無雜若於教門中得隨時自在建立法界盡是法界若立真如盡是真如若立理一切法盡是理若立事一切法盡是事舉一千從理事無別盡是玅用更無別理皆由心之迴轉譬如月影有若干真月無若干諸源水有若干水性無若干森羅萬象有若干虗空無若干說道理有若干無礙慧無若干種種成立皆由一心也建立亦得掃蕩亦得盡是玅用盡是自家非離真而有立處立處即真盡是自家體若不然者更是何人一切法皆是佛法諸法即是解脫解脫者即是真如諸法不出於真如行住坐臥悉是不思議用不待時節經云在在處處則為有佛佛是能仁有智慧善機性能破一切眾生疑網出離有無等縛凡聖情盡人法俱空轉無等倫超於數量所作無礙事理雙通如天起雲忽有還無不留礙跡猶如畫水成文不生不滅是大寂滅在纏名如來藏出纏名淨法身法身無窮體無增減能大能小能方能圓應物現形如水中月滔滔運用不立根栽不盡有為不住無為有為是無為家用無為是有為家依不住於依故云如空無所依心生滅義心真如義心真如者譬如明鏡照像鏡喻於心像喻諸法若心取法即涉外因緣即是生滅義不取諸法即是真如義聲聞聞見佛性菩薩眼見佛性了達無二名平等性性無有異用則不同在迷為識在悟為智順理為悟順事為迷迷即迷自家本心悟即悟自家本性一悟永悟不復更迷如日出時不合於暗智慧日出不與煩惱暗俱了心及境界妄想即不生妄想既不生即是無生法忍本有今有不假脩道坐禪不脩不坐即是如來清淨禪如今若見此理真正不造諸業隨分過生一衣一衲坐起相隨戒行增薰積於淨業但能如是何慮不通久立諸人珍重",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0812a06",
+    "case_close_line": "0813a07",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 6,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "西堂百丈南泉侍祖翫月次祖",
+   "title_en": "Record paragraph 6 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "西堂百丈南泉侍祖翫月次祖曰正恁麼時如何西堂云正好供養百丈云正好脩行南泉拂袖便去祖云經入藏禪歸海唯有普願獨超物外",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813a08",
+    "case_close_line": "0813a10",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 7,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "南泉為眾僧行粥次祖問桶裡",
+   "title_en": "Record paragraph 7 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "南泉為眾僧行粥次祖問桶裡是甚麼泉曰這老漢合取口作恁麼語話祖便休",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813a11",
+    "case_close_line": "0813a12",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 8,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "百丈問如何是佛旨趣祖云正",
+   "title_en": "Record paragraph 8 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "百丈問如何是佛旨趣祖云正是汝放身命處",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813a13",
+    "case_close_line": "0813a13",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 9,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "大珠初參祖祖問曰從何處來",
+   "title_en": "Record paragraph 9 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "大珠初參祖祖問曰從何處來曰越州大雲寺來祖曰來此擬須何事曰來求佛法祖曰自家寶藏不顧拋家散走作什麼我這裏一物也無求甚麼佛法珠遂禮拜問曰阿那箇是慧海自家寶藏祖曰即今問我者是汝寶藏一切具足更無欠少使用自在何假向外求覓珠於言下自識本心不由知覺踊躍禮謝師事六載後歸自撰頓悟入道要門論一卷祖見之告眾云越州有大珠圓明光透自在無遮障處也",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813a14",
+    "case_close_line": "0813b03",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 10,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "泐潭法會禪師問祖云如何是",
+   "title_en": "Record paragraph 10 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "泐潭法會禪師問祖云如何是西來祖師意祖曰低聲近前來會便近前祖打一摑云六耳不同謀來日來會至來日猶入法堂云請和尚道祖云且去待老漢上堂時出來與汝證明會乃悟云謝大眾證明乃繞法堂一帀便去",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813b04",
+    "case_close_line": "0813b08",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 11,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "泐潭惟建禪師一日在法堂後",
+   "title_en": "Record paragraph 11 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "泐潭惟建禪師一日在法堂後坐禪祖見之乃吹建耳兩吹建起定見是祖却復入定祖歸方丈令侍者持一椀茶與建建不顧便自歸堂",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813b09",
+    "case_close_line": "0813b11",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 12,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "石鞏慧藏禪師本以弋獵為務",
+   "title_en": "Record paragraph 12 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "石鞏慧藏禪師本以弋獵為務惡見沙門因逐羣鹿從祖菴前過祖乃迎之藏問和尚見鹿過否祖曰汝是何人曰獵者祖曰汝解射否曰解射祖曰汝一箭射幾箇曰一箭射一箇祖曰汝不解射曰和尚解射否祖曰解射曰和尚一箭射幾箇曰一箭射一羣曰彼此是命何用射他一羣祖曰汝既知如是何不自射曰若教某甲自射即無下手處祖曰這漢曠劫無明煩惱今日頓息藏當時毀棄弓箭自以刀截髮投祖出家一日在厨作務次祖問曰作什麼曰牧牛祖曰作麼生牧曰一迴入草去便把鼻孔拽來祖曰子真牧牛",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0813b12",
+    "case_close_line": "0814a04",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 13,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "僧問祖云請和尚離四句絕百",
+   "title_en": "Record paragraph 13 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "僧問祖云請和尚離四句絕百非直指某甲西來意祖云我今日無心情汝去問取智藏其僧乃問藏藏云汝何不問取和尚僧云和尚令某甲來問上座藏以手摩頭云今日頭痛汝去問海師兄其僧又去問海海云我這裏却不會僧乃舉似祖祖云藏頭白海頭黑",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814a05",
+    "case_close_line": "0814a10",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 14,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "麻谷寶徹禪師一日隨祖行次",
+   "title_en": "Record paragraph 14 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "麻谷寶徹禪師一日隨祖行次問如何是大涅槃祖云急徹云急箇什麼祖云看水",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814a11",
+    "case_close_line": "0814a12",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 15,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "大梅山法常禪師初參祖問如",
+   "title_en": "Record paragraph 15 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "大梅山法常禪師初參祖問如何是佛祖云即心是佛常即大悟後居大梅山祖聞師住山乃令一僧到問云和尚見馬師得箇什麼便住此山常云馬師向我道即心是佛我便向這裏住僧云馬師近日佛法又別常云作麼生別僧云近日又道非心非佛常云這老漢惑亂人未有了日任汝非心非佛我只管即心即佛其僧回舉似祖祖云梅子熟也",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814a13",
+    "case_close_line": "0814b01",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 16,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "汾州無業禪師參祖祖覩其狀",
+   "title_en": "Record paragraph 16 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "汾州無業禪師參祖祖覩其狀貌瓌偉語音如鐘乃曰巍巍佛堂其中無佛業禮跪而問曰三乘文學粗窮其旨常聞禪門即心是佛實未能了祖曰只未了底心即是更無別物業又問如何是祖師西來密傳心印祖曰大德正閙在且去別時來業纔出祖召曰大德業迴首祖云是什麼業便領悟禮拜祖云這鈍漢禮拜作麼",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814b02",
+    "case_close_line": "0814b08",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 17,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "鄧隱峰辭祖祖曰甚處去云石",
+   "title_en": "Record paragraph 17 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "鄧隱峰辭祖祖曰甚處去云石頭去祖曰石頭路滑云竿木隨身逢場作戲便去纔到石頭乃遶禪牀一匝振錫一下問是何宗旨頭曰蒼天蒼天峰無語却回舉似祖祖曰汝更去見他道蒼天蒼天汝便噓兩聲峰又去一依前問頭乃噓兩聲峰又無語歸舉似祖祖曰向汝道石頭路滑",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814b09",
+    "case_close_line": "0814b14",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 18,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "峰一日推土車次祖展脚在路",
+   "title_en": "Record paragraph 18 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "峰一日推土車次祖展脚在路上坐峰云請師收足祖云已展不收峰云已進不退乃推車碾過祖脚損歸法堂執斧子云適來碾損老僧脚底出來峰便出於祖前引頸祖乃置斧",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0814b15",
+    "case_close_line": "0814b18",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 19,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "石臼和尚初參祖祖問什麼處",
+   "title_en": "Record paragraph 19 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "石臼和尚初參祖祖問什麼處來臼云烏臼來祖云烏臼近日有何言句臼云幾人於此茫然在祖云茫然且置悄然一句作麼生臼乃近前三步祖云我有七棒寄打烏臼你還甘否臼云和尚先喫某甲後甘却迴烏臼",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815a01",
+    "case_close_line": "0815a05",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 20,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "亮座主參祖祖問曰見說座主",
+   "title_en": "Record paragraph 20 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "亮座主參祖祖問曰見說座主大講得經論是否亮云不敢祖曰將甚麼講亮云將心講祖曰心如工伎兒意如和伎者爭解得經亮抗聲云心既講不得虗空莫講得麼祖曰却是虗空講得亮不肯便出將下階祖召云座主亮回首豁然大悟便禮拜祖曰這鈍根阿師禮拜作麼亮歸寺告聽眾曰某甲所講經論謂無人及得今日被馬大師一問平生工夫氷消瓦解徑入西山更無蹤跡",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815a06",
+    "case_close_line": "0815a13",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 21,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "洪州水老和尚初參祖問如何",
+   "title_en": "Record paragraph 21 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "洪州水老和尚初參祖問如何是西來的的意祖云禮拜著老纔禮拜祖便與一蹋老大悟起來撫掌呵呵大笑云也大奇也大奇百千三昧無量玅義只向一毛頭上便識得根源去便禮拜而退後告眾云自從一喫馬師蹋直至如今笑不休",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815a14",
+    "case_close_line": "0815a18",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 22,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "龐居士問祖云不與萬法為侶",
+   "title_en": "Record paragraph 22 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "龐居士問祖云不與萬法為侶者是甚麼人祖曰待汝一口吸盡西江水即向汝道又問祖云不昧本來人請師高著眼祖直下覰士云一種沒絃琴唯師彈得玅師直上覰士乃作禮祖歸方丈士隨後入曰適來弄巧成拙又問如水無骨能勝萬斛舟此理如何祖曰這裏無水亦無舟說甚麼骨",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b01",
+    "case_close_line": "0815b06",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 23,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "僧問和尚為甚麼說即心即佛",
+   "title_en": "Record paragraph 23 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "僧問和尚為甚麼說即心即佛祖曰為止小兒啼曰啼止時如何祖曰非心非佛曰除此二種人來如何指示祖曰向伊道不是物曰忽遇其中人來時如何祖曰且教伊體會大道",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b07",
+    "case_close_line": "0815b10",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 24,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "問如何是西來意祖曰即今是",
+   "title_en": "Record paragraph 24 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "問如何是西來意祖曰即今是甚麼意",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b11",
+    "case_close_line": "0815b11",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 25,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "僧問如何得合道祖曰我早不",
+   "title_en": "Record paragraph 25 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "僧問如何得合道祖曰我早不合道問如何是西來意祖便打曰我若不打汝諸方笑我也",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b12",
+    "case_close_line": "0815b13",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 26,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "有小師耽源行脚回於祖前畫",
+   "title_en": "Record paragraph 26 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "有小師耽源行脚回於祖前畫箇圓相就上拜了立祖曰汝莫欲作佛否曰某甲不解揑目祖曰吾不如汝小師不對",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b14",
+    "case_close_line": "0815b16",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 27,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "有僧於祖前作四畫上一畫長",
+   "title_en": "Record paragraph 27 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "有僧於祖前作四畫上一畫長下三畫短曰不得道一畫長三畫短離四句絕百非請和尚答某甲祖乃畫地一畫曰不得道長短答汝了也",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0815b17",
+    "case_close_line": "0816a01",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 28,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "祖令僧馳書與徑山欽和尚書",
+   "title_en": "Record paragraph 28 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "祖令僧馳書與徑山欽和尚書中畫一圓相徑山纔開見索筆於中著一點後有僧舉似忠國師國師云欽師猶被馬師惑",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816a02",
+    "case_close_line": "0816a04",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 29,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "有講僧來問曰未審禪宗傳持",
+   "title_en": "Record paragraph 29 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "有講僧來問曰未審禪宗傳持何法祖却問曰座主傳持何法主曰忝講得經論二十餘本祖曰莫是獅子兒否主曰不敢祖作噓噓聲主曰此是法祖曰是甚麼法主曰獅子出窟法祖乃默然主曰此亦是法祖曰是甚麼法主曰獅子在窟法祖曰不出不入是甚麼法主無對遂辭出門祖召曰座主主回首祖曰是甚麼主亦無對祖曰這鈍根阿師",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816a05",
+    "case_close_line": "0816a11",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 30,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "洪州廉使問曰喫酒肉即是不",
+   "title_en": "Record paragraph 30 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "洪州廉使問曰喫酒肉即是不喫即是祖曰若喫是中丞祿不喫是中丞福",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816a12",
+    "case_close_line": "0816a13",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 31,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "藥山惟儼禪師初參石頭便問",
+   "title_en": "Record paragraph 31 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "藥山惟儼禪師初參石頭便問三乘十二分教某甲粗知常聞南方直指人心見性成佛實未明了伏望和尚慈悲指示頭曰恁麼也不得不恁麼也不得恁麼不恁麼總不得子作麼生山罔措頭曰子因緣不在此且往馬大師處去山稟命恭禮祖仍伸前問祖曰我有時教伊揚眉瞬目有時不教伊揚眉瞬目有時揚眉瞬目者是有時揚眉瞬目者不是子作麼生山於言下契悟便禮拜祖曰你見甚麼道理便禮拜山曰某甲在石頭處如蚊子上銕牛祖曰汝既如是善自護持侍奉三年一日祖問之曰子近日見處作麼生山曰皮膚脫落盡唯有一真實祖曰子之所得可謂協於心體布於四肢既然如是將三條篾來束取肚皮隨處住山去山曰某甲又是何人敢言住山祖曰不然未有常行而不住未有常住而不行欲益無所益欲為無所為宜作舟航無久住此山乃辭祖",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816a14",
+    "case_close_line": "0816b10",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 32,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "丹霞天然禪師再參祖未參禮",
+   "title_en": "Record paragraph 32 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "丹霞天然禪師再參祖未參禮便入僧堂內騎聖僧頸而坐時大眾驚愕遽報祖祖躬入堂視之曰我子天然霞即下地禮拜曰謝師賜法號因名天然",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816b11",
+    "case_close_line": "0816b13",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 33,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "潭州慧朗禪師初參祖祖問汝",
+   "title_en": "Record paragraph 33 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "潭州慧朗禪師初參祖祖問汝來何求曰求佛知見祖曰佛無知見知見乃魔耳汝自何來曰南嶽來曰汝從南嶽來未識曹溪心要汝速歸彼不宜他往",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816b14",
+    "case_close_line": "0816b16",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 34,
+   "kind": "record",
+   "witness": "X69n1321",
+   "title_zh": "祖問僧什麼處來云湖南來祖",
+   "title_en": "Record paragraph 34 (X69n1321)",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "祖問僧什麼處來云湖南來祖云東湖水滿也未云未祖云許多時雨水尚未滿",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0816b17",
+    "case_close_line": "0816b18",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  },
+  {
+   "case_num": 35,
+   "kind": "juan-close",
+   "witness": "X69n1321",
+   "title_zh": "江西馬祖道一禪師語錄",
+   "title_en": "Opening heading of the record",
+   "dialogue": [
+    {
+     "speaker": "錄 / The Record",
+     "zh": "江西馬祖道一禪師語錄",
+     "pinyin": ""
+    }
+   ],
+   "locator": {
+    "taisho": "X69n1321 (X69 no. 1321)",
+    "page_line": "0817a03",
+    "case_close_line": "0817a03",
+    "source_edition": "CBETA XML P5 X69n1321, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+   }
+  }
+ ],
+ "coverage_note": "All 35 units are verbatim and contiguous in the claimed witness(es) X69n1321 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (4732 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document is the whole of X69n1321 as printed — the record catalogued at the work level as 馬祖道一禪師廣錄 (四家語錄卷一). It is not a merge of other Mazu witnesses: the 馬祖大寂行狀 (X68n1315 juan 1) and the 景德傳燈錄 account (T51n2076 juan 6–7) are carried as probes only, and the corpus's earlier eight-field `mazu_yulu` seed (with its 2026-09-16 re-keys) is untouched. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+ "cbeta_note": "Extracted 2026-09-21 from the pinned witness(es) X69n1321 (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; witness file sha256 X69n1321 e1c98d66981ea41f3d5cdd1d70d115730ff3d3b1b658f92c854b411d42b37305;; reference digests X69n1321 652ba08698e51d5e7e44c8d6d3209ba5c8c85f0c5192a50909ce284d0cff3e13). Every claimed reference verifies byte-identically against both the authoritative and the historical (2026-09-09) digest manifests. English and pinyin titles are project-authored metadata (the witness carries no romanization); the Chinese source fields are witness text. The full-text collation is measured by scripts/collate_corpus.py --doc mazu_guanglu_full; the dated measurement and overlay registers live under sessions/.",
+ "zh_chars": 4732
+}
