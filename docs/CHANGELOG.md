@@ -15,6 +15,12 @@ corpus has since gained the re-keyed Record of Linji. The re-issue recomputes ev
   `only_collated: true`, `w1_filter: collated_to_claimed_witness`, `remaining_docs: 13`, `exported_to_wiki: 11`,
   `purged_retellings: 32`.
 - `export_ready.json` — same timestamp + commit as the manifest, written last (atomicity rule unchanged).
+- **Scope correction (declared, not silent):** the 1.1 manifest listed **all 12** corpus files, including the two
+  `witness_unavailable` excerpt seeds `data/corpus/hanshan_poems.json` and `data/corpus/niutou_juezhu.json`, while its own
+  counters said 10 collated documents were exported. Q7 W3 is unambiguous ("wiki receives ONLY 100% collated"), so this
+  re-issue lists the **11** `collated_to_claimed_witness` documents only. The two seeds are honest project texts with no
+  source claim, not retellings — if the wiki should keep them, that is an owner/botrunner decision; they are simply not
+  "100% collated" and so are not in the export file list.
 - `docs/sample_export.jsonl` / `docs/sample_export.json` — 11 records (5 masters + 6 passages): the new
   `linji_yulu_section_078` record is the sample's first `section`-type unit (parent `linji_yulu`, order 78, locator
   `T47n1985_p0504a26–p0504a29`, `w1_status.code = collated_to_claimed_witness`, the document's own `coverage_note`, and

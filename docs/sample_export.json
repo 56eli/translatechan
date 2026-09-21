@@ -518,5 +518,61 @@
     },
     "rights_status": "public_domain_candidate",
     "visibility": "public"
+  },
+  {
+    "schema_version": "1.1",
+    "id": "linji_yulu_section_078",
+    "type": "section",
+    "parent_id": "linji_yulu",
+    "order": 78,
+    "lifecycle_status": "active",
+    "superseded_by": null,
+    "w1_status": {
+      "code": "collated_to_claimed_witness",
+      "label": "Collated to claimed witness",
+      "explanation": "Every content field of the re-keyed Record of Linji is EXACT in the claimed witness T47n1985: 107 sections tiling the whole 16,366-CJK fascicle, 215 of 215 measured fields collated, 0 flagged, evidence sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
+      "evidence_path": "sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
+      "coverage_note": "All 107 sections are verbatim and contiguous in the claimed witness T47n1985 (鎮州臨濟慧照禪師語錄), under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_linji_yulu.py asserts at run time that the concatenation of the section texts equals the reference extraction character for character (16366 CJK characters, the whole witness), so nothing is omitted, reordered or duplicated. The sections are the witness's own blocks in document order: every `p`, every `div` lead and both 卷 headings open one section — the four 序 prefaces (18 sections), the record body (38), 勘辨 (23), 行錄 (21), and the fascicle and printing close (4). `title_zh` is the block's own 目録 or jhead text where the witness prints one and otherwise the section's first 12 CJK characters, always a verbatim run of the witness and never a paraphrase; `dialogue[0].zh` is the section's whole text. Every `title_en` and every `speaker` is project-authored metadata; the witness prints no romanization, so no pinyin is invented for these sections (the `pinyin` fields are empty rather than reconstructed). The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented, and the historic 2026-08-10/2026-09-11 project retelling is not read, patched or carried over: this document is a new extraction from the witness alone. The parallel printing of the same master's record in the Guzunsu yulu anthology (X68n1315, opening 鎮州臨濟慧照禪師語錄 with its own 惠然 attribution) is a different recension and is carried as a probe reference only, never merged and never cited in a section. Representation does not establish complete selected-witness status, and source collation does not approve reuse."
+    },
+    "completion_status": "partial_selected_witness",
+    "provenance": {
+      "source_key": "linji-yulu",
+      "source_edition": "T47n1985",
+      "cbeta_id": "T1985",
+      "witness_path": "T47n1985.xml",
+      "extraction_rule": "cbeta-p5-body-cjk-v1",
+      "witness_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "is_ai_styled": false,
+      "import_reference": {
+        "commit": "48e3641b56e4a782dff1bfff001075685f764272",
+        "timestamp": "2026-09-21T16:39:43Z",
+        "evidence_register_path": "sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
+        "w1_report_path": "sessions/COLLATION_W1_2026-09-21_LINJI.md"
+      }
+    },
+    "texts": [
+      {
+        "lang": "zh-Hant",
+        "script": "Hant",
+        "body": "師問僧有時一喝如金剛王寶劍有時一喝如踞地金毛師子有時一喝如探竿影草有時一喝不作一喝用汝作麼生會僧擬議師便喝",
+        "is_ai_styled": false
+      },
+      {
+        "lang": "en",
+        "script": "Latn",
+        "body": "勘辨 / Examination and Discrimination 78 (T47n1985)",
+        "is_ai_styled": true
+      }
+    ],
+    "body_format": "plain_cjk_markdown_subset_v1",
+    "canonical_locator": {
+      "source_id": "linji-yulu",
+      "reference": "T47n1985_p0504a26–p0504a29",
+      "lb_range": "T47n1985_p0504a26–p0504a29",
+      "taisho": "T47n1985 (T47 no. 1985)",
+      "source_edition": "CBETA XML P5 T47n1985, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "rights_status": "public_domain_candidate",
+    "visibility": "public"
   }
 ]
