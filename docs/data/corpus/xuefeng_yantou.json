@@ -34,7 +34,8 @@
               "text": "Xuefeng and Yantou were snowbound on Mount Ao. Xuefeng sat in zazen all day; Yantou just slept. Xuefeng said: 'Brother, wake up!' Yantou shouted: 'Sleep! Sitting like a clay idol in a village shrine, you will only mislead people!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 73 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed X69n1333 holds the 鰲山 story at offsets ~2,000–2,340 in its own recension (噇眠去…自點胸曰…) with no run of 8 or more graphs against the 80-graph field, and T51n2076 carries none either. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Xuefeng / 雪峰",
@@ -53,7 +54,8 @@
               "text": "Xuefeng beat his chest: 'My heart is not yet at peace; I cannot deceive myself.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the claimed X69n1333 carries 11 of the 14 graphs as a single run at offset 2,091 (胸曰我這裏未穩在不敢自 — the witness reads 自點胸 and 謾 where this field reads 師撫胸 and 瞞; 4 of 7 windows); the uncited X80n1565 11/14 @161,679. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Yantou / 巖頭",
@@ -72,7 +74,8 @@
               "text": "Yantou said: 'If you wish to spread the great teaching, let every word flow out from your own breast to cover heaven and earth!' Xuefeng was deeply enlightened and shouted: 'Today on Mount Ao I have attained the Tao!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the claimed X69n1333 carries 21 of the 49 graphs (runs @2,299 若欲播揚大教一一從自己胸襟 + @2,321 地去師於言下大悟 — the witness reads 盇天盇地 and 鼇山 where this field reads 蓋天蓋地 and 鰲山; 7 of 42 windows); the best measured carrier is the uncited T48n2003 at 32/49 (@31,811 + @31,824 + @31,850/31,858), with the uncited X80n1565 at 28/49. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -99,11 +102,13 @@
               "text": "Master Seppō said to the assembly: 'The whole great earth, picked up in your fingers, is no bigger than a grain of millet. Thrown before your eyes, it is pitch black. Beat the drum and call all to look!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project wording with a measured near-carrier, not re-keyed in this task (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed X69n1333 carries 19 of the 27 graphs as a single run at offset 17,021 (師示眾云盡大地撮來如粟米粒大拋向面前…; the witness reads 漆桶不會打鼓普請看 where this field reads 漆黑窠裏。打鼓普請看 — W1 class DIVERGENT 0.8889; 12 of 20 windows). The uncited T47n1997 and T48n2003 carry 18 of 27. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076).",
-  "coverage_note": "0/4 collated, s0.d0 80 graphs no ≥8-graph run in any of 39 refs, largest run 21/49, cbeta_id claims 景德傳燈錄 卷16 T51n2076 as witness but wording has no ≥8-graph run in T51n2076, cbeta_note ID-correct but no coverage of unmet claim, retellings retained"
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076). Extended 2026-09-21 (P2 Tier2 remaining follow-up): both claimed witnesses title-verified in the pinned CBETA XML P5 (dbdea41071e1e260ad84b72faefd4587333cf76d; 43 refs verified / 0 drift) — X69n1333 雪峰義存禪師語錄（真覺禪師語錄）(31,776 CJK) and T51n2076 景德傳燈錄 (358,501 CJK). 0 of 4 fields verbatim in either; s1.d0 DIVERGENT 0.8889 (19/27, the 漆桶/漆黑窠裏 recension difference); no re-key.",
+  "coverage_note": "4 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in either claimed witness (X69n1333 / T51n2076 卷16) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/80 (the 鰲山 snowbound narrative — no run of 8 or more graphs in any ref; X69n1333 holds the story at offsets ~2,000–2,340 in its own recension, 噇眠去…自點胸曰…盇天盇地…鼇山成道); s0.d1 11/14 in X69n1333 @2,091 (胸曰我這裏未穩在不敢自 — the witness reads 自點胸 / 謾 where this field reads 師撫胸 / 瞞; the uncited X80n1565 11/14 @161,679); s0.d2 21/49 in X69n1333 @2,299 (13-run 若欲播揚大教一一從自己胸襟 + 8-run 地去師於言下大悟 — best measured carrier the uncited T48n2003 at 32/49, @31,811 + @31,824 + @31,850/31,858, and the uncited X80n1565 28/49); s1.d0 19/27 in X69n1333 @17,021 (師示眾云盡大地撮來如粟米粒大拋向… — the witness reads 漆桶 where this field reads 漆黑窠裏; W1 class DIVERGENT 0.8889; the uncited T47n1997 and T48n2003 carry 18/27). Retellings retained with R-B labels.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per the P2 authenticity-label series (047/054/056; P2 Tier2 remaining follow-up, 2026-09-21). The 4 source-content fields are project retellings, not verbatim excerpts of the claimed X69n1333/T2076 witnesses; measured 0/4 EXACT (one DIVERGENT at 0.8889) in the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), below the 80 percent re-key threshold (4 of 4). No field re-keyed; each dialogue carries its own R-B label naming the measured carrier state."
 }

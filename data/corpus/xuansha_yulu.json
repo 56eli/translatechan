@@ -33,7 +33,8 @@
               "text": "Xuansha packed his bundle to visit teachers in the north. Stepping out, he stubbed his toe on a boulder. In severe pain and bleeding, he suddenly woke up: 'This body is void; where does pain arise?' He turned straight back.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: X73n1445 carries no run of 8 or more graphs of the 40-graph field; X73n1446 carries 9 of 40 as a single run at offset 768 (曰是身非有痛從何來; the witness's stubbed-toe reading is 築著脚指流血痛楚歎曰…便回雪峯; 2 of the field's 33 eight-graph windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Xuefeng / 雪峰",
@@ -52,7 +53,8 @@
               "text": "Xuefeng asked: 'Ascetic Bei, why don't you go on pilgrimage?' Xuansha replied: 'Bodhidharma never came to China; the Second Patriarch never went to India!' Xuefeng deeply approved.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: X73n1446 carries 23 of the 36 graphs as a single run at offset 804 (曰備頭陀何不遍參去師曰達摩不來東土二祖不往西天; the witness closes 峯然之 where this field reads 雪峰大喜印可之; 16 of 29 windows); X73n1445 carries 10 of 36 @460 under a 初祖 attribution; the uncited T51n2076 carries 24 of 36 (@188,548 + @188,561). No complete copy in any of the 43 refs. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -79,7 +81,8 @@
               "text": "Master Gensa told the monks: 'The whole universe in the ten directions is one bright pearl.' A monk asked: 'How can I understand that the universe is one bright pearl?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the 盡十方世界是一顆明珠 exchange is carried 26 of 36 in X73n1446 as overlapping runs (four 10-graph formula runs + a 16-graph run @12,317 盡十方世界是一顆明珠學人如何得會; 12 of 29 windows) and identically 26/36 in the uncited T51n2076 and X80n1565 — the formula recurred in later records; no reference carries this field complete. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Xuansha / 玄沙",
@@ -98,7 +101,8 @@
               "text": "Gensa said: 'The whole universe is one bright pearl; what need is there to understand it!' The monk was enlightened.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: X73n1446 carries 17 of the 22 graphs as a single run at offset 12,333 (師曰盡十方世界是一顆明珠用會作麼; the witness records 僧便休 where this field reads 僧於言下有省; 10 of 15 windows); the uncited X80n1565 17/22, T51n2076 16/22. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -125,11 +129,13 @@
               "text": "Xuansha said: 'All masters claim to save beings. If a blind, deaf, and mute person arrives, how do you save them? Whisk is unseen, words unheard, and speech impossible. How do you guide them?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 65 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (X73n1445, X73n1446) carries a run of 8 or more graphs of the 72-graph 盲聾啞 sermon. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次).",
-  "coverage_note": "0/5 collated, s2.d0 72 graphs no ≥8-graph run in any of 39 refs, X73n1445 carries one 10-graph run in 5 fields, for 3 fields 傳燈錄 equals/exceeds X73n1446, cbeta_note ID-correct but no coverage of unused X73n1445, retellings retained"
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次). Extended 2026-09-21 (P2 Tier2 remaining follow-up): both witnesses title-verified in the pinned CBETA XML P5 (dbdea41071e1e260ad84b72faefd4587333cf76d; 43 refs verified / 0 drift) — X73n1445 玄沙師備禪師廣錄 (36,543 CJK) and X73n1446 玄沙師備禪師語錄 (16,452 CJK). 0 of 5 fields verbatim in either; the 明珠 formula's best measured state is 26/36 in X73n1446 as overlapping runs; no re-key.",
+  "coverage_note": "5 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 5 source-content fields is verbatim in either claimed witness (X73n1445 廣錄 / X73n1446 語錄) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 5) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/40 in X73n1445; X73n1446 9/40 (one 9-graph run @768, 曰是身非有痛從何來 — the witness reads 築著脚指流血痛楚歎曰…便回雪峯); s0.d1 10/36 in X73n1445 @460 (the 廣錄's 初祖 attribution) and 23/36 in X73n1446 @804 (曰備頭陀何不遍參去師曰達摩不來東土二祖不往西天 — the witness closes 峯然之 where this field reads 雪峰大喜印可之); the uncited T51n2076 24/36 @188,548 + @188,561; s1.d0 26/36 in X73n1446 (the 盡十方世界是一顆明珠 formula as four 10-graph runs + a 16-graph run @12,317; the same 26/36 in the uncited T51n2076 @192,447–192,503 and X80n1565 @171,433–171,491 — the strongest near-carrier measured for this document, still no complete copy); s1.d1 17/22 in X73n1446 @12,333 (師曰盡十方世界是一顆明珠用會作麼 — the witness reads 僧便休 where this field reads 僧於言下有省); s2.d0 0/72 (no run of 8 or more graphs of the 盲聾啞 sermon in any of the 43 refs). Retellings retained with R-B labels.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per the P2 authenticity-label series (047/054/056; P2 Tier2 remaining follow-up, 2026-09-21). The 5 source-content fields are project retellings, not verbatim excerpts of the claimed X73n1445/X73n1446 witnesses; measured 0/5 EXACT in the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), below the 80 percent re-key threshold (4 of 5). No field re-keyed; each dialogue carries its own R-B label naming the measured carrier state."
 }

@@ -7,7 +7,7 @@
     "documents": 44
   },
   "corpus": {
-    "all_corpus_cjk_characters": 918065,
+    "all_corpus_cjk_characters": 919112,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -190,11 +190,11 @@
         }
       },
       "caoxi_zhuan": {
-        "all_cjk_chars": 335,
+        "all_cjk_chars": 480,
         "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 237,
-        "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X86n1598 曹溪大師別傳: three of the four have no run of 8 or more graphs in it (0 of 25, 0 of 45 and 0 of 64 twelve-graph windows) and the fourth (.sections[0].dialogue[0].zh, 70 graphs) shares one 12-graph fragment @6,790. The measurable relatives of this wording are 壇經 recension fragments: T48n2008 carries 19/70 (@4,958 + @3,376), 22/56 (@3,570 + @3,588) and 10/75 (@5,711), and T48n2007 carries 8/70 @4,901 and 8/56 @481. The record's second witness, the Dunhuang manuscript P.3018, is named by cbeta_id but is out of CBETA (no hit in the 39 pinned refs), so no fragment or offset can be measured for it; acquiring it is human OUT-OF-CBETA sourcing under Ruling 4, not agent work. No field was re-keyed, and the cbeta_note (ID-corrected) is unchanged.",
+        "coverage_note": "4 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in the claimed X86n1598 (曹溪大師別傳) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 12/70 in X86n1598 — the longest claimed-witness run is 應無所住而生其心言下大悟 @6,790 (12 graphs), and it sits inside the 別傳's 壇經-comparison passage (獨壇經記曰三鼓入室…為說金剛經至應無所住而生其心言下大悟今謂…), not the market-awakening narrative this field retells; the field's 應無所住而生其心 span also matches three shorter 別傳 occurrences (@6,745, @6,881, @6,986); the measurable relatives of the wording are the Tanjing recensions — the uncited T48n2008 carries 19/70 (@4,958 + @3,376) and X68n1315 16/70; s1.d0 0/36 (no run of 8 or more graphs in any ref); s1.d1 0/56 in the claimed work (the 獦獠 exchange's relatives: the uncited T48n2008 22/56 @3,570 + @3,588, T48n2007 8/56 @481); s2.d0 0/75 in the claimed work (the hunters passage's relative: the uncited T48n2008 10/75 @5,711, 每至飯時以菜寄煮肉鍋). Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -448,11 +448,11 @@
         }
       },
       "deshan_yulu": {
-        "all_cjk_chars": 333,
+        "all_cjk_chars": 575,
         "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 236,
-        "coverage_note": "0/6 content fields match T2076/X68n1315/X1565 phrasing as blanket claim understates probe coverage: X80n1565 carries 5 fields runs, X68n1315 2, honest carriers are probes, primary witness assignment wrong, retellings retained",
+        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields is verbatim in the claimed T51n2076 (景德傳燈錄 卷15) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs against the claimed witness (floor 8 graphs): s0.d0 0/42 (no run of 8 or more graphs of the 婆子 field in any of the 43 refs); s0.d1 0/39; s0.d2 0/35 (the 金剛經道過去心不可得 question is carried 24/35 in the uncited X80n1565 @158,009 + @527,436, 19/35 in X68n1315 @291,657, 18/35 in T47n1998A — the 三心不可得 formula is pan-sectarian, a formula not a copy); s1.d0 0/50 (the Jingde carries the 龍潭 candle story in its own recension at offset 152,456 — 龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅 — with no run of 8 or more graphs against the field; the uncited X80n1565 carries 31/50 @158,087 + @158,106 + @158,116); s1.d1 0/39 (the 窮諸玄辯 burning-sutras line: 31/39 in the uncited X80n1565 @158,198 + @158,216, 23/39 in T48n2003 @6,260); s2.d0 0/31 (the 道得也三十棒 formula: 21/31 in the uncited X80n1565 @158,868 + @158,969, 13/31 in T47n1985 @12,455 and X68n1315 @39,956). The honest carriers are the uncited 五燈會元 X80n1565 (the 德山 chapter of fasc. 7, offsets 157,793–158,969) as 12–31-graph fragments — its own wording differs (e.g. 若答不得且別處去 where this record reads 若答不得且請他去) — and no field is carried complete by any pinned ref. Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -583,11 +583,11 @@
         }
       },
       "foyan_qingyuan": {
-        "all_cjk_chars": 455,
+        "all_cjk_chars": 632,
         "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 320,
-        "coverage_note": "0/6 collated, 4 fields no ≥8-graph run in all 39 refs, one substantial run 27/48 shared by claimed X68n1315 @4,284 and T51n2076 @87,323, double-carried, 4 works circulate, project retellings retained",
+        "coverage_note": "6 source-content fields evaluated across 5 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields is verbatim in the claimed X68n1315 (古尊宿語錄·佛眼語錄) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/56 and s0.d1 0/53 (the 騎驢覓驢 二種病 sermon — no run of 8 or more graphs in any ref); s1.d0 27/48 in X68n1315 @4,284 (27-graph run 脫根塵體露真常不拘文字心性無染本自圓成但離妄緣即如如佛; the witness's frame reads 上堂云靈光獨耀迥脫根塵 — 迥 against this field's 迴 — and the same 27/48 recurs in five further works: T48n2003 @71,657, T51n2076 @87,323, X67n1309 @95,918, X80n1565 @61,229/87,087/468,418 — a formula, not a copy); s2.d0 0/63 (best measured carrier the uncited T48n2001 at 9/63, the 山河大地草木叢林 formula); s3.d0 8/60 in X68n1315 @440,604 (a single 8-graph run 省力處便是得力處, inside the emperor's conversation — 覺得省力處便是得力處; the uncited T47n1998A 8/60 @160,099); s4.d0 0/40 (the 坐禪銘 — no run of 8 or more graphs in any ref). Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1175,11 +1175,11 @@
         }
       },
       "xuansha_yulu": {
-        "all_cjk_chars": 337,
+        "all_cjk_chars": 566,
         "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 206,
-        "coverage_note": "0/5 collated, s2.d0 72 graphs no ≥8-graph run in any of 39 refs, X73n1445 carries one 10-graph run in 5 fields, for 3 fields 傳燈錄 equals/exceeds X73n1446, cbeta_note ID-correct but no coverage of unused X73n1445, retellings retained",
+        "coverage_note": "5 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 5 source-content fields is verbatim in either claimed witness (X73n1445 廣錄 / X73n1446 語錄) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 5) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/40 in X73n1445; X73n1446 9/40 (one 9-graph run @768, 曰是身非有痛從何來 — the witness reads 築著脚指流血痛楚歎曰…便回雪峯); s0.d1 10/36 in X73n1445 @460 (the 廣錄's 初祖 attribution) and 23/36 in X73n1446 @804 (曰備頭陀何不遍參去師曰達摩不來東土二祖不往西天 — the witness closes 峯然之 where this field reads 雪峰大喜印可之); the uncited T51n2076 24/36 @188,548 + @188,561; s1.d0 26/36 in X73n1446 (the 盡十方世界是一顆明珠 formula as four 10-graph runs + a 16-graph run @12,317; the same 26/36 in the uncited T51n2076 @192,447–192,503 and X80n1565 @171,433–171,491 — the strongest near-carrier measured for this document, still no complete copy); s1.d1 17/22 in X73n1446 @12,333 (師曰盡十方世界是一顆明珠用會作麼 — the witness reads 僧便休 where this field reads 僧於言下有省); s2.d0 0/72 (no run of 8 or more graphs of the 盲聾啞 sermon in any of the 43 refs). Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1206,11 +1206,11 @@
         }
       },
       "xuefeng_yantou": {
-        "all_cjk_chars": 274,
+        "all_cjk_chars": 470,
         "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 170,
-        "coverage_note": "0/4 collated, s0.d0 80 graphs no ≥8-graph run in any of 39 refs, largest run 21/49, cbeta_id claims 景德傳燈錄 卷16 T51n2076 as witness but wording has no ≥8-graph run in T51n2076, cbeta_note ID-correct but no coverage of unmet claim, retellings retained",
+        "coverage_note": "4 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in either claimed witness (X69n1333 / T51n2076 卷16) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/80 (the 鰲山 snowbound narrative — no run of 8 or more graphs in any ref; X69n1333 holds the story at offsets ~2,000–2,340 in its own recension, 噇眠去…自點胸曰…盇天盇地…鼇山成道); s0.d1 11/14 in X69n1333 @2,091 (胸曰我這裏未穩在不敢自 — the witness reads 自點胸 / 謾 where this field reads 師撫胸 / 瞞; the uncited X80n1565 11/14 @161,679); s0.d2 21/49 in X69n1333 @2,299 (13-run 若欲播揚大教一一從自己胸襟 + 8-run 地去師於言下大悟 — best measured carrier the uncited T48n2003 at 32/49, @31,811 + @31,824 + @31,850/31,858, and the uncited X80n1565 28/49); s1.d0 19/27 in X69n1333 @17,021 (師示眾云盡大地撮來如粟米粒大拋向… — the witness reads 漆桶 where this field reads 漆黑窠裏; W1 class DIVERGENT 0.8889; the uncited T47n1997 and T48n2003 carry 18/27). Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1237,11 +1237,11 @@
         }
       },
       "yuanwu_letters": {
-        "all_cjk_chars": 149,
+        "all_cjk_chars": 207,
         "cbeta_id": "X1357 / T1997",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 87,
-        "coverage_note": "2/2 letters represented, carrying 2 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields collate to either claimed witness (T47n1997, X69n1357): both fields (42 and 45 graphs) are NOT_FOUND in both witnesses, and each carries 0 sixteen-graph windows in every one of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift), so no work in the reference set carries this text. The two passages are kept as project-authored retellings with the witness claim disclosed, not re-keyed: there is no in-set witness to re-key them to, and sourcing one belongs to the human OUT-OF-CBETA queue. The English renderings are register imitations, not translations of any recorded source.",
+        "coverage_note": "2 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields is verbatim in either claimed witness (T47n1997 圓悟佛果禪師語錄 / X69n1357 佛果克勤禪師心要) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (2 of 2) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/42 — no run of 8 or more graphs in any of the 43 refs (0 of 35 eight-graph windows); s1.d0 0/45 — no run of 8 or more graphs in any of the 43 refs (0 of 38 eight-graph windows). X69n1357 is a letter collection to named addressees (佛果圜悟真覺禪師心要, 62,651 CJK: 示華藏明首座, 寄張宣撫相公, …) and T47n1997 the 134,134-CJK 語錄; neither carries either of the two project 示眾 fields as written. Retellings retained with R-B labels.",
         "is_complete": false,
         "shapes": [
           "sections"

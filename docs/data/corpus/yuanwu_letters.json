@@ -34,7 +34,8 @@
               "text": "Master Engo said: 'The fundamental True Person is unobstructed and bright. Pointing straight to the heart of mind, if you accept it in every step, all boundaries dissolve.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 35 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1997, X69n1357) carries a run of 8 or more graphs of the 42-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -61,10 +62,13 @@
               "text": "The Dharma drum is smeared with poison: hearing it, all delusions die. Dying to conceptual calculation, one revives into boundless freedom.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 38 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1997, X69n1357) carries a run of 8 or more graphs of the 45-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "coverage_note": "2/2 letters represented, carrying 2 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields collate to either claimed witness (T47n1997, X69n1357): both fields (42 and 45 graphs) are NOT_FOUND in both witnesses, and each carries 0 sixteen-graph windows in every one of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift), so no work in the reference set carries this text. The two passages are kept as project-authored retellings with the witness claim disclosed, not re-keyed: there is no in-set witness to re-key them to, and sourcing one belongs to the human OUT-OF-CBETA queue. The English renderings are register imitations, not translations of any recorded source."
+  "cbeta_note": "2026-09-21 (P2 Tier2 remaining follow-up): both claimed witnesses title-verified in the pinned CBETA XML P5 (dbdea41071e1e260ad84b72faefd4587333cf76d; 43 refs verified / 0 drift) — T47n1997 圓悟佛果禪師語錄 (134,134 CJK) and X69n1357 佛果克勤禪師心要 (62,651 CJK, a letter collection to named addressees). 0 of 2 fields verbatim in either (no run of 8 or more graphs of either field in any of the 43 refs); the cbeta_id pairing stands as bibliographic attribution, not a text witness. No re-key.",
+  "coverage_note": "2 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields is verbatim in either claimed witness (T47n1997 圓悟佛果禪師語錄 / X69n1357 佛果克勤禪師心要) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (2 of 2) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/42 — no run of 8 or more graphs in any of the 43 refs (0 of 35 eight-graph windows); s1.d0 0/45 — no run of 8 or more graphs in any of the 43 refs (0 of 38 eight-graph windows). X69n1357 is a letter collection to named addressees (佛果圜悟真覺禪師心要, 62,651 CJK: 示華藏明首座, 寄張宣撫相公, …) and T47n1997 the 134,134-CJK 語錄; neither carries either of the two project 示眾 fields as written. Retellings retained with R-B labels.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per the P2 authenticity-label series (047/054/056; P2 Tier2 remaining follow-up, 2026-09-21). The 2 source-content fields are project retellings, not verbatim excerpts of the claimed T47n1997/X69n1357 witnesses; measured 0/2 EXACT in the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), below the 80 percent re-key threshold (2 of 2). No field re-keyed; each dialogue carries its own R-B label naming the measured carrier state."
 }

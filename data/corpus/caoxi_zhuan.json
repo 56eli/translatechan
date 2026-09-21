@@ -33,7 +33,8 @@
               "text": "Huineng sold firewood in the market. Hearing a customer recite the Diamond Sutra at the phrase 'Produce a mind that abides nowhere,' his mind opened to awakening. Learning of Fifth Patriarch Hongren at Huangmei, he set out for the North.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the claimed X86n1598 carries 12 of the 70 graphs, its longest run 應無所住而生其心言下大悟 at offset 6,790 (inside the 別傳's 壇經-comparison passage 獨壇經記曰三鼓入室…今謂…, 5 of 63 windows), not the market-awakening narrative this field retells; the field's 應無所住而生其心 span also matches three shorter 別傳 occurrences (@6,745, @6,881, @6,986). The nearest measured relatives are the uncited T48n2008 at 19/70 (@4,958 + @3,376) and X68n1315 at 16/70. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -60,7 +61,8 @@
               "text": "Hongren asked: 'Where are you from?' Huineng replied: 'I am a peasant from Lingnan.' Hongren asked: 'What do you seek?' 'I seek only to attain Buddhahood.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 29 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed X86n1598 carries no run of 8 or more graphs of the 36-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Hongren / 五祖弘忍",
@@ -79,7 +81,8 @@
               "text": "Hongren said: 'You are a southern barbarian, how can you be a Buddha?' Huineng said: 'Although people have south and north, the Buddha-nature has no south and north.' Hongren recognized his brilliance and sent him to the granary.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed X86n1598 carries no run of 8 or more graphs of the 56-graph 獦獠 exchange; its nearest measured relative is the uncited T48n2008 at 22/56 (@3,570 人雖有南北佛性本無南北 + @3,588 不同佛性有何差別五祖; 8 of 49 windows), with T48n2007 8/56 @481 — the Tanjing wording, not the 別傳's. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -106,11 +109,13 @@
               "text": "Huineng lived with hunters for fifteen years in Sihui. He cooked herbs beside the meat, eating only the greens. When the time was right, he traveled to Faxing Temple in Guangzhou to turn the wheel of the Law.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed X86n1598 carries no run of 8 or more graphs of the 75-graph hunters passage; its nearest measured relative is the uncited T48n2008 at 10/75 @5,711 (每至飯時以菜寄煮肉鍋; 3 of 68 windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number.",
-  "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X86n1598 曹溪大師別傳: three of the four have no run of 8 or more graphs in it (0 of 25, 0 of 45 and 0 of 64 twelve-graph windows) and the fourth (.sections[0].dialogue[0].zh, 70 graphs) shares one 12-graph fragment @6,790. The measurable relatives of this wording are 壇經 recension fragments: T48n2008 carries 19/70 (@4,958 + @3,376), 22/56 (@3,570 + @3,588) and 10/75 (@5,711), and T48n2007 carries 8/70 @4,901 and 8/56 @481. The record's second witness, the Dunhuang manuscript P.3018, is named by cbeta_id but is out of CBETA (no hit in the 39 pinned refs), so no fragment or offset can be measured for it; acquiring it is human OUT-OF-CBETA sourcing under Ruling 4, not agent work. No field was re-keyed, and the cbeta_note (ID-corrected) is unchanged."
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number. Extended 2026-09-21 (P2 Tier2 remaining follow-up): X86n1598 (曹溪大師別傳, 7,438 CJK) re-verified in the pinned CBETA XML P5 (dbdea41071e1e260ad84b72faefd4587333cf76d; 43 refs verified / 0 drift). 0 of 4 fields verbatim; the wording's nearest measured relatives are the Tanjing recensions T48n2008/T48n2007, not the claimed 別傳; no re-key.",
+  "coverage_note": "4 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in the claimed X86n1598 (曹溪大師別傳) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 12/70 in X86n1598 — the longest claimed-witness run is 應無所住而生其心言下大悟 @6,790 (12 graphs), and it sits inside the 別傳's 壇經-comparison passage (獨壇經記曰三鼓入室…為說金剛經至應無所住而生其心言下大悟今謂…), not the market-awakening narrative this field retells; the field's 應無所住而生其心 span also matches three shorter 別傳 occurrences (@6,745, @6,881, @6,986); the measurable relatives of the wording are the Tanjing recensions — the uncited T48n2008 carries 19/70 (@4,958 + @3,376) and X68n1315 16/70; s1.d0 0/36 (no run of 8 or more graphs in any ref); s1.d1 0/56 in the claimed work (the 獦獠 exchange's relatives: the uncited T48n2008 22/56 @3,570 + @3,588, T48n2007 8/56 @481); s2.d0 0/75 in the claimed work (the hunters passage's relative: the uncited T48n2008 10/75 @5,711, 每至飯時以菜寄煮肉鍋). Retellings retained with R-B labels.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per the P2 authenticity-label series (047/054/056; P2 Tier2 remaining follow-up, 2026-09-21). The 4 source-content fields are project retellings, not verbatim excerpts of the claimed X86n1598 witness; measured 0/4 EXACT in the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), below the 80 percent re-key threshold (4 of 4). No field re-keyed; each dialogue carries its own R-B label naming the measured carrier state."
 }
