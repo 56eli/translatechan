@@ -119,10 +119,10 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json"
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
-CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI.md"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md"
 
 
 def _is_metadata_path(path: str) -> bool:
@@ -145,8 +145,8 @@ def run_partition_and_report_regressions() -> None:
                 entry["metadata_summary"]["NOT_FOUND"] = 5
                 entry["content_fields_total"] = 5
                 entry["metadata_fields_total"] = 5
-                register["aggregate"]["content_fields_total"] = 4716
-                register["aggregate"]["metadata_fields_total"] = 4222
+                register["aggregate"]["content_fields_total"] = 4733
+                register["aggregate"]["metadata_fields_total"] = 4235
                 sandbox.write(AUTH_REGISTER, register)
                 new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 report = sandbox.read_text(CORRECTION_REPORT)
@@ -155,7 +155,7 @@ def run_partition_and_report_regressions() -> None:
                 expected_error = "content/metadata partition mismatch"
             else:
                 manifest = json.loads(sandbox.read_text("data/corpus_manifest.json"))
-                check(manifest["source_review"]["authoritative_flagged_total"] == 15, "report test finds the labeled claim")
+                check(manifest["source_review"]["authoritative_flagged_total"] == 41, "report test finds the labeled claim")
                 manifest["source_review"]["authoritative_flagged_total"] = 999
                 sandbox.write_text("data/corpus_manifest.json", json.dumps(manifest, indent=2) + "\n")
                 expected_error = "authoritative_flagged_total is 999"
@@ -173,7 +173,7 @@ def run_partition_and_report_regressions() -> None:
                 check("cited digest no longer matches" not in output,
                       "partition: updated register hash avoids unrelated citation failure")
                 metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
-                check(metrics["content_fields_total"] == 4717 and metrics["metadata_fields_total"] == 4223,
+                check(metrics["content_fields_total"] == 4734 and metrics["metadata_fields_total"] == 4236,
                       "partition: forged totals were not written")
             print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
         finally:

@@ -206,6 +206,28 @@ DECLARED_NEW_CORPUS = {
         "(107 verbatim sections tiling the whole 16,366-CJK fascicle, 215/215 fields EXACT, "
         "0 flagged); the purged retelling record is not read, patched or carried over."
     ),
+    # 2026-09-22 (task 059, P2 Tier2 yulu batch1): the two purged retelling keys are restored to the
+    # corpus as measured excerpt seeds — the corpus bytes are the task-056 labelled files restored
+    # verbatim from the pre-purge tree (a6972c1~1) and re-measured byte-identically on the pinned
+    # layer (CBETA XML P5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift against the
+    # committed task-056 manifest). The re-key attempts were measured and NOT landed (guiyang 0 of 6,
+    # fayan 1 of 11 — both far below the 80-percent threshold), so the records land with the
+    # 047-pattern authenticity labels already carried by the restored bytes (per-field coverage_note
+    # run measurements, R-B editorial_note labels, ID-corrected cbeta_note). Declared evidence:
+    # sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json +
+    # sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1_MEASUREMENT.json +
+    # sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md.
+    "data/corpus/guiyang_yulu.json": (
+        "2026-09-22 task 059: Guiyang Yulu (Guishan Lingyou + Yangshan Huiji) restored from the "
+        "pre-purge tree as a measured excerpt seed — 0 of 6 source-content fields verbatim in any "
+        "pinned reference (claimed T47n1989/T47n1990), re-key NOT landed, partial_or_failed_w1_collation."
+    ),
+    "data/corpus/fayan_yulu.json": (
+        "2026-09-22 task 059: Fayan Yulu (Fayan Wenyi) restored from the pre-purge tree as a measured "
+        "excerpt seed — 1 of 11 source-content fields verbatim (s4.d0 曹源一滴水, T47n1991 @3,813), "
+        "claimed T47n1991 + disclosed 宗門十規論 X63n1226 component, re-key NOT landed, "
+        "partial_or_failed_w1_collation."
+    ),
 }
 
 #: Set only for the temporary copy that the nested-`coverage_note` regression runs: the copy

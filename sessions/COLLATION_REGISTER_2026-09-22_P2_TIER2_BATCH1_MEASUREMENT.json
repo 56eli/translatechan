@@ -1,0 +1,482 @@
+{
+ "kind": "p2-tier2-batch1-measurement",
+ "generated": "2026-09-22",
+ "harness": "scripts/collate_corpus.py",
+ "corrects": "sessions/COLLATION_REGISTER_2026-09-09.json",
+ "reference_extraction": {
+  "generator": "scripts/collate_refs.py",
+  "rule_id": "cbeta-p5-body-cjk-v1",
+  "rule": "tei:text/tei:body document-order text; drop the subtree of every tei:note and tei:g (tails kept); tei:head kept; keep only U+3400-U+9FFF and U+F900-U+FAFF; one UTF-8 line, no trailing newline"
+ },
+ "upstream": {
+  "repo": "https://github.com/cbeta-org/xml-p5",
+  "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d"
+ },
+ "refs_manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+ "historical_refs_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+ "generation_parameters": {
+  "kind": "p2-tier2-batch1-measurement",
+  "generated": "2026-09-22",
+  "corrects": "sessions/COLLATION_REGISTER_2026-09-09.json",
+  "refs_manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+  "compare_historical_refs": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "compare_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
+  "historical_report_flagged": 637,
+  "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+  "note": [
+   "Task 059 measurement run (2026-09-22): the two restored Tier2 documents measured on the authoritative 22-work digest manifest (subset of the 43-work task-056 measurement set; all digests byte-identical, and the 43-work set re-verifies 43/0 drift against the committed task-056 manifest). The R-A re-key attempt is NOT landed: guiyang_yulu 0 of 6 source-content fields verbatim anywhere; fayan_yulu 1 of 11 (s4.d0 曹源一滴水 carried whole by the claimed T47n1991 @3,813). The per-document entries of this measurement register are the ones the authoritative overlay sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json carries verbatim for these two documents; measurement only — the authoritative W1 register chain and all manifest source_review_status values are governed by the authoritative register."
+  ],
+  "doc": [
+   "guiyang_yulu",
+   "fayan_yulu"
+  ],
+  "upstream_repo": "https://github.com/cbeta-org/xml-p5",
+  "require_verified_refs": true,
+  "refs_dir_provided": true,
+  "new_documents": []
+ },
+ "content_denominator": "source content fields only (commentary_zh, pointer_zh, verse_zh, zh); metadata fields (title_zh, name_zh) are measured separately and are not proof of collation",
+ "status_scope": "Containment/remediation state, not a rights decision.",
+ "documents": {
+  "guiyang_yulu": {
+   "witness": [
+    "T47n1989",
+    "T47n1990"
+   ],
+   "probes": [],
+   "summary": {
+    "NOT_FOUND": 9,
+    "TITLE_COMPOSITE": 1
+   },
+   "content_summary": {
+    "NOT_FOUND": 6
+   },
+   "metadata_summary": {
+    "NOT_FOUND": 3,
+    "TITLE_COMPOSITE": 1
+   },
+   "fields_total": 10,
+   "content_fields_total": 6,
+   "content_fields_collated": 0,
+   "metadata_fields_total": 4,
+   "flagged": [
+    {
+     "path": ".title_zh",
+     "class": "TITLE_COMPOSITE",
+     "sim": 0.56,
+     "ref": "T47n1989",
+     "corpus": "潭州溈山靈祐禪師語錄與溈仰九十六圓相",
+     "ref_window": "潭州溈山靈祐禪師語錄 | remainder:與溈仰九十六圓相",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "百丈選住持踢倒淨瓶",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.5,
+     "ref": "T47n1989",
+     "corpus": "百丈將選大溈山住持乃設問試眾置淨瓶於地問曰不得喚作淨瓶汝喚作甚麼",
+     "ref_window": "云若能對眾下得一語出格當與住持即指淨瓶問云不得喚作淨瓶汝喚作甚麼",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "首座曰不可喚作木也",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[2].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.72,
+     "ref": "T47n1989",
+     "corpus": "師乃踢倒淨瓶便出去百丈笑曰首座輸卻山子也遂命師開山",
+     "ref_window": "師師踢倒淨瓶便出去百丈笑云第一座輸卻山子也師遂往焉",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "仰山九十六圓相之法",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "仰山受溈山印可以圓相傳心於地上畫一圓相師曰諸佛密意不落言詮這箇圓相從何處起向何處滅",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "溈山見之於圓相中畫一十字仰山於旁添作師資相照妙入微契",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "溈山警策出家行履",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "夫出家者捨俗入道發足超方心形異俗紹隆聖種時光易過日月如梭幻化之軀旦暮難保若不精修虛生浪死",
+     "ref_window": "",
+     "simplified": []
+    }
+   ],
+   "source_review_status": "partial_or_failed_w1_collation",
+   "reference_verification": {
+    "T47n1989": {
+     "sha256": "1473f11292a9f93dafec18921bd614f011679000acae9d75bf3ad48d14abd5a3",
+     "status": "verified",
+     "historical_status": "verified"
+    },
+    "T47n1990": {
+     "sha256": "c06ae879fb7d2bce7d73355b4a077ed6ea22948a334c3e8bbb69b59287d9d8af",
+     "status": "verified",
+     "historical_status": "verified"
+    }
+   },
+   "refs_total": 2,
+   "refs_verified": 2,
+   "refs_historically_verified": 2
+  },
+  "fayan_yulu": {
+   "witness": [
+    "T47n1991"
+   ],
+   "probes": [],
+   "summary": {
+    "EXACT": 4,
+    "NOT_FOUND": 11,
+    "TITLE_COMPOSITE": 2,
+    "SHORT_UNMATCHED": 3
+   },
+   "content_summary": {
+    "EXACT": 1,
+    "NOT_FOUND": 9,
+    "SHORT_UNMATCHED": 1
+   },
+   "metadata_summary": {
+    "EXACT": 3,
+    "NOT_FOUND": 2,
+    "TITLE_COMPOSITE": 2,
+    "SHORT_UNMATCHED": 2
+   },
+   "fields_total": 20,
+   "content_fields_total": 11,
+   "content_fields_collated": 1,
+   "metadata_fields_total": 9,
+   "flagged": [
+    {
+     "path": ".title_zh",
+     "class": "TITLE_COMPOSITE",
+     "sim": 0.65,
+     "ref": "T47n1991",
+     "corpus": "金陵清涼院文益禪師語錄與宗門十規論",
+     "ref_window": "金陵清涼院文益禪師語錄 | remainder:與宗門十規論",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "地藏問行腳不知最親切",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.6154,
+     "ref": "T47n1991",
+     "corpus": "師因遊方值雨阻雪過地藏院地藏問長老甚處去師云行腳去地藏云作麼生是行腳事師云不知",
+     "ref_window": "出嶺過地藏院阻雪少憩附爐次地藏問此行何之師云行脚去地藏云作麼生是行脚事師云不知",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.5714,
+     "ref": "T47n1991",
+     "corpus": "地藏云不知最親切師於言下大悟",
+     "ref_window": "地藏云不知最親切又同三人舉肇",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].title_zh",
+     "class": "TITLE_COMPOSITE",
+     "sim": 0.5,
+     "ref": "T47n1991",
+     "corpus": "三界唯心庭前片石",
+     "ref_window": "三界唯心 | remainder:庭前片石",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.4333,
+     "ref": "T47n1991",
+     "corpus": "師指庭前片石問僧佛教說三界唯心萬法唯識且道這塊石在心內在心外",
+     "ref_window": "藏門送之問云上座尋常說三界唯心萬法唯識乃指庭下片石云且道此石",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[1].zh",
+     "class": "SHORT_UNMATCHED",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "僧曰在心內",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[2].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師曰行腳人空肚腹著甚麼死急安一塊石頭在心頭僧無對",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "宗門十規論綱要",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "第一自己根腳未明妄指他人非第二護己宗門輕蔑餘派第三好立言句馳逐文字第四不辨機宜妄行棒喝第五理事相違墮在偏枯學道之人直須息妄歸真理事圓融",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[3].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.5,
+     "ref": "T47n1991",
+     "corpus": "師示眾云三界唯心萬法唯識唯心唯識不可更作心識解會",
+     "ref_window": "界唯心云三界唯心萬法唯識唯識唯心眼聲耳色色不到耳",
+     "simplified": []
+    },
+    {
+     "path": ".sections[5].title_zh",
+     "class": "SHORT_UNMATCHED",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "聲色見聞",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[5].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師云見聞知覺皆是心王之表離心無境離境無心",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[6].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.6471,
+     "ref": "T47n1991",
+     "corpus": "僧問如何是祖師西來意師云我看汝不得",
+     "ref_window": "僧問如何是祖師西來意趙州云庭前柏樹",
+     "simplified": []
+    },
+    {
+     "path": ".sections[7].title_zh",
+     "class": "SHORT_UNMATCHED",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "法眼指簾",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[7].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師指簾二僧同去捲師云一得一失",
+     "ref_window": "",
+     "simplified": []
+    }
+   ],
+   "source_review_status": "partial_or_failed_w1_collation",
+   "reference_verification": {
+    "T47n1991": {
+     "sha256": "c26a529c44aaa84ef048e0be2071e1fe5a67b5260d778903c0368bd353691c3d",
+     "status": "verified",
+     "historical_status": "verified"
+    }
+   },
+   "refs_total": 1,
+   "refs_verified": 1,
+   "refs_historically_verified": 1
+  }
+ },
+ "reference_verification": {
+  "manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+  "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
+  "counts": {
+   "verified": 3,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 0
+  },
+  "historical_counts": {
+   "verified": 3,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 0
+  },
+  "drifted_refs": [],
+  "refs": {
+   "T47n1989": {
+    "sha256": "1473f11292a9f93dafec18921bd614f011679000acae9d75bf3ad48d14abd5a3",
+    "manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   },
+   "T47n1990": {
+    "sha256": "c06ae879fb7d2bce7d73355b4a077ed6ea22948a334c3e8bbb69b59287d9d8af",
+    "manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   },
+   "T47n1991": {
+    "sha256": "c26a529c44aaa84ef048e0be2071e1fe5a67b5260d778903c0368bd353691c3d",
+    "manifest": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   }
+  }
+ },
+ "reproduction": {
+  "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
+  "documents_compared": 2,
+  "documents_classification_identical": 2,
+  "documents_differing": 0,
+  "documents_with_changed_status": 0,
+  "flagged_entries": {
+   "historical": 26,
+   "this_run": 26
+  },
+  "differences": [],
+  "operator_notes": [
+   "Task 059 measurement run (2026-09-22): the two restored Tier2 documents measured on the authoritative 22-work digest manifest (subset of the 43-work task-056 measurement set; all digests byte-identical, and the 43-work set re-verifies 43/0 drift against the committed task-056 manifest). The R-A re-key attempt is NOT landed: guiyang_yulu 0 of 6 source-content fields verbatim anywhere; fayan_yulu 1 of 11 (s4.d0 曹源一滴水 carried whole by the claimed T47n1991 @3,813). The per-document entries of this measurement register are the ones the authoritative overlay sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json carries verbatim for these two documents; measurement only — the authoritative W1 register chain and all manifest source_review_status values are governed by the authoritative register."
+  ],
+  "notes": [
+   "Field classes are computed from the reference text plus the harness variant map; a difference can come from the reference layer or from harness normalization, and each one is listed above rather than folded into a total."
+  ],
+  "historical_report_flagged_total": 637,
+  "historical_report_flagged_reproduced": false,
+  "historical_report_flagged_status": "superseded: the earlier report claimed 637 flagged entries, its own committed register sums to 26, and this run sums to 26"
+ },
+ "aggregate": {
+  "documents": 2,
+  "flagged_entries": 26,
+  "fields_total": 30,
+  "content_fields_total": 17,
+  "content_fields_collated": 1,
+  "metadata_fields_total": 13,
+  "class_totals": {
+   "EXACT": 4,
+   "NOT_FOUND": 20,
+   "SHORT_UNMATCHED": 3,
+   "TITLE_COMPOSITE": 3
+  },
+  "source_review_status_counts": {
+   "collated_to_claimed_witness": 0,
+   "partial_or_failed_w1_collation": 2,
+   "witness_unavailable": 0
+  },
+  "documents_without_evidence": [
+   "baizhang_guanglu",
+   "baojing_sanmei",
+   "biyanlu_cases",
+   "bodhidharma_erru",
+   "caoshan_benji",
+   "caoxi_zhuan",
+   "chuandenglu",
+   "chuandenglu_full",
+   "congronglu",
+   "dahui_hongzhi",
+   "dahui_shobogenzo",
+   "dahui_yulu_full",
+   "dazhu_huihai",
+   "deshan_yulu",
+   "dongshan_yulu",
+   "dongshan_yulu_full",
+   "foyan_qingyuan",
+   "hanshan_poems",
+   "huangbo_chuanxin",
+   "huangbo_fayao_full",
+   "huangbo_wanling",
+   "lidai_fabao_ji",
+   "linji_yulu",
+   "mazu_guanglu_full",
+   "mazu_yulu",
+   "nanquan_yulu",
+   "niutou_juezhu",
+   "platform_sutra",
+   "qinggui_monastic_codes",
+   "sengzhao_zhaolun",
+   "shitou_sandokai",
+   "wudeng_huiyuan",
+   "wumenguan",
+   "xinxin_ming",
+   "xuansha_yulu",
+   "xuefeng_yantou",
+   "yuanwu_letters",
+   "yunmen_guanglu_full",
+   "yunmen_yulu",
+   "zhaozhou_yulu",
+   "zhaozhou_yulu_full",
+   "zhengdao_ge"
+  ],
+  "documents_with_drifted_references": []
+ }
+}
