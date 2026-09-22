@@ -129,6 +129,15 @@ BASE_COMMIT = "f1207eaf461889d8819a9287904bdfaf354a3018"
 #: declares them. A new corpus file is corpus expansion — normally out of scope for W1 work — so
 #: entry here is the exception, and the docstring above records what backs it.
 DECLARED_NEW_CORPUS = {
+    "data/corpus/biyanlu_cases.json": (
+        "2026-09-22 Biyanlu re-key (task 057, PR #113; declared under task 061): a new extraction "
+        "from the pinned CBETA T48n2003 witness (100 cases, 400/400 source-content fields EXACT, "
+        "0 content flagged, 86 metadata flagged; 103,020 content CJK characters). Title metadata "
+        "is measured separately and is not claimed as collated source content. Declared evidence: "
+        "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json + "
+        "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md + "
+        "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt."
+    ),
     "data/corpus/congronglu.json": (
         "2026-09-20 Congronglu reinstatement (task 043, owner-ruled): a new extraction from the "
         "pinned CBETA T48n2004 witness (100 cases, 500/500 source-content fields EXACT, 0 flagged, "
