@@ -119,10 +119,10 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json"
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
-CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md"
 
 
 def _is_metadata_path(path: str) -> bool:
@@ -145,8 +145,14 @@ def run_partition_and_report_regressions() -> None:
                 entry["metadata_summary"]["NOT_FOUND"] = 5
                 entry["content_fields_total"] = 5
                 entry["metadata_fields_total"] = 5
-                register["aggregate"]["content_fields_total"] = 4733
-                register["aggregate"]["metadata_fields_total"] = 4235
+                # 2026-09-22 (task 061): re-derived for the 17-document authoritative register.
+                # The forgery is "aggregate off by one from the mutated per-document totals": the
+                # honest aggregate after setting wumenguan's totals to 5 is
+                # 5134 - 151 + 5 = 4988 content and 4337 - 56 + 5 = 4286 metadata, so the forged
+                # pair is one less than each. The previous 4733/4235 were the same construction
+                # over the superseded 16-document register and no longer sit next to the truth.
+                register["aggregate"]["content_fields_total"] = 4987
+                register["aggregate"]["metadata_fields_total"] = 4285
                 sandbox.write(AUTH_REGISTER, register)
                 new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 report = sandbox.read_text(CORRECTION_REPORT)
@@ -155,7 +161,7 @@ def run_partition_and_report_regressions() -> None:
                 expected_error = "content/metadata partition mismatch"
             else:
                 manifest = json.loads(sandbox.read_text("data/corpus_manifest.json"))
-                check(manifest["source_review"]["authoritative_flagged_total"] == 41, "report test finds the labeled claim")
+                check(manifest["source_review"]["authoritative_flagged_total"] == 127, "report test finds the labeled claim")
                 manifest["source_review"]["authoritative_flagged_total"] = 999
                 sandbox.write_text("data/corpus_manifest.json", json.dumps(manifest, indent=2) + "\n")
                 expected_error = "authoritative_flagged_total is 999"
@@ -173,7 +179,11 @@ def run_partition_and_report_regressions() -> None:
                 check("cited digest no longer matches" not in output,
                       "partition: updated register hash avoids unrelated citation failure")
                 metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
-                check(metrics["content_fields_total"] == 4734 and metrics["metadata_fields_total"] == 4236,
+                # The metrics file must still hold the TRUE committed totals — the point of the
+                # check is that the forged register wrote nothing. 2026-09-22 (task 061): re-pinned
+                # from data/project_metrics.json corpus.source_review on the 17-document tree
+                # (was 4734/4236 on the superseded 16-document tree).
+                check(metrics["content_fields_total"] == 5134 and metrics["metadata_fields_total"] == 4337,
                       "partition: forged totals were not written")
             print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
         finally:
@@ -451,12 +461,34 @@ def run_replay_conflict_regressions() -> None:
 
     # Only options the register actually records are conflicts, and an unrecorded replayable
     # option is reported rather than silently folded into a run that claims to replay the register.
-    unrecorded = subprocess.run(
-        [sys.executable, harness, "--reproduce", AUTH_REGISTER, "--doc", "wumenguan", "--print-refs"],
-        cwd=REPO, capture_output=True, text=True, timeout=600,
-    )
-    check(unrecorded.returncode == 0 and "does not replay --doc" in unrecorded.stderr,
-          "replay conflict: an option the register does not record is reported, not silently merged")
+    #
+    # 2026-09-22 (task 061): this used to type `--doc wumenguan` against the live register and rely
+    # on that register happening not to record `--doc`. The 2026-09-22 P1 Biyanlu register records
+    # every replayable flag, including `doc`, so the old form tested a conflict rather than an
+    # unrecorded option and the assertion could never fire. The premise is now constructed instead
+    # of borrowed: strip one replayable key from a copy of the live register, then type that flag.
+    # The check is unchanged in substance and no longer depends on a register's incompleteness.
+    import collate_corpus as _cc  # local import: the harness module is the source of the flag map
+
+    unrecorded_sandbox = Sandbox("replay-unrecorded-option")
+    try:
+        stripped = unrecorded_sandbox.read(AUTH_REGISTER)
+        removed = stripped["generation_parameters"].pop("doc", None)
+        check(removed is not None,
+              "replay conflict: the live register records --doc, so stripping it builds the "
+              "unrecorded-option case")
+        unrecorded_sandbox.write(AUTH_REGISTER, stripped)
+        unrecorded = subprocess.run(
+            [sys.executable, str(unrecorded_sandbox.root / "scripts/collate_corpus.py"),
+             "--reproduce", AUTH_REGISTER, "--doc", "wumenguan", "--print-refs"],
+            cwd=unrecorded_sandbox.root, capture_output=True, text=True, timeout=600,
+        )
+        check(unrecorded.returncode == 0
+              and _cc.REPLAYABLE_FLAGS["doc"] == "--doc"
+              and "does not replay --doc" in unrecorded.stderr,
+              "replay conflict: an option the register does not record is reported, not silently merged")
+    finally:
+        unrecorded_sandbox.cleanup()
 
 
 def run_compatibility_regression() -> None:
@@ -786,17 +818,21 @@ def main() -> int:
         # 2026-09-22 (task 058): the ten collated, 0-flagged, unit-target-met documents joined the
         # re-keyed Gateless Gate as complete_selected_witness. Pin the exact list so a manifest
         # edit in either direction (a quiet upgrade or a silent demotion) fails here.
+        # 2026-09-22 (task 061): biyanlu_cases added as the 12th — PR #113 re-keyed it from the
+        # pinned T48n2003 witness (100 cases, 400/400 content fields EXACT, 0 content flagged) and
+        # marked it complete_selected_witness, but left this pin at the pre-Biyanlu eleven.
+        # Re-derived from data/project_metrics.json corpus.complete_documents (sorted).
         expected_complete = [
-            "caoshan_benji", "chuandenglu_full", "congronglu", "dahui_yulu_full", "dongshan_yulu_full",
-            "huangbo_fayao_full", "linji_yulu", "mazu_guanglu_full", "wumenguan", "yunmen_guanglu_full",
-            "zhaozhou_yulu_full",
+            "biyanlu_cases", "caoshan_benji", "chuandenglu_full", "congronglu", "dahui_yulu_full",
+            "dongshan_yulu_full", "huangbo_fayao_full", "linji_yulu", "mazu_guanglu_full", "wumenguan",
+            "yunmen_guanglu_full", "zhaozhou_yulu_full",
         ]
         check(metrics["corpus"]["completion_statuses"] and metrics["corpus"]["complete_documents"] == expected_complete,
-              "the 11 complete documents (wumenguan + the ten marked 2026-09-22) are reported, sorted, and nothing else")
+              "the 12 complete documents (wumenguan + the ten marked 2026-09-22 + biyanlu_cases) are reported, sorted, and nothing else")
         check(all(metrics["corpus"]["per_text"][key]["is_complete"] is True for key in expected_complete)
               and all(metrics["corpus"]["per_text"][key]["is_complete"] is False
                       for key in metrics["corpus"]["per_text"] if key not in expected_complete),
-              "per_text is_complete=true exactly for the 11 complete documents under the shared rule")
+              "per_text is_complete=true exactly for the 12 complete documents under the shared rule")
         check(evidence["completion_compatibility"] == source_review.completion_compatibility_matrix(),
               "published completion-compatibility table equals the shared rule")
         check(source_review.SOURCE_REVIEW_STATUS_LABELS.get(source_review.UNAVAILABLE_STATUS, "").startswith("Witness unavailable"),
@@ -947,9 +983,15 @@ def main() -> int:
     try:
         register = waiver.read(AUTH_REGISTER)
         declared = register.get("generation_parameters", {}).get("new_documents")
-        check(declared == ["congronglu", "chuandenglu_full", "caoshan_benji", "huangbo_fayao_full",
-                   "mazu_guanglu_full", "yunmen_guanglu_full", "dongshan_yulu_full",
-                   "zhaozhou_yulu_full", "dahui_yulu_full"],
+        # 2026-09-22 (task 061): re-pinned to the order the authoritative register records. The
+        # 2026-09-22 P1 Biyanlu register serializes new_documents sorted; the previous pin carried
+        # the ingest order of the superseded overlay. Same nine documents, re-derived from
+        # generation_parameters.new_documents of the register named by AUTH_REGISTER.
+        # biyanlu_cases is absent by design: it is declared new to the preservation test, not a
+        # reference-waiver document — its witness T48n2003 verifies against both digest anchors.
+        check(declared == ["caoshan_benji", "chuandenglu_full", "congronglu", "dahui_yulu_full",
+                   "dongshan_yulu_full", "huangbo_fayao_full", "mazu_guanglu_full",
+                   "yunmen_guanglu_full", "zhaozhou_yulu_full"],
               f"the live overlay declares the documents it adds, cumulatively "
               f"(new_documents={declared!r})")
         entry = register["documents"]["congronglu"]
