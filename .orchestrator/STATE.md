@@ -300,3 +300,26 @@ Document-level and string-level counts are different units and must not be swapp
 - Next per work order: owner rates variant 36 1-10 before Batch 1 (grid order 3,4,5,6). <6 ⇒ rebuild from scratch, never patched. If rated acceptable, a follow-up owner-approved step removes the grandfathered assimilated v36 bytes.
 - **Superseded 2026-09-19:** PR #91 (main 274dc2a, one hall one margin) deleted the 36 demo layouts and the `chan-buddhism-digital-library.zip`; the owner-ratings/Batch 1 track and the per-variant gate are retired with Pages out of scope (`.orchestrator/RULING_WEBSITE_2026-09-14.md` out-of-scope notice; `OPERATIONS.md` Edits 4–6). No rating is pending.
 
+
+## 2026-09-22 Rollup — 14-doc law after PR108 merge (main 43be5c6)
+
+**State:** main 43be5c6 = 14 docs (12 collated +2 unavailable), 1 complete (wumenguan), 13 partial, 775,113 content CJK, 4092/4092 locators +4 doc-level, 7,511,135 B bundle, export 25 files commit 1753ca0 sha256 OK, gates all green (validate, build, preservation 12+2, review 145, smoke).
+
+**What PR108 fixed vs 106/107 conflict:** Combined Wumenguan T48n2005 48 cases 207/207 + Linji T47n1985 107 sections 215/215 as one overlay, reproduction 5/2/169→15, reference manifest 19 works, traceability queue 4, docs truthfulness, GATE law (git clone at manifest commit official delivery, mandatory sha256, unprivileged disposable stdlib-only, Python min 3.11 tested 3.11/3.12).
+
+**Glaring issues scoped (ROADMAP_ALL_ENCOMPASSING 134 works inventoried, 38 in corpus snapshot, now 14 after purge):**
+- Tier1 missing after purge: biyanlu_cases 100 cases (353/395 collating historically), platform_sutra recension split, xinxin_ming 37 stanzas — biggest practitioner gap
+- No complete except wumenguan — 13 docs partial though tiling verbatim (congronglu 100/100, chuandenglu_full 1274, caoshan 84, huangbo 19, mazu 35, yunmen 776, dongshan 322, zhaozhou 80, dahui 1354, linji 107) need unit_targets + complete_selected_witness marking
+- Tier2 core yulu 13 works per §3.3, 4 dispatched (Baizhang, Huangbo, Dazhu, Nanquan), remaining 9 (guiyang, fayan, xuansha, xuefeng, deshan, etc) 0/6 collating as project compositions — need WITNESS_INVENTORY + authenticity labels per 047 or R-A re-key if ≥80%
+- Tier3 long tail 80% volume missing: Wudeng Huiyuan full, Guzunsu yulu 48 fascicles ~20 masters, Zutangji 952, etc
+- Lineage 35 vs target 150-200, 30 edges pending exact locator, 24 gongan vs 248 potential
+
+**Dispatched 2026-09-22:**
+- 057-p1-biyanlu-rekey.md — Biyanlu 100 cases re-key T48n2003 verbatim
+- 058-p1-complete-marking.md — Make 10 partial docs complete_selected_witness with honest unit_targets
+- 059-p2-tier2-yulu-batch1.md — Guiyang + Fayan authenticity labels or re-key
+- 060-p3-lineage-expansion-150.md — 25 new masters from Guzunsu yulu to reach 60
+- Rollup file: .orchestrator/IN_MEMORY_PAGEFILE_ROLLUP_2026-09-22.md
+
+Each PR one doc per PR per Ruling 3 (except complete marking batch), py_compile, validate, build deterministic byte-identical root/docs twice, preservation 0 unauthorized, review 145+, smoke, mirror clean.
+
