@@ -49,7 +49,7 @@
       "unit_targets": {
         "cases": 100
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -59,7 +59,7 @@
       "unit_targets": {
         "cases": 1274
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -69,7 +69,7 @@
       "unit_targets": {
         "cases": 84
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -79,7 +79,7 @@
       "unit_targets": {
         "cases": 19
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -89,7 +89,7 @@
       "unit_targets": {
         "cases": 35
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -99,7 +99,7 @@
       "unit_targets": {
         "cases": 776
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -109,7 +109,7 @@
       "unit_targets": {
         "cases": 322
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -119,7 +119,7 @@
       "unit_targets": {
         "cases": 80
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -129,7 +129,7 @@
       "unit_targets": {
         "cases": 1354
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     },
     {
@@ -149,7 +149,7 @@
       "unit_targets": {
         "sections": 107
       },
-      "completion_status": "partial_selected_witness",
+      "completion_status": "complete_selected_witness",
       "source_review_status": "collated_to_claimed_witness"
     }
   ]

@@ -783,10 +783,20 @@ def main() -> int:
               f"metrics status counts {evidence['status_counts']} equal evidence-derived {recomputed}")
         check(evidence["flagged_entries"] == source_review.flagged_total(authoritative),
               "metrics flagged_entries equals the sum of register flagged arrays")
-        check(metrics["corpus"]["completion_statuses"] and metrics["corpus"]["complete_documents"] == ["wumenguan"],
-              "wumenguan is reported as the complete document")
-        check(metrics["corpus"]["per_text"]["wumenguan"]["is_complete"] is True,
-              "wumenguan per_text entry is_complete=true under the shared rule")
+        # 2026-09-22 (task 058): the ten collated, 0-flagged, unit-target-met documents joined the
+        # re-keyed Gateless Gate as complete_selected_witness. Pin the exact list so a manifest
+        # edit in either direction (a quiet upgrade or a silent demotion) fails here.
+        expected_complete = [
+            "caoshan_benji", "chuandenglu_full", "congronglu", "dahui_yulu_full", "dongshan_yulu_full",
+            "huangbo_fayao_full", "linji_yulu", "mazu_guanglu_full", "wumenguan", "yunmen_guanglu_full",
+            "zhaozhou_yulu_full",
+        ]
+        check(metrics["corpus"]["completion_statuses"] and metrics["corpus"]["complete_documents"] == expected_complete,
+              "the 11 complete documents (wumenguan + the ten marked 2026-09-22) are reported, sorted, and nothing else")
+        check(all(metrics["corpus"]["per_text"][key]["is_complete"] is True for key in expected_complete)
+              and all(metrics["corpus"]["per_text"][key]["is_complete"] is False
+                      for key in metrics["corpus"]["per_text"] if key not in expected_complete),
+              "per_text is_complete=true exactly for the 11 complete documents under the shared rule")
         check(evidence["completion_compatibility"] == source_review.completion_compatibility_matrix(),
               "published completion-compatibility table equals the shared rule")
         check(source_review.SOURCE_REVIEW_STATUS_LABELS.get(source_review.UNAVAILABLE_STATUS, "").startswith("Witness unavailable"),

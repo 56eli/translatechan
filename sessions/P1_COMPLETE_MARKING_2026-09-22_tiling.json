@@ -1,0 +1,1394 @@
+{
+  "kind": "p1-complete-marking-tiling-measurement",
+  "generated": "2026-09-22",
+  "task": "058 — P1 Complete Marking — make 10 partial docs complete_selected_witness",
+  "base_commit": "0d0b1ffa2987a32a3457af351c9ffd668e30af80",
+  "upstream": {
+    "repo": "https://github.com/cbeta-org/xml-p5",
+    "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+    "fetch_method": "GitHub REST API (repos/cbeta-org/xml-p5/contents + git/blobs at the pinned revision); raw.githubusercontent.com was unreachable from the sandbox"
+  },
+  "extraction_rule": "scripts/collate_refs.py cbeta-p5-body-cjk-v1 (tei:text/tei:body document-order text; tei:note and tei:g subtrees dropped; CJK U+3400–9FFF, U+F900–FAFF only)",
+  "reference_verification": "scripts/collate_refs.py --verify-against sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI_refs_manifest.txt: 19 verified, 0 drift, 0 unlisted, 0 unavailable",
+  "harness_replay": "scripts/collate_corpus.py --reproduce sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json --refs-dir /tmp/refs (--doc × 14): aggregate documents 14, flagged 15, fields 8940, content 4717/4708 collated, EXACT 8925 — every per-document measurement block JSON-equal to the committed register (the three operator witness_note prose fields are the only non-measured differences)",
+  "method": "for each document, walk its source-content fields in document order (dialogue[*].zh for the unit-per-block producers; title_zh, pointer_zh, dialogue[0].zh, commentary_zh, verse_zh, verse_commentary.commentary_zh per Congronglu case) and locate each field forward of a cursor in the reference; record the region [first field start, last field end), leading/trailing reference text outside it, interior gaps no field carries, and any field found only inside an earlier unit's span (nested overlap) or nowhere (absent)",
+  "completion_rule": "scripts/validate_data.py complete_document_keys(): completion_status == complete_selected_witness AND source_review_status == collated_to_claimed_witness AND every unit_targets[unit] <= units present",
+  "documents": {
+    "congronglu": {
+      "witnesses": [
+        "T48n2004"
+      ],
+      "unit_counts_present": {
+        "cases": 100
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 100
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 100
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 601,
+        "content_fields_total": 500,
+        "content_fields_collated": 500,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 500
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 84654,
+      "covered_cjk_total": 85511,
+      "tiles_declared_region": false,
+      "regions": [
+        {
+          "witness": "T48n2004",
+          "witness_file_sha256": "838d8713596a7f53502d0e290801b123cb05a5fa09078a893a122b6668e37649",
+          "reference_sha256": "70413b279195b74148f03d6081c311511393dfaa65458f73e107116510738ba0",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 88155,
+          "fields_walked": 600,
+          "region": [
+            1980,
+            88136
+          ],
+          "region_cjk": 86156,
+          "covered_cjk": 85511,
+          "leading_cjk_not_represented": 1980,
+          "trailing_cjk_not_represented": 19,
+          "interior_gaps": 99,
+          "interior_gap_cjk": 645,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": false,
+          "interior_gaps_classified": [
+            {
+              "before_case": 2,
+              "cjk": 4,
+              "text": "達磨廓然",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 3,
+              "cjk": 4,
+              "text": "東印請祖",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 4,
+              "cjk": 4,
+              "text": "世尊指地",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 5,
+              "cjk": 4,
+              "text": "清源米價",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 6,
+              "cjk": 4,
+              "text": "馬祖白黑",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 7,
+              "cjk": 4,
+              "text": "藥山陞座",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 8,
+              "cjk": 4,
+              "text": "百丈野狐",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 9,
+              "cjk": 4,
+              "text": "南泉斬猫",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 10,
+              "cjk": 4,
+              "text": "臺山婆子",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 11,
+              "cjk": 5,
+              "text": "則雲門兩病",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 12,
+              "cjk": 4,
+              "text": "地藏種田",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 13,
+              "cjk": 4,
+              "text": "臨際瞎驢",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 14,
+              "cjk": 4,
+              "text": "廓侍過茶",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 15,
+              "cjk": 4,
+              "text": "仰山插鍬",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 16,
+              "cjk": 4,
+              "text": "麻谷振錫",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 17,
+              "cjk": 55,
+              "text": "萬松老人評唱天童覺和尚頌古從容庵錄一萬松老人評唱天童覺和尚頌古從容庵錄二侍者離知錄後學性一校生生道人梓法眼毫釐",
+              "kind": "fascicle boundary (卷 close + next 卷 heading + compiler line) followed by the case-name marker"
+            },
+            {
+              "before_case": 18,
+              "cjk": 4,
+              "text": "趙州狗子",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 19,
+              "cjk": 4,
+              "text": "雲門須彌",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 20,
+              "cjk": 4,
+              "text": "地藏親切",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 21,
+              "cjk": 4,
+              "text": "雲巖掃地",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 22,
+              "cjk": 4,
+              "text": "巖頭拜喝",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 23,
+              "cjk": 4,
+              "text": "魯祖面壁",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 24,
+              "cjk": 4,
+              "text": "雪峯看蛇",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 25,
+              "cjk": 4,
+              "text": "鹽官犀扇",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 26,
+              "cjk": 4,
+              "text": "仰山指雪",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 27,
+              "cjk": 4,
+              "text": "法眼指簾",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 28,
+              "cjk": 4,
+              "text": "護國三懡",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 29,
+              "cjk": 4,
+              "text": "風穴鐵牛",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 30,
+              "cjk": 4,
+              "text": "大隨劫火",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 31,
+              "cjk": 4,
+              "text": "雲門露柱",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 32,
+              "cjk": 4,
+              "text": "仰山心境",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 33,
+              "cjk": 56,
+              "text": "萬松老人評唱天童覺和尚頌古從容庵錄卷二萬松老人評唱天童覺和尚頌古從容庵錄三侍者離知錄後學性一校生生道人梓三聖金鱗",
+              "kind": "fascicle boundary (卷 close + next 卷 heading + compiler line) followed by the case-name marker"
+            },
+            {
+              "before_case": 34,
+              "cjk": 4,
+              "text": "風穴一塵",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 35,
+              "cjk": 4,
+              "text": "洛浦伏膺",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 36,
+              "cjk": 4,
+              "text": "馬師不安",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 37,
+              "cjk": 4,
+              "text": "溈山業識",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 38,
+              "cjk": 4,
+              "text": "臨濟真人",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 39,
+              "cjk": 4,
+              "text": "趙州洗鉢",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 40,
+              "cjk": 4,
+              "text": "雲門白黑",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 41,
+              "cjk": 4,
+              "text": "洛浦臨終",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 42,
+              "cjk": 4,
+              "text": "南陽淨瓶",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 43,
+              "cjk": 4,
+              "text": "羅山起滅",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 44,
+              "cjk": 4,
+              "text": "興陽妙翅",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 45,
+              "cjk": 4,
+              "text": "覺經四節",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 46,
+              "cjk": 4,
+              "text": "德山學畢",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 47,
+              "cjk": 4,
+              "text": "趙州柏樹",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 48,
+              "cjk": 4,
+              "text": "摩經不二",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 49,
+              "cjk": 4,
+              "text": "洞山供真",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 50,
+              "cjk": 4,
+              "text": "雪峯甚麼",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 51,
+              "cjk": 4,
+              "text": "法眼舡陸",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 52,
+              "cjk": 4,
+              "text": "曹山法身",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 53,
+              "cjk": 4,
+              "text": "黃檗噇糟",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 54,
+              "cjk": 55,
+              "text": "萬松老人評唱天童覺和尚頌古從容庵錄三萬松老人評唱天童覺和尚頌古從容庵錄四侍者離知錄後學性一校生生道人梓雲巖大悲",
+              "kind": "fascicle boundary (卷 close + next 卷 heading + compiler line) followed by the case-name marker"
+            },
+            {
+              "before_case": 55,
+              "cjk": 4,
+              "text": "雪峯飯頭",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 56,
+              "cjk": 4,
+              "text": "密師白兔",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 57,
+              "cjk": 4,
+              "text": "嚴陽一物",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 58,
+              "cjk": 4,
+              "text": "剛經輕賤",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 59,
+              "cjk": 4,
+              "text": "青林死蛇",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 60,
+              "cjk": 4,
+              "text": "鐵磨牸牛",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 61,
+              "cjk": 4,
+              "text": "乾峯一畫",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 62,
+              "cjk": 4,
+              "text": "米胡悟否",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 63,
+              "cjk": 4,
+              "text": "趙州問死",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 64,
+              "cjk": 5,
+              "text": "則子昭承嗣",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 65,
+              "cjk": 4,
+              "text": "首山新婦",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 66,
+              "cjk": 4,
+              "text": "九峯頭尾",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 67,
+              "cjk": 56,
+              "text": "萬松老人評唱天童覺和尚頌古從容庵錄卷四萬松老人評唱天童覺和尚頌古從容庵錄五侍者離知錄後學性一校生生道人梓嚴經智慧",
+              "kind": "fascicle boundary (卷 close + next 卷 heading + compiler line) followed by the case-name marker"
+            },
+            {
+              "before_case": 68,
+              "cjk": 4,
+              "text": "夾山揮劍",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 69,
+              "cjk": 4,
+              "text": "南泉白牯",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 70,
+              "cjk": 4,
+              "text": "進山問性",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 71,
+              "cjk": 4,
+              "text": "翠巖眉毛",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 72,
+              "cjk": 4,
+              "text": "中邑獼猴",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 73,
+              "cjk": 4,
+              "text": "曹山孝滿",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 74,
+              "cjk": 4,
+              "text": "法眼質名",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 75,
+              "cjk": 4,
+              "text": "瑞巖常理",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 76,
+              "cjk": 4,
+              "text": "首山三句",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 77,
+              "cjk": 4,
+              "text": "仰山隨分",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 78,
+              "cjk": 4,
+              "text": "雲門餬餅",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 79,
+              "cjk": 4,
+              "text": "長沙進步",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 80,
+              "cjk": 4,
+              "text": "龍牙過板",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 81,
+              "cjk": 4,
+              "text": "玄沙到縣",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 82,
+              "cjk": 4,
+              "text": "雲門聲色",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 83,
+              "cjk": 45,
+              "text": "萬松老人評唱天童覺和尚頌古從容庵錄五萬松老人評唱天童覺和尚頌古從容庵錄六侍者離知錄道吾看病",
+              "kind": "fascicle boundary (卷 close + next 卷 heading + compiler line) followed by the case-name marker"
+            },
+            {
+              "before_case": 84,
+              "cjk": 4,
+              "text": "俱胝一指",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 85,
+              "cjk": 4,
+              "text": "國師塔樣",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 86,
+              "cjk": 4,
+              "text": "臨濟大悟",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 87,
+              "cjk": 4,
+              "text": "疎山有無",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 88,
+              "cjk": 4,
+              "text": "楞嚴不見",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 89,
+              "cjk": 4,
+              "text": "洞山無草",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 90,
+              "cjk": 4,
+              "text": "仰山謹白",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 91,
+              "cjk": 4,
+              "text": "南泉牡丹",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 92,
+              "cjk": 4,
+              "text": "雲門一寶",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 93,
+              "cjk": 4,
+              "text": "魯祖不會",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 94,
+              "cjk": 4,
+              "text": "洞山不安",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 95,
+              "cjk": 4,
+              "text": "臨濟一畫",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 96,
+              "cjk": 4,
+              "text": "九峯不肯",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 97,
+              "cjk": 4,
+              "text": "光帝檏頭",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 98,
+              "cjk": 4,
+              "text": "洞山常切",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 99,
+              "cjk": 4,
+              "text": "雲門鉢桶",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            },
+            {
+              "before_case": 100,
+              "cjk": 4,
+              "text": "瑯琊山河",
+              "kind": "case-name marker (witness prints the case name before its 第N則 heading)"
+            }
+          ],
+          "interior_gap_kinds": {
+            "case-name marker": 94,
+            "fascicle boundary": 5
+          },
+          "front_matter_tail_60": "肯光帝幞頭洞山常切雲門鉢桶瑯琊山河從容庵錄目錄萬松老人評唱天童覺和尚頌古從容庵錄一侍者離知錄後學性一校生生道人梓世尊陞座",
+          "trailing_text": "萬松老人評唱天童覺和尚頌古從容庵錄卷六",
+          "reading": "every case field is verbatim, contiguous and in order; the only reference text between case 1 and the final 卷六 close that no field carries is structural — 94 case-name markers and 5 fascicle boundaries — no case text is omitted; the 1,980-CJK front matter and the 19-CJK final fascicle close are outside the case region, as the document's coverage_note discloses"
+        }
+      ]
+    },
+    "chuandenglu_full": {
+      "witnesses": [
+        "T51n2076"
+      ],
+      "unit_counts_present": {
+        "cases": 1274
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 1274
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 1274
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 2549,
+        "content_fields_total": 1274,
+        "content_fields_collated": 1274,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 1274
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 351039,
+      "covered_cjk_total": 350269,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T51n2076",
+          "witness_file_sha256": "41e4717ce9c71ff6892f8a83d6a28438cf67a1dc09e8e938165b1222daa9e40e",
+          "reference_sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 358501,
+          "fields_walked": 1274,
+          "region": [
+            3995,
+            354264
+          ],
+          "region_cjk": 350269,
+          "covered_cjk": 350269,
+          "leading_cjk_not_represented": 3995,
+          "trailing_cjk_not_represented": 4237,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [
+            {
+              "unit": "1225",
+              "field": "dialogue[0].zh",
+              "cjk": 54,
+              "inside_unit": "1224"
+            },
+            {
+              "unit": "1234",
+              "field": "dialogue[0].zh",
+              "cjk": 56,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1235",
+              "field": "dialogue[0].zh",
+              "cjk": 67,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1236",
+              "field": "dialogue[0].zh",
+              "cjk": 38,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1237",
+              "field": "dialogue[0].zh",
+              "cjk": 48,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1238",
+              "field": "dialogue[0].zh",
+              "cjk": 40,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1239",
+              "field": "dialogue[0].zh",
+              "cjk": 32,
+              "inside_unit": "1233"
+            },
+            {
+              "unit": "1242",
+              "field": "dialogue[0].zh",
+              "cjk": 60,
+              "inside_unit": "1241"
+            },
+            {
+              "unit": "1244",
+              "field": "dialogue[0].zh",
+              "cjk": 68,
+              "inside_unit": "1243"
+            },
+            {
+              "unit": "1245",
+              "field": "dialogue[0].zh",
+              "cjk": 62,
+              "inside_unit": "1243"
+            },
+            {
+              "unit": "1246",
+              "field": "dialogue[0].zh",
+              "cjk": 64,
+              "inside_unit": "1243"
+            },
+            {
+              "unit": "1271",
+              "field": "dialogue[0].zh",
+              "cjk": 71,
+              "inside_unit": "1270"
+            },
+            {
+              "unit": "1272",
+              "field": "dialogue[0].zh",
+              "cjk": 110,
+              "inside_unit": "1270"
+            }
+          ],
+          "fields_absent_from_reference": [],
+          "tiles_region": true,
+          "reading": "1,261 top-level units tile the 30-fascicle region [3995, 354264] with 0 gaps; the 13 units found inside their immediately preceding parent work are the titled sub-verses the coverage_note lists as the only overlaps (770 CJK); 3,995 CJK before fascicle 1 and 4,237 CJK after fascicle 30 are outside the region, as the coverage_note discloses"
+        }
+      ]
+    },
+    "caoshan_benji": {
+      "witnesses": [
+        "T47n1987A"
+      ],
+      "unit_counts_present": {
+        "cases": 84
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 84
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 84
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 169,
+        "content_fields_total": 84,
+        "content_fields_collated": 84,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 84
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 12343,
+      "covered_cjk_total": 12343,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T47n1987A",
+          "witness_file_sha256": "d0d0336d02c420f9b614be9a138322eb2ff4870853c5c8ac4afdca00342d1cfe",
+          "reference_sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 12343,
+          "fields_walked": 84,
+          "region": [
+            0,
+            12343
+          ],
+          "region_cjk": 12343,
+          "covered_cjk": 12343,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "huangbo_fayao_full": {
+      "witnesses": [
+        "T48n2012A"
+      ],
+      "unit_counts_present": {
+        "cases": 19
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 19
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 19
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 39,
+        "content_fields_total": 19,
+        "content_fields_collated": 19,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 19
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 6632,
+      "covered_cjk_total": 6632,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T48n2012A",
+          "witness_file_sha256": "89cbe7536d6c049456110d9acdf3c45f6abd18e144758c37d43c8faa389a3ba4",
+          "reference_sha256": "8f46065b6d1be313d6d68c7c99a6f4c3cee28306e3cbb8695a765912537ee58d",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 6632,
+          "fields_walked": 19,
+          "region": [
+            0,
+            6632
+          ],
+          "region_cjk": 6632,
+          "covered_cjk": 6632,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "mazu_guanglu_full": {
+      "witnesses": [
+        "X69n1321"
+      ],
+      "unit_counts_present": {
+        "cases": 35
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 35
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 35
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 71,
+        "content_fields_total": 35,
+        "content_fields_collated": 35,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 35
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 4732,
+      "covered_cjk_total": 4732,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "X69n1321",
+          "witness_file_sha256": "e1c98d66981ea41f3d5cdd1d70d115730ff3d3b1b658f92c854b411d42b37305",
+          "reference_sha256": "652ba08698e51d5e7e44c8d6d3209ba5c8c85f0c5192a50909ce284d0cff3e13",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 4732,
+          "fields_walked": 35,
+          "region": [
+            0,
+            4732
+          ],
+          "region_cjk": 4732,
+          "covered_cjk": 4732,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "yunmen_guanglu_full": {
+      "witnesses": [
+        "T47n1988"
+      ],
+      "unit_counts_present": {
+        "cases": 776
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 776
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 776
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 1553,
+        "content_fields_total": 776,
+        "content_fields_collated": 776,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 776
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 43678,
+      "covered_cjk_total": 43678,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T47n1988",
+          "witness_file_sha256": "7f095758fe1ec81e8d90d4a1e4225c408c5c911a27caed5a53054de7198aa39c",
+          "reference_sha256": "38b9347dda4c5f5ce7c02ffb66fd8599f046536b16907f5219d63cc3847321cb",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 43678,
+          "fields_walked": 776,
+          "region": [
+            0,
+            43678
+          ],
+          "region_cjk": 43678,
+          "covered_cjk": 43678,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "dongshan_yulu_full": {
+      "witnesses": [
+        "T47n1986A",
+        "T47n1986B"
+      ],
+      "unit_counts_present": {
+        "cases": 322
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 322
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 322
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 645,
+        "content_fields_total": 322,
+        "content_fields_collated": 322,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 322
+        },
+        "refs_verified": "2/2"
+      },
+      "declared_zh_chars": 24439,
+      "covered_cjk_total": 24439,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T47n1986A",
+          "witness_file_sha256": "cc4f368b0b7af9d73543f01117d8c58b589286fa2eb7fd2806f5bb61ff8f7ec2",
+          "reference_sha256": "c53e4ffde1dccb93f566ab91ef1b252ffb79ff6243aebf51fdba2f68dd42b03b",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 15843,
+          "fields_walked": 214,
+          "region": [
+            0,
+            15843
+          ],
+          "region_cjk": 15843,
+          "covered_cjk": 15843,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        },
+        {
+          "witness": "T47n1986B",
+          "witness_file_sha256": "6d64049f765dc967adaa9b0c582ae8f1d3b083bd0e76c199767526f343c22332",
+          "reference_sha256": "7ed62050f1b6321db5a8503de7e027ae40d126e1a11b0eeac47eb4d15fd2f2f2",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 8596,
+          "fields_walked": 108,
+          "region": [
+            0,
+            8596
+          ],
+          "region_cjk": 8596,
+          "covered_cjk": 8596,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "zhaozhou_yulu_full": {
+      "witnesses": [
+        "X68n1315"
+      ],
+      "unit_counts_present": {
+        "cases": 80
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 80
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 80
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 161,
+        "content_fields_total": 80,
+        "content_fields_collated": 80,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 80
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 21038,
+      "covered_cjk_total": 21038,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "X68n1315",
+          "witness_file_sha256": "adcddde4ee7665799c6e471f6e2e4fd7b9d3746960de642c89e6937c76e9c2bf",
+          "reference_sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 445450,
+          "fields_walked": 80,
+          "region": [
+            101821,
+            122859
+          ],
+          "region_cjk": 21038,
+          "covered_cjk": 21038,
+          "leading_cjk_not_represented": 101821,
+          "trailing_cjk_not_represented": 322591,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true,
+          "reading": "80 units tile the declared anthology region [101821, 122859] of X68n1315 (juan 13–14) with 0 gaps; the rest of the 古尊宿語錄 is other masters' records, not claimed"
+        }
+      ]
+    },
+    "dahui_yulu_full": {
+      "witnesses": [
+        "T47n1998A",
+        "T47n1998B"
+      ],
+      "unit_counts_present": {
+        "cases": 1354
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "cases": 1354
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "cases": 1354
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 2709,
+        "content_fields_total": 1354,
+        "content_fields_collated": 1354,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 1354
+        },
+        "refs_verified": "2/2"
+      },
+      "declared_zh_chars": 202073,
+      "covered_cjk_total": 202073,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T47n1998A",
+          "witness_file_sha256": "995ce772f0f6bac1162d3cce427b861a03023cc98be9775bd2dc8cc05c693bc3",
+          "reference_sha256": "eb71385d71e5c3ff1ff0d827dc47da476dfda18b723399842b7b0d3fc28e6798",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 182132,
+          "fields_walked": 1232,
+          "region": [
+            0,
+            182132
+          ],
+          "region_cjk": 182132,
+          "covered_cjk": 182132,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        },
+        {
+          "witness": "T47n1998B",
+          "witness_file_sha256": "03869a17ae333e4494f9989950e215825bb4ab70ac3d4e7a59d9e25855290d61",
+          "reference_sha256": "8b37b4663395ac69d794b2b5030a5529faaf08884a13cac8815c6d07b7f6d819",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 19941,
+          "fields_walked": 122,
+          "region": [
+            0,
+            19941
+          ],
+          "region_cjk": 19941,
+          "covered_cjk": 19941,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    },
+    "linji_yulu": {
+      "witnesses": [
+        "T47n1985"
+      ],
+      "unit_counts_present": {
+        "sections": 107
+      },
+      "manifest_before": {
+        "completion_status": "partial_selected_witness",
+        "unit_targets": {
+          "sections": 107
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "manifest_after": {
+        "completion_status": "complete_selected_witness",
+        "unit_targets": {
+          "sections": 107
+        },
+        "source_review_status": "collated_to_claimed_witness"
+      },
+      "authoritative_register": {
+        "source_review_status": "collated_to_claimed_witness",
+        "fields_total": 215,
+        "content_fields_total": 107,
+        "content_fields_collated": 107,
+        "flagged": 0,
+        "content_summary": {
+          "EXACT": 107
+        },
+        "refs_verified": "1/1"
+      },
+      "declared_zh_chars": 16366,
+      "covered_cjk_total": 16366,
+      "tiles_declared_region": true,
+      "regions": [
+        {
+          "witness": "T47n1985",
+          "witness_file_sha256": "d095b9ca7e7b0c4818541889f16ae07bfbee04ff5812a7aa94c5108190c113d5",
+          "reference_sha256": "4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359",
+          "reference_sha256_matches_authoritative_manifest": true,
+          "reference_cjk": 16366,
+          "fields_walked": 107,
+          "region": [
+            0,
+            16366
+          ],
+          "region_cjk": 16366,
+          "covered_cjk": 16366,
+          "leading_cjk_not_represented": 0,
+          "trailing_cjk_not_represented": 0,
+          "interior_gaps": 0,
+          "interior_gap_cjk": 0,
+          "nested_overlap_units": [],
+          "fields_absent_from_reference": [],
+          "tiles_region": true
+        }
+      ]
+    }
+  },
+  "summary": {
+    "marked_complete_2026_09_22": [
+      "caoshan_benji",
+      "chuandenglu_full",
+      "congronglu",
+      "dahui_yulu_full",
+      "dongshan_yulu_full",
+      "huangbo_fayao_full",
+      "linji_yulu",
+      "mazu_guanglu_full",
+      "yunmen_guanglu_full",
+      "zhaozhou_yulu_full"
+    ],
+    "already_complete": [
+      "wumenguan"
+    ],
+    "complete_documents_after": [
+      "caoshan_benji",
+      "chuandenglu_full",
+      "congronglu",
+      "dahui_yulu_full",
+      "dongshan_yulu_full",
+      "huangbo_fayao_full",
+      "linji_yulu",
+      "mazu_guanglu_full",
+      "wumenguan",
+      "yunmen_guanglu_full",
+      "zhaozhou_yulu_full"
+    ],
+    "not_complete_after": {
+      "zhengdao_ge": "excerpt_seed, collated_to_claimed_witness, no unit_targets declared",
+      "hanshan_poems": "excerpt_seed, witness_unavailable",
+      "niutou_juezhu": "excerpt_seed, witness_unavailable"
+    },
+    "tiles_whole_reference_zero_gaps": [
+      "caoshan_benji",
+      "huangbo_fayao_full",
+      "mazu_guanglu_full",
+      "yunmen_guanglu_full",
+      "dongshan_yulu_full",
+      "dahui_yulu_full",
+      "linji_yulu"
+    ],
+    "tiles_declared_region_zero_gaps": [
+      "chuandenglu_full",
+      "caoshan_benji",
+      "huangbo_fayao_full",
+      "mazu_guanglu_full",
+      "yunmen_guanglu_full",
+      "dongshan_yulu_full",
+      "zhaozhou_yulu_full",
+      "dahui_yulu_full",
+      "linji_yulu"
+    ],
+    "all_fields_in_order_with_structural_gaps_only": [
+      "congronglu"
+    ]
+  }
+}

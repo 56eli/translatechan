@@ -1366,10 +1366,24 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
     verified_texts = translations.get("verified_corpus_texts", 0)
     matrix_verified = translations.get("matrix_statuses", {}).get("verified_quotation", 0)
     source_review_statuses = corpus.get("source_review_statuses", {})
+    # Completion is an editorial claim the validator derives (complete_document_keys):
+    # complete_selected_witness + collated_to_claimed_witness + every unit target met.
+    # The live docs must quote the derived count, never a hand-typed one — the 2026-09-22
+    # complete marking (task 058) moved it from 1 to 11 and every stale "only the Gateless
+    # Gate" sentence had to be found by hand; this snippet makes the next move fail loudly.
+    complete_keys = list(corpus.get("complete_documents") or [])
+    completion_snippet = (f"**{len(complete_keys)} of {corpus['documents']} documents** are "
+                          f"`complete_selected_witness`")
     checks = [
         ("README.md", f"**{corpus['content_cjk_characters']:,} source-content CJK characters** "
                       f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
          "honest-status CJK counts"),
+        ("README.md", completion_snippet, "honest-status complete-document count"),
+        ("AUDIT.md", completion_snippet, "current-verdict complete-document count"),
+        ("HANDOFF.md", completion_snippet, "completion-rule paragraph complete-document count"),
+        ("ROADMAP.md", f"**Phase 2 — `{len(complete_keys)}/{corpus['documents']} complete`**",
+         "Phase 2 completion ratio"),
+        ("RESEARCH_RELEASE_PLAN.md", completion_snippet, "corpus baseline complete-document count"),
         ("README.md", f"manifest ({corpus['documents']} keys)", "manifest key count in repo tree"),
         ("README.md", "48 / 48 cases represented; W1 source-review status: `collated_to_claimed_witness`", "Wumenguan containment status in corpus table"),
         ("README.md", f"currently **{len(lineage)} master profiles**", "master profile count in lineage feature"),
@@ -1489,12 +1503,20 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
                                        "witness T1987 is the Caoshan record (the W1 collation found the claim "
                                        "false); an unexplained T1987 is an unqualified false witness claim")
         if filename == "README.md":
-            # The honest-status paragraph must keep saying no current document qualifies as
-            # a complete selected witness while W1 containment is open.
-            if "no current `complete_selected_witness`" not in text:
-                issues.error(filename, "doc truthfulness: README must state that no current "
-                                       "`complete_selected_witness` item exists after W1 containment; a stale "
-                                       "completion claim is exactly what the W1 ledger exists to prevent")
+            # The honest-status paragraph must name every document that is NOT complete, so a
+            # reader never has to subtract: the complete count is generated (checked above in
+            # validate_doc_truthfulness), and the remainder must be listed by key. This replaces
+            # the 2026-09-09 containment-era rule that README must say "no current
+            # `complete_selected_witness`" exists — true then (0 of 35), false after the
+            # 2026-09-21 Wumenguan re-key, and retired by the 2026-09-22 complete marking.
+            per_text = metrics["corpus"].get("per_text") or {}
+            incomplete = sorted(key for key, entry in per_text.items() if not entry.get("is_complete"))
+            for key in incomplete:
+                if f"`{key}`" not in text:
+                    issues.error(filename, f"doc truthfulness: README must name the incomplete document `{key}` "
+                                           "in its honest-status paragraph (it is not complete_selected_witness); "
+                                           "a completion claim that hides its remainder is the drift the W1 "
+                                           "ledger exists to prevent")
     state = ROOT / ".orchestrator" / "STATE.md"
     if state.exists():
         state_text = state.read_text(encoding="utf-8")

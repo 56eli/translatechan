@@ -556,6 +556,17 @@ const LEDGER_CASES = [
            'data-ledger="rights_review"'],
     // A collated document must not borrow its collation verdict into rights or completeness.
     mustNot: ['approved for reuse', 'Complete witness', 'data-represented-complete="true"']
+  },
+  {
+    // 2026-09-22 (task 058): a document marked complete_selected_witness on collated, 0-flagged,
+    // unit-target-met evidence must say so in the represented-units ledger *and* keep its
+    // coverage_note disclosures (front matter / apparatus gaps) visible next to the claim.
+    key: 'congronglu',
+    status: 'collated_to_claimed_witness',
+    must: ['Collated to claimed witness', 'T48n2004', '100/100 cases', 'Complete selected witness',
+           'data-represented-complete="true"', 'Coverage gaps, recorded rather than implied absent'],
+    mustNot: ['approved for reuse', 'witness_unavailable', 'Partial or failed W1 collation',
+              'Completion/status conflict']
   }
 ];
 for (const entry of LEDGER_CASES) {
@@ -1021,18 +1032,34 @@ try {
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
 // 4ff. Completion marks come from explicit editorial status, not N/N arithmetic.
+// 2026-09-22 (task 058): 11 documents are complete_selected_witness (the re-keyed Gateless Gate
+// plus the ten collated, 0-flagged, unit-target-met documents), 0 are partial, 3 are excerpt seeds.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 1], ['partial_selected_witness', 'Partial witnesses', 10], ['excerpt_seed', 'Excerpt seeds', 3]]) {
+  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 11], ['excerpt_seed', 'Excerpt seeds', 3]]) {
     const groupHeading = `<span>${label}</span><span>${count}</span>`;
     if (!corpusListHtml.includes(`data-completion-group="${group}"`) || !corpusListHtml.includes(groupHeading)) {
       failures++; console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
     }
   }
-  if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('84/84')) {
-    failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
+  if (corpusListHtml.includes('data-completion-group="partial_selected_witness"')) {
+    failures++; console.log('❌ 4ff: no document is partial_selected_witness after the 2026-09-22 marking; an empty group must not render');
   }
+  const completeMarks = (corpusListHtml.match(/corpus-status-mark is-complete/g) || []).length;
+  if (completeMarks !== 11) {
+    failures++; console.log(`❌ 4ff: expected 11 complete marks on the shelf, found ${completeMarks}`);
+  }
+  // The shelf shows ✓ for complete rows, so the N/N ratios move to the Reader's represented-units
+  // ledger, where they must stay visible next to the explicit editorial status.
+  for (const [key, ratio] of [['congronglu', '100/100 cases'], ['caoshan_benji', '84/84 cases']]) {
+    corpusClicks[key] && corpusClicks[key]();
+    const ledger = ledgerSlice(ids['reader-content-target']._innerHTML, 'represented_units');
+    if (!ledger || !ledger.includes(ratio) || !ledger.includes('Complete selected witness') || !ledger.includes('data-represented-complete="true"')) {
+      failures++; console.log(`❌ 4ff: represented-units ledger for ${key} must show ${ratio} with the complete editorial status`);
+    }
+  }
+  corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   if (corpusListHtml.includes('congronglu_cases')) {
     failures++; console.log('❌ 4ff: quarantined Congronglu placeholder must not appear in the sidebar');
   }
