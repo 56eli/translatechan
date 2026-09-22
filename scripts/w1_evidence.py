@@ -149,11 +149,24 @@ FIXED_METADATA = {
     # the historical 2026-09-09 anchor, so no new-document waiver is involved. The designated flagged
     # total stays 630 on the historical chain and the active flagged total stays 15 across the 14
     # active documents.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_LINJI_refs_manifest.txt",
-    "correction_evidence_date": "2026-09-21",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json",
+    # 2026-09-22 (task 059, P2 Tier2 yulu batch1): the authoritative overlay moves to the dated
+    # P2 Tier2 batch1 record so the two purged retelling keys restored as measured excerpt seeds can
+    # be recorded — guiyang_yulu (claimed T47n1989/T47n1990; 0 of 6 source-content fields verbatim in
+    # any pinned reference) and fayan_yulu (claimed T47n1991; 1 of 11 verbatim — s4.d0 曹源一滴水 in
+    # T47n1991 @3,813). Both re-key attempts were re-measured on the pinned layer and NOT landed (far
+    # below the 80-percent threshold), so the records land with the 047-pattern authenticity labels
+    # as the 15th and 16th active documents. The 2026-09-21 combined overlay stays committed and
+    # unmodified as the chain's previous record; the new overlay re-measures its 14 per-document
+    # entries byte-identically in one run and inherits the three producer witness_note assertions
+    # verbatim. The authoritative digest manifest is the 22-work set — exactly the union of the
+    # witnesses and probes the 16 active items claim (a subset of the committed 43-work task-056
+    # measurement set, all digests byte-identical). The designated flagged total stays 630 on the
+    # historical chain; the active flagged total moves 15 → 41 across the 16 active documents.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt",
+    "correction_evidence_date": "2026-09-22",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.
