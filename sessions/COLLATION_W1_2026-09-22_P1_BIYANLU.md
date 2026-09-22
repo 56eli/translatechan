@@ -9,3 +9,14 @@ Authoritative overlay for 17-doc law: 16-doc batch1 (12 collated +2 partial +2 u
 - **Historical**: COLLATION_REGISTER_2026-09-09.json (34 documents, 622 flagged entries). The 2026-09-09 report claimed 637 flagged entries, now superseded; register holds 622. Purged 2026-09-21 retellings removed, 17 docs remain, flagged total 127.
 
 This is task 057 P1 Biyanlu re-key.
+
+## 7. Committed digests
+
+> Addendum recorded 2026-09-22 by task 061. The report as first committed (PR #113) omitted this
+> section, which every preceding W1 report in this chain carries and which
+> `scripts/test_source_review_rules.py` reads to prove that a mutated register is detected rather
+> than silently replayed. No figure above is altered; this appends the digests of the files this
+> report already names.
+
+* `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json` — sha256 `bf7c5962d80c67cba586ba6c1eba87e1e89b829a9b8ed405e1f542b903bb8278`
+* `sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt` — sha256 `50180f029114b0e9a076fa79be7ba7088b1f0c9dcbf581f3b9a4440544293203`
