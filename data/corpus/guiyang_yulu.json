@@ -1,0 +1,161 @@
+{
+  "id": "guiyang_yulu",
+  "title_zh": "潭州溈山靈祐禪師語錄與溈仰九十六圓相",
+  "title_pinyin": "Tánzhōu Guīshān Língyòu Chánshī Yǔlù yǔ Guīyǎng Jiǔshíliù Yuánxiàng",
+  "title_en": "The Record of Guishan Lingyou & Yangshan Huiji (The Guiyang School and Circular Figures)",
+  "cbeta_id": "T1989 / T1990",
+  "taisho_vol": 47,
+  "author_zh": "溈山靈祐 禪師 說 / 仰山慧寂 禪師 述",
+  "author_en": "Chan Masters Guishan Lingyou (771–853) & Yangshan Huiji (807–883)",
+  "era": "Tang Dynasty",
+  "genre": "Discourse Record & Circular Figures (語錄與圓相)",
+  "overview": "The foundational literature of the Guiyang (Igyo) School, the first of the Five Houses of Chan, famous for harmonious father-and-son attunement (父子相印) and the Ninety-Six Circular Figures (九十六圓相).",
+  "sections": [
+    {
+      "section_id": "kicking_pitcher",
+      "title_zh": "百丈選住持：踢倒淨瓶",
+      "title_pinyin": "Bǎizhàng Xuǎn Zhùchí: Tīdǎo Jìngpíng",
+      "title_en": "Baizhang Selects the Abbot: Kicking Over the Water Pitcher",
+      "dialogue": [
+        {
+          "speaker": "Baizhang / 百丈",
+          "zh": "百丈將選大溈山住持，乃設問試眾。置淨瓶於地問曰：「不得喚作淨瓶，汝喚作甚麼？」",
+          "pinyin": "Bǎizhàng jiāng xuǎn Dàguīshān zhùchí, nǎi shè wèn shì zhòng. Zhì jìngpíng yú dì wèn yuē: 'Bùdé huàn zuò jìngpíng, rǔ huàn zuò shénme?'",
+          "translations": {
+            "red_pine": {
+              "text": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift) — the claimed T47n1989 carries a single 11-graph run at offset 545 (不得喚作淨瓶汝喚作甚麼; 4 of the field's 25 eight-graph windows) and the best measured carrier is the uncited Wudeng Huiyuan X80n1565 at 13 of 32 (offset 218,137; 6 of 25 windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        },
+        {
+          "speaker": "Head Monk / 首座",
+          "zh": "首座曰：「不可喚作木𣐎也。」",
+          "pinyin": "Shǒuzuò yuē: 'Bùkě huàn zuò mù tū yě.'",
+          "translations": {
+            "red_pine": {
+              "text": "The Head Monk said: 'It cannot be called a wooden stub.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Head Monk said, 'It cannot be called a wooden block.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Head Monk said: 'You cannot call it a piece of wood.'",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 2 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990) carries a run of 8 or more graphs of the 9-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        },
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "師乃踢倒淨瓶，便出去。百丈笑曰：「首座輸卻山子也。」遂命師開山。",
+          "pinyin": "Shī nǎi tī dǎo jìngpíng, biàn chū qù. Bǎizhàng xiào yuē: 'Shǒuzuò shū què shānzǐ yě.' Suì mìng shī kāishān.",
+          "translations": {
+            "red_pine": {
+              "text": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder.",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references — the claimed T47n1989 carries a single 10-graph run at offset 571 (踢倒淨瓶便出去百丈笑, the story's frame in the witness's own wording; 3 of the field's 18 eight-graph windows) and no other reference carries more; T47n1990 carries nothing measurable. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        }
+      ]
+    },
+    {
+      "section_id": "circular_figures",
+      "title_zh": "仰山九十六圓相之法",
+      "title_pinyin": "Yǎngshān Jiǔshíliù Yuánxiàng zhī Fǎ",
+      "title_en": "The Ninety-Six Circular Figures of Yangshan",
+      "dialogue": [
+        {
+          "speaker": "Yangshan / 仰山",
+          "zh": "仰山受溈山印可，以圓相傳心。於地上畫一圓相「○」，師曰：「諸佛密意，不落言詮。這箇圓相，從何處起，向何處滅？」",
+          "pinyin": "Yǎngshān shòu Guīshān yìnkě, yǐ yuánxiàng chuánxīn. Yú dìshàng huà yī yuánxiàng '○', shī yuē: 'Zhūfó mìyì, bù luò yánquán. Zhègè yuánxiàng, cóng hé chù qǐ, xiàng hé chù miè?'",
+          "translations": {
+            "red_pine": {
+              "text": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 34 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990 — which mention 圓相 twice and three times respectively) carries a run of 8 or more graphs of the 41-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        },
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "溈山見之，於圓相中畫一「十」字「⊕」。仰山於旁添作「⊙」。師資相照，妙入微契。",
+          "pinyin": "Guīshān jiàn zhī, yú yuánxiàng zhōng huà yī 'shí' zì '⊕'. Yǎngshān yú páng tiān zuò '⊙'. Shīzī xiāngzhào, miào rù wēiqì.",
+          "translations": {
+            "red_pine": {
+              "text": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word.",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 19 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990) carries a run of 8 or more graphs of the 26-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        }
+      ]
+    },
+    {
+      "section_id": "guishan_admonitions",
+      "title_zh": "溈山警策：出家行履",
+      "title_pinyin": "Guīshān Jǐngcè: Chūjiā Xínglǚ",
+      "title_en": "Admonitions of Guishan (Guishan Jingce)",
+      "dialogue": [
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "夫出家者，捨俗入道，發足超方。心形異俗，紹隆聖種。時光易過，日月如梭。幻化之軀，旦暮難保。若不精修，虛生浪死。",
+          "pinyin": "Fú chūjiā zhě, shě sú rù dào, fā zú chāo fāng. Xīn xíng yì sú, shào lóng shèng zhǒng. Shíguāng yì guò, rìyuè rú suō. Huànhuà zhī qū, dànmù nán bǎo. Ruò bù jīng xiū, xū shēng làng sǐ.",
+          "translations": {
+            "red_pine": {
+              "text": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain.",
+              "status": "reconstruction_unverified"
+            }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 37 eight-graph windows occur in either claimed work (T47n1989, T47n1990 carry no 警策 text); the 警策 base text as pinned — inside the 註 edition X65n1294 — shares a single 8-graph run at offset 3,640 (發足超方心形異俗; 1 of 37 windows), the field inserting 捨俗入道 and rewording the sequence. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
+        }
+      ]
+    }
+  ],
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (T47n1989 潭州溈山靈祐禪師語錄, T47n1990 袁州仰山慧寂禪師語錄) or in any of the 43 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). The 2026-09-21 re-key attempt (task 056) is NOT landed: 0 of 6 fields, far below the 80 percent threshold. Per field: s0.d0 11 of 32 graphs as a single run in the claimed witness (T47n1989 @545, the riddle line 不得喚作淨瓶汝喚作甚麼), best measured carrier the uncited X80n1565 13 of 32 @218,137; s0.d2 10 of 25 in the claimed witness (@571, the witness's own 踢倒淨瓶 frame 踢倒淨瓶便出去百丈笑); s0.d1, s1.d0 and s1.d1 carry no run of 8 or more graphs in any of the 43 refs; s2.d0 (the 溈山警策 opening) has no run in either claimed work — the 警策 base text as pinned (inside the 註 edition X65n1294) shares a single 8-graph run @3,640 (發足超方心形異俗). The title's 九十六圓相 names content no pinned witness carries as wording (the claimed works mention 圓相 2×/3×; the two 圓相 fields share zero eight-graph windows with all 43 refs). The wording is a project retelling/composition under the record's name, not an excerpt of either claimed work; every field is R-B-labelled and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work.",
+  "cbeta_note": "Added 2026-09-21 (task 056): cbeta_id verified against the pinned CBETA XML P5 titles — T47n1989 is 潭州溈山靈祐禪師語錄 and T47n1990 is 袁州仰山慧寂禪師語錄; no ID correction needed. Neither claimed work carries the 溈山警策 text; in the pinned edition the 警策 base text survives inside the 註 edition X65n1294 溈山警策註, measured 2026-09-21 at a single 8-graph shared run with s2.d0 (offset 3,640)."
+}

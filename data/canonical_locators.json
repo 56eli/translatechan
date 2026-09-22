@@ -29514,6 +29514,20 @@
           "source_edition": "CBETA XML P5 T47n1985 (T47 no. 1985 鎮州臨濟慧照禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
         }
       }
+    },
+    "guiyang_yulu": {
+      "canonical_id": "T1989 / T1990",
+      "canonical_locator": "T1989 / T1990",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "fayan_yulu": {
+      "canonical_id": "T1991 / X1226 (宗門十規論)",
+      "canonical_locator": "T1991 / X1226 (宗門十規論)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
     }
   },
   "policy": {
