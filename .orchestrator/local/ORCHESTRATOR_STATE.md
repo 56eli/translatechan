@@ -40,7 +40,7 @@ be written by me — it must land on `main` via an agent PR. Queued as task 063.
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 042–060 | `.orchestrator/prompts/` on `main` | Predecessor's series (P0 integrity → P3 lineage expansion) | various | #29–#113 | Historical — inherited, not re-dispatched |
-| 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | fix/p0-regreen-main-17-docs | — | Amended then executed by the orchestrator under express authorization (see above), not dispatched to an agent |
+| 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | fix/p0-regreen-main-17-docs | #115 | **PR open, CI green** — executed by the orchestrator under express authorization (see above), not dispatched to an agent. Awaiting owner merge. |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
 stay burned. Next free sequence: **062**.
@@ -53,8 +53,10 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
 - [x] PR #113: P1 Biyanlu re-key, 17 docs — Merged 2026-09-22 **RED** (CI run 35774726598 failed at
       the source-preservation step; owner merged deliberately to hand a fresh orchestrator a
       "good enough" tree)
-- [ ] 061: P0 re-green `main` — Dispatched, awaiting PR
-- [ ] 062: Tier2 yulu lane — Guiyang (0/6 verbatim) + Fayan (1/11) currently R-B labels only; R-A
+- [x] 061: P0 re-green `main` — PR #115 open, CI `Quality` **pass** (run 35784562403, 1m30s). 7/7 local
+      gates green; rule suite 115 → **146** checks; bundle hash identical to `main`
+      (`937e5467…071b`) proving no corpus data changed. Awaiting owner merge.
+- [ ] 062: Tier2 yulu lane (now the Immediate Next Task in the canonical tracker) — Guiyang (0/6 verbatim) + Fayan (1/11) currently R-B labels only; R-A
       re-key where a carrier exists. Blocked on 061.
 - [ ] 063: Materialize `orchestrator/ORCHESTRATOR CORE v4.9.0 — GENERAL PURPOSE.md` + sha256 anchor
       in the canonical tracker + the mechanical `bin/orchestrator-check` (five checkable duties).
@@ -66,7 +68,13 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
       verification (frozen, no evidence obtainable); rights review (human-only)
 
 ## Interrupted Work
-- None. No agent branch is in flight; no pushed branch awaits a PR.
+- None. `fix/p0-regreen-main-17-docs` is fully pushed and carried by PR #115.
+
+## Verdicts Issued
+| PR | Task | Verdict | Basis |
+|---|---|---|---|
+| #113 | 057 P1 Biyanlu re-key | **Merged-before-reviewed** — content sound, delivery defective | Ran the merged-before-review branch (v4.9.0 Phase 4). Health: 3 of 7 gates red on `main`. Content: the re-key itself is correct — 100 cases from pinned T48n2003, 400/400 EXACT, bundle deterministic. Defect was omitted gate re-pins + a missing "Committed digests" section, scoped as follow-up task 061 rather than a re-merge. |
+| #115 | 061 P0 re-green | **MERGE** (advice to operator) | Stage 1 diff: 6 files, no corpus byte, no `BASE_COMMIT` change, no secrets, no `/tmp` artifact, no orchestrator-branch push. Stage 2: 7/7 gates + GitHub CI `Quality` pass; 146 checks vs 115; determinism double-run identical to `main`'s hash. Stage 3: all §6 deliverables present, all §13 boundaries respected, `orchestrator/` correctly absent. Self-authored under express authorization — operator should weigh that when merging. |
 
 ## Deferred / Technical Debt
 - Congronglu front matter + 著語 apparatus, gongan indexing — open
