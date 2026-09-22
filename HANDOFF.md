@@ -4,7 +4,7 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Current audit/status:** [`AUDIT.md`](./AUDIT.md) · W1 evidence (authoritative, dated 2026-09-20): [`sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md`](./sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md), which inherits the [2026-09-20 full-Jingde-Chuandeng-Lu overlay](./sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md) · W1 evidence (historical, append-only): [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md)
-> **Current gate:** `repo_ready = fail` at **7.2/10**
+> **Current gate:** (see [GATE.md](./GATE.md) for full spec: unprivileged disposable clone, stdlib-only, read-only, Python 3.11 minimum, tested 3.11/3.12/3.13, sha256 every manifest file) `repo_ready = fail` at **7.2/10**
 
 ## 1. Start here
 
