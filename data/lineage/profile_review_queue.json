@@ -282,6 +282,206 @@
       "current_evidence_status": "frontier_profile_reviewed_pending_exact_locator",
       "next_action": "Open frontier — no biographical witness for the dahong_zuzheng→yuelin_shiguan link. His own sayings-only case is located (X80n1565 fasc. 20, p0823b11); the relationship needs a witness naming Dahong as Yuelin's teacher (candidate sources: X1354 Yuelin record, later Song lamp records such as X1567/X1568, not yet extracted).",
       "note": "Reviewed and left open 2026-09-21 by the P3 frontier final: search documented in masters.json profile_evidence — X80n1565 (581,588 CJK) carries the master's sayings-only case with no dates, teacher or heir; 月林/師觀 never name him (the hits are verse lines and the verb phrases 塑師觀之/祖師觀此土); chuandenglu_full T51n2076 ends in 1004 and contains none of the names; the active corpus 44 documents contain no content about him. linked_corpus_keys [] intentional."
+    },
+    {
+      "master_id": "hongzhi_zhengjue",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "dahui_zonggao",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "wansong_xingxiu",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "xuedou_chongxian",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "touzi_yiqing",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "danxia_zichun",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "linquan_conglun",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "fenyang_shanzhao",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "huanglong_huinan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "furong_daokai",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "shoushan_shengnian",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "xutang_zhiyu",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "yongming_yanshou",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "juefan_huihong",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "cishou_huaishen",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "yuansou_xingduan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "xueyan_zuqin",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "xinghua_cunjiang",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "nanyuan_huiyong",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "fengxue_yanzhao",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "shimen_huiche",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "ciming_chuyuan",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "zhimen_guangzuo",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify an exact biographical entry and complete editor review; do not infer unsupported dates or sayings.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "gushan_shenyan",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
+    },
+    {
+      "master_id": "muzhou_daoming",
+      "priority": "high",
+      "review_status": "in_review",
+      "current_evidence_status": "source_entry_located_lineage_edge_exact",
+      "next_action": "Complete biographical-field review against the located X68n1315 entry.",
+      "note": "Task 060 profile added 2026-09-22; queue status does not upgrade claims beyond the independently recorded edge evidence."
     }
   ]
 }

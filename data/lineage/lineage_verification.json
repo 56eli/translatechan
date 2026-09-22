@@ -64,6 +64,13 @@
       "canonical_id": "T2077",
       "reference": "CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; digest-verified extraction ref_T51n2077.txt (334,417 CJK, sha256 da9e4e8aaff4484e…) run by scripts/collate_refs.py; reviewed edge locators below.",
       "source_type": "later lineage compilation"
+    },
+    {
+      "source_id": "guzunsu-yulu",
+      "title": "古尊宿語錄 / Guzunsu Yulu (Recorded Sayings of Ancient Worthies)",
+      "canonical_id": "X68n1315",
+      "reference": "CBETA XML P5 GitHub witness adcddde4ee7665799c6e471f6e2e4fd7b9d3746960de642c89e6937c76e9c2bf; 48 fascicles; reviewed 2026-09-22.",
+      "source_type": "Song compilation of recorded sayings"
     }
   ],
   "edges": [
@@ -314,6 +321,142 @@
       "source_id": "wudeng-huiyuan-xulue",
       "reference": "X80n1566 juan 2, p0902b07–p0902b08 (大洪證禪師法嗣 heir section → 萬壽月林師觀禪師) · 五燈會元續略, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d + corroborating heir list T51n2077 juan 33, p0701a01–p0701a02 (大洪證禪師法嗣四人 … 萬壽師觀禪師)",
       "note": "Frontier closed 2026-09-21 (P3 frontier final). Verbatim text (XML apparatus omitted; whitespace joined): 大洪證禪師法嗣 … 萬壽月林師觀禪師 — the 五燈會元續略 heir section lists Yuelin Shiguan as Dahong's heir, and the 續傳燈錄 juan-33 heir index independently lists 大洪證禪師法嗣四人 … 萬壽師觀禪師. Both spans were re-verified graph-by-graph against digest-verified extractions of the pinned CBETA XML P5 revision (ref_X80n1566.txt 129,305 CJK sha256 e09dfeeb45f415bf…; ref_T51n2077.txt 334,417 CJK sha256 da9e4e8aaff4484e…). Status source_verified, not exact_locator_verified: the attestation carries an ordered lb range, but that tier is attested for the T51n2076 witness only and this pair postdates T2076 (大洪, 祖證, 月林 0 occurrences there; 師觀 only as the verb phrases 塑師觀之/祖師觀此土). The master's own case (X1565 fasc. 20, p0823b11) is sayings-only and names no teacher, so his upstream teacher stays the recorded frontier while this edge is now verified. This verifies the record's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "danxia_zichun",
+      "disciple": "hongzhi_zhengjue",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "yuanwu_keqin",
+      "disciple": "dahui_zonggao",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "zhimen_guangzuo",
+      "disciple": "xuedou_chongxian",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0254b03–p0254b05 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 智門祚禪師語錄門人住明州雪竇山資聖寺明覺大師賜紫重顯述. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "furong_daokai",
+      "disciple": "danxia_zichun",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "wansong_xingxiu",
+      "disciple": "linquan_conglun",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "shoushan_shengnian",
+      "disciple": "fenyang_shanzhao",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0058b21–p0058b21 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 汾陽昭禪師語錄南嶽下九世嗣首山念. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "ciming_chuyuan",
+      "disciple": "huanglong_huinan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "touzi_yiqing",
+      "disciple": "furong_daokai",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "fengxue_yanzhao",
+      "disciple": "shoushan_shengnian",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0045a19–p0045a19 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 汝州首山念和尚語錄南岳下九世嗣風穴. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "xueyan_zuqin",
+      "disciple": "yuansou_xingduan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional teacher relationship recorded for graph continuity; exact source locator pending.",
+      "note": "Added as a clearly labelled traditional relationship during the 2026-09-22 Song-line expansion. X68n1315 does not supply an exact edge span for this pair; no source verification or independent historicity is claimed."
+    },
+    {
+      "teacher": "linji_yixuan",
+      "disciple": "xinghua_cunjiang",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0034a10–p0034a10 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 興化禪師語錄南嶽下六世嗣臨濟. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "xinghua_cunjiang",
+      "disciple": "nanyuan_huiyong",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0041c16–p0041c16 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 汝州南院禪師語要南嶽下七世嗣興化. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "nanyuan_huiyong",
+      "disciple": "fengxue_yanzhao",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0043c23–p0043c23 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 風穴禪師語錄南嶽下八世嗣南院. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "shoushan_shengnian",
+      "disciple": "shimen_huiche",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0052b07–p0052b07 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 石門山慈照禪師鳳巖集南嶽下十世嗣首山. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "fenyang_shanzhao",
+      "disciple": "ciming_chuyuan",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0064c03–p0064c03 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 慈明禪師語錄南嶽下十世嗣汾陽. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "xuefeng_yicun",
+      "disciple": "gushan_shenyan",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0246a01–p0246a03 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 鼓山國師和尚名神晏大梁人姓李氏衛州白鹿山受業得法於雪峰存和尚壽七十七臘五十八石頭第六世五代晉天福中示寂. This verifies the compilation's traditional transmission claim, not independent historical fact."
+    },
+    {
+      "teacher": "huangbo_xiyun",
+      "disciple": "muzhou_daoming",
+      "status": "exact_locator_verified",
+      "source_id": "guzunsu-yulu",
+      "reference": "X68n1315_p0035b03–p0035b03 · 古尊宿語錄 (CBETA XML P5)",
+      "note": "Reviewed 2026-09-22 against the digest-recorded X68n1315 witness. Verbatim text (punctuation and whitespace omitted): 睦州和尚語錄南岳下五世嗣黃檗. This verifies the compilation's traditional transmission claim, not independent historical fact."
     }
   ],
   "frontiers": [
@@ -344,6 +487,62 @@
       "status": "frontier_unprofiled",
       "source_id": "frontier-master-record",
       "reference": "Upstream teacher still unrecorded: his own case (X1565 fasc. 20, p0823b11) is sayings-only with no teacher line, and X1566/T2077 print only his heir section (大洪證禪師法嗣). The dahong_zuzheng→yuelin_shiguan edge is now source_verified — see edges."
+    },
+    {
+      "teacher_label": "Xueyan Man — teacher not yet profiled",
+      "disciple": "wansong_xingxiu",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Fushan Fayuan — teacher not yet profiled",
+      "disciple": "touzi_yiqing",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Yun'an Puyan — teacher not yet profiled",
+      "disciple": "xutang_zhiyu",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Tiantai Deshao — teacher not yet profiled",
+      "disciple": "yongming_yanshou",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Zhenjing Kewen — teacher not yet profiled",
+      "disciple": "juefan_huihong",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Changlu Yingfu — teacher not yet profiled",
+      "disciple": "cishou_huaishen",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Wuzhun Shifan — teacher not yet profiled",
+      "disciple": "xueyan_zuqin",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
+    },
+    {
+      "teacher_label": "Xianglin Chengyuan — teacher not yet profiled",
+      "disciple": "zhimen_guangzuo",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Upstream teacher is named as a review frontier; profile and exact relationship locator remain pending."
     }
   ]
 }
