@@ -9,12 +9,21 @@
   "corpus": {
     "all_corpus_cjk_characters": 832897,
     "complete_documents": [
-      "wumenguan"
+      "caoshan_benji",
+      "chuandenglu_full",
+      "congronglu",
+      "dahui_yulu_full",
+      "dongshan_yulu_full",
+      "huangbo_fayao_full",
+      "linji_yulu",
+      "mazu_guanglu_full",
+      "wumenguan",
+      "yunmen_guanglu_full",
+      "zhaozhou_yulu_full"
     ],
     "completion_statuses": {
-      "complete_selected_witness": 1,
-      "excerpt_seed": 3,
-      "partial_selected_witness": 10
+      "complete_selected_witness": 11,
+      "excerpt_seed": 3
     },
     "content_cjk_characters": 775113,
     "content_shapes": {
@@ -24,17 +33,17 @@
     },
     "documents": 14,
     "excerpt_seed_documents": 3,
-    "incomplete_documents": 13,
+    "incomplete_documents": 3,
     "per_text": {
       "caoshan_benji": {
         "all_cjk_chars": 14392,
         "cbeta_id": "T1987A",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 12343,
         "coverage": "84/84 cases",
         "coverage_note": "All 84 units are verbatim and contiguous in the claimed witness T47n1987A under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d); the producer asserts that their concatenation equals the reference extraction character for character (12343 CJK characters in total). The fascicle is partitioned into 1 preface unit, 1 opening-heading unit, 75 record units (one per direct paragraph of the main record: the biography, the 五位君臣旨訣 passage, and the individual encounters), 6 treatise units and 1 closing unit; nothing is omitted, reordered or duplicated. Project labels are metadata, not source text: the units whose witness prints a 目録 or jhead title carry it verbatim as `title_zh`; the record units carry their own first 12 CJK characters, a verbatim prefix of the witness, because the witness prints them without any heading. Every `title_en` and every `speaker` is project-authored. This document represents the T47n1987A part of Taishō number 1987 only; the sibling part T47n1987B (撫州曹山本寂禪師語錄, the Japanese 曹洞語錄 recension) is a probe reference, not a claimed witness, and is not represented here. The witness's interlinear apparatus (tei:note/tei:g, including the 卍續-CB and 大 collation notes) is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 12343,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -67,12 +76,12 @@
       "chuandenglu_full": {
         "all_cjk_chars": 369805,
         "cbeta_id": "T2076",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 351039,
         "coverage": "1274/1274 cases",
         "coverage_note": "All 1274 units are verbatim and contiguous in the claimed witness T51n2076 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The 30 fascicles (350269 CJK characters) are partitioned into 971 biography units, 69 work units and 234 section units (fascicle headings, tables of contents and generation lists); the partition tiles every fascicle exactly, asserted by the producer. The only overlaps are the titled sub-verses the witness nests inside its multi-part works (13 sub-units, 770 CJK characters counted both inside the parent work and as their own units, listed in the extraction report). What the 30 fascicles do not contain is disclosed, not omitted: the front matter before the fascicle-1 heading (3995 CJK characters: imperial edict, the petition for publication, the Xilai chronology and the table of contents) and the matter appended after the fascicle-30 heading (4237 CJK characters). The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 351039,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -100,12 +109,12 @@
       "congronglu": {
         "all_cjk_chars": 87386,
         "cbeta_id": "T2004",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 84654,
         "coverage": "100/100 cases",
         "coverage_note": "100/100 cases represented, carrying 500 evaluated source-content fields (pointer_zh, dialogue[0].zh, commentary_zh, verse_zh, verse_commentary.commentary_zh) — every one verbatim and contiguous in the claimed witness T48n2004 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). Coverage gaps, recorded rather than implied absent: (1) the witness's interlinear 著語 annotations are CBETA tei:note elements, which the pinned rule drops — 7,716 CJK characters of apparatus are therefore not represented; (2) the front matter (two prefaces, the letter to Yelü Chucai, Wansong's own preface and the table of contents) is not represented; (3) the case headings' 則 numbering is preserved verbatim, including the witness's own irregularities (第十一 and 第六十四 print 則 before the title; 第十三, 第十六, 第十七, 第五十九 and 第百 omit it); (4) cases 98 and 99 print the 頌 as a plain paragraph rather than a verse block, and are carried as such. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 84654,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -133,12 +142,12 @@
       "dahui_yulu_full": {
         "all_cjk_chars": 217999,
         "cbeta_id": "T1998A + T1998B",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 202073,
         "coverage": "1354/1354 cases",
         "coverage_note": "All 1354 units are verbatim and contiguous in the claimed witness(es) T47n1998A + T47n1998B under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (202073 CJK characters across 2 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document represents the whole of T47n1998A (三十卷, the 書 letters of juan 二十五–三十 included — 答張侍郎 and the other lay-correspondent letters are individual heading-and-paragraph units inside the tiling) and T47n1998B (宗門武庫). Hongzhi's side of the exchanges — the 宏智禪師廣錄 T48n2001 — is carried as a probe reference only: nothing is claimed from it and it is not ingested here; the corpus's six-field `dahui_hongzhi` selection stays its untouched sibling. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 202073,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -169,12 +178,12 @@
       "dongshan_yulu_full": {
         "all_cjk_chars": 28548,
         "cbeta_id": "T1986A + T1986B",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 24439,
         "coverage": "322/322 cases",
         "coverage_note": "All 322 units are verbatim and contiguous in the claimed witness(es) T47n1986A + T47n1986B under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (24439 CJK characters across 2 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. Both Taishō parts of number 1986 are claimed witnesses of this single document; the sibling part of number 1987, the Caoshan record (T47n1987A), which carries the appended treatises explaining Dongshan's Five Ranks, is the separate corpus document `caoshan_benji`, and its 解釋洞山五位顯訣 is a cross-reference, not merged here. The standalone 寶鏡三昧歌 selection lives in `baojing_sanmei` (its 2026-09-16 stanzas re-keyed against 1986A) and is untouched; this document carries the 1986A 歌頌寶鏡三昧歌 blocks as part of the whole fascicle. The corpus's earlier `dongshan_yulu` seed is left exactly as it stands. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 24439,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -234,12 +243,12 @@
       "huangbo_fayao_full": {
         "all_cjk_chars": 6918,
         "cbeta_id": "T2012A",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 6632,
         "coverage": "19/19 cases",
         "coverage_note": "All 19 units are verbatim and contiguous in the claimed witness(es) T48n2012A under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (6632 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document represents the T48n2012A part of Taishō number 2012 only: the sibling 宛陵錄 (T48n2012B) is a separate corpus document (`huangbo_wanling`) and is carried here as a probe, not claimed; the parallel Huangbo record inside the Guzunsu yulu anthology (X68n1315) is not merged. The corpus's earlier ten-section `huangbo_chuanxin` seed is left exactly as it stands. The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 6632,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -270,12 +279,12 @@
       "linji_yulu": {
         "all_cjk_chars": 18245,
         "cbeta_id": "T1985",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 16366,
         "coverage": "107/107 sections",
         "coverage_note": "All 107 sections are verbatim and contiguous in the claimed witness T47n1985 (鎮州臨濟慧照禪師語錄), under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_linji_yulu.py asserts at run time that the concatenation of the section texts equals the reference extraction character for character (16366 CJK characters, the whole witness), so nothing is omitted, reordered or duplicated. The sections are the witness's own blocks in document order: every `p`, every `div` lead and both 卷 headings open one section — the four 序 prefaces (18 sections), the record body (38), 勘辨 (23), 行錄 (21), and the fascicle and printing close (4). `title_zh` is the block's own 目録 or jhead text where the witness prints one and otherwise the section's first 12 CJK characters, always a verbatim run of the witness and never a paraphrase; `dialogue[0].zh` is the section's whole text. Every `title_en` and every `speaker` is project-authored metadata; the witness prints no romanization, so no pinyin is invented for these sections (the `pinyin` fields are empty rather than reconstructed). The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented, and the historic 2026-08-10/2026-09-11 project retelling is not read, patched or carried over: this document is a new extraction from the witness alone. The parallel printing of the same master's record in the Guzunsu yulu anthology (X68n1315, opening 鎮州臨濟慧照禪師語錄 with its own 惠然 attribution) is a different recension and is carried as a probe reference only, never merged and never cited in a section. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 16366,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "sections"
         ],
@@ -307,12 +316,12 @@
       "mazu_guanglu_full": {
         "all_cjk_chars": 5271,
         "cbeta_id": "X1321",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 4732,
         "coverage": "35/35 cases",
         "coverage_note": "All 35 units are verbatim and contiguous in the claimed witness(es) X69n1321 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (4732 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document is the whole of X69n1321 as printed — the record catalogued at the work level as 馬祖道一禪師廣錄 (四家語錄卷一). It is not a merge of other Mazu witnesses: the 馬祖大寂行狀 (X68n1315 juan 1) and the 景德傳燈錄 account (T51n2076 juan 6–7) are carried as probes only, and the corpus's earlier eight-field `mazu_yulu` seed (with its 2026-09-16 re-keys) is untouched. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 4732,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -402,12 +411,12 @@
       "yunmen_guanglu_full": {
         "all_cjk_chars": 53635,
         "cbeta_id": "T1988",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 43678,
         "coverage": "776/776 cases",
         "coverage_note": "All 776 units are verbatim and contiguous in the claimed witness(es) T47n1988 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (43678 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. The corpus's earlier ten-section `yunmen_yulu` seed (with the withdrawn 'T1988' retelling claim) is left exactly as it stands. The parallel Yunmen printing inside the Guzunsu yulu anthology (X68n1315 juan 15–18) is a different recension and is not merged or claimed here. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 43678,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -437,12 +446,12 @@
       "zhaozhou_yulu_full": {
         "all_cjk_chars": 22114,
         "cbeta_id": "X1315 juan 13–14",
-        "completion_status": "partial_selected_witness",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 21038,
         "coverage": "80/80 cases",
         "coverage_note": "All 80 units are verbatim and contiguous in the claimed witness(es) X68n1315 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The producer scripts/segment_full_witness.py asserts at run time that the concatenation of the unit texts equals the reference extraction's region character for character (21038 CJK characters across 1 witness region(s)), so nothing is omitted, reordered or duplicated. Units are the witness's own blocks in document order: every `p` and `lg`, every `div` lead and every 卷 heading opens a unit. `title_zh` is the block's own 目録 or jhead text where the witness prints one and the unit's first 12 CJK characters otherwise — always verbatim, never a paraphrase; every `title_en` and every `speaker` is project-authored metadata. This document is the Zhaozhou span of the Guzunsu yulu anthology (X68n1315 juan 13–14: the record with its 行狀 and the 語錄之餘), not the whole anthology — the other masters' juan lie outside the region and are not claimed. The corpus's prior 'T1987' witness claim remains recorded as false on the historical `zhaozhou_yulu` seed, which is left untouched (T1987 is the Caoshan record); this document never cites it. The 古尊宿語錄's own preface, the other forty juan, and the anthology colophons outside juan 13–14 are not part of this document. The witness's interlinear apparatus is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
         "declared_zh_chars": 21038,
-        "is_complete": false,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
