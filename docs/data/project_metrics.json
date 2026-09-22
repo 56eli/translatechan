@@ -608,7 +608,7 @@
         "flagged_entries": 127,
         "refs_manifest_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
         "register_path": "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json",
-        "report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md"
+        "report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_DIGESTS.md"
       },
       "class_totals": {
         "EXACT": 9344,

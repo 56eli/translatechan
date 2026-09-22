@@ -278,8 +278,9 @@ eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
 const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
 const manifestItems = manifest?.items || [];
-if (!Array.isArray(manifestItems) || manifestItems.length !== 16) {
-  throw new Error('app_data.js is missing the shared 16-item corpus manifest');
+// 2026-09-22 (task 061): re-pin 16 to the manifest's measured 17 active documents.
+if (!Array.isArray(manifestItems) || manifestItems.length !== 17) {
+  throw new Error('app_data.js is missing the shared 17-item corpus manifest');
 }
 const allowedSourceReviewStatuses = new Set([
   'collated_to_claimed_witness',
@@ -305,8 +306,9 @@ if (!String(manifest.source_review?.status_scope || '').toLowerCase().includes('
     !String(manifest.source_review?.status_scope || '').toLowerCase().includes('not a rights decision')) {
   throw new Error('manifest source_review scope must identify containment/remediation rather than rights approval');
 }
+// 2026-09-22 (task 061): re-pin 12 collated to the register-derived 13 after Biyanlu.
 const expectedSourceReviewCounts = {
-  collated_to_claimed_witness: 12,
+  collated_to_claimed_witness: 13,
   partial_or_failed_w1_collation: 2,
   witness_unavailable: 2
 };
@@ -318,16 +320,17 @@ for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
 // The dated correction overlay is the authoritative record: its paths, its date and its counts are
 // declared here, and every number is re-derived below from the files it points at — so a pointer that
 // drifted off its evidence (or an evidence file that no longer supports the number) fails here.
+// 2026-09-22 (task 061): re-pin Tier2 paths, 16 docs/41 flags to Biyanlu's 17/127 and cited successor.
 const authoritativeEvidence = {
-  correction_report_path: 'sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md',
-  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json',
-  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1_refs_manifest.txt',
-  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json',
+  correction_report_path: 'sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_DIGESTS.md',
+  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json',
+  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt',
+  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json',
   correction_evidence_date: '2026-09-22',
   historical_documents: 34,
-  authoritative_documents: 16,
+  authoritative_documents: 17,
   historical_flagged_total: 622,
-  authoritative_flagged_total: 41,
+  authoritative_flagged_total: 127,
   superseded_report_flagged_total: 637
 };
 for (const [field, expected] of Object.entries(authoritativeEvidence)) {
@@ -409,14 +412,16 @@ const xinxinManifestItem = manifestItems.find(item => item?.key === 'xinxin_ming
 if (xinxinManifestItem?.completion_status === 'complete_selected_witness') {
   throw new Error('Xinxin Ming must not be represented as a complete selected witness');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 16 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 16) {
+// 2026-09-22 (task 061): re-pin both 16 counts to the measured 17 corpus/locator documents.
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 17 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 17) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
 // F4: per-text coverage metrics (zh counts, unit counts, representation strings,
 // and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 16) {
+// 2026-09-22 (task 061): re-pin 16 to the measured 17 per-text metric entries.
+if (Object.keys(perText).length !== 17) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
 for (const [key, expect] of [['wumenguan', '48/48 cases'], ['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['caoshan_benji', '84/84 cases'], ['huangbo_fayao_full', '19/19 cases'], ['mazu_guanglu_full', '35/35 cases'], ['yunmen_guanglu_full', '776/776 cases'], ['dongshan_yulu_full', '322/322 cases'], ['zhaozhou_yulu_full', '80/80 cases'], ['dahui_yulu_full', '1354/1354 cases'], ['linji_yulu', '107/107 sections']]) {
@@ -1037,7 +1042,8 @@ try {
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 11], ['excerpt_seed', 'Excerpt seeds', 5]]) {
+  // 2026-09-22 (task 061): re-pin the 11 complete witnesses to the measured 12 including Biyanlu.
+  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 12], ['excerpt_seed', 'Excerpt seeds', 5]]) {
     const groupHeading = `<span>${label}</span><span>${count}</span>`;
     if (!corpusListHtml.includes(`data-completion-group="${group}"`) || !corpusListHtml.includes(groupHeading)) {
       failures++; console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
@@ -1047,8 +1053,9 @@ try {
     failures++; console.log('❌ 4ff: no document is partial_selected_witness after the 2026-09-22 marking; an empty group must not render');
   }
   const completeMarks = (corpusListHtml.match(/corpus-status-mark is-complete/g) || []).length;
-  if (completeMarks !== 11) {
-    failures++; console.log(`❌ 4ff: expected 11 complete marks on the shelf, found ${completeMarks}`);
+  // 2026-09-22 (task 061): re-pin 11 marks to the measured 12 complete documents.
+  if (completeMarks !== 12) {
+    failures++; console.log(`❌ 4ff: expected 12 complete marks on the shelf, found ${completeMarks}`);
   }
   // The shelf shows ✓ for complete rows, so the N/N ratios move to the Reader's represented-units
   // ledger, where they must stay visible next to the explicit editorial status.
@@ -1092,8 +1099,9 @@ try {
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 16) {
-      failures++; console.log(`❌ 4hh: clearing the filter should restore all 16 entries (got ${restoredCount})`);
+    // 2026-09-22 (task 061): re-pin 16 to 17; a smoke run confirmed this counts active documents.
+    if (restoredCount !== 17) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 17 entries (got ${restoredCount})`);
     }
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }

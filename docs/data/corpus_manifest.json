@@ -6,7 +6,7 @@
     "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
     "evidence_date": "2026-09-09",
     "status_scope": "Containment/remediation state, not a rights decision.",
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md",
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_DIGESTS.md",
     "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json",
     "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
     "correction_evidence_date": "2026-09-22",
