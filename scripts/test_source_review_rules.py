@@ -119,7 +119,8 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json"
+# 2026-09-22 (task 061): re-pin the Tier2 batch1 register to the manifest-authoritative Biyanlu overlay.
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
 CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-22_P2_TIER2_BATCH1.md"
