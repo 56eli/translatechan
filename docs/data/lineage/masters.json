@@ -972,7 +972,8 @@
     "teacher": "deshan_xuanjian",
     "disciples": [
       "yunmen_wenyan",
-      "xuansha_shibei"
+      "xuansha_shibei",
+      "gushan_shenyan"
     ],
     "texts": [
       "Xuefeng Yicun Chanshi Yulu X1333",
@@ -1317,6 +1318,861 @@
     "profile_evidence": {
       "status": "frontier_profile_reviewed_edge_source_verified_upstream_teacher_unrecorded",
       "note": "Reviewed 2026-09-21 (P3 frontier final) with the digest-verified X80n1565 extraction (581,588 CJK, juan 1–20, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the master's own case 隨州大洪老衲祖證禪師 exists at X80n1565 fasc. 20 p0823b11 but carries only on-platform sayings and two dialogues (上堂萬象之中獨露身…師曰速禮三拜) — no dates, no teacher, no heir named. Search terms: 月林 → 2 hits in X1565, both verse lines (…日月林泉好商量…, …之月林間鶴唳…); 師觀 → 0 hits in X1565; in chuandenglu_full the 師觀 hits are the verb phrase 塑師觀之/祖師觀此土; across the active corpus the only 師觀 hits are the verb phrases 祖師觀此土 (biyanlu_cases) and 塑師觀之/祖師觀此土 (chuandenglu_full, whose two hits mirror T2076), never this master's name; 月林/祖證/祖政/大洪老衲 occur 0 times in the active corpus and 大洪/月林/祖證/祖政/老衲 occur 0 times in T2076. The dahong_zuzheng→yuelin_shiguan edge therefore remains traditional_link_pending_exact_locator, documented as an intentional frontier in lineage_verification.json. linked_corpus_keys [] intentional: no active-corpus document contains content about this master. Re-verified 2026-09-21 (P3 frontier final) against the digest-verified extraction of the pinned witness: the case heading 隨州大洪老衲祖證禪師 maps to X80n1565 fasc. 20 lb p0823b11 and its sayings (上堂萬象之中獨露身…師曰速禮三拜) sit inside that case; the 月林 occurrences map to juan 12 lb 0429a13 and juan 14 lb 0531a03, and the T2076 師觀 hits are 塑師觀之/祖師觀此土 as recorded. Frontier closed for the disciple edge on 2026-09-21 (P3 frontier final): 五燈會元續略 X80n1566 juan 2 p0902b07–p0902b08 prints the heir section 大洪證禪師法嗣 → 萬壽月林師觀禪師, and 續傳燈錄 T51n2077 juan 33 p0701a01–p0701a02 prints 大洪證禪師法嗣四人 … 萬壽師觀禪師; both are digest-verified extractions of the pinned CBETA XML P5 revision (X1566 sha256 e09dfeeb45f415bf…, T2077 sha256 da9e4e8aaff4484e…). The edge dahong_zuzheng→yuelin_shiguan is source_verified in lineage_verification.json. His own upstream teacher remains unrecorded (the X1565 case names none), so this profile stays a frontier; the descriptive fields (dates, era, location) are still unverified and nothing has been invented."
+    }
+  },
+  {
+    "id": "hongzhi_zhengjue",
+    "name_zh": "宏智正覺",
+    "name_pinyin": "Hóngzhì Zhèngjué",
+    "name_romaji": "Not recorded",
+    "name_en": "Hongzhi Zhengjue",
+    "title": "Tiantong Hongzhi Chan Master",
+    "dates": "1091–1157 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Tiantong Mountain, Mingzhou",
+    "lineage_depth": 18,
+    "teacher": "danxia_zichun",
+    "disciples": [],
+    "texts": [
+      "Hongzhi Chanshi Guanglu (宏智禪師廣錄)"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T48n2001",
+    "summary": "Caodong teacher associated with silent illumination and author of the verses later used in the Book of Serenity.",
+    "alternative_names": [
+      "Hongzhi Zhengjue",
+      "宏智正覺"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "dahui_zonggao",
+    "name_zh": "大慧宗杲",
+    "name_pinyin": "Dàhuì Zōnggǎo",
+    "name_romaji": "Not recorded",
+    "name_en": "Dahui Zonggao",
+    "title": "Dahui Pujue Chan Master",
+    "dates": "1089–1163 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Jingshan, Lin'an",
+    "lineage_depth": 16,
+    "teacher": "yuanwu_keqin",
+    "disciples": [],
+    "texts": [
+      "Dahui Pujue Chanshi Yulu",
+      "Zhengfa Yanzang"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T47n1998A/B / X67n1309",
+    "summary": "Yuanwu's heir and major advocate of kanhua, or critical-phrase, practice.",
+    "alternative_names": [
+      "Dahui Zonggao",
+      "大慧宗杲"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "wansong_xingxiu",
+    "name_zh": "萬松行秀",
+    "name_pinyin": "Wànsōng Xíngxiù",
+    "name_romaji": "Not recorded",
+    "name_en": "Wansong Xingxiu",
+    "title": "Wansong Elder",
+    "dates": "1166–1246 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Yanjing",
+    "lineage_depth": 19,
+    "teacher": "Xueyan Man — teacher not yet profiled",
+    "disciples": [
+      "linquan_conglun"
+    ],
+    "texts": [
+      "Congrong Lu (從容錄)"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T48n2004",
+    "summary": "Caodong master who compiled and commented on Hongzhi's hundred cases as the Book of Serenity.",
+    "alternative_names": [
+      "Wansong Xingxiu",
+      "萬松行秀"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "xuedou_chongxian",
+    "name_zh": "雪竇重顯",
+    "name_pinyin": "Xuědòu Chóngxiǎn",
+    "name_romaji": "Not recorded",
+    "name_en": "Xuedou Chongxian",
+    "title": "Mingjue Master of Xuedou",
+    "dates": "980–1052 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Yunmen School (雲門宗)",
+    "school_key": "yunmen",
+    "location": "Xuedou Mountain, Mingzhou",
+    "lineage_depth": 17,
+    "teacher": "zhimen_guangzuo",
+    "disciples": [],
+    "texts": [
+      "Xuedou Mingjue Chanshi Yulu",
+      "Biyan verses"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T47n1996 / X68n1315",
+    "summary": "Yunmen-line poet whose capping verses became the verse layer of the Blue Cliff Record.",
+    "alternative_names": [
+      "Xuedou Chongxian",
+      "雪竇重顯"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "touzi_yiqing",
+    "name_zh": "投子義青",
+    "name_pinyin": "Tóuzǐ Yìqīng",
+    "name_romaji": "Not recorded",
+    "name_en": "Touzi Yiqing",
+    "title": "Touzi Yiqing Chan Master",
+    "dates": "1032–1083 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Shuzhou",
+    "lineage_depth": 15,
+    "teacher": "Fushan Fayuan — teacher not yet profiled",
+    "disciples": [
+      "furong_daokai"
+    ],
+    "texts": [
+      "Touzi Yiqing Chanshi Yulu",
+      "Konggu Ji verses"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X71n1423",
+    "summary": "Caodong transmitter and verse author associated with the Empty Valley Collection.",
+    "alternative_names": [
+      "Touzi Yiqing",
+      "投子義青"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "danxia_zichun",
+    "name_zh": "丹霞子淳",
+    "name_pinyin": "Dānxiá Zǐchún",
+    "name_romaji": "Not recorded",
+    "name_en": "Danxia Zichun",
+    "title": "Danxia Zichun Chan Master",
+    "dates": "1064–1117 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Dengzhou",
+    "lineage_depth": 17,
+    "teacher": "furong_daokai",
+    "disciples": [
+      "hongzhi_zhengjue"
+    ],
+    "texts": [
+      "Danxia Zichun Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X71n1425",
+    "summary": "Furong Daokai's heir and the principal teacher of Hongzhi Zhengjue.",
+    "alternative_names": [
+      "Danxia Zichun",
+      "丹霞子淳"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "linquan_conglun",
+    "name_zh": "林泉從倫",
+    "name_pinyin": "Línquán Cónglún",
+    "name_romaji": "Not recorded",
+    "name_en": "Linquan Conglun",
+    "title": "Linquan Conglun Chan Master",
+    "dates": "dates unverified",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "location unverified",
+    "lineage_depth": 20,
+    "teacher": "wansong_xingxiu",
+    "disciples": [],
+    "texts": [
+      "Konggu Ji commentary",
+      "Xutang Ji commentary"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X67n1300 / X67n1298",
+    "summary": "Caodong commentator associated with prose comments on the Empty Valley and Vacant Hall collections; dates remain to be sourced.",
+    "alternative_names": [
+      "Linquan Conglun",
+      "林泉從倫"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "fenyang_shanzhao",
+    "name_zh": "汾陽善昭",
+    "name_pinyin": "Fényáng Shànzhāo",
+    "name_romaji": "Not recorded",
+    "name_en": "Fenyang Shanzhao",
+    "title": "Fenyang Wude Chan Master",
+    "dates": "947–1024 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Fenzhou, Shanxi",
+    "lineage_depth": 16,
+    "teacher": "shoushan_shengnian",
+    "disciples": [
+      "ciming_chuyuan"
+    ],
+    "texts": [
+      "Fenyang Wude Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T47n1992 / X68n1315 f.10",
+    "summary": "Shoushan's heir, influential Linji teacher, and early author of verse comments on old cases.",
+    "alternative_names": [
+      "Fenyang Shanzhao",
+      "汾陽善昭"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "huanglong_huinan",
+    "name_zh": "黃龍慧南",
+    "name_pinyin": "Huánglóng Huìnán",
+    "name_romaji": "Not recorded",
+    "name_en": "Huanglong Huinan",
+    "title": "Huanglong Huinan Chan Master",
+    "dates": "1002–1069 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Huanglong Mountain, Jiangxi",
+    "lineage_depth": 18,
+    "teacher": "ciming_chuyuan",
+    "disciples": [],
+    "texts": [
+      "Huanglong Huinan Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T47n1993",
+    "summary": "Ciming Chuyuan's heir and namesake of the Huanglong branch of Linji.",
+    "alternative_names": [
+      "Huanglong Huinan",
+      "黃龍慧南"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "furong_daokai",
+    "name_zh": "芙蓉道楷",
+    "name_pinyin": "Fúróng Dàokǎi",
+    "name_romaji": "Not recorded",
+    "name_en": "Furong Daokai",
+    "title": "Furong Daokai Chan Master",
+    "dates": "1043–1118 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Furong Mountain",
+    "lineage_depth": 16,
+    "teacher": "touzi_yiqing",
+    "disciples": [
+      "danxia_zichun"
+    ],
+    "texts": [
+      "Furong Daokai Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X65n1271",
+    "summary": "Touzi Yiqing's heir whose teaching helped renew the Caodong house in the Northern Song.",
+    "alternative_names": [
+      "Furong Daokai",
+      "芙蓉道楷"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "shoushan_shengnian",
+    "name_zh": "首山省念",
+    "name_pinyin": "Shǒushān Shěngniàn",
+    "name_romaji": "Not recorded",
+    "name_en": "Shoushan Shengnian",
+    "title": "Shoushan Shengnian Chan Master",
+    "dates": "926–993 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Ruzhou",
+    "lineage_depth": 15,
+    "teacher": "fengxue_yanzhao",
+    "disciples": [
+      "fenyang_shanzhao",
+      "shimen_huiche"
+    ],
+    "texts": [
+      "Shoushan Shengnian Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.8",
+    "summary": "Fengxue's heir and teacher of Fenyang Shanzhao; a crucial bridge in the continuing Linji line.",
+    "alternative_names": [
+      "Shoushan Shengnian",
+      "首山省念"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "xutang_zhiyu",
+    "name_zh": "虛堂智愚",
+    "name_pinyin": "Xūtáng Zhìyú",
+    "name_romaji": "Not recorded",
+    "name_en": "Xutang Zhiyu",
+    "title": "Xutang Zhiyu Chan Master",
+    "dates": "1185–1269 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Jingci Monastery, Lin'an",
+    "lineage_depth": 21,
+    "teacher": "Yun'an Puyan — teacher not yet profiled",
+    "disciples": [],
+    "texts": [
+      "Xutang Heshang Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T47n2000",
+    "summary": "Late-Song Linji master whose record became influential in both China and Japan.",
+    "alternative_names": [
+      "Xutang Zhiyu",
+      "虛堂智愚"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "yongming_yanshou",
+    "name_zh": "永明延壽",
+    "name_pinyin": "Yǒngmíng Yánshòu",
+    "name_romaji": "Not recorded",
+    "name_en": "Yongming Yanshou",
+    "title": "Yongming Yanshou Chan Master",
+    "dates": "904–975 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Fayan School (法眼宗)",
+    "school_key": "fayan",
+    "location": "Yongming Temple, Hangzhou",
+    "lineage_depth": 16,
+    "teacher": "Tiantai Deshao — teacher not yet profiled",
+    "disciples": [],
+    "texts": [
+      "Zongjing Lu (宗鏡錄)"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "T48n2016",
+    "summary": "Fayan-line synthesizer and compiler of the hundred-fascicle Records of the Source Mirror.",
+    "alternative_names": [
+      "Yongming Yanshou",
+      "永明延壽"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "juefan_huihong",
+    "name_zh": "覺範慧洪",
+    "name_pinyin": "Juéfàn Huìhóng",
+    "name_romaji": "Not recorded",
+    "name_en": "Juefan Huihong",
+    "title": "Juefan Huihong",
+    "dates": "1071–1128 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Jiangxi",
+    "lineage_depth": 19,
+    "teacher": "Zhenjing Kewen — teacher not yet profiled",
+    "disciples": [],
+    "texts": [
+      "Chanlin Sengbao Zhuan",
+      "Linjian Lu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X79n1560 / X87n1624",
+    "summary": "Song Chan historian and literary author of the Chanlin Sengbao Zhuan and Linjian Lu.",
+    "alternative_names": [
+      "Juefan Huihong",
+      "覺範慧洪"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "cishou_huaishen",
+    "name_zh": "慈受懷深",
+    "name_pinyin": "Císhòu Huáishēn",
+    "name_romaji": "Not recorded",
+    "name_en": "Cishou Huaishen",
+    "title": "Cishou Huaishen Chan Master",
+    "dates": "1077–1132 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Jiangsu",
+    "lineage_depth": 19,
+    "teacher": "Changlu Yingfu — teacher not yet profiled",
+    "disciples": [],
+    "texts": [
+      "Cishou Huaishen Chanshi Guanglu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X73n1451",
+    "summary": "Northern-Song Linji teacher with an extensive collected record.",
+    "alternative_names": [
+      "Cishou Huaishen",
+      "慈受懷深"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "yuansou_xingduan",
+    "name_zh": "元叟行端",
+    "name_pinyin": "Yuánsǒu Xíngduān",
+    "name_romaji": "Not recorded",
+    "name_en": "Yuansou Xingduan",
+    "title": "Yuansou Xingduan Chan Master",
+    "dates": "1255–1341 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Jingshan",
+    "lineage_depth": 23,
+    "teacher": "xueyan_zuqin",
+    "disciples": [],
+    "texts": [
+      "Yuansou Xingduan Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X71n1419",
+    "summary": "Yuan-period Linji abbot and author of multiple abbacy records, included as part of the Song-line continuation.",
+    "alternative_names": [
+      "Yuansou Xingduan",
+      "元叟行端"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "xueyan_zuqin",
+    "name_zh": "雪巖祖欽",
+    "name_pinyin": "Xuěyán Zǔqīn",
+    "name_romaji": "Not recorded",
+    "name_en": "Xueyan Zuqin",
+    "title": "Xueyan Zuqin Chan Master",
+    "dates": "1215–1287 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji / Yangqi Branch (楊岐派)",
+    "school_key": "linji_yangqi",
+    "location": "Yangshan",
+    "lineage_depth": 22,
+    "teacher": "Wuzhun Shifan — teacher not yet profiled",
+    "disciples": [
+      "yuansou_xingduan"
+    ],
+    "texts": [
+      "Xueyan Heshang Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X70n1397",
+    "summary": "Late-Song Linji master whose record contains important autobiographical practice narratives.",
+    "alternative_names": [
+      "Xueyan Zuqin",
+      "雪巖祖欽"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "xinghua_cunjiang",
+    "name_zh": "興化存獎",
+    "name_pinyin": "Xīnghuà Cúnjiǎng",
+    "name_romaji": "Not recorded",
+    "name_en": "Xinghua Cunjiang",
+    "title": "Xinghua Chan Master",
+    "dates": "830–888 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Weifu",
+    "lineage_depth": 12,
+    "teacher": "linji_yixuan",
+    "disciples": [
+      "nanyuan_huiyong"
+    ],
+    "texts": [
+      "Xinghua Chanshi Yulu in Guzunsu Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.5",
+    "summary": "Linji's heir, represented by a dedicated record in the Guzunsu Yulu.",
+    "alternative_names": [
+      "Xinghua Cunjiang",
+      "興化存獎"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "nanyuan_huiyong",
+    "name_zh": "南院慧顒",
+    "name_pinyin": "Nányuàn Huìyóng",
+    "name_romaji": "Not recorded",
+    "name_en": "Nanyuan Huiyong",
+    "title": "Nanyuan Chan Master",
+    "dates": "860–930 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Ruzhou",
+    "lineage_depth": 13,
+    "teacher": "xinghua_cunjiang",
+    "disciples": [
+      "fengxue_yanzhao"
+    ],
+    "texts": [
+      "Nanyuan Chanshi Yuyao in Guzunsu Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.7",
+    "summary": "Xinghua's heir and teacher of Fengxue Yanzhao in the Linji transmission.",
+    "alternative_names": [
+      "Nanyuan Huiyong",
+      "南院慧顒"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "fengxue_yanzhao",
+    "name_zh": "風穴延沼",
+    "name_pinyin": "Fēngxué Yánzhǎo",
+    "name_romaji": "Not recorded",
+    "name_en": "Fengxue Yanzhao",
+    "title": "Fengxue Yanzhao Chan Master",
+    "dates": "896–973 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Ruzhou",
+    "lineage_depth": 14,
+    "teacher": "nanyuan_huiyong",
+    "disciples": [
+      "shoushan_shengnian"
+    ],
+    "texts": [
+      "Fengxue Chanshi Yulu in Guzunsu Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.7",
+    "summary": "Nanyuan's heir and Shoushan's teacher, active across the Five Dynasties–Song transition.",
+    "alternative_names": [
+      "Fengxue Yanzhao",
+      "風穴延沼"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "shimen_huiche",
+    "name_zh": "石門慧徹",
+    "name_pinyin": "Shímén Huìchè",
+    "name_romaji": "Not recorded",
+    "name_en": "Shimen Huiche",
+    "title": "Shimen Cizhao Chan Master",
+    "dates": "dates unverified",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Shimen Mountain",
+    "lineage_depth": 16,
+    "teacher": "shoushan_shengnian",
+    "disciples": [],
+    "texts": [
+      "Fengyan Ji in Guzunsu Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.9",
+    "summary": "Shoushan's heir, represented by the Fengyan collection in Guzunsu Yulu; dates remain unverified.",
+    "alternative_names": [
+      "Shimen Huiche",
+      "石門慧徹"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "ciming_chuyuan",
+    "name_zh": "慈明楚圓",
+    "name_pinyin": "Címíng Chǔyuán",
+    "name_romaji": "Not recorded",
+    "name_en": "Ciming Chuyuan",
+    "title": "Ciming Chuyuan Chan Master",
+    "dates": "987–1040 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Shishuang",
+    "lineage_depth": 17,
+    "teacher": "fenyang_shanzhao",
+    "disciples": [
+      "huanglong_huinan"
+    ],
+    "texts": [
+      "Ciming Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.11",
+    "summary": "Fenyang's heir and teacher associated with both the Yangqi and Huanglong branches.",
+    "alternative_names": [
+      "Ciming Chuyuan",
+      "慈明楚圓"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "zhimen_guangzuo",
+    "name_zh": "智門光祚",
+    "name_pinyin": "Zhìmén Guāngzuò",
+    "name_romaji": "Not recorded",
+    "name_en": "Zhimen Guangzuo",
+    "title": "Zhimen Guangzuo Chan Master",
+    "dates": "dates unverified",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Yunmen School (雲門宗)",
+    "school_key": "yunmen",
+    "location": "Suizhou",
+    "lineage_depth": 16,
+    "teacher": "Xianglin Chengyuan — teacher not yet profiled",
+    "disciples": [
+      "xuedou_chongxian"
+    ],
+    "texts": [
+      "Zhimen Zuo Chanshi Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.39",
+    "summary": "Yunmen-line teacher whose record was transmitted by his disciple Xuedou Chongxian.",
+    "alternative_names": [
+      "Zhimen Guangzuo",
+      "智門光祚"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and conservative descriptive seed data are recorded; exact biographical/source locator remains in the review queue."
+    }
+  },
+  {
+    "id": "gushan_shenyan",
+    "name_zh": "鼓山神晏",
+    "name_pinyin": "Gǔshān Shényàn",
+    "name_romaji": "Not recorded",
+    "name_en": "Gushan Shenyan",
+    "title": "Gushan Xiansheng National Teacher",
+    "dates": "862–939 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Yunmen School (雲門宗)",
+    "school_key": "yunmen",
+    "location": "Gushan, Fuzhou",
+    "lineage_depth": 12,
+    "teacher": "xuefeng_yicun",
+    "disciples": [],
+    "texts": [
+      "Gushan Xuanyao Guangji"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.37",
+    "summary": "Xuefeng's heir and subject of the Gushan Xuanyao Guangji in Guzunsu Yulu.",
+    "alternative_names": [
+      "Gushan Shenyan",
+      "鼓山神晏"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
+    }
+  },
+  {
+    "id": "muzhou_daoming",
+    "name_zh": "睦州道明",
+    "name_pinyin": "Mùzhōu Dàomíng",
+    "name_romaji": "Not recorded",
+    "name_en": "Muzhou Daoming",
+    "title": "Muzhou Daoming Chan Master",
+    "dates": "780–877 CE",
+    "era": "Song lineage expansion (Tang/Five Dynasties antecedent where dated)",
+    "school": "Linji School (臨濟宗)",
+    "school_key": "linji",
+    "location": "Muzhou",
+    "lineage_depth": 11,
+    "teacher": "huangbo_xiyun",
+    "disciples": [],
+    "texts": [
+      "Muzhou Heshang Yulu"
+    ],
+    "key_quote_zh": "未錄引文",
+    "key_quote_en": "No quotation entered; this profile does not invent a saying.",
+    "cbeta_id": "X68n1315 f.6",
+    "summary": "Huangbo's heir, represented by a dedicated Guzunsu Yulu record and remembered in Yunmen's formation.",
+    "alternative_names": [
+      "Muzhou Daoming",
+      "睦州道明"
+    ],
+    "profile_status": "Source entry located in X68n1315; biographical review remains open",
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "source_entry_located_lineage_edge_exact",
+      "note": "Reviewed 2026-09-22 against CBETA XML P5 X68n1315; the exact teacher-disciple locator is recorded in lineage_verification.json. This verifies the compilation's traditional attribution, not independent historical fact."
     }
   }
 ]

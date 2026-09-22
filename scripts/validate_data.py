@@ -585,11 +585,20 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
             else:
                 status_counts[status] += 1
             if status == "exact_locator_verified":
-                match = re.search(r"T51n2076_p(\d{4}[abc]\d{2})–p(\d{4}[abc]\d{2})", str(edge.get("reference", "")))
+                # Exact lineage evidence may come from either reviewed witness.
+                # Keep source-specific canonical ids in the locator so a status
+                # upgrade cannot be made with an unanchored page reference.
+                exact_patterns = {
+                    "jingde-chuandenglu": r"T51n2076_p(\d{4}[abc]\d{2})–p(\d{4}[abc]\d{2})",
+                    "guzunsu-yulu": r"X68n1315_p(\d{4}[abc]\d{2})–p(\d{4}[abc]\d{2})",
+                }
+                pattern = exact_patterns.get(str(edge.get("source_id", "")))
+                match = re.search(pattern, str(edge.get("reference", ""))) if pattern else None
                 if not match or match[1] > match[2]:
-                    issues.error(edge_path, "exact_locator_verified requires an ordered T51n2076 lb range")
-                if edge.get("source_id") != "jingde-chuandenglu":
-                    issues.error(edge_path, "exact_locator_verified currently supports the reviewed T2076 witness only")
+                    issues.error(
+                        edge_path,
+                        "exact_locator_verified requires an ordered locator for a reviewed T51n2076 or X68n1315 witness",
+                    )
                 if "Verbatim text" not in str(edge.get("note", "")):
                     issues.error(edge_path, "exact_locator_verified requires a verbatim evidence note")
             if edge.get("source_id") not in source_ids:

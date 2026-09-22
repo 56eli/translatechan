@@ -993,7 +993,7 @@ if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; c
 // 4l. Lineage aggregation/verification: every internal graph link is registered
 // as a source-aware status, summary is visible, and click opens citation details.
 const lineageVerification = window.TRANSLATECHAN_DATA.lineage_verification;
-if (!lineageVerification || lineageVerification.edges.length !== 31 || lineageVerification.frontiers.length !== 4) {
+if (!lineageVerification || lineageVerification.edges.length !== 48 || lineageVerification.frontiers.length !== 12) {
   failures++; console.log('❌ lineage verification registry coverage is incorrect');
 }
 // P3 frontier final (2026-09-21): every registered edge now carries a reviewed
@@ -1173,12 +1173,11 @@ try {
       failures++; console.log(`❌ 4ee: ${master} must disclose the missing corpus link`);
     }
   }
-  // Pinned to the measured lineage registry (2026-09-21, P3 frontier final):
-  // 31 edges = 20 exact_locator_verified + 11 source_verified + 0
-  // traditional_link_pending_exact_locator, 4 frontiers. The earlier pin (18/9/4,
-  // batch-3 state) went red when the P3 locator batches moved four edges out of
-  // `pending`; this pin tracks the registry, not a target.
-  if (!lineageSummaryHtml.includes('11 source verified') || !lineageSummaryHtml.includes('20 exact locators') || !lineageSummaryHtml.includes('0 locator pending')) {
+  // Pinned to the measured lineage registry (2026-09-22, Task 060):
+  // 48 edges = 30 exact_locator_verified + 11 source_verified + 7
+  // traditional_link_pending_exact_locator, plus 12 explicit frontiers. Ten
+  // exact edges in this census are the new X68n1315 review set.
+  if (!lineageSummaryHtml.includes('11 source verified') || !lineageSummaryHtml.includes('30 exact locators') || !lineageSummaryHtml.includes('7 locator pending')) {
     failures++; console.log('❌ lineage exact/pending census drift');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }

@@ -637,21 +637,22 @@
     }
   },
   "lineage_profile_review": {
-    "profile_queue_records": 35,
+    "profile_queue_records": 60,
     "statuses": {
       "complete": 4,
       "frontier_source_needed": 1,
-      "in_review": 1,
-      "needs_exact_locator": 29
+      "in_review": 11,
+      "needs_exact_locator": 44
     }
   },
   "lineage_verification": {
-    "frontiers": 4,
-    "internal_edges": 31,
-    "source_records": 9,
+    "frontiers": 12,
+    "internal_edges": 48,
+    "source_records": 10,
     "statuses": {
-      "exact_locator_verified": 20,
-      "source_verified": 11
+      "exact_locator_verified": 30,
+      "source_verified": 11,
+      "traditional_link_pending_exact_locator": 7
     }
   },
   "manifest_integrity": {

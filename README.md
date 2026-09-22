@@ -132,7 +132,7 @@ Five documents were re-keyed to their pinned CBETA witnesses or provenance-label
 - 🤖 **Robo note**: translator-attributed renderings are Robolations unless individually checked against a recorded edition (then they are ✅ Edition-verified quotations). Verification and rights approval remain separate.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **35 master profiles** (31 researched seed profiles + 4 explicitly marked frontier scaffolds), with the network chart as its second view and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, and the Five Houses into major Song continuations — currently **60 master profiles** (the 35-profile base plus 25 conservatively sourced lineage-expansion profiles), with the network chart as its second view and clickable dossiers.
 - A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
 - Filter by lineage school; sort the register by generation (ruled bands), chronology, name or school. Each row carries the school, dated record,
   temple, canonical reference, teacher link and signature quote, and the dossier prints the full profile — including the pending-locator wording
