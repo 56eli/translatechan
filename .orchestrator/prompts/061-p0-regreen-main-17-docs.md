@@ -1,3 +1,15 @@
+# SUPERSEDED — DO NOT RUN — use .orchestrator/prompts/062-p0-regreen-gates-expedited.md
+
+This prompt was executed through an unlawful channel (the orchestrator self-performed the task and
+opened a pull request; owner ruling 2026-09-22 records that as a P0 defect). The repair is
+re-dispatched as task 062 on a fresh branch. Do not fetch, run, or resume this file. Its target
+branch `fix/p0-regreen-main-17-docs` is out of bounds.
+
+If you are reading this as a work order, HALT AND REPORT — the title line below will not match the
+title your dispatch stub names, which is your halt condition.
+
+---
+
 # Task 061 — P0: Re-green `main` — re-pin the three gates to the 17-document corpus
 
 ## 0. FETCH AND VERIFY
