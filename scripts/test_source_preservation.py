@@ -228,6 +228,17 @@ DECLARED_NEW_CORPUS = {
         "claimed T47n1991 + disclosed 宗門十規論 X63n1226 component, re-key NOT landed, "
         "partial_or_failed_w1_collation."
     ),
+    "data/corpus/biyanlu_cases.json": (
+        "2026-09-22 task 057 (PR #113): 佛果圓悟禪師碧巖錄, re-keyed from scratch out of the pinned "
+        "CBETA T48n2003 witness as the 17th document (100 cases in a verbatim tiling, 400/400 "
+        "source-content fields EXACT per register, 0 content fields flagged, 86 flagged metadata "
+        "entries measured separately; zh_chars 103020 = content_cjk_count; "
+        "collated_to_claimed_witness). The pre-purge biyanlu record is not read, patched or carried "
+        "over. Registered here by task 061: PR #113 landed the document without this declaration, "
+        "which is what turned the gate red on main. Declared evidence: "
+        "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json + "
+        "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md."
+    ),
 }
 
 #: Set only for the temporary copy that the nested-`coverage_note` regression runs: the copy
