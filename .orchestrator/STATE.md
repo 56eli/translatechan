@@ -1,6 +1,6 @@
 # Orchestrator State — Fake Chan Factory (`translatechan`)
 
-> **Scope of this file:** the orchestrator's task queue and cross-session
+> **Scope of this file:** LEGACY — canonical tracker now `docs/PROJECT_STATE.md` per ORCHESTRATOR CORE v4.9.0 Knowledge Bridge Doctrine. This file remains as historical evidence, not canonical. See `docs/PROJECT_STATE.md` for current state. Original scope: the orchestrator's task queue and cross-session
 > decisions only. The repository's own systems remain authoritative for agent
 > contracts and operations: [`AGENTS.md`](../AGENTS.md),
 > [`HANDOFF.md`](../HANDOFF.md), [`AUDIT.md`](../AUDIT.md),

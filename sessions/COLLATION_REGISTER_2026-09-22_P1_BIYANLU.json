@@ -1,0 +1,3959 @@
+{
+  "kind": "w1-correction",
+  "generated": "2026-09-22",
+  "harness": "scripts/collate_corpus.py",
+  "corrects": "sessions/COLLATION_REGISTER_2026-09-09.json",
+  "reference_extraction": {
+    "generator": "scripts/collate_refs.py",
+    "rule_id": "cbeta-p5-body-cjk-v1",
+    "rule": "tei:text/tei:body document-order text; drop the subtree of every tei:note and tei:g (tails kept); tei:head kept; keep only U+3400-U+9FFF and U+F900-U+FAFF; one UTF-8 line, no trailing newline"
+  },
+  "upstream": {
+    "repo": "https://github.com/cbeta-org/xml-p5",
+    "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d"
+  },
+  "refs_manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+  "historical_refs_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "generation_parameters": {
+    "kind": "w1-correction",
+    "generated": "2026-09-22",
+    "corrects": "sessions/COLLATION_REGISTER_2026-09-09.json",
+    "refs_manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+    "compare_historical_refs": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "compare_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
+    "historical_report_flagged": 637,
+    "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+    "note": [
+      "2026-09-22 P1 Biyanlu re-key: 100 cases from pinned T48n2003 verbatim tiling, 400/400 content fields EXACT, 86 metadata flagged, 13 collated 2 partial 2 unavailable, 23 verified works union of 17 active items witnesses+probes, 43-work task-056 set re-verifies 43/0 drift, historical 2026-09-09 anchor 21 verified 2 drift (T48n2004, X68n1315 same as previous overlay). Active flagged 127."
+    ],
+    "doc": [
+      "wumenguan",
+      "linji_yulu",
+      "biyanlu_cases",
+      "congronglu",
+      "chuandenglu_full",
+      "caoshan_benji",
+      "huangbo_fayao_full",
+      "mazu_guanglu_full",
+      "yunmen_guanglu_full",
+      "dongshan_yulu_full",
+      "zhaozhou_yulu_full",
+      "dahui_yulu_full",
+      "zhengdao_ge",
+      "hanshan_poems",
+      "niutou_juezhu",
+      "guiyang_yulu",
+      "fayan_yulu"
+    ],
+    "new_documents": [
+      "caoshan_benji",
+      "chuandenglu_full",
+      "congronglu",
+      "dahui_yulu_full",
+      "dongshan_yulu_full",
+      "huangbo_fayao_full",
+      "mazu_guanglu_full",
+      "yunmen_guanglu_full",
+      "zhaozhou_yulu_full"
+    ],
+    "upstream_repo": "https://github.com/cbeta-org/xml-p5",
+    "require_verified_refs": true,
+    "refs_dir_provided": true
+  },
+  "content_denominator": "source content fields only (commentary_zh, pointer_zh, verse_zh, zh); metadata fields (title_zh, name_zh) are measured separately and are not proof of collation",
+  "status_scope": "Containment/remediation state, not a rights decision.",
+  "documents": {
+    "wumenguan": {
+      "witness": [
+        "T48n2005"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 207
+      },
+      "content_summary": {
+        "EXACT": 151
+      },
+      "metadata_summary": {
+        "EXACT": 56
+      },
+      "fields_total": 207,
+      "content_fields_total": 151,
+      "content_fields_collated": 151,
+      "metadata_fields_total": 56,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T48n2005": {
+          "sha256": "83a298cc4ab4f3bebd933db3fe2fa656b3344731f37fc134251e3bea2464ff7f",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "linji_yulu": {
+      "witness": [
+        "T47n1985"
+      ],
+      "probes": [
+        "X68n1315",
+        "T51n2076",
+        "X80n1565"
+      ],
+      "summary": {
+        "EXACT": 215
+      },
+      "content_summary": {
+        "EXACT": 107
+      },
+      "metadata_summary": {
+        "EXACT": 108
+      },
+      "fields_total": 215,
+      "content_fields_total": 107,
+      "content_fields_collated": 107,
+      "metadata_fields_total": 108,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task P2.9 (2026-09-21): the purged retelling is replaced by a from-scratch extraction of the pinned witness T47n1985 — the producer scripts/segment_linji_yulu.py tiles the whole 16,366-CJK fascicle in 107 sections (4 序 prefaces, heading, 38 record sections, 勘辨 23, 行錄 21, close and printing colophon), asserting that their concatenation equals the digest-verified reference extraction character for character: 215 fields measured, 215 EXACT, 0 flagged. The purged record is not read, patched or carried over. The parallel X68n1315 printing, T51n2076 and X80n1565 are probes, not claimed witnesses.",
+      "reference_verification": {
+        "T47n1985": {
+          "sha256": "4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        },
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X80n1565": {
+          "sha256": "a3d20a107ff69495609d555f261d28af9c4de62952fde0b32ac630dbcfe56766",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "biyanlu_cases": {
+      "witness": [
+        "T48n2003"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 415,
+        "NOT_FOUND": 11,
+        "TITLE_COMPOSITE": 4,
+        "SHORT_UNMATCHED": 71
+      },
+      "content_summary": {
+        "EXACT": 400
+      },
+      "metadata_summary": {
+        "EXACT": 15,
+        "NOT_FOUND": 11,
+        "TITLE_COMPOSITE": 4,
+        "SHORT_UNMATCHED": 71
+      },
+      "fields_total": 501,
+      "content_fields_total": 400,
+      "content_fields_collated": 400,
+      "metadata_fields_total": 101,
+      "flagged": [
+        {
+          "path": ".cases[0].title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.6,
+          "ref": "T48n2003",
+          "corpus": "梁武帝問達磨廓然無聖",
+          "ref_window": "梁武帝問達磨 | remainder:廓然無聖",
+          "simplified": []
+        },
+        {
+          "path": ".cases[2].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "馬祖不安日面佛月面佛",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[3].title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.56,
+          "ref": "T48n2003",
+          "corpus": "德山到溈山勘破了也",
+          "ref_window": "德山到溈山 | remainder:勘破了也",
+          "simplified": []
+        },
+        {
+          "path": ".cases[4].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雪峰盡大地粟米粒大",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[5].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門日日是好日",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[6].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "法眼答慧超汝是慧超",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[8].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州四門",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[9].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "睦州掠虛",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[10].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "黃檗酒糟",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[11].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "洞山麻三斤",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[12].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "巴陵銀椀",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[14].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門倒一說",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[15].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "鏡清啐啄",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[16].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "香林西來意",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[17].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "肅宗無縫塔",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[18].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.375,
+          "ref": "T48n2003",
+          "corpus": "俱胝一指",
+          "ref_window": "人只是老俱胝一箇若是別人",
+          "simplified": []
+        },
+        {
+          "path": ".cases[19].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "龍牙西來意",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[21].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雪峰鼈鼻蛇",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[22].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "保福妙峰頂",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[25].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "百丈獨坐",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[26].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門體露金風",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[27].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "南泉不說法",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[28].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "大隋隨他去",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[29].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州大蘿蔔",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[30].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "麻谷振錫",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[31].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "定上座大悟",
+          "ref_window": "看三二舉定上座問臨濟如何是",
+          "simplified": []
+        },
+        {
+          "path": ".cases[32].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "陳操圓相",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[33].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "仰山遊山",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[35].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "長沙遊山",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[36].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "盤山無法",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[37].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "風穴鐵牛",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[38].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門花藥欄",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[39].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "南泉一株花",
+          "ref_window": "看六三舉南泉一日東西兩堂爭",
+          "simplified": []
+        },
+        {
+          "path": ".cases[40].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.375,
+          "ref": "T48n2003",
+          "corpus": "趙州投明",
+          "ref_window": "作家蓋為趙州投子是作家故",
+          "simplified": []
+        },
+        {
+          "path": ".cases[41].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "龐居士好雪",
+          "ref_window": "看四二舉龐居士辭藥山山命十",
+          "simplified": []
+        },
+        {
+          "path": ".cases[42].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "洞山無寒暑",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[44].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州七斤衫",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[45].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "鏡清雨滴聲",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[46].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門六不收",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[47].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.6,
+          "ref": "T48n2003",
+          "corpus": "朗上座翻茶銚",
+          "ref_window": "因入寺時朗上座煎茶次翻卻茶銚",
+          "simplified": []
+        },
+        {
+          "path": ".cases[49].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門鉢裏飯",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[50].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "雪峰是什麼",
+          "ref_window": "什麼為食雪峰是作家匹似閑只",
+          "simplified": []
+        },
+        {
+          "path": ".cases[52].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "百丈野鴨子",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[54].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.375,
+          "ref": "T48n2003",
+          "corpus": "道吾不道",
+          "ref_window": "生邪死邪道吾不移易一絲毫",
+          "simplified": []
+        },
+        {
+          "path": ".cases[55].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.5556,
+          "ref": "T48n2003",
+          "corpus": "良禪客一鏃",
+          "ref_window": "看五六舉良禪客問欽山一鏃破",
+          "simplified": []
+        },
+        {
+          "path": ".cases[56].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州唯我獨尊",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[57].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州五年",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[58].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州引盡這語",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[59].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門杖化龍",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[60].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "風穴立一塵",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[61].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.375,
+          "ref": "T48n2003",
+          "corpus": "雲門一寶",
+          "ref_window": "墮坑落塹雲門一句中三句俱",
+          "simplified": []
+        },
+        {
+          "path": ".cases[62].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.375,
+          "ref": "T48n2003",
+          "corpus": "南泉斬猫",
+          "ref_window": "道得且道南泉斬不斬所以道",
+          "simplified": [
+            "猫"
+          ]
+        },
+        {
+          "path": ".cases[63].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州草鞋頭戴",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[64].title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.67,
+          "ref": "T48n2003",
+          "corpus": "外道問佛良久",
+          "ref_window": "外道問佛 | remainder:良久",
+          "simplified": []
+        },
+        {
+          "path": ".cases[65].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "巖頭收劍",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[66].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "傅大士揮案",
+          "ref_window": "婁約法師傅大士昭明太子持論",
+          "simplified": []
+        },
+        {
+          "path": ".cases[67].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.5,
+          "ref": "T48n2003",
+          "corpus": "仰山問名",
+          "ref_window": "看六八舉仰山問三聖汝名什",
+          "simplified": []
+        },
+        {
+          "path": ".cases[68].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "南泉圓相",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[69].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "溈山卻請和尚道",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[71].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲巖有也未",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[72].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.4444,
+          "ref": "T48n2003",
+          "corpus": "馬大師頭痛",
+          "ref_window": "會僧舉似馬大師馬師云藏頭白",
+          "simplified": []
+        },
+        {
+          "path": ".cases[73].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "金牛喫飯來",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[74].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "烏臼棒頭有眼",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[75].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "丹霞喫飯了也未",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[77].title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.67,
+          "ref": "T48n2003",
+          "corpus": "十六開士浴因",
+          "ref_window": "十六開士 | remainder:浴因",
+          "simplified": []
+        },
+        {
+          "path": ".cases[78].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "投子莫㞘沸",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[79].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州急水打毬",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[80].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "藥山看箭",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[81].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "大龍堅固法身",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[82].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門露柱相交",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[83].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "維摩默然",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[84].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "桐峰老虎",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[85].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門光明",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[86].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "雲門盡大地是藥",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[87].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "玄沙三種病人",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[88].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "道吾通身手眼",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[89].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "智門蚌含明月",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[90].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "鹽官犀牛扇子",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[91].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "世尊陞座文殊白槌",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[93].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "楞嚴不見吾不見",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[94].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.3333,
+          "ref": "T48n2003",
+          "corpus": "長慶如來語",
+          "ref_window": "不見僧問長慶如何是善知識眼",
+          "simplified": []
+        },
+        {
+          "path": ".cases[95].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "趙州三轉語",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[96].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "金剛經先世罪業",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[97].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "天平兩錯",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[98].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "忠國師十身調御",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".cases[99].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "巴陵吹毛劍",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T48n2003": {
+          "sha256": "47678e84c49a270aab932182dfc3b287b86d6a33a7aadc31e32c663f4a27be09",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "congronglu": {
+      "witness": [
+        "T48n2004"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 601
+      },
+      "content_summary": {
+        "EXACT": 500
+      },
+      "metadata_summary": {
+        "EXACT": 101
+      },
+      "fields_total": 601,
+      "content_fields_total": 500,
+      "content_fields_collated": 500,
+      "metadata_fields_total": 101,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T48n2004": {
+          "sha256": "70413b279195b74148f03d6081c311511393dfaa65458f73e107116510738ba0",
+          "status": "verified",
+          "historical_status": "drift"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 0
+    },
+    "chuandenglu_full": {
+      "witness": [
+        "T51n2076"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 2549
+      },
+      "content_summary": {
+        "EXACT": 1274
+      },
+      "metadata_summary": {
+        "EXACT": 1275
+      },
+      "fields_total": 2549,
+      "content_fields_total": 1274,
+      "content_fields_collated": 1274,
+      "metadata_fields_total": 1275,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "caoshan_benji": {
+      "witness": [
+        "T47n1987A"
+      ],
+      "probes": [
+        "T47n1987B",
+        "X68n1315",
+        "T51n2076",
+        "T48n2006"
+      ],
+      "summary": {
+        "EXACT": 169
+      },
+      "content_summary": {
+        "EXACT": 84
+      },
+      "metadata_summary": {
+        "EXACT": 85
+      },
+      "fields_total": 169,
+      "content_fields_total": 84,
+      "content_fields_collated": 84,
+      "metadata_fields_total": 85,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T47n1987A": {
+          "sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T47n1987B": {
+          "sha256": "eb16d53cf0add1d63622778c101b94643ead8b0ca5e9b10a396ed2b13817f0da",
+          "status": "verified",
+          "historical_status": "drift"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        },
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T48n2006": {
+          "sha256": "11024c5f5bc0852ab5fad1cfcefc1459a6033f4de05f7e844dc3809e7a95c558",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "huangbo_fayao_full": {
+      "witness": [
+        "T48n2012A"
+      ],
+      "probes": [
+        "T48n2012B",
+        "X68n1315"
+      ],
+      "summary": {
+        "EXACT": 39
+      },
+      "content_summary": {
+        "EXACT": 19
+      },
+      "metadata_summary": {
+        "EXACT": 20
+      },
+      "fields_total": 39,
+      "content_fields_total": 19,
+      "content_fields_collated": 19,
+      "metadata_fields_total": 20,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): full-witness ingestion of the Transmission of Mind. All 19 units tile T48n2012A's 6,632 CJK characters verbatim. The sibling 宛陵錄 T48n2012B and the anthology Huangbo record in X68n1315 are probes, not claimed witnesses of this document.",
+      "reference_verification": {
+        "T48n2012A": {
+          "sha256": "8f46065b6d1be313d6d68c7c99a6f4c3cee28306e3cbb8695a765912537ee58d",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T48n2012B": {
+          "sha256": "94a75d508303b70bcaade3c92cc3cb6cdc7c8f0e11a471cda940c05cc7e75f36",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "mazu_guanglu_full": {
+      "witness": [
+        "X69n1321"
+      ],
+      "probes": [
+        "T51n2076",
+        "X68n1315"
+      ],
+      "summary": {
+        "EXACT": 71
+      },
+      "content_summary": {
+        "EXACT": 35
+      },
+      "metadata_summary": {
+        "EXACT": 36
+      },
+      "fields_total": 71,
+      "content_fields_total": 35,
+      "content_fields_collated": 35,
+      "metadata_fields_total": 36,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): full ingestion of the record printed as X69n1321 (catalogued 馬祖道一禪師廣錄, 四家語錄卷一; the record's own opening heading reads 江西馬祖道一禪師語錄). All 35 units tile its 4,732 CJK characters verbatim. T51n2076 and X68n1315 carry Mazu material and are probes; no other Mazu witness is claimed or merged.",
+      "reference_verification": {
+        "X69n1321": {
+          "sha256": "652ba08698e51d5e7e44c8d6d3209ba5c8c85f0c5192a50909ce284d0cff3e13",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "yunmen_guanglu_full": {
+      "witness": [
+        "T47n1988"
+      ],
+      "probes": [
+        "X68n1315"
+      ],
+      "summary": {
+        "EXACT": 1553
+      },
+      "content_summary": {
+        "EXACT": 776
+      },
+      "metadata_summary": {
+        "EXACT": 777
+      },
+      "fields_total": 1553,
+      "content_fields_total": 776,
+      "content_fields_collated": 776,
+      "metadata_fields_total": 777,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): the whole Yunmen Guanglu T47n1988 — 776 units tiling 43,678 CJK characters verbatim. The parallel anthology printing in X68n1315 is a probe, not claimed. The earlier `yunmen_yulu` seed's retellings are not patched here; the seed stays as it stands.",
+      "reference_verification": {
+        "T47n1988": {
+          "sha256": "38b9347dda4c5f5ce7c02ffb66fd8599f046536b16907f5219d63cc3847321cb",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "dongshan_yulu_full": {
+      "witness": [
+        "T47n1986A",
+        "T47n1986B"
+      ],
+      "probes": [
+        "T47n1987A",
+        "X68n1315",
+        "T51n2076"
+      ],
+      "summary": {
+        "EXACT": 645
+      },
+      "content_summary": {
+        "EXACT": 322
+      },
+      "metadata_summary": {
+        "EXACT": 323
+      },
+      "fields_total": 645,
+      "content_fields_total": 322,
+      "content_fields_collated": 322,
+      "metadata_fields_total": 323,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): both Taishō parts of number 1986 (筠州洞山悟本禪師語錄 and 瑞州洞山良价禪師語錄), 322 units tiling 24,439 CJK characters verbatim. T47n1987A (which appends the Five Ranks treatises) is a probe; the treatises themselves are collated in `caoshan_benji`.",
+      "reference_verification": {
+        "T47n1986A": {
+          "sha256": "c53e4ffde1dccb93f566ab91ef1b252ffb79ff6243aebf51fdba2f68dd42b03b",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T47n1986B": {
+          "sha256": "7ed62050f1b6321db5a8503de7e027ae40d126e1a11b0eeac47eb4d15fd2f2f2",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T47n1987A": {
+          "sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        },
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 2,
+      "refs_verified": 2,
+      "refs_historically_verified": 2
+    },
+    "zhaozhou_yulu_full": {
+      "witness": [
+        "X68n1315"
+      ],
+      "probes": [
+        "T51n2076",
+        "X80n1565"
+      ],
+      "summary": {
+        "EXACT": 161
+      },
+      "content_summary": {
+        "EXACT": 80
+      },
+      "metadata_summary": {
+        "EXACT": 81
+      },
+      "fields_total": 161,
+      "content_fields_total": 80,
+      "content_fields_collated": 80,
+      "metadata_fields_total": 81,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): Zhaozhou's record as printed in the Guzunsu yulu anthology X68n1315 juan 13–14 (record + 行狀 + 語錄之餘), 80 units tiling 21,038 CJK characters of the anthology verbatim. The corpus's prior 'T1987' claim was false (T1987 is the Caoshan record) and stays recorded as such on the historical seed; this document claims only X68n1315, whose reference digest verifies against the authoritative manifest and carries recorded drift against the 2026-09-09 historical anchor.",
+      "reference_verification": {
+        "X68n1315": {
+          "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+          "status": "verified",
+          "historical_status": "drift"
+        },
+        "T51n2076": {
+          "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "X80n1565": {
+          "sha256": "a3d20a107ff69495609d555f261d28af9c4de62952fde0b32ac630dbcfe56766",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 0
+    },
+    "dahui_yulu_full": {
+      "witness": [
+        "T47n1998A",
+        "T47n1998B"
+      ],
+      "probes": [
+        "T48n2001"
+      ],
+      "summary": {
+        "EXACT": 2709
+      },
+      "content_summary": {
+        "EXACT": 1354
+      },
+      "metadata_summary": {
+        "EXACT": 1355
+      },
+      "fields_total": 2709,
+      "content_fields_total": 1354,
+      "content_fields_collated": 1354,
+      "metadata_fields_total": 1355,
+      "flagged": [],
+      "source_review_status": "collated_to_claimed_witness",
+      "witness_note": "Task 050 (2026-09-21): the complete Dahui Yulu T47n1998A (30 juan — the juan 25–30 letters included) plus the Zongmen huku T47n1998B: 1,354 units tiling 202,073 CJK characters verbatim. Hongzhi's Guanglu T48n2001 is a probe only — this document claims nothing from it; the six-field `dahui_hongzhi` selection stays its untouched sibling.",
+      "reference_verification": {
+        "T47n1998A": {
+          "sha256": "eb71385d71e5c3ff1ff0d827dc47da476dfda18b723399842b7b0d3fc28e6798",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T47n1998B": {
+          "sha256": "8b37b4663395ac69d794b2b5030a5529faaf08884a13cac8815c6d07b7f6d819",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T48n2001": {
+          "sha256": "8b6d2fd2302e743bea5a1b3c0bb0eb160d8e067073ccbb0e46f170a48e39fd1c",
+          "status": "verified",
+          "historical_status": "drift"
+        }
+      },
+      "refs_total": 2,
+      "refs_verified": 2,
+      "refs_historically_verified": 2
+    },
+    "zhengdao_ge": {
+      "witness": [
+        "T48n2014"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 6,
+        "NOT_FOUND": 1
+      },
+      "content_summary": {
+        "EXACT": 6
+      },
+      "metadata_summary": {
+        "NOT_FOUND": 1
+      },
+      "fields_total": 7,
+      "content_fields_total": 6,
+      "content_fields_collated": 6,
+      "metadata_fields_total": 1,
+      "flagged": [
+        {
+          "path": ".title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "永嘉真覺大師證道歌",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "collated_to_claimed_witness",
+      "reference_verification": {
+        "T48n2014": {
+          "sha256": "d11dcda1e84c2e8c1ff28ea77d650761c8f1c661c084cc4523aad37607c03bde",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    },
+    "hanshan_poems": {
+      "witness": [],
+      "probes": [],
+      "summary": {
+        "WITNESS_UNAVAILABLE": 5
+      },
+      "content_summary": {
+        "WITNESS_UNAVAILABLE": 4
+      },
+      "metadata_summary": {
+        "WITNESS_UNAVAILABLE": 1
+      },
+      "fields_total": 5,
+      "content_fields_total": 4,
+      "content_fields_collated": 0,
+      "metadata_fields_total": 1,
+      "flagged": [
+        {
+          "path": ".title_zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "天台山寒山拾得大士詩集",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".stanzas[0].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "吾心似秋月碧潭清皎潔無物堪比倫教我如何說",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".stanzas[1].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "杳杳寒山道落落冷澗濱啾啾常有鳥寂寂更無人淅淅風吹面紛紛雪積身朝朝不見日歲歲不知春",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".stanzas[2].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "高高峰頂上四望極無邊獨坐無人知孤月照寒泉泉中且無月月是在青天吟此一曲歌歌中不是禪",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".stanzas[3].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "登陟寒山道寒山路不窮長溪石磊磊短澗草濛濛苔滑非關雨松鳴不假風誰能超世累共坐白雲中",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "witness_unavailable",
+      "reference_verification": {},
+      "refs_total": 0,
+      "refs_verified": 0,
+      "refs_historically_verified": 0
+    },
+    "niutou_juezhu": {
+      "witness": [],
+      "probes": [],
+      "summary": {
+        "WITNESS_UNAVAILABLE": 9
+      },
+      "content_summary": {
+        "WITNESS_UNAVAILABLE": 5
+      },
+      "metadata_summary": {
+        "WITNESS_UNAVAILABLE": 4
+      },
+      "fields_total": 9,
+      "content_fields_total": 5,
+      "content_fields_collated": 0,
+      "metadata_fields_total": 4,
+      "flagged": [
+        {
+          "path": ".title_zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "牛頭法融禪師絕觀論",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].title_zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "問答發端何者為心何者為安心",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[0].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "問曰夫欲入道者當知本源何者為心何者為安心",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[1].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "答曰汝不應立心亦不應求安心無心可立無安可求是名安心",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].title_zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "見無所見真見與真知",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[0].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "問曰若無心者阿誰能見阿誰能知",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[1].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "答曰見無所見是為真見知無所知是為真知見非眼根知非心量空寂體中任運洞照",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].title_zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "四祖道信點化百鳥不獻花",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].dialogue[0].zh",
+          "class": "WITNESS_UNAVAILABLE",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "師初住幽棲寺北岩百鳥銜花獻供及四祖道信往訪為說心地法要悟得本來無物自此百鳥不復來獻花蓋以前有跡可尋悟後神鬼莫測矣",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "witness_unavailable",
+      "reference_verification": {},
+      "refs_total": 0,
+      "refs_verified": 0,
+      "refs_historically_verified": 0
+    },
+    "guiyang_yulu": {
+      "witness": [
+        "T47n1989",
+        "T47n1990"
+      ],
+      "probes": [],
+      "summary": {
+        "NOT_FOUND": 9,
+        "TITLE_COMPOSITE": 1
+      },
+      "content_summary": {
+        "NOT_FOUND": 6
+      },
+      "metadata_summary": {
+        "NOT_FOUND": 3,
+        "TITLE_COMPOSITE": 1
+      },
+      "fields_total": 10,
+      "content_fields_total": 6,
+      "content_fields_collated": 0,
+      "metadata_fields_total": 4,
+      "flagged": [
+        {
+          "path": ".title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.56,
+          "ref": "T47n1989",
+          "corpus": "潭州溈山靈祐禪師語錄與溈仰九十六圓相",
+          "ref_window": "潭州溈山靈祐禪師語錄 | remainder:與溈仰九十六圓相",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "百丈選住持踢倒淨瓶",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.5,
+          "ref": "T47n1989",
+          "corpus": "百丈將選大溈山住持乃設問試眾置淨瓶於地問曰不得喚作淨瓶汝喚作甚麼",
+          "ref_window": "云若能對眾下得一語出格當與住持即指淨瓶問云不得喚作淨瓶汝喚作甚麼",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[1].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "首座曰不可喚作木也",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[2].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.72,
+          "ref": "T47n1989",
+          "corpus": "師乃踢倒淨瓶便出去百丈笑曰首座輸卻山子也遂命師開山",
+          "ref_window": "師師踢倒淨瓶便出去百丈笑云第一座輸卻山子也師遂往焉",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "仰山九十六圓相之法",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "仰山受溈山印可以圓相傳心於地上畫一圓相師曰諸佛密意不落言詮這箇圓相從何處起向何處滅",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[1].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "溈山見之於圓相中畫一十字仰山於旁添作師資相照妙入微契",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "溈山警策出家行履",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "夫出家者捨俗入道發足超方心形異俗紹隆聖種時光易過日月如梭幻化之軀旦暮難保若不精修虛生浪死",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "partial_or_failed_w1_collation",
+      "reference_verification": {
+        "T47n1989": {
+          "sha256": "1473f11292a9f93dafec18921bd614f011679000acae9d75bf3ad48d14abd5a3",
+          "status": "verified",
+          "historical_status": "verified"
+        },
+        "T47n1990": {
+          "sha256": "c06ae879fb7d2bce7d73355b4a077ed6ea22948a334c3e8bbb69b59287d9d8af",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 2,
+      "refs_verified": 2,
+      "refs_historically_verified": 2
+    },
+    "fayan_yulu": {
+      "witness": [
+        "T47n1991"
+      ],
+      "probes": [],
+      "summary": {
+        "EXACT": 4,
+        "NOT_FOUND": 11,
+        "TITLE_COMPOSITE": 2,
+        "SHORT_UNMATCHED": 3
+      },
+      "content_summary": {
+        "EXACT": 1,
+        "NOT_FOUND": 9,
+        "SHORT_UNMATCHED": 1
+      },
+      "metadata_summary": {
+        "EXACT": 3,
+        "NOT_FOUND": 2,
+        "TITLE_COMPOSITE": 2,
+        "SHORT_UNMATCHED": 2
+      },
+      "fields_total": 20,
+      "content_fields_total": 11,
+      "content_fields_collated": 1,
+      "metadata_fields_total": 9,
+      "flagged": [
+        {
+          "path": ".title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.65,
+          "ref": "T47n1991",
+          "corpus": "金陵清涼院文益禪師語錄與宗門十規論",
+          "ref_window": "金陵清涼院文益禪師語錄 | remainder:與宗門十規論",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "地藏問行腳不知最親切",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.6154,
+          "ref": "T47n1991",
+          "corpus": "師因遊方值雨阻雪過地藏院地藏問長老甚處去師云行腳去地藏云作麼生是行腳事師云不知",
+          "ref_window": "出嶺過地藏院阻雪少憩附爐次地藏問此行何之師云行脚去地藏云作麼生是行脚事師云不知",
+          "simplified": []
+        },
+        {
+          "path": ".sections[0].dialogue[1].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.5714,
+          "ref": "T47n1991",
+          "corpus": "地藏云不知最親切師於言下大悟",
+          "ref_window": "地藏云不知最親切又同三人舉肇",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].title_zh",
+          "class": "TITLE_COMPOSITE",
+          "sim": 0.5,
+          "ref": "T47n1991",
+          "corpus": "三界唯心庭前片石",
+          "ref_window": "三界唯心 | remainder:庭前片石",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.4333,
+          "ref": "T47n1991",
+          "corpus": "師指庭前片石問僧佛教說三界唯心萬法唯識且道這塊石在心內在心外",
+          "ref_window": "藏門送之問云上座尋常說三界唯心萬法唯識乃指庭下片石云且道此石",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[1].zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "僧曰在心內",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[1].dialogue[2].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "師曰行腳人空肚腹著甚麼死急安一塊石頭在心頭僧無對",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].title_zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "宗門十規論綱要",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[2].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "第一自己根腳未明妄指他人非第二護己宗門輕蔑餘派第三好立言句馳逐文字第四不辨機宜妄行棒喝第五理事相違墮在偏枯學道之人直須息妄歸真理事圓融",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[3].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.5,
+          "ref": "T47n1991",
+          "corpus": "師示眾云三界唯心萬法唯識唯心唯識不可更作心識解會",
+          "ref_window": "界唯心云三界唯心萬法唯識唯識唯心眼聲耳色色不到耳",
+          "simplified": []
+        },
+        {
+          "path": ".sections[5].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "聲色見聞",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[5].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "師云見聞知覺皆是心王之表離心無境離境無心",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[6].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.6471,
+          "ref": "T47n1991",
+          "corpus": "僧問如何是祖師西來意師云我看汝不得",
+          "ref_window": "僧問如何是祖師西來意趙州云庭前柏樹",
+          "simplified": []
+        },
+        {
+          "path": ".sections[7].title_zh",
+          "class": "SHORT_UNMATCHED",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "法眼指簾",
+          "ref_window": "",
+          "simplified": []
+        },
+        {
+          "path": ".sections[7].dialogue[0].zh",
+          "class": "NOT_FOUND",
+          "sim": 0.0,
+          "ref": null,
+          "corpus": "師指簾二僧同去捲師云一得一失",
+          "ref_window": "",
+          "simplified": []
+        }
+      ],
+      "source_review_status": "partial_or_failed_w1_collation",
+      "reference_verification": {
+        "T47n1991": {
+          "sha256": "c26a529c44aaa84ef048e0be2071e1fe5a67b5260d778903c0368bd353691c3d",
+          "status": "verified",
+          "historical_status": "verified"
+        }
+      },
+      "refs_total": 1,
+      "refs_verified": 1,
+      "refs_historically_verified": 1
+    }
+  },
+  "reference_verification": {
+    "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
+    "counts": {
+      "verified": 23,
+      "drift": 0,
+      "unlisted": 0,
+      "none": 0
+    },
+    "historical_counts": {
+      "verified": 19,
+      "drift": 4,
+      "unlisted": 0,
+      "none": 0
+    },
+    "drifted_refs": [
+      "T47n1987B",
+      "T48n2001",
+      "T48n2004",
+      "X68n1315"
+    ],
+    "refs": {
+      "T47n1985": {
+        "sha256": "4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1986A": {
+        "sha256": "c53e4ffde1dccb93f566ab91ef1b252ffb79ff6243aebf51fdba2f68dd42b03b",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1986B": {
+        "sha256": "7ed62050f1b6321db5a8503de7e027ae40d126e1a11b0eeac47eb4d15fd2f2f2",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1987A": {
+        "sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1987B": {
+        "sha256": "eb16d53cf0add1d63622778c101b94643ead8b0ca5e9b10a396ed2b13817f0da",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "drift"
+      },
+      "T47n1988": {
+        "sha256": "38b9347dda4c5f5ce7c02ffb66fd8599f046536b16907f5219d63cc3847321cb",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1989": {
+        "sha256": "1473f11292a9f93dafec18921bd614f011679000acae9d75bf3ad48d14abd5a3",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1990": {
+        "sha256": "c06ae879fb7d2bce7d73355b4a077ed6ea22948a334c3e8bbb69b59287d9d8af",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1991": {
+        "sha256": "c26a529c44aaa84ef048e0be2071e1fe5a67b5260d778903c0368bd353691c3d",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1998A": {
+        "sha256": "eb71385d71e5c3ff1ff0d827dc47da476dfda18b723399842b7b0d3fc28e6798",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T47n1998B": {
+        "sha256": "8b37b4663395ac69d794b2b5030a5529faaf08884a13cac8815c6d07b7f6d819",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2001": {
+        "sha256": "8b6d2fd2302e743bea5a1b3c0bb0eb160d8e067073ccbb0e46f170a48e39fd1c",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "drift"
+      },
+      "T48n2003": {
+        "sha256": "47678e84c49a270aab932182dfc3b287b86d6a33a7aadc31e32c663f4a27be09",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2004": {
+        "sha256": "70413b279195b74148f03d6081c311511393dfaa65458f73e107116510738ba0",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "drift"
+      },
+      "T48n2005": {
+        "sha256": "83a298cc4ab4f3bebd933db3fe2fa656b3344731f37fc134251e3bea2464ff7f",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2006": {
+        "sha256": "11024c5f5bc0852ab5fad1cfcefc1459a6033f4de05f7e844dc3809e7a95c558",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2012A": {
+        "sha256": "8f46065b6d1be313d6d68c7c99a6f4c3cee28306e3cbb8695a765912537ee58d",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2012B": {
+        "sha256": "94a75d508303b70bcaade3c92cc3cb6cdc7c8f0e11a471cda940c05cc7e75f36",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T48n2014": {
+        "sha256": "d11dcda1e84c2e8c1ff28ea77d650761c8f1c661c084cc4523aad37607c03bde",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "T51n2076": {
+        "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "X68n1315": {
+        "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "drift"
+      },
+      "X69n1321": {
+        "sha256": "652ba08698e51d5e7e44c8d6d3209ba5c8c85f0c5192a50909ce284d0cff3e13",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      },
+      "X80n1565": {
+        "sha256": "a3d20a107ff69495609d555f261d28af9c4de62952fde0b32ac630dbcfe56766",
+        "manifest": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
+        "status": "verified",
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "historical_status": "verified"
+      }
+    }
+  },
+  "reproduction": {
+    "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
+    "documents_compared": 8,
+    "documents_classification_identical": 5,
+    "documents_differing": 3,
+    "documents_with_changed_status": 3,
+    "flagged_entries": {
+      "historical": 323,
+      "this_run": 127
+    },
+    "differences": [
+      {
+        "key": "biyanlu_cases",
+        "historical_summary": {
+          "EXACT": 368,
+          "MINOR": 22,
+          "DIVERGENT": 12,
+          "NOT_FOUND": 18,
+          "TITLE_COMPOSITE": 4,
+          "SHORT_UNMATCHED": 72
+        },
+        "corrected_summary": {
+          "EXACT": 415,
+          "NOT_FOUND": 11,
+          "TITLE_COMPOSITE": 4,
+          "SHORT_UNMATCHED": 71
+        },
+        "historical_flagged_entries": 128,
+        "corrected_flagged_entries": 86,
+        "flags_only_in_historical": [
+          ".cases[0].commentary_zh:MINOR",
+          ".cases[0].dialogue[2].zh:DIVERGENT",
+          ".cases[0].pointer_zh:NOT_FOUND",
+          ".cases[10].commentary_zh:MINOR",
+          ".cases[11].dialogue[1].zh:SHORT_UNMATCHED",
+          ".cases[14].dialogue[0].zh:DIVERGENT",
+          ".cases[17].dialogue[0].zh:DIVERGENT",
+          ".cases[19].commentary_zh:MINOR",
+          ".cases[19].verse_zh:NOT_FOUND",
+          ".cases[1].dialogue[1].zh:DIVERGENT",
+          ".cases[1].pointer_zh:DIVERGENT",
+          ".cases[22].dialogue[0].zh:NOT_FOUND",
+          ".cases[27].commentary_zh:MINOR",
+          ".cases[28].commentary_zh:MINOR",
+          ".cases[2].dialogue[0].zh:DIVERGENT",
+          ".cases[2].pointer_zh:NOT_FOUND",
+          ".cases[30].dialogue[0].zh:DIVERGENT",
+          ".cases[36].commentary_zh:MINOR",
+          ".cases[42].commentary_zh:MINOR",
+          ".cases[43].commentary_zh:MINOR",
+          ".cases[45].commentary_zh:MINOR",
+          ".cases[50].dialogue[0].zh:DIVERGENT",
+          ".cases[55].commentary_zh:MINOR",
+          ".cases[64].pointer_zh:MINOR",
+          ".cases[65].commentary_zh:MINOR",
+          ".cases[65].dialogue[0].zh:MINOR",
+          ".cases[72].commentary_zh:MINOR",
+          ".cases[74].dialogue[0].zh:NOT_FOUND",
+          ".cases[75].commentary_zh:MINOR",
+          ".cases[78].commentary_zh:MINOR",
+          ".cases[78].dialogue[0].zh:MINOR",
+          ".cases[80].commentary_zh:MINOR",
+          ".cases[80].pointer_zh:NOT_FOUND",
+          ".cases[81].commentary_zh:MINOR",
+          ".cases[81].dialogue[0].zh:DIVERGENT",
+          ".cases[87].dialogue[0].zh:DIVERGENT",
+          ".cases[88].verse_zh:MINOR",
+          ".cases[95].dialogue[0].zh:NOT_FOUND",
+          ".cases[96].pointer_zh:MINOR",
+          ".cases[97].dialogue[0].zh:DIVERGENT",
+          ".cases[98].commentary_zh:MINOR",
+          ".cases[98].dialogue[0].zh:DIVERGENT"
+        ],
+        "flags_only_in_this_run": [],
+        "flag_details_only_in_historical": [
+          {
+            "path": ".cases[0].pointer_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "垂示云見面便見更無可言若向言中取則句裏商量正如以管窺天以蠡酌海且道廓然無聖如何承當",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[0].dialogue[2].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9524,
+            "ref": "T48n2003",
+            "corpus": "帝曰對朕者誰磨云不識帝不契達磨遂潛渡江至魏",
+            "ref_window": "帝曰對朕者誰磨云不識帝不契達磨遂渡江至魏帝"
+          },
+          {
+            "path": ".cases[0].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.999,
+            "ref": "T48n2003",
+            "corpus": "達磨遙觀此土有大乘根器遂泛海得得而來單傳心印開示迷塗不立文字直指人心見性成佛若恁麼見得便有自由分不隨一切語言轉脫體現成便能於後頭與武帝對譚并二祖安心處自然見得無計較情塵一刀截斷洒洒落落何必更分是分非辨得辨失雖然恁麼能有幾人武帝甞披袈裟自講放",
+            "ref_window": "達磨遙觀此土有大乘根器遂泛海得得而來單傳心印開示迷塗不立文字直指人心見性成佛若恁麼見得便有自由分不隨一切語言轉脫體現成便能於後頭與武帝對譚并二祖安心處自然見得無計較情塵一刀截斷洒洒落落何必更分是分非辨得辨失雖然恁麼能有幾人武帝甞披袈裟自講放"
+          },
+          {
+            "path": ".cases[1].pointer_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9677,
+            "ref": "T48n2003",
+            "corpus": "垂示云乾坤窄日月星辰一時黑直饒棒如雨點喝似雷奔也未酬得向上宗乘",
+            "ref_window": "垂示云乾坤窄日月星辰一時黑直饒棒如雨點喝似雷奔也未當得向上宗乘"
+          },
+          {
+            "path": ".cases[1].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.88,
+            "ref": "T48n2003",
+            "corpus": "時有僧問和尚既不在明白裏護惜箇甚麼師云我亦不知僧云和尚既不知為甚麼卻道不在明白裏師云問事即得禮拜了退",
+            "ref_window": "也無時有僧問既不在明白裏護惜箇什麼州云我亦不知僧云和尚既不知為什麼卻道不在明白裏州云問事即得禮拜了退"
+          },
+          {
+            "path": ".cases[2].pointer_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.3462,
+            "ref": "T48n2003",
+            "corpus": "垂示云一機一境一棒一喝若能徹照根源便能坐斷天下人舌頭",
+            "ref_window": "垂示云一機一境一言一句且圖有箇入處好肉上剜瘡成窠成窟"
+          },
+          {
+            "path": ".cases[2].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8824,
+            "ref": "T48n2003",
+            "corpus": "馬祖大師不安院主問和尚近日尊位如何",
+            "ref_window": "舉馬大師不安院主問和尚近日尊候如何"
+          },
+          {
+            "path": ".cases[10].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9991,
+            "ref": "T48n2003",
+            "corpus": "黃檗身長七尺額有圓珠天性會禪師昔遊天台路逢一僧與之談笑如故相識熟視之目光射人頗有異相乃偕行屬溪水暴漲乃植杖捐笠而止其僧率師同渡師曰請渡彼即褰衣躡波如履平地回顧云渡來渡來師咄云這自了漢吾早知揑怪當斫汝脛其僧嘆曰真大乘法器言訖不見初到百丈丈問云",
+            "ref_window": "黃檗身長七尺額有圓珠天性會禪師昔遊天台路逢一僧與之談笑如故相識熟視之目光射人頗有異相乃偕行屬溪水暴漲乃植杖捐笠而止其僧率師同渡師曰請渡彼即褰衣躡波如履平地回顧云渡來渡來師咄云這自了漢吾早知揑怪當斫汝脛其僧嘆曰真大乘法器言訖不見初到百丈丈問云"
+          },
+          {
+            "path": ".cases[11].dialogue[1].zh",
+            "class": "SHORT_UNMATCHED",
+            "sim": 0.3,
+            "ref": "T48n2003",
+            "corpus": "洞山云麻三斤",
+            "ref_window": "滲漏處故洞山云若要辨認向上之"
+          },
+          {
+            "path": ".cases[14].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9565,
+            "ref": "T48n2003",
+            "corpus": "僧問雲門不是目前機亦非目前事時如何雲門云倒一說",
+            "ref_window": "僧問雲門不是目前機亦非目前事時如何門云倒一說這"
+          },
+          {
+            "path": ".cases[17].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8667,
+            "ref": "T48n2003",
+            "corpus": "肅宗皇帝問忠國師百年後所須何物國師云與老僧作箇無縫塔帝曰請師塔樣國師良久云會麼帝云不會國師云吾有付法弟子耽源卻諳此事請詔問之國師遷化後帝詔耽源問此意如何源云湘之南潭之北中有黃金充一國無影樹下合同船瑠璃殿上無知識",
+            "ref_window": "肅宗皇帝問忠國師百年後所須何物國師云與老僧作箇無縫塔帝曰請師塔樣國師良久云會麼帝云不會國師云吾有付法弟子耽源卻諳此事請詔問之國師遷化後帝詔耽源問此意如何源云湘之南潭之北雪竇著語云獨掌不浪鳴中有黃金充一國雪竇著語"
+          },
+          {
+            "path": ".cases[19].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9993,
+            "ref": "T48n2003",
+            "corpus": "翠巖芝和尚云當時如是今時衲子皮下還有血麼溈山喆云翠微臨濟可謂本分宗師龍牙一等是撥草瞻風不妨與後人作龜鑑住院後有僧問和尚當時還肯二尊宿麼牙云肯即肯只是無祖師西來意龍牙瞻前顧後應病與藥大溈則不然待伊問和尚當時還肯二尊宿麼明不明劈脊便打非惟扶竪翠",
+            "ref_window": "意翠巖芝和尚云當時如是今時衲子皮下還有血麼溈山喆云翠微臨濟可謂本分宗師龍牙一等是撥草瞻風不妨與後人作龜鑑住院後有僧問和尚當時還肯二尊宿麼牙云肯即肯只是無祖師西來意龍牙瞻前顧後應病與藥大溈則不然待伊問和尚當時還肯二尊宿麼明不明劈脊便打非惟扶竪"
+          },
+          {
+            "path": ".cases[19].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.5179,
+            "ref": "T48n2003",
+            "corpus": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公盧公付了亦何憑坐倚休將繼祖燈堪對暮雲歸未合遠山無限碧層層",
+            "ref_window": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公雪竇據欵結案他雖恁麼頌且道意在什麼處甚處是無眼甚處是死水"
+          },
+          {
+            "path": ".cases[22].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.6304,
+            "ref": "T48n2003",
+            "corpus": "保福長慶遊山次福以手指云只這裏便是妙峰頂慶云是則是可惜許後舉似鏡清清云若不是孫公便見髑髏遍野",
+            "ref_window": "保福長慶遊山次福以手指云只這裏便是妙峰頂慶云是則是可惜許雪竇著語云今日共這漢遊山圖箇什麼復云"
+          },
+          {
+            "path": ".cases[27].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9982,
+            "ref": "T48n2003",
+            "corpus": "南泉參百丈涅槃和尚丈問從上諸聖還有不為人說底法麼泉云有丈云作麼生是不為人說底法泉云不是心不是佛不是物丈云說了也泉云某甲只恁麼和尚作麼生丈云我又不是大善知識爭知有說不說泉云某甲不會丈云我太殺為爾說了也到這裏也不消即心不即心不消非心不非心直下從",
+            "ref_window": "舉南泉參百丈涅槃和尚丈問從上諸聖還有不為人說底法麼泉云有丈云作麼生是不為人說底法泉云不是心不是佛不是物丈云說了也泉云某甲只恁麼和尚作麼生丈云我又不是大善知識爭知有說不說泉云某甲不會丈云我太殺為爾說了也到這裏也不消即心不即心不消非心不非心直下"
+          },
+          {
+            "path": ".cases[28].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9981,
+            "ref": "T48n2003",
+            "corpus": "僧問大隋劫火洞然大千俱壞未審這箇壞不壞隋云壞僧云恁麼則隨他去也隋云隨他去大隋真如和尚承嗣大安禪師乃東川鹽亭縣人參見六十餘員善知識昔時在溈山會裏作火頭一日溈山問云子在此數年亦不解致箇問來看如何隋云令某甲問箇什麼即得溈山云子便不會問如何是佛隋以",
+            "ref_window": "僧問大隋劫火洞然大千俱壞未審這箇壞不壞隋云壞僧云恁麼則隨他去也隋云隨他去大隋真如和尚承嗣大安禪師乃東川鹽亭縣人參見六十餘員善知識昔時在溈山會裏作火頭一日溈山問云子在此數年亦不解致箇問來看如何隋云令某甲問箇什麼即得溈山云子便不會問如何是佛隋以"
+          },
+          {
+            "path": ".cases[30].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8605,
+            "ref": "T48n2003",
+            "corpus": "麻谷持錫到章敬遶禪床三匝振錫一下卓然而立敬云是是麻谷又到南泉遶禪床三匝振錫一下卓然而立泉云不是不是麻谷當時云章敬道是和尚為什麼道不是泉云章敬即是是汝不是此是風力所轉終成敗壞",
+            "ref_window": "振錫一下卓然而立敬云是是雪竇著語云錯麻谷又到南泉遶禪床三匝振錫一下卓然而立泉云不是不是雪竇著語云錯麻谷當時云章敬道是和尚為什麼道不是泉云章敬即是是汝不是此是風力所轉終成敗壞"
+          },
+          {
+            "path": ".cases[36].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9976,
+            "ref": "T48n2003",
+            "corpus": "盤山垂語云三界無法何處求心向北幽州盤山寶積和尚乃馬祖下尊宿後出普化一人師臨遷化謂眾云還有人邈得吾真麼眾皆寫真呈師師皆叱之普化出云某甲邈得師云何不呈似老僧普化便打筋斗而出師云這漢向後如風狂接人去在一日示眾云三界無法何處求心四大本空佛依何住璿璣",
+            "ref_window": "舉盤山垂語云三界無法何處求心向北幽州盤山寶積和尚乃馬祖下尊宿後出普化一人師臨遷化謂眾云還有人邈得吾真麼眾皆寫真呈師師皆叱之普化出云某甲邈得師云何不呈似老僧普化便打筋斗而出師云這漢向後如風狂接人去在一日示眾云三界無法何處求心四大本空佛依何住璣"
+          },
+          {
+            "path": ".cases[42].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9982,
+            "ref": "T48n2003",
+            "corpus": "黃龍新和尚拈云洞山袖頭打領腋下剜襟爭柰這僧不甘如今有箇出來問黃龍且道如何支遣良久云安禪不必須山水滅卻心頭火自涼諸人且道洞山圈繢落在什麼處若明辨得始知洞山下五位回互正偏接人不妨奇特到這向上境界方能如此不消安排自然恰好所以道正中偏三更初夜月明前",
+            "ref_window": "黎黃龍新和尚拈云洞山袖頭打領腋下襟爭柰這僧不甘如今有箇出來問黃龍且道如何支遣良久云安禪不必須山水滅卻心頭火自涼諸人且道洞山圈繢落在什麼處若明辨得始知洞山下五位回互正偏接人不妨奇特到這向上境界方能如此不消安排自然恰好所以道正中偏三更初夜月明前"
+          },
+          {
+            "path": ".cases[43].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9947,
+            "ref": "T48n2003",
+            "corpus": "禾山垂語云習學謂之聞絕學謂之隣過此二者是為真過僧出問如何是真過山云解打鼓又問如何是真諦山云解打鼓又問即心即佛即不問如何是非心非佛山云解打鼓又問向上人來時如何接山云解打鼓禾山垂示云習學謂之聞絕學謂之隣過此二者是為真過此一則語出寶藏論學至無學謂",
+            "ref_window": "禾山垂語云習學謂之聞絕學謂之隣過此二者是為真過僧出問如何是真過山云解打鼓又問如何是真諦山云解打鼓又問即心即佛即不問如何是非心非佛山云解打鼓又問向上人來時如何接山云解打鼓禾山垂示云習學謂之聞絕學謂之隣過此二者是為真過此一則語出寶藏論學至無學謂"
+          },
+          {
+            "path": ".cases[45].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.998,
+            "ref": "T48n2003",
+            "corpus": "鏡清問僧門外是什麼聲僧云雨滴聲清云眾生顛倒迷己逐物僧云和尚作麼生清云洎不迷己僧云洎不迷己意旨如何清云出身猶可易脫體道應難洎只這裏也好薦取古人垂示一機一境要接人一日鏡清問僧門外是什麼聲僧云雨滴聲清云眾生顛倒迷己逐物又問門外什麼聲僧云鵓鳩聲清云",
+            "ref_window": "舉鏡清問僧門外是什麼聲僧云雨滴聲清云眾生顛倒迷己逐物僧云和尚作麼生清云洎不迷己僧云洎不迷己意旨如何清云出身猶可易脫體道應難洎只這裏也好薦取古人垂示一機一境要接人一日鏡清問僧門外是什麼聲僧云雨滴聲清云眾生顛倒迷己逐物又問門外什麼聲僧云鵓鳩聲清"
+          },
+          {
+            "path": ".cases[50].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9689,
+            "ref": "T48n2003",
+            "corpus": "雪峰住庵時有兩僧來禮拜峰見來以手托庵門放身出云是什麼僧亦云是什麼峰低頭歸庵僧後到巖頭頭問什麼處來僧云嶺南來頭云曾到雪峰麼僧云曾到頭云有何言句僧舉前話頭云他道什麼僧云他無語低頭歸庵頭云噫我當初悔不向他道末後句若向伊道天下人不奈雪老何僧於夏末再",
+            "ref_window": "雪峰住庵時有兩僧來禮拜峰見來以手托庵門放身出云是什麼僧亦云是什麼峰低頭歸庵僧後到巖頭頭問什麼處來僧云嶺南來頭云曾到雪峰麼僧云曾到頭云有何言句僧舉前話頭云他道什麼僧云他無語低頭歸庵頭云噫我當初悔不向他道末後句若向伊道天下人不奈雪老何僧至夏末再"
+          },
+          {
+            "path": ".cases[55].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9981,
+            "ref": "T48n2003",
+            "corpus": "良禪客問欽山一鏃破三關時如何山云放出關中主看良云恁麼則知過必改山云更待何時良云好箭放不著所在便出山云且來闍黎良回首山把住云一鏃破三關即且止試與欽山發箭看良擬議山打七棒云且聽這漢疑三十年良禪客也不妨是一員戰將向欽山手裏左盤右轉墜鞭閃鐙末後可惜",
+            "ref_window": "舉良禪客問欽山一鏃破三關時如何山云放出關中主看良云恁麼則知過必改山云更待何時良云好箭放不著所在便出山云且來闍黎良回首山把住云一鏃破三關即且止試與欽山發箭看良擬議山打七棒云且聽這漢疑三十年良禪客也不妨是一員戰將向欽山手裏左盤右轉墜鞭閃末後可惜"
+          },
+          {
+            "path": ".cases[64].pointer_zh",
+            "class": "MINOR",
+            "sim": 0.9844,
+            "ref": "T48n2003",
+            "corpus": "垂示云無相而形充十虛而方廣無心而應遍剎海而不煩舉一明三目機銖兩直得棒如雨點喝似雷奔也未當得向上人行履在且道作麼生是向上人事試舉看",
+            "ref_window": "垂示云無相而形充十虛而方廣無心而應遍剎海而不煩舉一明三目機銖兩直得棒如雨點喝似雷奔也未當得向上人行履在且道作麼生是向上人事試舉六"
+          },
+          {
+            "path": ".cases[65].dialogue[0].zh",
+            "class": "MINOR",
+            "sim": 0.9878,
+            "ref": "T48n2003",
+            "corpus": "巖頭問僧什麼處來僧云西京來頭云黃巢過後還收得劍麼僧云收得巖頭引頸近前云㘞僧云師頭落也巖頭呵呵大笑僧後到雪峰峰問什麼處來僧云巖頭來峰云有何言句僧舉前話雪峰打三十棒趕出",
+            "ref_window": "舉巖頭問僧什麼處來僧云西京來頭云黃巢過後還收得劍麼僧云收得巖頭引頸近前云僧云師頭落也巖頭呵呵大笑僧後到雪峰峰問什麼處來僧云巖頭來峰云有何言句僧舉前話雪峰打三十棒趕出"
+          },
+          {
+            "path": ".cases[65].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9971,
+            "ref": "T48n2003",
+            "corpus": "巖頭問僧什麼處來僧云西京來頭云黃巢過後還收得劍麼僧云收得巖頭引頸近前云㘞僧云師頭落也巖頭呵呵大笑僧後到雪峰峰問什麼處來僧云巖頭來峰云有何言句僧舉前話雪峰打三十棒趕出大凡挑囊負鉢撥草瞻風也須是具行脚眼始得這僧眼似流星也被巖頭勘破了一串穿卻當時",
+            "ref_window": "六舉巖頭問僧什麼處來僧云西京來頭云黃巢過後還收得劍麼僧云收得巖頭引頸近前云僧云師頭落也巖頭呵呵大笑僧後到雪峰峰問什麼處來僧云巖頭來峰云有何言句僧舉前話雪峰打三十棒趕出大凡挑囊負鉢撥草瞻風也須是具行脚眼始得這僧眼似流星也被巖頭勘破了一串穿卻當"
+          },
+          {
+            "path": ".cases[72].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9986,
+            "ref": "T48n2003",
+            "corpus": "僧問馬大師離四句絕百非請師直指某甲西來意馬師云我今日勞倦不能為汝說問取智藏去僧問智藏藏云何不問和尚僧云和尚教來問藏云我今日頭痛不能為汝說問取海兄去僧問海兄海云我到這裏卻不會僧舉似馬大師馬師云藏頭白海頭黑這箇公案山僧舊日在成都參真覺覺云只消看",
+            "ref_window": "僧問馬大師離四句絕百非請師直指某甲西來意馬師云我今日勞倦不能為汝說問取智藏去僧問智藏藏云何不問和尚僧云和尚教來問藏云我今日頭痛不能為汝說問取海兄去僧問海兄海云我到這裏卻不會僧舉似馬大師馬師云藏頭白海頭黑這箇公案山僧舊日在成都參真覺覺云只消看"
+          },
+          {
+            "path": ".cases[74].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.8387,
+            "ref": "T48n2003",
+            "corpus": "僧從定州和尚會裏來到烏臼烏臼問定州法道何似這裏僧云不別臼云若不別更轉彼中去便打僧云棒頭有眼不得草草打人臼云今日打著一箇也又打三下僧便出去臼云屈棒元來有人喫在僧轉身云爭奈杓柄在和尚手裏臼云汝若要山僧回與汝僧近前奪臼手中棒打臼三下臼云屈棒屈棒僧",
+            "ref_window": "僧從定州和尚會裏來到烏臼烏臼問定州法道何似這裏僧云不別臼云若不別更轉彼中去便打僧云棒頭有眼不得草草打人臼云今日打著一箇也又打三下僧便出去臼云屈棒元來有人喫在僧轉身云爭奈杓柄在和尚手裏臼云汝若要山僧回與汝僧近前奪臼手中棒打臼三下臼云屈棒屈棒僧"
+          },
+          {
+            "path": ".cases[75].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9986,
+            "ref": "T48n2003",
+            "corpus": "丹霞問僧甚處來僧云山下來霞云喫飯了也未僧云喫飯了霞云將飯來與汝喫底人還具眼麼僧無語長慶問保福將飯與人喫報恩有分為什麼不具眼福云施者受者二俱瞎漢長慶云盡其機來還成瞎否福云道我瞎得麼鄧州丹霞天然禪師不知何許人初習儒學將入長安應舉方宿於逆旅忽夢白",
+            "ref_window": "丹霞問僧甚處來僧云山下來霞云喫飯了也未僧云喫飯了霞云將飯來與汝喫底人還具眼麼僧無語長慶問保福將飯與人喫報恩有分為什麼不具眼福云施者受者二俱瞎漢長慶云盡其機來還成瞎否福云道我瞎得麼鄧州丹霞天然禪師不知何許人初習儒學將入長安應舉方宿於逆旅忽夢白"
+          },
+          {
+            "path": ".cases[78].dialogue[0].zh",
+            "class": "MINOR",
+            "sim": 0.9841,
+            "ref": "T48n2003",
+            "corpus": "僧問投子一切聲是佛聲是否投子云是僧云和尚莫㞘沸碗鳴聲投子便打又問粗言及細語皆歸第一義是否投子云是僧云喚和尚作一頭驢得麼投子便打",
+            "ref_window": "舉僧問投子一切聲是佛聲是否投子云是僧云和尚莫沸碗鳴聲投子便打又問粗言及細語皆歸第一義是否投子云是僧云喚和尚作一頭驢得麼投子便打"
+          },
+          {
+            "path": ".cases[78].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9937,
+            "ref": "T48n2003",
+            "corpus": "僧問投子一切聲是佛聲是否投子云是僧云和尚莫㞘沸碗鳴聲投子便打又問粗言及細語皆歸第一義是否投子云是僧云喚和尚作一頭驢得麼投子便打㞘投子朴實頭得逸群之辯凡有致問開口便見膽不費餘力便坐斷他舌頭可謂運籌帷幄之中決勝千里之外這僧將聲色佛法見解貼在他額",
+            "ref_window": "七九舉僧問投子一切聲是佛聲是否投子云是僧云和尚莫沸碗鳴聲投子便打又問粗言及細語皆歸第一義是否投子云是僧云喚和尚作一頭驢得麼投子便打投子朴實頭得逸群之辯凡有致問開口便見膽不費餘力便坐斷他舌頭可謂運籌帷幄之中決勝千里之外這僧將聲色佛法見解貼在他"
+          },
+          {
+            "path": ".cases[80].pointer_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "垂示云東家杓柄長西家杓柄短且道用於何處若也來處明雨打不著柸不著試舉看",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[80].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9972,
+            "ref": "T48n2003",
+            "corpus": "僧問藥山平田淺草麈鹿成群如何射得麈中麈山云看箭僧放身便倒山云侍者拕出這死漢僧便走山云弄泥團漢有什麼限雪竇拈云三步雖活五步須死麈瞪呿這公案洞下謂之借事問亦謂之辨主問用明當機鹿與麈尋常易射唯有麈中麈是鹿中之王最是難射此麈鹿常於崖石上利其角如鋒鋩",
+            "ref_window": "僧問藥山平田淺草麈鹿成群如何射得麈中麈山云看箭僧放身便倒山云侍者拕出這死漢僧便走山云弄泥團漢有什麼限雪竇拈云三步雖活五步須死麈瞪呿這公案洞下謂之借事問亦謂之辨主問用明當機鹿與麈尋常易射唯有麈中麈是鹿中之王最是難射此麈鹿常於崖石上利其角如鋒鋩"
+          },
+          {
+            "path": ".cases[81].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.963,
+            "ref": "T48n2003",
+            "corpus": "僧問大龍色身敗壞如何是堅固法身龍云山花開似錦㵎水湛如藍",
+            "ref_window": "僧問大龍色身敗壞如何是堅固法身龍云山花開似錦水湛如藍此"
+          },
+          {
+            "path": ".cases[81].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9952,
+            "ref": "T48n2003",
+            "corpus": "僧問大龍色身敗壞如何是堅固法身龍云山花開似錦㵎水湛如藍此事若向言語上覓一如掉棒打月且得沒交涉古人分明道欲得親切莫將問來問何故問在答處答在問處這僧擔一檐莽鹵換一檐鶻突致箇問端敗缺不少若不是大龍爭得蓋天蓋地他恁麼問大龍恁麼答一合相更不移易一絲毫",
+            "ref_window": "舉僧問大龍色身敗壞如何是堅固法身龍云山花開似錦水湛如藍此事若向言語上覓一如掉棒打月且得沒交涉古人分明道欲得親切莫將問來問何故問在答處答在問處這僧擔一檐莽鹵換一檐鶻突致箇問端敗缺不少若不是大龍爭得蓋天蓋地他恁麼問大龍恁麼答一合相更不移易一絲毫"
+          },
+          {
+            "path": ".cases[87].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9643,
+            "ref": "T48n2003",
+            "corpus": "玄沙示眾云諸方老宿盡道接物利生忽遇三種病人來作麼生接患盲者拈鎚竪拂他又不見患聾者語言三昧他又不聞患啞者教伊說又說不得且作麼生接若接此人不得佛法無靈驗僧請益雲門門云汝禮拜著僧拜起門以拄杖挃僧退後門云汝不是患盲復云近前僧近前門云汝不是患聾門乃云",
+            "ref_window": "玄沙示眾云諸方老宿盡道接物利生忽遇三種病人來作麼生接患盲者拈鎚竪拂他又不見患聾者語言三昧他又不聞患啞者教伊說又說不得且作麼生接若接此人不得佛法無靈驗僧請益雲門雲門云汝禮拜著僧禮拜起雲門以拄杖挃僧退後門云汝不是患盲復喚近前來僧近前門云汝不是患"
+          },
+          {
+            "path": ".cases[88].verse_zh",
+            "class": "MINOR",
+            "sim": 0.9833,
+            "ref": "T48n2003",
+            "corpus": "遍身是通身是拈來猶較十萬里展翅鵬騰六合雲搏風鼓蕩四溟水是何埃壒兮忽生那箇毫釐兮未止君不見網珠垂範影重重棒頭手眼從何起咄壒",
+            "ref_window": "遍身是通身是拈來猶較十萬里展翅鵬騰六合雲搏風鼓蕩四溟水是何埃壒兮忽生那箇毫釐兮未止君不見網珠垂範影重重棒頭手眼從何起咄遍"
+          },
+          {
+            "path": ".cases[95].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "趙州示眾三轉語泥佛不渡水金佛不渡爐木佛不渡火見趙州錄三轉語之末真佛屋裏坐即在評唱所引",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[96].pointer_zh",
+            "class": "MINOR",
+            "sim": 0.9851,
+            "ref": "T48n2003",
+            "corpus": "垂示云拈一放一未是作家舉一明三猶乖宗旨直得天地陡變四方絕唱雷奔電馳雲行雨驟傾湫倒嶽甕瀉盆傾也未提得一半在還有解轉天關能移地軸底麼試舉看",
+            "ref_window": "也垂示云拈一放一未是作家舉一明三猶乖宗旨直得天地變四方絕唱雷奔電馳雲行雨驟傾湫倒嶽甕瀉盆傾也未提得一半在還有解轉天關能移地軸底麼試舉看"
+          },
+          {
+            "path": ".cases[97].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9419,
+            "ref": "T48n2003",
+            "corpus": "天平和尚行脚時參西院常云莫道會佛法覓箇舉話人也無一日西院遙見召云從漪平舉頭西院云錯平行三兩步西院又云錯平近前西院云適來這兩錯是西院錯是上座錯平云從漪錯院云錯平休去西院留度夏",
+            "ref_window": "天平和尚行脚時參西院常云莫道會佛法覓箇舉話人也無一日西院遙見召云從漪平舉頭西院云錯平行三兩步西院又云錯平近前西院云適來這兩錯是西院錯是西院錯是上座錯平云從漪錯西院云錯平休去"
+          },
+          {
+            "path": ".cases[98].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9762,
+            "ref": "T48n2003",
+            "corpus": "肅宗帝問忠國師如何是十身調御國師云檀越踏毘盧頂上行帝云寡人不會國師云莫認自己清淨法身",
+            "ref_window": "肅宗帝問忠問師如何是十身調御國師云檀越踏毘盧頂上行帝云寡人不會國師云莫認自己清淨法身"
+          },
+          {
+            "path": ".cases[98].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9992,
+            "ref": "T48n2003",
+            "corpus": "肅宗帝問忠問師如何是十身調御國師云檀越踏毘盧頂上行帝云寡人不會國師云莫認自己清淨法身肅宗皇帝在東宮時已參忠國師後來即位敬之愈篤出入迎送躬自捧車輦一日致箇問端來問國師云如何是十身調御師云檀越踏毘盧頂上行國師平生一條脊梁骨硬如生鐵及至帝王面前如",
+            "ref_window": "舉肅宗帝問忠問師如何是十身調御國師云檀越踏毘盧頂上行帝云寡人不會國師云莫認自己清淨法身肅宗皇帝在東宮時已參忠國師後來即位敬之愈篤出入迎送躬自捧車輦一日致箇問端來問國師云如何是十身調御師云檀越踏毘盧頂上行國師平生一條脊梁骨硬如生鐵及至帝王面前"
+          }
+        ],
+        "flag_details_only_in_this_run": [],
+        "status_changed": true,
+        "historical_source_review_status": "partial_or_failed_w1_collation",
+        "corrected_source_review_status": "collated_to_claimed_witness"
+      },
+      {
+        "key": "linji_yulu",
+        "historical_summary": {
+          "EXACT": 80,
+          "MINOR": 2,
+          "DIVERGENT": 3,
+          "NOT_FOUND": 79
+        },
+        "corrected_summary": {
+          "EXACT": 215
+        },
+        "historical_flagged_entries": 84,
+        "corrected_flagged_entries": 0,
+        "flags_only_in_historical": [
+          ".sections[0].dialogue[1].zh:DIVERGENT",
+          ".sections[0].title_zh:NOT_FOUND",
+          ".sections[10].title_zh:NOT_FOUND",
+          ".sections[11].title_zh:NOT_FOUND",
+          ".sections[12].title_zh:NOT_FOUND",
+          ".sections[13].title_zh:NOT_FOUND",
+          ".sections[14].title_zh:NOT_FOUND",
+          ".sections[15].title_zh:NOT_FOUND",
+          ".sections[16].title_zh:NOT_FOUND",
+          ".sections[17].title_zh:NOT_FOUND",
+          ".sections[18].title_zh:NOT_FOUND",
+          ".sections[19].title_zh:NOT_FOUND",
+          ".sections[1].title_zh:NOT_FOUND",
+          ".sections[20].title_zh:NOT_FOUND",
+          ".sections[21].title_zh:NOT_FOUND",
+          ".sections[22].title_zh:NOT_FOUND",
+          ".sections[23].title_zh:NOT_FOUND",
+          ".sections[24].title_zh:NOT_FOUND",
+          ".sections[25].title_zh:NOT_FOUND",
+          ".sections[26].title_zh:NOT_FOUND",
+          ".sections[27].title_zh:NOT_FOUND",
+          ".sections[28].title_zh:NOT_FOUND",
+          ".sections[29].title_zh:NOT_FOUND",
+          ".sections[2].title_zh:NOT_FOUND",
+          ".sections[30].title_zh:NOT_FOUND",
+          ".sections[31].title_zh:NOT_FOUND",
+          ".sections[32].title_zh:NOT_FOUND",
+          ".sections[33].title_zh:NOT_FOUND",
+          ".sections[34].title_zh:NOT_FOUND",
+          ".sections[35].title_zh:NOT_FOUND",
+          ".sections[36].title_zh:NOT_FOUND",
+          ".sections[37].title_zh:NOT_FOUND",
+          ".sections[38].title_zh:NOT_FOUND",
+          ".sections[39].title_zh:NOT_FOUND",
+          ".sections[3].title_zh:NOT_FOUND",
+          ".sections[40].title_zh:NOT_FOUND",
+          ".sections[41].title_zh:NOT_FOUND",
+          ".sections[42].title_zh:NOT_FOUND",
+          ".sections[43].dialogue[0].zh:MINOR",
+          ".sections[43].title_zh:NOT_FOUND",
+          ".sections[44].title_zh:NOT_FOUND",
+          ".sections[45].title_zh:NOT_FOUND",
+          ".sections[46].title_zh:NOT_FOUND",
+          ".sections[47].title_zh:NOT_FOUND",
+          ".sections[48].title_zh:NOT_FOUND",
+          ".sections[49].title_zh:NOT_FOUND",
+          ".sections[4].title_zh:NOT_FOUND",
+          ".sections[50].title_zh:NOT_FOUND",
+          ".sections[51].title_zh:NOT_FOUND",
+          ".sections[52].title_zh:NOT_FOUND",
+          ".sections[53].title_zh:NOT_FOUND",
+          ".sections[54].title_zh:NOT_FOUND",
+          ".sections[55].title_zh:NOT_FOUND",
+          ".sections[56].title_zh:NOT_FOUND",
+          ".sections[57].title_zh:NOT_FOUND",
+          ".sections[58].dialogue[0].zh:MINOR",
+          ".sections[58].title_zh:NOT_FOUND",
+          ".sections[59].title_zh:NOT_FOUND",
+          ".sections[5].title_zh:NOT_FOUND",
+          ".sections[60].title_zh:NOT_FOUND",
+          ".sections[61].title_zh:NOT_FOUND",
+          ".sections[62].title_zh:NOT_FOUND",
+          ".sections[63].title_zh:NOT_FOUND",
+          ".sections[64].title_zh:NOT_FOUND",
+          ".sections[65].title_zh:NOT_FOUND",
+          ".sections[66].title_zh:DIVERGENT",
+          ".sections[67].dialogue[0].zh:NOT_FOUND",
+          ".sections[67].title_zh:NOT_FOUND",
+          ".sections[68].dialogue[0].zh:DIVERGENT",
+          ".sections[68].title_zh:NOT_FOUND",
+          ".sections[69].dialogue[0].zh:NOT_FOUND",
+          ".sections[69].title_zh:NOT_FOUND",
+          ".sections[6].title_zh:NOT_FOUND",
+          ".sections[70].dialogue[0].zh:NOT_FOUND",
+          ".sections[70].title_zh:NOT_FOUND",
+          ".sections[71].dialogue[0].zh:NOT_FOUND",
+          ".sections[71].title_zh:NOT_FOUND",
+          ".sections[72].dialogue[0].zh:NOT_FOUND",
+          ".sections[72].title_zh:NOT_FOUND",
+          ".sections[73].dialogue[0].zh:NOT_FOUND",
+          ".sections[73].title_zh:NOT_FOUND",
+          ".sections[7].title_zh:NOT_FOUND",
+          ".sections[8].title_zh:NOT_FOUND",
+          ".sections[9].title_zh:NOT_FOUND"
+        ],
+        "flags_only_in_this_run": [],
+        "flag_details_only_in_historical": [
+          {
+            "path": ".sections[0].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.7368,
+            "ref": "T47n1985",
+            "corpus": "滅卻正法眼誰知吾正法眼藏向這瞎驢邊滅卻",
+            "ref_window": "聖便喝師云誰知吾正法眼藏向這瞎驢邊滅卻"
+          },
+          {
+            "path": ".sections[0].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9744,
+            "ref": "T47n1985",
+            "corpus": "師云已後有人問爾向他道甚麼三聖便喝師云誰知吾正法眼藏向這瞎驢邊滅卻言訖端然示寂",
+            "ref_window": "師云已後有人問爾向他道什麼三聖便喝師云誰知吾正法眼藏向這瞎驢邊滅卻言訖端然示寂"
+          },
+          {
+            "path": ".sections[1].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十五大丈夫漢與四賓主",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[2].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十九臨濟四喝",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[3].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨一飯頭二石五",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[4].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨二便打三僧",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[5].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨三普化踏倒飯床",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[6].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨四臨濟小廝兒具一隻眼",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[7].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨五喫生菜作驢鳴",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[8].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨六明頭來明頭打",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[9].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨七賊賊與南泉官馬相踏",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[10].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨八露柱是凡是聖",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[11].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨九糶米與百法座主",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[12].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十道得也三十棒",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[13].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十一成佛作祖去",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[14].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十二露地白牛",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[15].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十三行棒行喝阿那箇親",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[16].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十四渾崙擘不開",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[17].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十五大覺不審",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[18].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十六趙州遇洗脚",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[19].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十七定上座一掌大悟",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[20].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨十八十二面觀音",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[21].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨二十善來惡來",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[22].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨二十一要且無祖師意",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[23].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨二十二黃蘗遣師到徑山",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[24].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "勘辨二十三普化遷化空中鈴響",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[25].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "序一林泉老人從倫序",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[26].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "序二北山居士郭天錫序",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[27].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "序三五峰普秀序",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[28].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂三赤肉團上無位真人",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[29].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂一王常侍請升座",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[30].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂二麻谷曳座問正眼",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[31].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂四兩堂首座同時下喝",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[32].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂五竪拂與黃蘗賜杖",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[33].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂六劍刃上事",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[34].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂七孤峰頂與十字街頭",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[35].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂八途中不離家舍",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[36].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "上堂九三句三玄三要",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[37].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆一四料簡與聽法底人",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[38].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二無事是貴人",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[39].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆三佛法無用功處",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[40].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆四佛魔染淨",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[41].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆五如何是真正見解",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[42].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆六四種無相境",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[43].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.7273,
+            "ref": "T47n1985",
+            "corpus": "示衆七且要自信莫向外覓",
+            "ref_window": "學道人且要自信莫向外覓"
+          },
+          {
+            "path": ".sections[43].dialogue[0].zh",
+            "class": "MINOR",
+            "sim": 0.9975,
+            "ref": "T47n1985",
+            "corpus": "師示眾云如今學道人且要自信莫向外覓總上他閑塵境都不辨邪正秖如有祖有佛皆是教迹中事有人拈起一句子語或隱顯中出便即疑生照天照地傍家尋問也大忙然大丈夫兒莫秖麼論主論賊論是論非論色論財論說閑話過日山僧此間不論僧俗但有來者盡識得伊任伊向甚處出來但有聲",
+            "ref_window": "師示眾云如今學道人且要自信莫向外覓總上他閑塵境都不辨邪正秖如有祖有佛皆是教迹中事有人拈起一句子語或隱顯中出便即疑生照天照地傍家尋問也大忙然大丈夫兒莫秖麼論主論賊論是論非論色論財論說閑話過日山僧此間不論僧俗但有來者盡識得伊任伊向甚處出來但有聲"
+          },
+          {
+            "path": ".sections[44].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆八三眼國土與平常心是道",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[45].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆九心心不異",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[46].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十佛六通不被六塵惑",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[47].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.6667,
+            "ref": "T47n1985",
+            "corpus": "示衆十一真佛無形真法無相",
+            "ref_window": "神通道流真佛無形真法無相"
+          },
+          {
+            "path": ".sections[48].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十二主客機鋒與體究練磨",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[49].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十三逢著便殺",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[50].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十四歇心菩提樹",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[51].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十六辨魔揀異三種根器",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[52].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十七石火電光擬心即差",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[53].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十八剎那遍入唯有空名",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[54].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆十九諸宗匠用處",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[55].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十莫認衣",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[56].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十一三法混融",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[57].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十二真佛真法真道",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[58].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十三西來意",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[58].dialogue[0].zh",
+            "class": "MINOR",
+            "sim": 0.997,
+            "ref": "T47n1985",
+            "corpus": "問如何是西來意師云若有意自救不了云既無意云何二祖得法師云得者是不得云既若不得云何是不得底意師云為爾向一切處馳求心不能歇所以祖師言咄哉丈夫將頭覓頭儞言下便自回光返照更不別求知身心與祖佛不別當下無事方名得法大德山僧今時事不獲已話度說出許多不才淨",
+            "ref_window": "問如何是西來意師云若有意自救不了云既無意云何二祖得法師云得者是不得云既若不得云何是不得底意師云為爾向一切處馳求心不能歇所以祖師言咄哉丈夫將頭覓頭儞言下便自回光返照更不別求知身心與祖佛不別當下無事方名得法大德山僧今時事不獲已話度說出許多不才淨"
+          },
+          {
+            "path": ".sections[59].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十四大通智勝佛",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[60].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十五五無間業",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[61].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十六文殊仗劍鴦掘持刀",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[62].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十七不如無事底阿師",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[63].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆二十八莫因循過日",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[64].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.6154,
+            "ref": "T47n1985",
+            "corpus": "示衆二十九龍象蹴踏非驢所堪",
+            "ref_window": "我我向伊道龍象蹴踏非驢所堪"
+          },
+          {
+            "path": ".sections[65].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "示衆三十說似一物則不中",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[66].title_zh",
+            "class": "DIVERGENT",
+            "sim": 0.8571,
+            "ref": "T47n1985",
+            "corpus": "序四鎮州臨濟慧照禪師語錄序偈",
+            "ref_window": "錄序鎮州臨濟慧照禪師語錄序延"
+          },
+          {
+            "path": ".sections[67].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄一黃檗三度喫棒與大愚肋下三拳",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[67].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.4634,
+            "ref": "T47n1985",
+            "corpus": "師在黃檗會下行純一首座乃問上座在此多少時師云三年首座云曾參問也無師云不曾參問不知問箇甚麼首座云汝何不去問和尚如何是佛法的的大意師便去問問聲未絕黃檗便打如是三度發問三度喫棒師遂告辭首座往參大愚大愚問黃檗有何言句師云三度問佛法的的大意三度喫棒不",
+            "ref_window": "師禮拜退首座先到和尚處云問話底後生甚是如法若來辭時方便接他向後穿鑿成一株大樹與天下人作廕涼去在師去辭黃蘗蘗云不得往別處去汝向高安灘頭大愚處去必為汝說師到大愚大愚問什麼處來師云黃蘗處來大愚云黃蘗有何言句師云某甲三度問佛法的的大意三度被打不知某"
+          },
+          {
+            "path": ".sections[68].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄二栽松於黃檗山中",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[68].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9125,
+            "ref": "T47n1985",
+            "corpus": "師栽松次黃檗問深山裏栽許多作甚麼師云一與山門作境二與後人作標榜道了將鏵頭打地三下黃檗云雖然如是子已喫吾三十棒了也師又以鏵頭打地三下作噓噓聲黃檗云吾宗到汝大興於世",
+            "ref_window": "栽松次黃蘗問深山裏栽許多作什麼師云一與山門作境致二與後人作標榜道了將钁頭打地三下黃蘗云雖然如是子已喫吾三十棒了也師又以钁頭打地三下作噓噓聲黃蘗云吾宗到汝大興於世"
+          },
+          {
+            "path": ".sections[69].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄三鏵地與拄杖",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[69].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.7292,
+            "ref": "T47n1985",
+            "corpus": "師同黃檗普請鏵地次師在後行黃檗回頭見師空手乃問鏵頭在甚處師云有一人將去了也黃檗云近前來共汝商量箇事師便近前黃檗豎起拄杖云只這箇一切人提掇不起師掣手奪來豎起云為什麼卻在某甲手裏黃檗云今日普請便休",
+            "ref_window": "彩一賽一日普請次師在後行黃蘗回頭見師空手乃問钁頭在什麼處師云有一人將去了也黃蘗云近前來共汝商量箇事師便近前黃蘗竪起钁頭云秖這箇天下人拈掇不起師就手掣得竪起云為什麼卻在某甲手裏黃蘗云今日大有人普"
+          },
+          {
+            "path": ".sections[70].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄四參達磨塔頭",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[70].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.8333,
+            "ref": "T47n1985",
+            "corpus": "師到達磨塔頭塔主云長老先禮佛先禮祖師云佛祖俱不禮塔主云長老與佛祖有甚冤讎師便拂袖而出",
+            "ref_window": "師到達磨塔頭塔主云長老先禮佛先禮祖師云佛祖俱不禮塔主云佛祖與長老是什麼冤家師便拂袖而"
+          },
+          {
+            "path": ".sections[71].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄五龍門遇普化",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[71].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "師到龍門普化先在彼中師出禮拜次普化問從長遠來作麼生師便喝普化云老僧被你一喝師云這老賊普化便作驢鳴師便歸方丈",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[72].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄六參象田與講僧",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[72].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "師參象田問不與諸法為侶者是甚麼人象田云待汝一口吸盡西江水即向汝道師於言下有省",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[73].title_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "行錄七師遷化示寂與澄靈塔",
+            "ref_window": ""
+          },
+          {
+            "path": ".sections[73].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.5804,
+            "ref": "T47n1985",
+            "corpus": "師將示寂說傳法偈云沿流不止問如何真照無邊說似他離相離名人不稟吹毛用了急須磨復謂眾云吾滅後不得滅卻吾正法眼藏三聖出云爭敢滅卻和尚正法眼藏師云已後有人問你向他道甚麼三聖便喝師云誰知吾正法眼藏向這瞎驢邊滅卻言訖端然正坐示寂塔名澄靈",
+            "ref_window": "牛云今日不著便溈山問仰山此二尊宿還有勝負也無仰山云勝即總勝負即總負師臨遷化時據坐云吾滅後不得滅卻吾正法眼藏三聖出云爭敢滅卻和尚正法眼藏師云已後有人問爾向他道什麼三聖便喝師云誰知吾正法眼藏向這瞎驢邊滅卻言訖端然示寂師諱義玄曹州"
+          }
+        ],
+        "flag_details_only_in_this_run": [],
+        "status_changed": true,
+        "historical_source_review_status": "partial_or_failed_w1_collation",
+        "corrected_source_review_status": "collated_to_claimed_witness"
+      },
+      {
+        "key": "wumenguan",
+        "historical_summary": {
+          "EXACT": 160,
+          "MINOR": 5,
+          "DIVERGENT": 48,
+          "NOT_FOUND": 15,
+          "SHORT_UNMATCHED": 2
+        },
+        "corrected_summary": {
+          "EXACT": 207
+        },
+        "historical_flagged_entries": 70,
+        "corrected_flagged_entries": 0,
+        "flags_only_in_historical": [
+          ".cases[0].commentary_zh:DIVERGENT",
+          ".cases[10].commentary_zh:MINOR",
+          ".cases[10].dialogue[0].zh:DIVERGENT",
+          ".cases[10].dialogue[1].zh:DIVERGENT",
+          ".cases[11].commentary_zh:DIVERGENT",
+          ".cases[12].dialogue[0].zh:DIVERGENT",
+          ".cases[13].dialogue[0].zh:DIVERGENT",
+          ".cases[13].dialogue[1].zh:DIVERGENT",
+          ".cases[13].title_zh:SHORT_UNMATCHED",
+          ".cases[14].dialogue[0].zh:MINOR",
+          ".cases[15].commentary_zh:MINOR",
+          ".cases[16].commentary_zh:MINOR",
+          ".cases[16].verse_zh:DIVERGENT",
+          ".cases[17].commentary_zh:DIVERGENT",
+          ".cases[18].commentary_zh:DIVERGENT",
+          ".cases[18].dialogue[0].zh:NOT_FOUND",
+          ".cases[18].dialogue[2].zh:NOT_FOUND",
+          ".cases[18].dialogue[3].zh:DIVERGENT",
+          ".cases[19].commentary_zh:DIVERGENT",
+          ".cases[19].dialogue[0].zh:DIVERGENT",
+          ".cases[19].verse_zh:DIVERGENT",
+          ".cases[1].commentary_zh:DIVERGENT",
+          ".cases[1].dialogue[1].zh:DIVERGENT",
+          ".cases[1].dialogue[2].zh:NOT_FOUND",
+          ".cases[20].commentary_zh:DIVERGENT",
+          ".cases[22].commentary_zh:NOT_FOUND",
+          ".cases[22].dialogue[0].zh:DIVERGENT",
+          ".cases[22].dialogue[1].zh:DIVERGENT",
+          ".cases[22].dialogue[2].zh:DIVERGENT",
+          ".cases[22].verse_zh:DIVERGENT",
+          ".cases[24].verse_zh:DIVERGENT",
+          ".cases[26].dialogue[0].zh:DIVERGENT",
+          ".cases[28].commentary_zh:DIVERGENT",
+          ".cases[28].dialogue[0].zh:DIVERGENT",
+          ".cases[28].dialogue[1].zh:DIVERGENT",
+          ".cases[28].verse_zh:NOT_FOUND",
+          ".cases[29].verse_zh:DIVERGENT",
+          ".cases[2].commentary_zh:DIVERGENT",
+          ".cases[2].dialogue[0].zh:DIVERGENT",
+          ".cases[2].dialogue[1].zh:DIVERGENT",
+          ".cases[2].title_zh:SHORT_UNMATCHED",
+          ".cases[2].verse_zh:NOT_FOUND",
+          ".cases[31].dialogue[0].zh:DIVERGENT",
+          ".cases[31].dialogue[1].zh:DIVERGENT",
+          ".cases[32].verse_zh:DIVERGENT",
+          ".cases[34].commentary_zh:DIVERGENT",
+          ".cases[36].verse_zh:NOT_FOUND",
+          ".cases[39].commentary_zh:DIVERGENT",
+          ".cases[39].dialogue[1].zh:DIVERGENT",
+          ".cases[39].verse_zh:DIVERGENT",
+          ".cases[3].commentary_zh:NOT_FOUND",
+          ".cases[3].dialogue[0].zh:NOT_FOUND",
+          ".cases[3].verse_zh:NOT_FOUND",
+          ".cases[41].dialogue[1].zh:MINOR",
+          ".cases[43].verse_zh:DIVERGENT",
+          ".cases[45].verse_zh:DIVERGENT",
+          ".cases[46].commentary_zh:DIVERGENT",
+          ".cases[46].verse_zh:DIVERGENT",
+          ".cases[47].commentary_zh:DIVERGENT",
+          ".cases[47].dialogue[1].zh:DIVERGENT",
+          ".cases[4].commentary_zh:DIVERGENT",
+          ".cases[4].dialogue[0].zh:NOT_FOUND",
+          ".cases[4].verse_zh:DIVERGENT",
+          ".cases[5].commentary_zh:DIVERGENT",
+          ".cases[5].dialogue[0].zh:NOT_FOUND",
+          ".cases[5].verse_zh:NOT_FOUND",
+          ".cases[6].dialogue[0].zh:DIVERGENT",
+          ".cases[9].verse_zh:DIVERGENT",
+          ".epilogue.zh:NOT_FOUND",
+          ".preface.zh:NOT_FOUND"
+        ],
+        "flags_only_in_this_run": [],
+        "flag_details_only_in_historical": [
+          {
+            "path": ".preface.zh",
+            "class": "NOT_FOUND",
+            "sim": 0.6207,
+            "ref": "T48n2005",
+            "corpus": "佛語心為宗無門為法門關既無門趣向如何豈不見道從門入者不是家珍從緣得者始終成壞若作恁麼商量正如以拳指空畫地做餅何所求哉",
+            "ref_window": "佛語心為宗無門為法門既是無門且作麼生透豈不見道從門入者不是家珍從緣得者始終成壞恁麼說話大似無風起浪好肉剜瘡何況滯言句"
+          },
+          {
+            "path": ".epilogue.zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "大路坦然何用更通從此門入者行步闊遠坐斷十方頂門具眼腳踏乾坤從來無門關祖關在目前踏破無門路十方是我家",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[0].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9677,
+            "ref": "T48n2005",
+            "corpus": "無門曰參禪須透祖師關妙悟要窮心路絕祖關不透心路不絕盡是依草附木精靈且道如何是祖師關只這一個無字乃宗門一關也遂目之曰禪宗無門關",
+            "ref_window": "無門曰參禪須透祖師關妙悟要窮心路絕祖關不透心路不絕盡是依草附木精靈且道如何是祖師關只者一箇無字乃宗門一關也遂目之曰禪宗無門關"
+          },
+          {
+            "path": ".cases[1].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9492,
+            "ref": "T48n2005",
+            "corpus": "老人曰某非人也於過去迦葉佛時曾住此山因學人問大修行底人還落因果也無某對云不落因果五百生墮野狐身今請和尚代一轉語貴脫野狐",
+            "ref_window": "諾某甲非人也於過去迦葉佛時曾住此山因學人問大修行底人還落因果也無某甲對云不落因果五百生墮野狐身今請和尚代一轉語貴脫野狐"
+          },
+          {
+            "path": ".cases[1].dialogue[2].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.7742,
+            "ref": "T48n2005",
+            "corpus": "師曰汝問老人曰大修行底人還落因果也無師曰不昧因果老人於言下大悟",
+            "ref_window": "語貴脫野狐遂問大修行底人還落因果也無師云不昧因果老人於言下大悟"
+          },
+          {
+            "path": ".cases[1].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9111,
+            "ref": "T48n2005",
+            "corpus": "無門曰不落因果為甚墮野狐不昧因果為甚脫野狐若向者裏著得一隻眼便知得前百丈贏得五百生風流趣向",
+            "ref_window": "無門曰不落因果為甚墮野狐不昧因果為甚脫野狐若向者裏著得一隻眼便知得前百丈贏得風流五百生頌曰"
+          },
+          {
+            "path": ".cases[2].title_zh",
+            "class": "SHORT_UNMATCHED",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "俱胝一指",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[2].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9091,
+            "ref": "T48n2005",
+            "corpus": "俱胝和尚凡有詰問唯舉一指後有童子因外人問和尚說何法要童子亦豎指示之",
+            "ref_window": "俱胝和尚凡有詰問唯舉一指後有童子因外人問和尚說何法要童子亦竪指頭胝"
+          },
+          {
+            "path": ".cases[2].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9167,
+            "ref": "T48n2005",
+            "corpus": "胝聞遂以刃潛剪其指童子負痛號哭而去胝復召之童子迴首胝卻豎起指童子忽然領悟",
+            "ref_window": "頭胝聞遂以刃斷其指童子負痛號哭而去胝復召之童子迴首胝卻竪起指童子忽然領悟"
+          },
+          {
+            "path": ".cases[2].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.8824,
+            "ref": "T48n2005",
+            "corpus": "無門曰俱胝并童子悟處不在指頭上若向者裏覷得透俱胝并童子與自己一串穿卻",
+            "ref_window": "無門曰俱胝并童子悟處不在指頭上若向者裏見得天龍同俱胝并童子與自己一串"
+          },
+          {
+            "path": ".cases[2].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "俱胝鈍置黠童兒剪刀截破大荒崖巨靈抬手無多子擘破華嶽千萬重",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[3].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "或庵曰西天鬍子因甚麼卻無鬚",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[3].commentary_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.8,
+            "ref": "T48n2005",
+            "corpus": "無門曰為參須實參要悟須實悟這箇梵僧直須親見始得說親見早成兩個",
+            "ref_window": "無門曰參須實參悟須實悟者箇胡子直須親見一回始得說親見早成兩箇"
+          },
+          {
+            "path": ".cases[3].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "莫向癡人前說夢鬍子無鬚惺惺添懵",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[4].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.7679,
+            "ref": "T48n2005",
+            "corpus": "香嚴和尚云如人上樹口銜樹枝腳不踏枝手不攀條忽有人問如何是祖師西來意若不對即違他所問若對又喪身失命正恁麼時作麼生對",
+            "ref_window": "上樹香嚴上樹香嚴和尚云如人上樹口樹枝手不攀枝脚不踏樹樹下有人問西來意不對即違他所問若對又喪身失命正恁麼時作麼生對"
+          },
+          {
+            "path": ".cases[4].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9048,
+            "ref": "T48n2005",
+            "corpus": "無門曰縱有懸河之辨盡用不著算得一大藏教亦用不著若向者裏對得去活卻從前死路死卻從前活路",
+            "ref_window": "無門曰縱有懸河之辨總用不著說得一大藏教亦用不著若向者裏對得著活卻從前死路頭死卻從前活"
+          },
+          {
+            "path": ".cases[4].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9,
+            "ref": "T48n2005",
+            "corpus": "香嚴真杜撰惡毒無盡限啞卻衲僧口鶻臭通身眼",
+            "ref_window": "香嚴真杜撰惡毒無盡限啞卻衲僧口通身迸鬼眼"
+          },
+          {
+            "path": ".cases[5].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.76,
+            "ref": "T48n2005",
+            "corpus": "世尊在靈山會上拈花示眾是時大眾皆罔措唯迦葉破顏微笑",
+            "ref_window": "尊昔在靈山會上拈花示眾是時眾皆默然惟迦葉尊者破顏微"
+          },
+          {
+            "path": ".cases[5].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9767,
+            "ref": "T48n2005",
+            "corpus": "無門曰黃面瞿曇旁若無人壓良為賤懸羊頭賣狗肉將謂多少奇特只如當時大眾都笑正法眼藏作麼生傳",
+            "ref_window": "無門曰黃面瞿曇傍若無人壓良為賤懸羊頭賣狗肉將謂多少奇特只如當時大眾都笑正法眼藏作麼生傳"
+          },
+          {
+            "path": ".cases[5].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.625,
+            "ref": "T48n2005",
+            "corpus": "拈起花來尾巴已露天真地秀迦葉無處",
+            "ref_window": "拈起花來尾巴已露迦葉破顏人天罔措"
+          },
+          {
+            "path": ".cases[6].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8667,
+            "ref": "T48n2005",
+            "corpus": "趙州因僧問學人乍入叢林乞師指示",
+            "ref_window": "趙州因僧問某甲乍入叢林乞師指示"
+          },
+          {
+            "path": ".cases[9].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9375,
+            "ref": "T48n2005",
+            "corpus": "貧似范丹氣如項羽活計雖無敢與鬥富",
+            "ref_window": "貧似范丹氣如項羽活計雖無敢與鬪富"
+          },
+          {
+            "path": ".cases[10].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9643,
+            "ref": "T48n2005",
+            "corpus": "趙州到一庵主處問有麼有麼主豎起拳頭州云水淺不是泊舡處便行",
+            "ref_window": "趙州到一庵主處問有麼有麼主竪起拳頭州云水淺不是泊舡處便行"
+          },
+          {
+            "path": ".cases[10].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9667,
+            "ref": "T48n2005",
+            "corpus": "又到一庵主處云有麼有麼主亦豎起拳頭州云能縱能奪能殺能活便作禮",
+            "ref_window": "又到一庵主處云有麼有麼主亦竪起拳頭州云能縱能奪能殺能活便作禮"
+          },
+          {
+            "path": ".cases[10].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9885,
+            "ref": "T48n2005",
+            "corpus": "一般豎起拳頭為甚麼肯一箇不肯一箇且道誵訛在甚處若向者裏下得一轉語便見趙州舌頭無骨扶起放倒得大自在雖然如是爭奈趙州卻被二庵主勘破若道二庵主有優劣未具參學眼若道無優劣亦未具參學眼",
+            "ref_window": "一般竪起拳頭為甚麼肯一箇不肯一箇且道誵訛在甚處若向者裏下得一轉語便見趙州舌頭無骨扶起放倒得大自在雖然如是爭奈趙州卻被二庵主勘破若道二庵主有優劣未具參學眼若道無優劣亦未具參學眼"
+          },
+          {
+            "path": ".cases[11].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9643,
+            "ref": "T48n2005",
+            "corpus": "瑞巖老子自買自賣弄出許多神頭鬼面何故聾一箇喚底一箇應底一箇惺惺底一箇不受人瞞底認著依前還不是若也傚他總是野狐見解",
+            "ref_window": "曰瑞巖老子自買自賣弄出許多神頭鬼面何故一箇喚底一箇應底一箇惺惺底一箇不受人瞞底認著依前還不是若也俲他總是野狐見解"
+          },
+          {
+            "path": ".cases[12].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9697,
+            "ref": "T48n2005",
+            "corpus": "德山一日托鉢下堂見雪峰峰問者老漢鐘未鳴鼓未響托鉢向甚處去山便回方丈",
+            "ref_window": "鉢德山一日托鉢下堂見雪峰問者老漢鐘未鳴鼓未響托鉢向甚處去山便回方丈"
+          },
+          {
+            "path": ".cases[13].title_zh",
+            "class": "SHORT_UNMATCHED",
+            "sim": 0.375,
+            "ref": "T48n2005",
+            "corpus": "南泉斬貓",
+            "ref_window": "德山托鉢南泉斬猫洞山三頓"
+          },
+          {
+            "path": ".cases[13].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9459,
+            "ref": "T48n2005",
+            "corpus": "南泉和尚因東西兩堂爭貓兒泉乃提起云大眾道得即救道不得即斬卻也眾無對泉遂斬之",
+            "ref_window": "猫南泉和尚因東西堂爭猫兒泉乃提起云大眾道得即救道不得即斬卻也眾無對泉遂斬之"
+          },
+          {
+            "path": ".cases[13].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9643,
+            "ref": "T48n2005",
+            "corpus": "晚趙州外歸泉舉似州州乃脫履安頭上而出泉云子若在即救得貓兒",
+            "ref_window": "晚趙州外歸泉舉似州州乃脫履安頭上而出泉云子若在即救得猫兒"
+          },
+          {
+            "path": ".cases[14].dialogue[0].zh",
+            "class": "MINOR",
+            "sim": 0.98,
+            "ref": "T48n2005",
+            "corpus": "雲門因洞山參次門問曰近離甚處山云查渡門曰夏在甚處山云湖南報慈門曰幾時離彼山云八月二十五門曰放汝三頓棒",
+            "ref_window": "雲門因洞山參次門問曰近離甚處山云査渡門曰夏在甚處山云湖南報慈門曰幾時離彼山云八月二十五門曰放汝三頓棒"
+          },
+          {
+            "path": ".cases[15].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9881,
+            "ref": "T48n2005",
+            "corpus": "大凡參禪學道切忌隨聲逐色縱使聞聲悟道見色明心也是尋常殊不知衲僧家騎聲蓋色頭頭上明著著上妙然雖如是且道聲來耳畔耳往聲邊直饒響寂雙忘到此如何話會若將耳聽應難會眼處聞聲方始親",
+            "ref_window": "大凡參禪學道切忌隨聲逐色縱使聞聲悟道見色明心也是尋常殊不知衲僧家騎聲蓋色頭頭上明著著上妙然雖如是且道聲來耳畔耳往聲邊直饒響寂双忘到此如何話會若將耳聽應難會眼處聞聲方始親"
+          },
+          {
+            "path": ".cases[16].commentary_zh",
+            "class": "MINOR",
+            "sim": 0.9831,
+            "ref": "T48n2005",
+            "corpus": "國師三喚舌頭墮地侍者三應和光吐出國師年老心孤按牛頭喫草侍者未肯承當美食不中飽人餐且道那裏是他辜負處國清才子貴家富小兒嬌",
+            "ref_window": "國師三喚舌頭墮地侍者三應和光吐出國師年老心孤按牛頭喫草侍者未肯承當美食不中飽人飡且道那裏是他辜負處國清才子貴家富小兒嬌"
+          },
+          {
+            "path": ".cases[16].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9286,
+            "ref": "T48n2005",
+            "corpus": "鐵枷無孔要人擔累及兒孫不等閑欲得撐門并拄戶更須赤腳上刀山",
+            "ref_window": "鐵枷無孔要人擔累及兒孫不等閑欲得撑門并拄戶更須赤脚上刀山"
+          },
+          {
+            "path": ".cases[17].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9667,
+            "ref": "T48n2005",
+            "corpus": "洞山老人參得些蚌蛤禪纔開兩片露出肝腸然雖如是且道向甚處見洞山",
+            "ref_window": "洞山老人參得些蚌蛤禪纔開兩片露出肝膓然雖如是且道向甚處見洞山"
+          },
+          {
+            "path": ".cases[18].dialogue[0].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "趙州問南泉如何是道",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[18].dialogue[2].zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "州云還可趣向也無泉云擬向即乖",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[18].dialogue[3].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9333,
+            "ref": "T48n2005",
+            "corpus": "泉云道不屬知不屬不知知是妄覺不知是無記若真達不疑之道如太虛廓然豁達豈可強是非也州於言下頓悟",
+            "ref_window": "泉云道不屬知不屬不知知是妄覺不知是無記若真達不擬之道猶如太虛廓然洞豁豈可強是非也州於言下頓"
+          },
+          {
+            "path": ".cases[18].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9688,
+            "ref": "T48n2005",
+            "corpus": "無門曰南泉被趙州發問直得瓦解冰消分疏不下趙州縱悟去更參三十年始得",
+            "ref_window": "無門曰南泉被趙州發問直得瓦解冰消分疏不下趙州縱饒悟去更參三十年始"
+          },
+          {
+            "path": ".cases[19].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9167,
+            "ref": "T48n2005",
+            "corpus": "松源和尚云大力量人因甚抬腳不起又云開口不在舌頭上",
+            "ref_window": "松源和尚云大力量人因甚擡脚不起又云開口不在舌頭上"
+          },
+          {
+            "path": ".cases[19].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.925,
+            "ref": "T48n2005",
+            "corpus": "松源可謂傾腸倒腹只是欠人承當縱饒直下承當正好來無門處喫痛棒何故聾聻要識真金火裏看",
+            "ref_window": "松源可謂傾膓倒腹只是欠人承當縱饒直下承當正好來無門處喫痛棒何故要識真金火裏看頌曰"
+          },
+          {
+            "path": ".cases[19].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.88,
+            "ref": "T48n2005",
+            "corpus": "抬腳踏翻香水海低頭俯視四禪天一箇渾身無處著請續一向",
+            "ref_window": "擡脚踏翻香水海低頭俯視四禪天一箇渾身無處著請續一句"
+          },
+          {
+            "path": ".cases[20].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9688,
+            "ref": "T48n2005",
+            "corpus": "雲門可謂家貧難辨素食事忙不及草書動便將屎橛來撐門拄戶佛法興衰可見",
+            "ref_window": "雲門可謂家貧難辨素食事忙不及草書動便將屎橛來撑門拄戶佛法興衰可見"
+          },
+          {
+            "path": ".cases[22].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8571,
+            "ref": "T48n2005",
+            "corpus": "六祖因明上座趁逐及大庾嶺祖見明走來遂擲衣鉢於石上云此衣表信可力爭耶任汝將去明遂舉之如山不動踟躕悚慄",
+            "ref_window": "善惡六祖因明上座趁至大庾嶺祖見明至即擲衣鉢於石上云此衣表信可力爭耶任君將去明遂舉之如山不動踟蹰悚慄"
+          },
+          {
+            "path": ".cases[22].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9333,
+            "ref": "T48n2005",
+            "corpus": "明云我來求法非為衣也願行者開示",
+            "ref_window": "明曰我來求法非為衣也願行者開示"
+          },
+          {
+            "path": ".cases[22].dialogue[2].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9677,
+            "ref": "T48n2005",
+            "corpus": "祖云不思善不思惡正與麼時那個是明上座本來面目明當下大悟遍體汗流",
+            "ref_window": "祖云不思善不思惡正與麼時那箇是明上座本來面目明當下大悟遍體汗流"
+          },
+          {
+            "path": ".cases[22].commentary_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.48,
+            "ref": "T48n2005",
+            "corpus": "無門曰六祖可謂是關門老婆心如擘栗蓬擘出栗肉分付與汝",
+            "ref_window": "無門曰六祖可謂是事出急家老婆心切譬如新荔支剝了殼去"
+          },
+          {
+            "path": ".cases[22].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.8929,
+            "ref": "T48n2005",
+            "corpus": "描不成兮畫不就讚不及兮休呫囁本來面目沒處藏世界壞時渠不朽",
+            "ref_window": "描不成兮畫不就贊不及兮休生受本來面目沒處藏世界壞時渠不朽"
+          },
+          {
+            "path": ".cases[24].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.875,
+            "ref": "T48n2005",
+            "corpus": "白日青天夢中說夢捏怪捏怪誑謼一眾",
+            "ref_window": "白日青天夢中說夢揑怪揑怪誑謼一眾"
+          },
+          {
+            "path": ".cases[26].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9286,
+            "ref": "T48n2005",
+            "corpus": "僧問還有不與人說底法麼泉云有",
+            "ref_window": "問云還有不與人說底法麼泉云有"
+          },
+          {
+            "path": ".cases[28].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.8929,
+            "ref": "T48n2005",
+            "corpus": "六祖因風颭剎幡有二僧對論一云幡動一云風動往復酬答曾未契理",
+            "ref_window": "六祖因風颺剎幡有二僧對論一云幡動一云風動往復曾未契理祖云"
+          },
+          {
+            "path": ".cases[28].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9444,
+            "ref": "T48n2005",
+            "corpus": "祖云不是風動不是幡動仁者心動二僧竦然",
+            "ref_window": "祖云不是風動不是幡動仁者心動二僧悚然"
+          },
+          {
+            "path": ".cases[28].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9524,
+            "ref": "T48n2005",
+            "corpus": "無門曰不是風動不是幡動不是心動甚處見祖師若向者裏見得親切方知二僧買金得鐵祖師忍俊不禁",
+            "ref_window": "無門曰不是風動不是幡動不是心動甚處見祖師若向者裏見得親切方知二僧買鐵得金祖師忍俊不禁"
+          },
+          {
+            "path": ".cases[28].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.0,
+            "ref": null,
+            "corpus": "風動幡動心動說得入理深妙只知開口見膽不知話墮也無",
+            "ref_window": ""
+          },
+          {
+            "path": ".cases[29].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9375,
+            "ref": "T48n2005",
+            "corpus": "青天白日切忌尋覓更問如何抱贓叫屈",
+            "ref_window": "青天白日切忌尋覓更問如何抱贜叫屈"
+          },
+          {
+            "path": ".cases[31].dialogue[0].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9762,
+            "ref": "T48n2005",
+            "corpus": "世尊因外道問不問有言不問無言世尊據座外道讚嘆云世尊大慈大悲開我迷雲令我得入乃具禮而去",
+            "ref_window": "世尊因外道問不問有言不問無言世尊據座外道贊嘆云世尊大慈大悲開我迷雲令我得入乃具禮而去"
+          },
+          {
+            "path": ".cases[31].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.963,
+            "ref": "T48n2005",
+            "corpus": "阿難尋問佛外道有何所證讚嘆而去世尊云如世良馬見鞭影而行",
+            "ref_window": "阿難尋問佛外道有何所證贊嘆而去世尊云如世良馬見鞭影而行"
+          },
+          {
+            "path": ".cases[32].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9583,
+            "ref": "T48n2005",
+            "corpus": "路逢劍客須呈不遇詩人莫獻逢人且說三分未可全施一片",
+            "ref_window": "路逢劍客須呈不遇詩人莫献逢人且說三分未可全施一片"
+          },
+          {
+            "path": ".cases[34].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9592,
+            "ref": "T48n2005",
+            "corpus": "若向者裏悟得真底便知出殼入殼如宿旅舍其或未然切莫亂走驀然地水火風一散如落湯螃蟹七手八腳那時莫言不道",
+            "ref_window": "若向者裏悟得真底便知出殼入殼如宿旅舍其或未然切莫亂走驀然地水火風一散如落湯螃蠏七手八脚那時莫言不道"
+          },
+          {
+            "path": ".cases[36].verse_zh",
+            "class": "NOT_FOUND",
+            "sim": 0.6875,
+            "ref": "T48n2005",
+            "corpus": "言不指事言不干機承言者喪滯句者迷",
+            "ref_window": "言無展事語不投機承言者喪滯句者迷"
+          },
+          {
+            "path": ".cases[39].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9444,
+            "ref": "T48n2005",
+            "corpus": "百丈笑云第一座輸卻山子也因命之為開山",
+            "ref_window": "百丈笑云第一座輪卻山子也因命之為開山"
+          },
+          {
+            "path": ".cases[39].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9429,
+            "ref": "T48n2005",
+            "corpus": "溈山一期之勇爭奈跳百丈圈圚不出撿點將來便重不便輕何故聾脫得盤頭擔起鐵枷",
+            "ref_window": "溈山一期之勇爭奈跳百丈圈圚不出檢點將來便重不便輕何故脫得盤頭擔起鐵枷頌"
+          },
+          {
+            "path": ".cases[39].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9286,
+            "ref": "T48n2005",
+            "corpus": "颺下箍籬并木杓當陽一突絕周遮百丈重關攔不住腳尖趯出佛如麻",
+            "ref_window": "颺下笟籬并木杓當陽一突絕周遮百丈重關攔不住脚尖趯出佛如麻"
+          },
+          {
+            "path": ".cases[41].dialogue[1].zh",
+            "class": "MINOR",
+            "sim": 0.9867,
+            "ref": "T48n2005",
+            "corpus": "世尊云假使百千文殊亦出此女人定不得下方過一十二億河沙國土有罔明菩薩能出此女人定須臾罔明大士從地湧出禮拜世尊世尊敕罔明卻至女人前鳴指一下女人於是從定而出",
+            "ref_window": "世尊云假使百千文殊亦出此女人定不得下方過一十二億河沙國土有罔明菩薩能出此女人定須臾罔明大士從地湧出禮拜世尊世尊勅罔明卻至女人前鳴指一下女人於是從定而出"
+          },
+          {
+            "path": ".cases[43].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.95,
+            "ref": "T48n2005",
+            "corpus": "諸方深與淺都在掌握中撐天并拄地隨處振宗風",
+            "ref_window": "諸方深與淺都在掌握中撑天并拄地隨處振宗風"
+          },
+          {
+            "path": ".cases[45].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.95,
+            "ref": "T48n2005",
+            "corpus": "瞎卻頂門眼錯認定盤星拚身能捨命一盲引眾盲",
+            "ref_window": "瞎卻頂門眼錯認定盤星身能捨命一盲引眾盲兜"
+          },
+          {
+            "path": ".cases[46].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9355,
+            "ref": "T48n2005",
+            "corpus": "若能下得此三轉語便可以隨處作主遇緣即宗其或未然麤餐易飽細嚼難飢",
+            "ref_window": "若能下得此三轉語便可以隨處作主遇緣即宗其或未然粗飡易飽細嚼難飢"
+          },
+          {
+            "path": ".cases[46].verse_zh",
+            "class": "DIVERGENT",
+            "sim": 0.8929,
+            "ref": "T48n2005",
+            "corpus": "一念普觀無量劫無量劫事即如今如今覷破箇一念覷破如今覷底人",
+            "ref_window": "一念普觀無量劫無量劫事即如今如今覻破箇一念覻破如今覻底人"
+          },
+          {
+            "path": ".cases[47].dialogue[1].zh",
+            "class": "DIVERGENT",
+            "sim": 0.9737,
+            "ref": "T48n2005",
+            "corpus": "後僧請益雲門門拈起扇子云扇子勃跳上三十三天築著帝釋鼻孔東海鯉魚打一棒雨似盆傾",
+            "ref_window": "裏後僧請益雲門門拈起扇子云扇子跳上三十三天築著帝釋鼻孔東海鯉魚打一棒雨似盆傾"
+          },
+          {
+            "path": ".cases[47].commentary_zh",
+            "class": "DIVERGENT",
+            "sim": 0.9697,
+            "ref": "T48n2005",
+            "corpus": "一人向深深海底行簸土揚塵一人於高高山頂立白浪滔天把定放行各出一隻手扶豎宗乘大似兩箇馳子相撞著世上應無直底人正眼觀來二大老總未識路頭在",
+            "ref_window": "一人向深深海底行簸土揚塵一人於高高山頂立白浪滔天把定放行各出一隻手扶竪宗乘大似兩箇駞子相撞著世上應無直底人正眼觀來二大老總未識路頭在"
+          }
+        ],
+        "flag_details_only_in_this_run": [],
+        "status_changed": true,
+        "historical_source_review_status": "partial_or_failed_w1_collation",
+        "corrected_source_review_status": "collated_to_claimed_witness"
+      }
+    ],
+    "operator_notes": [
+      "2026-09-22 P1 Biyanlu re-key: 100 cases from pinned T48n2003 verbatim tiling, 400/400 content fields EXACT, 86 metadata flagged, 13 collated 2 partial 2 unavailable, 23 verified works union of 17 active items witnesses+probes, 43-work task-056 set re-verifies 43/0 drift, historical 2026-09-09 anchor 21 verified 2 drift (T48n2004, X68n1315 same as previous overlay). Active flagged 127."
+    ],
+    "notes": [
+      "Field classes are computed from the reference text plus the harness variant map; a difference can come from the reference layer or from harness normalization, and each one is listed above rather than folded into a total."
+    ],
+    "historical_report_flagged_total": 637,
+    "historical_report_flagged_reproduced": false,
+    "historical_report_flagged_status": "superseded: the earlier report claimed 637 flagged entries, its own committed register sums to 323, and this run sums to 127"
+  },
+  "aggregate": {
+    "documents": 17,
+    "flagged_entries": 127,
+    "fields_total": 9471,
+    "content_fields_total": 5134,
+    "content_fields_collated": 5109,
+    "metadata_fields_total": 4337,
+    "class_totals": {
+      "EXACT": 9344,
+      "NOT_FOUND": 32,
+      "SHORT_UNMATCHED": 74,
+      "TITLE_COMPOSITE": 7,
+      "WITNESS_UNAVAILABLE": 14
+    },
+    "source_review_status_counts": {
+      "collated_to_claimed_witness": 13,
+      "partial_or_failed_w1_collation": 2,
+      "witness_unavailable": 2
+    },
+    "documents_without_evidence": [],
+    "documents_with_drifted_references": [
+      "congronglu",
+      "zhaozhou_yulu_full"
+    ]
+  }
+}
