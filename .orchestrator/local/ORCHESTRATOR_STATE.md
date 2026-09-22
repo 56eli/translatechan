@@ -73,7 +73,7 @@ itself for an agent.
 |---|---|---|---|---|---|
 | 042–060 | `.orchestrator/prompts/` on `main` | Predecessor's series (P0 integrity → P3 lineage expansion) | various | #29–#113 | Historical — inherited, not re-dispatched |
 | 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main` (VOID) | fix/p0-regreen-main-17-docs | #115 | **SUPERSEDED — P0 defect.** Self-performed and self-opened by the orchestrator; unlawful channel per owner ruling 2026-09-22. Prompt file bannered `SUPERSEDED — DO NOT RUN`. PR #115 and its branch are out of bounds — never touched again. |
-| 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise was stale on arrival: #114 merged 21:17:07Z, task 062 published ~21:21Z. Correct behaviour, no defect. |
+| 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise stale on arrival: #114 merged 21:17:07Z, 062 published ~21:21Z. Correct behaviour, no defect. |
 | 063 | (to author) | Residual gate-hardening from the #114 delta | — | — | Pending — next. Four residuals, see Task Queue. |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
@@ -88,28 +88,27 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
       the source-preservation step; owner merged deliberately to hand a fresh orchestrator a
       "good enough" tree)
 - [x] **`main` IS GREEN** — PR #114 (`arena/01a0cabb-translatechan`) merged 2026-09-22T21:17:07Z as
-      `21f0ba7`. Independently verified by me on a fresh clone of the merged tip: 7/7 gates,
-      **145** rule checks, deterministic bundle `b68eb436…cbdba7` (8,143,493 B) twice, `git diff
-      da72249 21f0ba7 -- data/corpus/` **empty** (no corpus byte changed; the bundle hash moved only
-      because `correction_report_path` was repointed at the new digests file).
+      `21f0ba7`. Independently verified on a fresh clone of the merged tip: 7/7 gates, **145** rule
+      checks, deterministic bundle `b68eb436…cbdba7` (8,143,493 B) twice, and
+      `git diff da72249 21f0ba7 -- data/corpus/` **empty** — no corpus byte changed; the bundle hash
+      moved only because `correction_report_path` was repointed at the new digests file.
 - [ ] ~~061~~ VOID — unlawful channel (P0). Superseded by 062.
 - [x] 062: CLOSED — halted correctly on its own §1 stale-premise condition. No changes, no PR.
 - [ ] 063: Residual gate-hardening (next task). Four deltas between what #114 shipped and what the
-      analysis called for — all verified by me on `21f0ba7`, none are gate failures today:
-      1. **Pin 9 fixture is fragile (the substantive one).** The unrecorded-option test now pins the
+      analysis called for — all verified by me on `21f0ba7`, none a gate failure today:
+      1. **Pin 9 fixture is fragile (the substantive one).** The unrecorded-option test pins the
          *superseded* `..._P2_TIER2_BATCH1.json` as a fixture because it happens not to record
-         `doc`. That works today but re-borrows a premise instead of constructing one — the test
-         silently stops discriminating the day that frozen file is touched or replaced, and there
-         is no assertion that the live register *does* record `doc`. Sandbox-strip the live register
-         instead. This is the 145th vs 146th check.
+         `doc`. Works today, but re-borrows a premise instead of constructing one: it silently stops
+         discriminating the day that frozen file is touched, and nothing asserts the live register
+         *does* record `doc`. Sandbox-strip the live register instead. This is the 145th vs 146th check.
       2. Tracker (a): §2 Source-preservation bullet still cites stale base `3cc7a8e9681e`; the real
          `BASE_COMMIT` is `f1207eaf461889d8819a9287904bdfaf354a3018`. §3 states it correctly, so the
-         tracker contradicts itself.
+         tracker now contradicts itself.
       3. Tracker (c): `Branch protection on main unconfirmed (403)` still at line 80 — measured
-         false. `main` has no protection at all (`protected: false`, `enforcement_level: "off"`,
+         false. `main` has no protection (`protected: false`, `enforcement_level: "off"`,
          `rulesets: []`).
-      4. Pin 7 forged aggregates are 5133/4336 (measured−1) rather than 4987/4285. Same fail-closed
-         effect by a different derivation — cosmetic, record only, no action needed.
+      4. Pin 7 forged aggregates are 5133/4336 (measured−1) not 4987/4285 — same fail-closed effect,
+         different derivation. Cosmetic; record only.
 - [ ] 062: Tier2 yulu lane (now the Immediate Next Task in the canonical tracker) — Guiyang (0/6 verbatim) + Fayan (1/11) currently R-B labels only; R-A
       re-key where a carrier exists. Blocked on 061.
 - [ ] 063: Materialize `orchestrator/ORCHESTRATOR CORE v4.9.0 — GENERAL PURPOSE.md` + sha256 anchor
@@ -131,7 +130,7 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
 | PR | Task | Verdict | Basis |
 |---|---|---|---|
 | #113 | 057 P1 Biyanlu re-key | **Merged-before-reviewed** — content sound, delivery defective | Ran the merged-before-review branch (v4.9.0 Phase 4). Health: 3 of 7 gates red on `main`. Content: the re-key itself is correct — 100 cases from pinned T48n2003, 400/400 EXACT, bundle deterministic. Defect was omitted gate re-pins + a missing "Committed digests" section, scoped as follow-up task 061 rather than a re-merge. |
-| #114 | (undispatched by me) | **MERGE — retrospective health check PASSED** | Merged before I saw it, so ran the merged-before-reviewed branch (v4.9.0 Phase 4), health first. Fresh clone of `21f0ba7`: 7/7 gates, 145 checks, determinism `b68eb436…cbdba7` twice. Frozen-surface compare vs `da72249`: `data/corpus/` byte-identical, only 2 manifest/metrics pointer lines changed. Content: repair is sound and weakens no assertion. Four residuals scoped as task 063, never as a re-merge. |
+| #114 | (undispatched by me) | **MERGE — retrospective health check PASSED** | Merged before I saw it, so ran the merged-before-reviewed branch (v4.9.0 Phase 4), health first. Fresh clone of `21f0ba7`: 7/7 gates, 145 checks, determinism `b68eb436…cbdba7` twice. Frozen-surface compare vs `da72249`: `data/corpus/` byte-identical, only 2 manifest/metrics pointer lines changed. Content sound, no assertion weakened. Four residuals scoped as task 063, never as a re-merge. |
 | #115 | 061 (VOID) | **WITHDRAWN — no verdict stands** | Owner ruled the PR unlawfully authored (P0). A verdict on a PR I authored was never mine to issue. Untouchable: no merge, no close, no comment, no further reference. |
 
 ## Deferred / Technical Debt
@@ -220,7 +219,7 @@ Before publishing ANY task prompt, in this order:
 | 2026-09-22 | 113 | Repository | PR adding the 17th corpus document did not re-pin the three checkers carrying 16-doc counts and the authoritative register path; `main` merged red | `main` RED at handoff, 30 rule failures + preservation + smoke | Hardening candidate | Task 061 fixes it and lands the rule in `docs/PROJECT_STATE.md` §3: any PR changing document count / complete set / authoritative register re-pins all three checkers in the same PR |
 | 2026-09-22 | 113 | Repository | `DECLARED_NEW_CORPUS` mechanism existed and was the owner's chosen policy, but `biyanlu_cases.json` was never registered in it | preservation gate red; looked like a policy gap, was an omission | Scoped | Inlined as a Confirmed Fact in 061 §4 so the next worker does not re-litigate the policy |
 | 2026-09-22 | 057 | Prompt | Predecessor pinned a task base to a fixed SHA that `main` had already moved past | blocked ~10 min, forced a rebase | Hardening candidate | Adopted: prompts pin "current `main`" and state the measured document count, never a frozen SHA |
-| 2026-09-22 | 062 | Prompt | Task premise ("`main` is RED at `da72249`") was stale on arrival — PR #114 merged the same repair ~4 min before the prompt was published | Blocked the whole task by design; agent halted per §1, zero wasted commits | Hardening candidate — **adopted** | Re-measure `main` HEAD immediately before publishing any prompt, and record the tip SHA the prompt was cut against in §4 so a stale premise is detectable with one `git merge-base`. Adopted into my publish procedure below. |
+| 2026-09-22 | 062 | Prompt | Task premise ("`main` is RED at `da72249`") stale on arrival — PR #114 merged the same repair ~4 min before the prompt was published | Blocked the whole task by design; agent halted per §1, zero wasted commits | Hardening candidate — **adopted** | Re-measure `main` HEAD immediately before publishing, record the tip SHA in §4, and check open PRs on the same paths. Adopted into the publish procedure below. |
 | 2026-09-22 | 061 | Prompt | Orchestrator self-performed a task and opened a PR on an inferred authorization | P0 defect; work re-dispatched as 062 | Deferred (needs owner decision) — resolved by owner ruling 2026-09-22, iron laws recorded above | Authorization must be unambiguous, PR-specific, and recorded verbatim; absent all three, dispatch and wait. No red-`main` emergency exception exists. |
 | 2026-09-22 | 057 | Environment | Shallow clone with no merge-base between the arena branch and `main` — merge refused as unrelated histories | blocked ~5 min | Scoped | v4.9.0 depth rule (`--depth 50` for anything merged) is in 061 §9 |
 | 2026-09-22 | — | Tooling | `gh api .../branches/main/protection` returns 403 for the Arena bot token, which the repo had recorded for weeks as "branch protection unconfirmed" | ~3 min, but the wrong conclusion persisted in 3 docs | Hardening candidate | Use `gh api repos/<o>/<r>/branches/main --jq .protected` + `/rulesets` instead — both readable without admin scope. Carried into the tracker by task 061. |
