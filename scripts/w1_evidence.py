@@ -162,7 +162,8 @@ FIXED_METADATA = {
     # witnesses and probes the 16 active items claim (a subset of the committed 43-work task-056
     # measurement set, all digests byte-identical). The designated flagged total stays 630 on the
     # historical chain; the active flagged total moves 15 → 41 across the 16 active documents.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU.md",
+    # 2026-09-22 (task 061, owner-approved): re-pin the uncited Biyanlu report to its digest-cited successor.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_DIGESTS.md",
     "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json",
     "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_refs_manifest.txt",
     "correction_evidence_date": "2026-09-22",
