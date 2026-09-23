@@ -456,12 +456,24 @@ def run_replay_conflict_regressions() -> None:
 
     # Only options the register actually records are conflicts, and an unrecorded replayable
     # option is reported rather than silently folded into a run that claims to replay the register.
-    # 2026-09-22 (task 061): re-pin this fixture from AUTH_REGISTER; Biyanlu now records --doc.
-    unrecorded_register = "sessions/COLLATION_REGISTER_2026-09-22_P2_TIER2_BATCH1.json"
-    unrecorded = subprocess.run(
-        [sys.executable, harness, "--reproduce", unrecorded_register, "--doc", "wumenguan", "--print-refs"],
-        cwd=REPO, capture_output=True, text=True, timeout=600,
-    )
+    # The unrecorded condition is *constructed* here, not borrowed from whatever file happens to
+    # exhibit it: `sessions/` is append-only, so any real register pinned as "the one without
+    # `doc`" could gain the key in a later dated record and silently disable this check while the
+    # suite kept reporting green. The fixture is a temporary copy of the live register with `doc`
+    # stripped, built outside the repository and cleaned up below. The first check pins the
+    # premise: if the live register ever stops recording `doc`, the stripped copy is not a
+    # mutation and this block must fail loudly rather than pass vacuously.
+    live_register = json.loads((REPO / AUTH_REGISTER).read_text(encoding="utf-8"))
+    check("doc" in live_register.get("generation_parameters", {}),
+          "replay conflict: the live register records --doc, so stripping it is a real mutation")
+    live_register["generation_parameters"].pop("doc")
+    with tempfile.TemporaryDirectory(prefix="w1-register-without-doc-") as scratch:
+        unrecorded_register = Path(scratch) / "register_without_doc.json"
+        unrecorded_register.write_text(json.dumps(live_register), encoding="utf-8")
+        unrecorded = subprocess.run(
+            [sys.executable, harness, "--reproduce", str(unrecorded_register), "--doc", "wumenguan", "--print-refs"],
+            cwd=REPO, capture_output=True, text=True, timeout=600,
+        )
     check(unrecorded.returncode == 0 and "does not replay --doc" in unrecorded.stderr,
           "replay conflict: an option the register does not record is reported, not silently merged")
 
