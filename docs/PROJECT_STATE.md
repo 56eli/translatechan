@@ -63,6 +63,8 @@ Canonical project tracker. This file is the authoritative source for project sta
   - **PRs merged since W1:** #29 wumenguan re-key, #30 biyanlu (first), #32 linji, #34 xinxin_ming, #35 platform_sutra label-only, #43 citation fixes, #46-#50 Pages revamp, #108 wumenguan+linji combined overlay (14 docs), #112 tier2 batch1 (16 docs), #113 biyanlu re-key (17 docs).
   - **Current delivery:** task 061 — re-green the corpus gates; one review PR from `arena/01a0cabb-translatechan`. PR #113 is already merged; it was not green at merge.
 
+- **Botrunner export schema specified — design only (task 067, 2026-09-23):** `docs/BOTRUNNER_EXPORT_SCHEMA_2026-09-23.md` fixes the stable-id grammar (`{work}_{container}_{seq}`, never reused, never renumbered), the closed `type` enum with `parent_id`/`order` and the BookStack flattening rule, machine-readable `w1_status` at document and passage scope derived from the authoritative register, the set-equation mechanism enforcing "wiki receives only 100%-collated material" (Q7 W3), lineage edge ids, tombstone lifecycle semantics, the `export_manifest.json` field list with end-to-end consumer verification, and the documented gate exit codes. Implements nothing: no exporter, no ids in `data/`, root `export_manifest.json` (known stale) untouched, bundle hash unchanged. Awaiting owner rulings on its §8 open questions before any implementation wave.
+
 - **Immediate Next Task:** Tier2 yulu re-key lane — Guiyang + Fayan, from the green baseline after task 061 merges. Keep the current measured excerpt-seed labels until pinned-witness re-key evidence supports a change; re-pin the gates and declare preservation evidence in the same corpus PR.
 
 - **Following queue:**
