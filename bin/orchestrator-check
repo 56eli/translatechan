@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""Verify the orchestrator core document against its sha256 anchor.
+
+Canonical check: recompute the SHA-256 of
+``orchestrator/ORCHESTRATOR CORE v4.9.0 — GENERAL PURPOSE.md`` and compare
+it to the pin in ``orchestrator/CORE_SHA256`` (``sha256sum -c`` output
+format). Both paths resolve relative to this script's location, so the
+check works from any working directory.
+
+Exit codes (fail-closed, per the convention documented in GATE.md):
+  0  anchor matches the core document; one confirmation line is printed.
+  1  mismatch: hashes differ, the core document is missing, the anchor is
+     missing, or the anchor is malformed or names a different file.
+     Missing is a mismatch — never "nothing to check".
+
+Stdlib only (Python >= 3.11). Reads nothing outside the repository; prints
+nothing sensitive.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+CORE_DIR = REPO_ROOT / "orchestrator"
+DOC_NAME = "ORCHESTRATOR CORE v4.9.0 — GENERAL PURPOSE.md"
+DOC_PATH = CORE_DIR / DOC_NAME
+ANCHOR_PATH = CORE_DIR / "CORE_SHA256"
+
+
+def fail(message: str) -> int:
+    print(f"orchestrator-check: FAIL — {message}", file=sys.stderr)
+    return 1
+
+
+def parse_anchor(text: str) -> tuple[str, str] | int:
+    """Return (expected_hash, recorded_filename) or 1 on a malformed anchor."""
+    lines = [line for line in text.splitlines() if line.strip()]
+    if len(lines) != 1:
+        return fail(
+            f"anchor {ANCHOR_PATH.relative_to(REPO_ROOT)} must contain exactly "
+            f"one checksum line, found {len(lines)}"
+        )
+    line = lines[0]
+    if line.startswith("\\"):
+        return fail(
+            "anchor line is in sha256sum backslash-escaped form; regenerate the "
+            "anchor with: cd orchestrator && sha256sum \"ORCHESTRATOR CORE v4.9.0 "
+            "— GENERAL PURPOSE.md\" > CORE_SHA256"
+        )
+    parts = line.split(None, 1)
+    if len(parts) != 2:
+        return fail("anchor line is not in sha256sum output format '<hash>  <file>'")
+    digest, recorded_name = parts[0], parts[1].lstrip("*").strip()
+    if len(digest) != 64 or any(c not in "0123456789abcdefABCDEF" for c in digest):
+        return fail(f"anchor checksum is not a 64-digit hex sha256: {digest!r}")
+    return digest.lower(), recorded_name
+
+
+def main() -> int:
+    if not DOC_PATH.is_file():
+        return fail(
+            f"core document missing at {DOC_PATH.relative_to(REPO_ROOT)} — a "
+            "missing document is a mismatch, not a skip"
+        )
+    if not ANCHOR_PATH.is_file():
+        return fail(
+            f"anchor missing at {ANCHOR_PATH.relative_to(REPO_ROOT)} — a missing "
+            "anchor is a mismatch, not a skip"
+        )
+
+    try:
+        anchor_text = ANCHOR_PATH.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as exc:
+        return fail(f"anchor unreadable as UTF-8: {exc}")
+    parsed = parse_anchor(anchor_text)
+    if isinstance(parsed, int):
+        return parsed
+    expected_digest, recorded_name = parsed
+    if recorded_name != DOC_NAME:
+        return fail(
+            f"anchor names a different file ({recorded_name!r}), expected "
+            f"{DOC_NAME!r} — regenerate the anchor from the orchestrator/ directory"
+        )
+
+    actual_digest = hashlib.sha256(DOC_PATH.read_bytes()).hexdigest()
+    if actual_digest != expected_digest:
+        return fail(
+            f"sha256 mismatch for {DOC_PATH.relative_to(REPO_ROOT)}: anchor pins "
+            f"{expected_digest}, recomputed {actual_digest}. The core document "
+            "changed without a regenerated anchor (or the anchor changed without "
+            "the document) — do not edit the checker; see ORCHESTRATOR CORE §8–9"
+        )
+
+    print(
+        f"orchestrator-check: OK — {DOC_NAME} matches {ANCHOR_PATH.name} "
+        f"({actual_digest[:12]})"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
