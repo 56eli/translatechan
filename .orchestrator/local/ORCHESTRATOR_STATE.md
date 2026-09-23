@@ -43,6 +43,24 @@ Before publishing ANY task prompt, in this order:
    base underneath the agent. Task 062 was published while #114 sat merged four minutes earlier
    because I skipped exactly this step.
 
+## Open finding from PR #116 — tracker "218 permitted changes" is wrong
+
+The 063 agent was told not to change the figures on tracker line 26 unless its own gate run
+disagreed, and to report if it did. **It disagreed and reported it** — correct behaviour, and I
+confirmed the discrepancy myself:
+
+    $ python3 scripts/test_source_preservation.py
+    5 declared new corpus file(s): biyanlu_cases, fayan_yulu, guiyang_yulu, linji_yulu, wumenguan
+    0 permitted allowlisted changes
+    0 unauthorized changes
+
+Line 26 claims "currently 218 permitted changes, 0 unauthorized". The `0 unauthorized` half is
+right; **`218` is stale** — an artifact of the pre-`f1207eaf` base era, before the re-pinned base
+absorbed the remediated state as its own baseline. Against today's base the allowlist has nothing to
+permit, because the differences it used to excuse are now *in* the baseline. Not a gate failure and
+not urgent; it is a third wrong number in the same tracker section. Fold into a later docs pass —
+deliberately NOT slipped into #116, whose scope was fixed.
+
 ## Known Gaps` until then.
 
 ## Owner Rulings — Iron Laws (binding, effective 2026-09-22)
@@ -82,7 +100,7 @@ itself for an agent.
 | 042–060 | `.orchestrator/prompts/` on `main` | Predecessor's series (P0 integrity → P3 lineage expansion) | various | #29–#113 | Historical — inherited, not re-dispatched |
 | 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main` (VOID) | fix/p0-regreen-main-17-docs | #115 | **SUPERSEDED — P0 defect.** Self-performed and self-opened by the orchestrator; unlawful channel per owner ruling 2026-09-22. Prompt file bannered `SUPERSEDED — DO NOT RUN`. PR #115 and its branch are out of bounds — never touched again. |
 | 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise stale on arrival: #114 merged 21:17:07Z, 062 published ~21:21Z. Correct behaviour, no defect. |
-| 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | — | **Published 2026-09-23, hash-verified `b1728af`. Premise measured at `21f0ba7`, re-checked intact at dispatch. Ready to dispatch.** |
+| 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | **PR #116** | **Delivered. Verdict: MERGE (owner action required).** Independently verified on a fresh clone of `5b88805`: 7/7 gates, **146** checks, bundle `b68eb436…cdba7` unchanged twice, exactly 2 files changed, `sessions/`+`data/`+`.github/` untouched. Both mutation proofs re-run by me and both fail as claimed. |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
 stay burned. Next free sequence: **062**.
@@ -139,6 +157,7 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
 |---|---|---|---|
 | #113 | 057 P1 Biyanlu re-key | **Merged-before-reviewed** — content sound, delivery defective | Ran the merged-before-review branch (v4.9.0 Phase 4). Health: 3 of 7 gates red on `main`. Content: the re-key itself is correct — 100 cases from pinned T48n2003, 400/400 EXACT, bundle deterministic. Defect was omitted gate re-pins + a missing "Committed digests" section, scoped as follow-up task 061 rather than a re-merge. |
 | #114 | (undispatched by me) | **MERGE — retrospective health check PASSED** | Merged before I saw it, so ran the merged-before-reviewed branch (v4.9.0 Phase 4), health first. Fresh clone of `21f0ba7`: 7/7 gates, 145 checks, determinism `b68eb436…cbdba7` twice. Frozen-surface compare vs `da72249`: `data/corpus/` byte-identical, only 2 manifest/metrics pointer lines changed. Content sound, no assertion weakened. Four residuals scoped as task 063, never as a re-merge. |
+| #116 | 063 | **MERGE — verified independently** | Fresh clone of PR head `5b88805`. 7/7 gates; rule suite 145→**146**; bundle hash `b68eb436…cdba7` identical across two builds and unchanged from `main`; diff is exactly `scripts/test_source_review_rules.py` + `docs/PROJECT_STATE.md`; no `sessions/`, `data/` or `.github/` path touched. I re-ran BOTH mutation proofs rather than trusting the transcript: (1) skipping the `pop` → fails on exactly the right check, `replay conflict: an option the register does not record...`; (2) premise repointed at BATCH1 → `KeyError: 'doc'`, exit 1. Fixture genuinely discriminates. Agent's honesty verified, see below. |
 | #115 | 061 (VOID) | **WITHDRAWN — no verdict stands** | Owner ruled the PR unlawfully authored (P0). A verdict on a PR I authored was never mine to issue. Untouchable: no merge, no close, no comment, no further reference. |
 
 ## Deferred / Technical Debt
@@ -210,6 +229,24 @@ Before publishing ANY task prompt, in this order:
 4. Check open PRs touching the same paths (`gh pr list --state open`) — a merge in flight moves the
    base underneath the agent. Task 062 was published while #114 sat merged four minutes earlier
    because I skipped exactly this step.
+
+## Open finding from PR #116 — tracker "218 permitted changes" is wrong
+
+The 063 agent was told not to change the figures on tracker line 26 unless its own gate run
+disagreed, and to report if it did. **It disagreed and reported it** — correct behaviour, and I
+confirmed the discrepancy myself:
+
+    $ python3 scripts/test_source_preservation.py
+    5 declared new corpus file(s): biyanlu_cases, fayan_yulu, guiyang_yulu, linji_yulu, wumenguan
+    0 permitted allowlisted changes
+    0 unauthorized changes
+
+Line 26 claims "currently 218 permitted changes, 0 unauthorized". The `0 unauthorized` half is
+right; **`218` is stale** — an artifact of the pre-`f1207eaf` base era, before the re-pinned base
+absorbed the remediated state as its own baseline. Against today's base the allowlist has nothing to
+permit, because the differences it used to excuse are now *in* the baseline. Not a gate failure and
+not urgent; it is a third wrong number in the same tracker section. Fold into a later docs pass —
+deliberately NOT slipped into #116, whose scope was fixed.
 
 ## Known Gaps
 - **Governing prompt not materialized.** No `orchestrator/` directory, no sha256 anchor in the
