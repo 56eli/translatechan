@@ -99,7 +99,19 @@ carries Congronglu Chinese but **Biyanlu's Emperor Wu case as its English**, and
 sample is hand-authored. Recommendation in the doc — regenerate it from the exporter, never patch —
 is correct. **Log as a separate task; not fixed here and rightly so.**
 
-**5 open questions requiring OWNER decisions before implementation** (§8 of the doc): (1) filter on
+**OWNER RULINGS RECEIVED 2026-09-23 on the §8 questions — binding on the implementation wave:**
+- **Q2 preface/epilogue → RULED: yes, they are Pages.** Owner: "of course they're pages."
+  `wumenguan_preface_01..02`, `wumenguan_epilogue_01..05` export as front/back-matter Pages.
+- **Q3 chapterless works → RULED: flat Pages.** No invented fascicle grouping. dahui_yulu_full
+  ships 1,354 Pages under one Book; same for yunmen/zhaozhou/dongshan/caoshan.
+- **Q4 tombstone re-verification → RULED: never, generally.** Owner: tombstoned entities "just exist
+  to have a historical record, otherwise they would've been deleted." So **no owed-review list, no
+  re-check cadence, no `project_metrics` counter.** A tombstone is a permanent historical record,
+  not a task. Implementation must NOT add the standing review list the doc recommended.
+- **Q1 (collation-only vs +completeness) and Q5 (rights/visibility)** — owner asked for plain-language
+  elaboration; Q5 answered "no clue". My recommendations stand and are now explained, pending a yes/no.
+
+**Original 5 open questions** (§8 of the doc): (1) filter on
 collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
 `excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
 for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
@@ -356,7 +368,19 @@ carries Congronglu Chinese but **Biyanlu's Emperor Wu case as its English**, and
 sample is hand-authored. Recommendation in the doc — regenerate it from the exporter, never patch —
 is correct. **Log as a separate task; not fixed here and rightly so.**
 
-**5 open questions requiring OWNER decisions before implementation** (§8 of the doc): (1) filter on
+**OWNER RULINGS RECEIVED 2026-09-23 on the §8 questions — binding on the implementation wave:**
+- **Q2 preface/epilogue → RULED: yes, they are Pages.** Owner: "of course they're pages."
+  `wumenguan_preface_01..02`, `wumenguan_epilogue_01..05` export as front/back-matter Pages.
+- **Q3 chapterless works → RULED: flat Pages.** No invented fascicle grouping. dahui_yulu_full
+  ships 1,354 Pages under one Book; same for yunmen/zhaozhou/dongshan/caoshan.
+- **Q4 tombstone re-verification → RULED: never, generally.** Owner: tombstoned entities "just exist
+  to have a historical record, otherwise they would've been deleted." So **no owed-review list, no
+  re-check cadence, no `project_metrics` counter.** A tombstone is a permanent historical record,
+  not a task. Implementation must NOT add the standing review list the doc recommended.
+- **Q1 (collation-only vs +completeness) and Q5 (rights/visibility)** — owner asked for plain-language
+  elaboration; Q5 answered "no clue". My recommendations stand and are now explained, pending a yes/no.
+
+**Original 5 open questions** (§8 of the doc): (1) filter on
 collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
 `excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
 for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
