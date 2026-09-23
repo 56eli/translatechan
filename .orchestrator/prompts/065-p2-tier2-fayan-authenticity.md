@@ -194,23 +194,22 @@ re-read it before assuming your edit is unnecessary.
 ## 8. BRANCH AND TARGET
 
 - **Base branch:** `main` — never the orchestrator branch.
-- **Target branch:** `fix/tier2-fayan-authenticity` ← **this exact name, fresh.**
+- **Target branch:** **your own Arena session branch** (`arena/<session-id>-translatechan`), based on
+  `main`. Arena hard-pins each agent session to that branch: you cannot create or push any other, so
+  do NOT try to create a `feat/*`, `fix/*` or `docs/*` branch. Confirmed by task 066/PR #117.
+  Before your first commit, verify your base is `main`:
+
+      git fetch --depth 1 origin +main:refs/remotes/origin/main
+      git merge-base --is-ancestor $(git rev-parse refs/remotes/origin/main) HEAD \
+        && echo "based on current main" || echo "REBASE ONTO main FIRST"
+
+  If your session branch is not based on the current `main` tip, rebase onto it before working.
+  State your actual branch name in the PR description.
 - **Orchestrator branch:** `arena/01a0ca9d-translatechan` — fetch source only.
 - **Dependencies:** none. Task 064 (Guiyang) is a sibling; do not do its work.
 - **Forbidden branch:** `fix/p0-regreen-main-17-docs`.
 
-```bash
-git fetch --depth 50 origin +fix/tier2-fayan-authenticity:refs/remotes/origin/_resume
-git checkout -B fix/tier2-fayan-authenticity refs/remotes/origin/_resume
-```
-
-If that fetch finds no remote ref, the branch is new:
-
-```bash
-git fetch --depth 1 origin +main:refs/remotes/origin/main && git checkout -B fix/tier2-fayan-authenticity origin/main
-```
-
-`couldn't find remote ref` here is **not** an environment failure. Do not commit on `main`.
+Do not commit on `main`. Do not attempt to create a differently-named branch.
 
 ---
 
@@ -220,7 +219,7 @@ Checkpoint after each §7 sub-task, before any risky operation, before any idle 
 and once at the end. **Your session can expire without warning; unpushed work is lost work.**
 
 ```bash
-git add -A && (git diff --cached --quiet || git commit -qm "chore: wip <sub-task>") && git push -qu origin fix/tier2-fayan-authenticity
+git add -A && (git diff --cached --quiet || git commit -qm "chore: wip <sub-task>") && git push -qu origin HEAD
 ```
 
 Conventional Commits (`fix:`, `feat:`, `chore:`, `docs:`). Never a bare `wip:`.
