@@ -72,6 +72,37 @@ explicit conflict note telling it to keep both ticks. All four carry the forbidd
 **Prompt hardening applied to all four** (from the 063 delivery): never edit one file with two
 parallel write calls, and review the whole branch diff against `origin/main` before opening the PR.
 
+## PR #117 (task 066) — verdict MERGE, plus two prompt defects of MINE it exposed
+
+Verified independently on a fresh clone of `4bff542` (merge-base `b8472bd`, correct): 7/7 gates,
+146 checks, bundle `b68eb436…cdba7` unchanged across two builds, exactly 4 files added/changed,
+`data/` `sessions/` `.github/` `scripts/` all untouched. `bin/orchestrator-check` is mode `100755`;
+`sha256sum -c CORE_SHA256` passes from `orchestrator/`.
+
+Anchor proof re-run by me, not read from the transcript — **five** cases, all correct:
+match → 0 · doc modified → 1 · doc absent → 1 · anchor absent → 1 · **anchor malformed → 1**
+(the fifth is mine, beyond the spec; it also fail-closes). Runs correctly from an unrelated cwd.
+
+**Defect 1 in prompt 066 — §8 ordered an impossible branch.** I specified target branch
+`feat/orchestrator-core-anchor`, but an Arena agent session is hard-pinned to its own
+`arena/<id>-translatechan` branch and cannot create or push another. The agent worked on its pinned
+branch, verified the base was exactly `b8472bd` = `origin/main`, and flagged the deviation in its PR
+rather than silently working around it. **Correct judgement; the prompt was wrong, not the agent.**
+Base is right, scope is right, so the deviation is cosmetic. **Fix for all future prompts: state the
+target branch as "your Arena session branch, based on `main`", never a `feat/*` name I invent.**
+Tasks 064/065/067 are already published with the same bad §8 — they will hit this too. Their §8s
+need amending before 065 and 067 are dispatched (064 may already be running).
+
+**Defect 2 in prompt 066 — §6.4 told the agent to consider a `.gitignore` rule that would have been
+wrong.** I framed `.orchestrator/` as private state leaked onto `main`. The agent checked and
+refused: **48 `.orchestrator/` files are deliberately tracked** on `main` (prompts, stubs,
+roadmaps, `STATE.md`), and `AGENTS.md` line 38 links `.orchestrator/STATE.md` while
+`docs/DISPATCH_2026-09-22_TIER1_TIER2.md` lists prompt paths. A blanket ignore would have silently
+broken future `git add`s of files the repo references. I verified all of this myself. **My premise
+was wrong; the agent was right to reject it.** Only `.orchestrator/local/ORCHESTRATOR_STATE.md` is
+arguably private, and its removal remains an owner decision — correctly left in place and recorded
+in the core doc §7.
+
 ## Open finding from PR #116 — tracker "218 permitted changes" is wrong
 
 The 063 agent was told not to change the figures on tracker line 26 unless its own gate run
@@ -131,7 +162,7 @@ itself for an agent.
 | 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise stale on arrival: #114 merged 21:17:07Z, 062 published ~21:21Z. Correct behaviour, no defect. |
 | 064 | .orchestrator/prompts/064-p2-tier2-guiyang-authenticity.md | Tier2 Guiyang authenticity, one doc | fix/tier2-guiyang-authenticity | — | Published+verified `d1472ab`. Dispatch FIRST of the 064/065 pair. |
 | 065 | .orchestrator/prompts/065-p2-tier2-fayan-authenticity.md | Tier2 Fayan authenticity, one doc | fix/tier2-fayan-authenticity | — | Published+verified `e25b93b`. Dispatch AFTER 064 merges (shared tracker line + manifest). |
-| 066 | .orchestrator/prompts/066-p3-materialize-orchestrator-core.md | Core doc + sha256 anchor + bin/orchestrator-check | feat/orchestrator-core-anchor | — | Published+verified `11ae376`. Parallel-safe. |
+| 066 | .orchestrator/prompts/066-p3-materialize-orchestrator-core.md | Core doc + sha256 anchor + bin/orchestrator-check | **arena/01a0cbc2-translatechan** (not the ordered `feat/orchestrator-core-anchor` — see below) | **PR #117** | **Delivered. Verdict: MERGE (owner action).** Verified on a fresh clone of `4bff542`: 7/7 gates, 146 checks, bundle unchanged, 4 files, nothing protected touched. All 4 anchor cases re-run by me + a 5th (malformed anchor) — all fail-closed. |
 | 067 | .orchestrator/prompts/067-p2-botrunner-export-schema-design.md | Botrunner export schema, design only | docs/botrunner-export-schema | — | Published+verified `78cefe8`. Parallel-safe. |
 | 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | **PR #116** | **Delivered. Verdict: MERGE (owner action required).** Independently verified on a fresh clone of `5b88805`: 7/7 gates, **146** checks, bundle `b68eb436…cdba7` unchanged twice, exactly 2 files changed, `sessions/`+`data/`+`.github/` untouched. Both mutation proofs re-run by me and both fail as claimed. |
 
@@ -262,6 +293,37 @@ Before publishing ANY task prompt, in this order:
 4. Check open PRs touching the same paths (`gh pr list --state open`) — a merge in flight moves the
    base underneath the agent. Task 062 was published while #114 sat merged four minutes earlier
    because I skipped exactly this step.
+
+## PR #117 (task 066) — verdict MERGE, plus two prompt defects of MINE it exposed
+
+Verified independently on a fresh clone of `4bff542` (merge-base `b8472bd`, correct): 7/7 gates,
+146 checks, bundle `b68eb436…cdba7` unchanged across two builds, exactly 4 files added/changed,
+`data/` `sessions/` `.github/` `scripts/` all untouched. `bin/orchestrator-check` is mode `100755`;
+`sha256sum -c CORE_SHA256` passes from `orchestrator/`.
+
+Anchor proof re-run by me, not read from the transcript — **five** cases, all correct:
+match → 0 · doc modified → 1 · doc absent → 1 · anchor absent → 1 · **anchor malformed → 1**
+(the fifth is mine, beyond the spec; it also fail-closes). Runs correctly from an unrelated cwd.
+
+**Defect 1 in prompt 066 — §8 ordered an impossible branch.** I specified target branch
+`feat/orchestrator-core-anchor`, but an Arena agent session is hard-pinned to its own
+`arena/<id>-translatechan` branch and cannot create or push another. The agent worked on its pinned
+branch, verified the base was exactly `b8472bd` = `origin/main`, and flagged the deviation in its PR
+rather than silently working around it. **Correct judgement; the prompt was wrong, not the agent.**
+Base is right, scope is right, so the deviation is cosmetic. **Fix for all future prompts: state the
+target branch as "your Arena session branch, based on `main`", never a `feat/*` name I invent.**
+Tasks 064/065/067 are already published with the same bad §8 — they will hit this too. Their §8s
+need amending before 065 and 067 are dispatched (064 may already be running).
+
+**Defect 2 in prompt 066 — §6.4 told the agent to consider a `.gitignore` rule that would have been
+wrong.** I framed `.orchestrator/` as private state leaked onto `main`. The agent checked and
+refused: **48 `.orchestrator/` files are deliberately tracked** on `main` (prompts, stubs,
+roadmaps, `STATE.md`), and `AGENTS.md` line 38 links `.orchestrator/STATE.md` while
+`docs/DISPATCH_2026-09-22_TIER1_TIER2.md` lists prompt paths. A blanket ignore would have silently
+broken future `git add`s of files the repo references. I verified all of this myself. **My premise
+was wrong; the agent was right to reject it.** Only `.orchestrator/local/ORCHESTRATOR_STATE.md` is
+arguably private, and its removal remains an owner decision — correctly left in place and recorded
+in the core doc §7.
 
 ## Open finding from PR #116 — tracker "218 permitted changes" is wrong
 
