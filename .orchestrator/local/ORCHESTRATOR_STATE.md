@@ -108,10 +108,28 @@ is correct. **Log as a separate task; not fixed here and rightly so.**
   to have a historical record, otherwise they would've been deleted." So **no owed-review list, no
   re-check cadence, no `project_metrics` counter.** A tombstone is a permanent historical record,
   not a task. Implementation must NOT add the standing review list the doc recommended.
-- **Q1 (collation-only vs +completeness) and Q5 (rights/visibility)** — owner asked for plain-language
-  elaboration; Q5 answered "no clue". My recommendations stand and are now explained, pending a yes/no.
+- **Q1 filter denominator → RULED: collation only. EXPORT_SET = 13 documents**, including
+  `zhengdao_ge`. Owner: "100% real chinese but partially works can go to the wiki." Partial works
+  are eligible provided every exported passage is verbatim witness text.
+  **PLUS a new owner requirement: an extent flag**, so that if more of a work is handed over later
+  the wiki can tell "this is all of it" from "this is part of it, more may follow." Owner's words:
+  "We'll need some flag though for if we ever hand over more parts of the work later."
+  **Design note for the implementation wave — do NOT invent a new vocabulary.** `completion_status`
+  already exists in the manifest as a closed set (`complete_selected_witness` 12 / `excerpt_seed` 5)
+  and §2.5/§3.2 of the schema doc already carries it onto every exported record as a field separate
+  from `w1_status`. The requirement is therefore satisfied by **surfacing the existing
+  `completion_status` as a visible, human-readable extent badge on the page**, not by adding a
+  parallel field. Implementer must: (a) render it on every Page/Book, not merely emit it in JSON;
+  (b) word `excerpt_seed` so a reader understands more may be added later; (c) confirm that
+  appending later parts does not disturb existing ids — verified safe for the live case:
+  `zhengdao_ge` holds `stanza_num` 1..6 contiguous, so stanza 7+ appends as
+  `zhengdao_ge_stanza_07` and renumbers nothing (§1.3 assignment rule).
+- **Q5 rights/visibility → RULED: emit the flags, all set to public.** Owner: "Yes emit them all set
+  to public. Worry about it later." `rights_status` + `is_ai_styled` + `visibility` ride on every
+  record; nothing exported is in copyright (public-domain source texts + the project's own English).
+  Fields exist so a future private/account-only wiki needs no schema bump and no re-export.
 
-**Original 5 open questions** (§8 of the doc): (1) filter on
+**ALL 5 QUESTIONS NOW RULED — the export implementation wave is unblocked.** Original text of the 5 (§8 of the doc): (1) filter on
 collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
 `excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
 for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
@@ -377,10 +395,28 @@ is correct. **Log as a separate task; not fixed here and rightly so.**
   to have a historical record, otherwise they would've been deleted." So **no owed-review list, no
   re-check cadence, no `project_metrics` counter.** A tombstone is a permanent historical record,
   not a task. Implementation must NOT add the standing review list the doc recommended.
-- **Q1 (collation-only vs +completeness) and Q5 (rights/visibility)** — owner asked for plain-language
-  elaboration; Q5 answered "no clue". My recommendations stand and are now explained, pending a yes/no.
+- **Q1 filter denominator → RULED: collation only. EXPORT_SET = 13 documents**, including
+  `zhengdao_ge`. Owner: "100% real chinese but partially works can go to the wiki." Partial works
+  are eligible provided every exported passage is verbatim witness text.
+  **PLUS a new owner requirement: an extent flag**, so that if more of a work is handed over later
+  the wiki can tell "this is all of it" from "this is part of it, more may follow." Owner's words:
+  "We'll need some flag though for if we ever hand over more parts of the work later."
+  **Design note for the implementation wave — do NOT invent a new vocabulary.** `completion_status`
+  already exists in the manifest as a closed set (`complete_selected_witness` 12 / `excerpt_seed` 5)
+  and §2.5/§3.2 of the schema doc already carries it onto every exported record as a field separate
+  from `w1_status`. The requirement is therefore satisfied by **surfacing the existing
+  `completion_status` as a visible, human-readable extent badge on the page**, not by adding a
+  parallel field. Implementer must: (a) render it on every Page/Book, not merely emit it in JSON;
+  (b) word `excerpt_seed` so a reader understands more may be added later; (c) confirm that
+  appending later parts does not disturb existing ids — verified safe for the live case:
+  `zhengdao_ge` holds `stanza_num` 1..6 contiguous, so stanza 7+ appends as
+  `zhengdao_ge_stanza_07` and renumbers nothing (§1.3 assignment rule).
+- **Q5 rights/visibility → RULED: emit the flags, all set to public.** Owner: "Yes emit them all set
+  to public. Worry about it later." `rights_status` + `is_ai_styled` + `visibility` ride on every
+  record; nothing exported is in copyright (public-domain source texts + the project's own English).
+  Fields exist so a future private/account-only wiki needs no schema bump and no re-export.
 
-**Original 5 open questions** (§8 of the doc): (1) filter on
+**ALL 5 QUESTIONS NOW RULED — the export implementation wave is unblocked.** Original text of the 5 (§8 of the doc): (1) filter on
 collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
 `excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
 for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
