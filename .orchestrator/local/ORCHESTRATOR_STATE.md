@@ -24,7 +24,15 @@ ORCHESTRATOR CORE v4.9.0 — GENERAL PURPOSE. **Not yet materialized.** The spec
 the *Initialization spec record* section (`orchestrator/ORCHESTRATOR CORE v4.9.0 — GENERAL
 PURPOSE.md` + sha256 anchor in the canonical tracker) does not exist in this repository, and cannot
 be written by me — it must land on `main` via an agent PR. Queued as task 063. Recorded under
-`## Publish Procedure — adopted 2026-09-22 (from the 062 stale-premise incident)
+`### Procedure applied to 063 (first clean run)
+1. Fetched `main` → `21f0ba7`. 2. Recorded it in §1 as "Premise measured at". 3. Added the
+`merge-base --is-ancestor` check to §1 with a HALT clause. 4. `gh pr list --state open` → surfaced
+that **#115 is still open and touches all three files 063 edits**; added an explicit forbidden-branch
+note to §1 and §8. Step 4 earned its place immediately. Also re-verified all four residuals against
+`21f0ba7` on a fresh clone and **feasibility-tested the §6.1 fix** before dispatch, so the agent is
+not the first to find out whether the approach works.
+
+## Publish Procedure — adopted 2026-09-22 (from the 062 stale-premise incident)
 
 Before publishing ANY task prompt, in this order:
 1. `git fetch --depth 50 origin +main:refs/remotes/origin/main` and re-read the canonical tracker.
@@ -74,7 +82,7 @@ itself for an agent.
 | 042–060 | `.orchestrator/prompts/` on `main` | Predecessor's series (P0 integrity → P3 lineage expansion) | various | #29–#113 | Historical — inherited, not re-dispatched |
 | 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main` (VOID) | fix/p0-regreen-main-17-docs | #115 | **SUPERSEDED — P0 defect.** Self-performed and self-opened by the orchestrator; unlawful channel per owner ruling 2026-09-22. Prompt file bannered `SUPERSEDED — DO NOT RUN`. PR #115 and its branch are out of bounds — never touched again. |
 | 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise stale on arrival: #114 merged 21:17:07Z, 062 published ~21:21Z. Correct behaviour, no defect. |
-| 063 | (to author) | Residual gate-hardening from the #114 delta | — | — | Pending — next. Four residuals, see Task Queue. |
+| 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | — | **Published 2026-09-23, hash-verified `b1728af`. Premise measured at `21f0ba7`, re-checked intact at dispatch. Ready to dispatch.** |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
 stay burned. Next free sequence: **062**.
@@ -183,6 +191,14 @@ derived from the superseded 16-document tree while the corpus on `main` holds 17
 - `sessions/` is append-only — dated evidence is never edited or deleted.
 - Documentation is under test: `validate_data.py` enforces ~25 doc-truthfulness rules across
   `README.md`, `HANDOFF.md`, `AUDIT.md`, `ROADMAP.md` and `index.html`.
+
+### Procedure applied to 063 (first clean run)
+1. Fetched `main` → `21f0ba7`. 2. Recorded it in §1 as "Premise measured at". 3. Added the
+`merge-base --is-ancestor` check to §1 with a HALT clause. 4. `gh pr list --state open` → surfaced
+that **#115 is still open and touches all three files 063 edits**; added an explicit forbidden-branch
+note to §1 and §8. Step 4 earned its place immediately. Also re-verified all four residuals against
+`21f0ba7` on a fresh clone and **feasibility-tested the §6.1 fix** before dispatch, so the agent is
+not the first to find out whether the approach works.
 
 ## Publish Procedure — adopted 2026-09-22 (from the 062 stale-premise incident)
 
