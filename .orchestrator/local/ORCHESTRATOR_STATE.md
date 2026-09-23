@@ -43,6 +43,35 @@ Before publishing ANY task prompt, in this order:
    base underneath the agent. Task 062 was published while #114 sat merged four minutes earlier
    because I skipped exactly this step.
 
+## Dispatch wave 2026-09-23 — tasks 064–067 published (premise `b8472bd`)
+
+`main` merged PR #116 and is GREEN at `b8472bd` (verified by me on a fresh clone: 7/7 gates, 146
+checks). Four prompts published and blob-hash verified on the remote:
+
+| Task | Branch | Lane | Blob |
+|---|---|---|---|
+| 064 Tier2 Guiyang authenticity | `fix/tier2-guiyang-authenticity` | corpus | `d1472ab` |
+| 065 Tier2 Fayan authenticity | `fix/tier2-fayan-authenticity` | corpus | `e25b93b` |
+| 066 Orchestrator core + anchor + `bin/orchestrator-check` | `feat/orchestrator-core-anchor` | infra | `11ae376` |
+| 067 Botrunner export schema (design only) | `docs/botrunner-export-schema` | botrunner | `78cefe8` |
+
+**Sequencing:** 066 and 067 are file-disjoint from everything and from each other — safe in
+parallel. 064 and 065 both edit `data/corpus_manifest.json`, `docs/PROJECT_STATE.md` line ~69 and
+the note census, so they **must be serialized**: dispatch 064, let it merge, then 065. 065 carries an
+explicit conflict note telling it to keep both ticks. All four carry the forbidden-branch clause for
+`fix/p0-regreen-main-17-docs` / PR #115, which is still open and still touches overlapping paths.
+
+**Measured evidence handed to 064/065 so they verify rather than rediscover:**
+- guiyang_yulu — witness `T47n1989`/`T47n1990`, `content_fields_collated 0` of 6 → 0%, every section
+  `NOT_FOUND` at sim 0.0, title `TITLE_COMPOSITE` sim 0.56. Expected outcome **R-B**.
+- fayan_yulu — witness `T47n1991`, `content_fields_collated 1` of 11 → ~9%, title composite sim 0.65.
+  **Trap flagged in the prompt:** its `summary` shows `EXACT: 4` but only **1** is a content field;
+  reading the wrong aggregate inflates the rate fourfold. Also flagged: the one EXACT field plus a
+  half-carried title invites piecemeal re-keying into mixed provenance — prompt orders a HALT instead.
+
+**Prompt hardening applied to all four** (from the 063 delivery): never edit one file with two
+parallel write calls, and review the whole branch diff against `origin/main` before opening the PR.
+
 ## Open finding from PR #116 — tracker "218 permitted changes" is wrong
 
 The 063 agent was told not to change the figures on tracker line 26 unless its own gate run
@@ -100,6 +129,10 @@ itself for an agent.
 | 042–060 | `.orchestrator/prompts/` on `main` | Predecessor's series (P0 integrity → P3 lineage expansion) | various | #29–#113 | Historical — inherited, not re-dispatched |
 | 061 | .orchestrator/prompts/061-p0-regreen-main-17-docs.md | P0 re-green `main` (VOID) | fix/p0-regreen-main-17-docs | #115 | **SUPERSEDED — P0 defect.** Self-performed and self-opened by the orchestrator; unlawful channel per owner ruling 2026-09-22. Prompt file bannered `SUPERSEDED — DO NOT RUN`. PR #115 and its branch are out of bounds — never touched again. |
 | 062 | .orchestrator/prompts/062-p0-regreen-gates-expedited.md | EXPEDITED P0 re-green `main`: re-pin 3 gates to the 17-doc corpus | (none) | — | **Closed — HALTED correctly by its own §1.** Agent found the repair already on `main` via PR #114, made no changes, opened no PR. Premise stale on arrival: #114 merged 21:17:07Z, 062 published ~21:21Z. Correct behaviour, no defect. |
+| 064 | .orchestrator/prompts/064-p2-tier2-guiyang-authenticity.md | Tier2 Guiyang authenticity, one doc | fix/tier2-guiyang-authenticity | — | Published+verified `d1472ab`. Dispatch FIRST of the 064/065 pair. |
+| 065 | .orchestrator/prompts/065-p2-tier2-fayan-authenticity.md | Tier2 Fayan authenticity, one doc | fix/tier2-fayan-authenticity | — | Published+verified `e25b93b`. Dispatch AFTER 064 merges (shared tracker line + manifest). |
+| 066 | .orchestrator/prompts/066-p3-materialize-orchestrator-core.md | Core doc + sha256 anchor + bin/orchestrator-check | feat/orchestrator-core-anchor | — | Published+verified `11ae376`. Parallel-safe. |
+| 067 | .orchestrator/prompts/067-p2-botrunner-export-schema-design.md | Botrunner export schema, design only | docs/botrunner-export-schema | — | Published+verified `78cefe8`. Parallel-safe. |
 | 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | **PR #116** | **Delivered. Verdict: MERGE (owner action required).** Independently verified on a fresh clone of `5b88805`: 7/7 gates, **146** checks, bundle `b68eb436…cdba7` unchanged twice, exactly 2 files changed, `sessions/`+`data/`+`.github/` untouched. Both mutation proofs re-run by me and both fail as claimed. |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
