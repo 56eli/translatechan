@@ -72,6 +72,41 @@ explicit conflict note telling it to keep both ticks. All four carry the forbidd
 **Prompt hardening applied to all four** (from the 063 delivery): never edit one file with two
 parallel write calls, and review the whole branch diff against `origin/main` before opening the PR.
 
+## PR #118 (task 067) — verdict MERGE. Botrunner export schema specified; **5 owner decisions pending**
+
+Verified on a fresh clone of `1260dc8` (merge-base `b8472bd`): 7/7 gates, 146 checks, bundle
+`b68eb436…cdba7` unchanged twice, exactly 2 files (`docs/BOTRUNNER_EXPORT_SCHEMA_2026-09-23.md` 386
+lines + 2 tracker lines), and **no `data/`, `sessions/` or `scripts/` change** — the design-only
+boundary held.
+
+**I re-derived its worked examples against the real corpus rather than trusting them. All exact:**
+chuandenglu idx 127 → `case_num` 128, fascicle 6, 洪州百丈山懷海禪師, `page_line` 0249b26, and it is
+the **16th** of fascicle 6 (113..130) — so file index 127 ≠ id 0128 ≠ order 16, exactly as the doc
+warns. linji idx 77 → `four_shouts`, 107 sections, exactly 4 slugs without digits. wumenguan 48/2/5.
+zhengdao_ge 6 stanzas. EXPORT_SET recomputed from the manifest = **13 documents**, matching its list
+character for character; excluded = guiyang+fayan (partial), hanshan+niutou (unavailable).
+
+**Substance is strong:** the 100%-collated filter is a computed set equation with builder refusal +
+validator re-check + consumer fail-safe, not a curated list. Document is the atomic unit, so
+fayan's single EXACT field is still excluded — passage-level cherry-picking across a failed document
+is explicitly forbidden. Notes travel verbatim on every record and the gate goes red if any is
+dropped. Status is *derived* from the register's `flagged` paths, never from prose.
+
+**New defects it surfaced in `docs/sample_export.jsonl` (verified by me):** `congronglu_case_001`
+carries Congronglu Chinese but **Biyanlu's Emperor Wu case as its English**, and its
+`completion_status` says `partial_selected_witness` while the manifest says
+`complete_selected_witness`; `master_bodhidharma` cross-refs the purged `bodhidharma_erru`. The
+sample is hand-authored. Recommendation in the doc — regenerate it from the exporter, never patch —
+is correct. **Log as a separate task; not fixed here and rightly so.**
+
+**5 open questions requiring OWNER decisions before implementation** (§8 of the doc): (1) filter on
+collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
+`excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
+for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
+a corpus task first? (4) Re-verification cadence for tombstoned pages. (5) Q5 rights/visibility
+stays open. Each carries a recommendation + consequence — decisive where evidence supported it,
+escalated where it did not. **Implementation must not start until these are ruled.**
+
 ## PR #117 (task 066) — verdict MERGE, plus two prompt defects of MINE it exposed
 
 Verified independently on a fresh clone of `4bff542` (merge-base `b8472bd`, correct): 7/7 gates,
@@ -163,7 +198,7 @@ itself for an agent.
 | 064 | .orchestrator/prompts/064-p2-tier2-guiyang-authenticity.md | Tier2 Guiyang authenticity, one doc | fix/tier2-guiyang-authenticity | — | Published+verified `d1472ab`. Dispatch FIRST of the 064/065 pair. |
 | 065 | .orchestrator/prompts/065-p2-tier2-fayan-authenticity.md | Tier2 Fayan authenticity, one doc | fix/tier2-fayan-authenticity | — | Published+verified `e25b93b`. Dispatch AFTER 064 merges (shared tracker line + manifest). |
 | 066 | .orchestrator/prompts/066-p3-materialize-orchestrator-core.md | Core doc + sha256 anchor + bin/orchestrator-check | **arena/01a0cbc2-translatechan** (not the ordered `feat/orchestrator-core-anchor` — see below) | **PR #117** | **Delivered. Verdict: MERGE (owner action).** Verified on a fresh clone of `4bff542`: 7/7 gates, 146 checks, bundle unchanged, 4 files, nothing protected touched. All 4 anchor cases re-run by me + a 5th (malformed anchor) — all fail-closed. |
-| 067 | .orchestrator/prompts/067-p2-botrunner-export-schema-design.md | Botrunner export schema, design only | docs/botrunner-export-schema | — | Published+verified `78cefe8`. Parallel-safe. |
+| 067 | .orchestrator/prompts/067-p2-botrunner-export-schema-design.md | Botrunner export schema, design only | arena/01a0cbc3-translatechan | **PR #118** | **Delivered. Verdict: MERGE (owner action).** Verified on fresh clone `1260dc8`: 7/7 gates, 146 checks, bundle unchanged, exactly 2 docs files, zero `data/`/`sessions/`/`scripts/` changes — design-only respected. I re-derived its ids against real corpus data; every claim exact. |
 | 063 | .orchestrator/prompts/063-p2-gate-hardening-residuals.md | P2 gate hardening: constructed pin-9 fixture + 2 tracker fact corrections | fix/gate-hardening-pin9-tracker | **PR #116** | **Delivered. Verdict: MERGE (owner action required).** Independently verified on a fresh clone of `5b88805`: 7/7 gates, **146** checks, bundle `b68eb436…cdba7` unchanged twice, exactly 2 files changed, `sessions/`+`data/`+`.github/` untouched. Both mutation proofs re-run by me and both fail as claimed. |
 
 Burned IDs: 042–060 inclusive. 043 and 045 were published as 0-byte stubs by the predecessor and
@@ -293,6 +328,41 @@ Before publishing ANY task prompt, in this order:
 4. Check open PRs touching the same paths (`gh pr list --state open`) — a merge in flight moves the
    base underneath the agent. Task 062 was published while #114 sat merged four minutes earlier
    because I skipped exactly this step.
+
+## PR #118 (task 067) — verdict MERGE. Botrunner export schema specified; **5 owner decisions pending**
+
+Verified on a fresh clone of `1260dc8` (merge-base `b8472bd`): 7/7 gates, 146 checks, bundle
+`b68eb436…cdba7` unchanged twice, exactly 2 files (`docs/BOTRUNNER_EXPORT_SCHEMA_2026-09-23.md` 386
+lines + 2 tracker lines), and **no `data/`, `sessions/` or `scripts/` change** — the design-only
+boundary held.
+
+**I re-derived its worked examples against the real corpus rather than trusting them. All exact:**
+chuandenglu idx 127 → `case_num` 128, fascicle 6, 洪州百丈山懷海禪師, `page_line` 0249b26, and it is
+the **16th** of fascicle 6 (113..130) — so file index 127 ≠ id 0128 ≠ order 16, exactly as the doc
+warns. linji idx 77 → `four_shouts`, 107 sections, exactly 4 slugs without digits. wumenguan 48/2/5.
+zhengdao_ge 6 stanzas. EXPORT_SET recomputed from the manifest = **13 documents**, matching its list
+character for character; excluded = guiyang+fayan (partial), hanshan+niutou (unavailable).
+
+**Substance is strong:** the 100%-collated filter is a computed set equation with builder refusal +
+validator re-check + consumer fail-safe, not a curated list. Document is the atomic unit, so
+fayan's single EXACT field is still excluded — passage-level cherry-picking across a failed document
+is explicitly forbidden. Notes travel verbatim on every record and the gate goes red if any is
+dropped. Status is *derived* from the register's `flagged` paths, never from prose.
+
+**New defects it surfaced in `docs/sample_export.jsonl` (verified by me):** `congronglu_case_001`
+carries Congronglu Chinese but **Biyanlu's Emperor Wu case as its English**, and its
+`completion_status` says `partial_selected_witness` while the manifest says
+`complete_selected_witness`; `master_bodhidharma` cross-refs the purged `bodhidharma_erru`. The
+sample is hand-authored. Recommendation in the doc — regenerate it from the exporter, never patch —
+is correct. **Log as a separate task; not fixed here and rightly so.**
+
+**5 open questions requiring OWNER decisions before implementation** (§8 of the doc): (1) filter on
+collation only, or collation + completeness — decides whether `zhengdao_ge` (collated but
+`excerpt_seed`) exports; 13 docs vs 12. (2) Are wumenguan's preface/epilogue Pages? (3) Flat Pages
+for the 5 works lacking a `fascicle` field (dahui = 1,354 chapterless Pages) or add fascicle data in
+a corpus task first? (4) Re-verification cadence for tombstoned pages. (5) Q5 rights/visibility
+stays open. Each carries a recommendation + consequence — decisive where evidence supported it,
+escalated where it did not. **Implementation must not start until these are ruled.**
 
 ## PR #117 (task 066) — verdict MERGE, plus two prompt defects of MINE it exposed
 
