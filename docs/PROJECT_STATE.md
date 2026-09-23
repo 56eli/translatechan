@@ -77,7 +77,7 @@ Canonical project tracker. This file is the authoritative source for project sta
 - Translations for enthusiast fulls (caoshan, chuandenglu_full, etc.) — human editorial sign-off pending
 - 31/31 lineage edges remain `traditional_link_pending_exact_locator`; corpus-key curation complete for 6-profile scope, later exact-locator work remains
 - Real-browser screenshot/accessibility evidence unavailable (Chromium ECONNRESET 2026-08-11)
-- Branch protection on main unconfirmed (403)
+- Branch protection on `main`: measured absent (2026-09-23) — `protected: false` and no rulesets (`rulesets: []`, so no ruleset enforcement exists either). The earlier "unconfirmed (403)" came from `GET /repos/56eli/translatechan/branches/main/protection` — the protection-*settings* endpoint, which this token cannot read; a 403 there never meant protection existed. Reproduce: `gh api repos/56eli/translatechan/branches/main --jq .protected` → `false`; `gh api repos/56eli/translatechan/rulesets --jq 'length'` → `0`. Consequence: nothing mechanically prevents merging a red PR into `main` (PR #113 was merged red). Enabling a required status check on `main` is an **open owner decision** — recorded as such, not done.
 - JSON Schema declarative only; Python validator is enforced contract
 - Rights review — all rights_manifest sources await human/jurisdiction review
 
