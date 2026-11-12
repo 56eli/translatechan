@@ -60,9 +60,9 @@ Canonical project tracker for `56eli/translatechan` / Fake Chan Factory.
 
 ## 4. Active milestone and current state
 
-- **Active milestone:** layout demolition/reset complete on the session branch;
-  next work is porting required functionality into the owner stub without
-  restoring the retired shell.
+- **Active milestone:** layout demolition/reset plus the stub reader port are
+  complete on the session branch; next work is porting the remaining research
+  surfaces into the owner stub without restoring the retired shell.
 - **Corpus:** 17 documents; 12 `complete_selected_witness`; 5 excerpt seeds.
   Content CJK 878,582; all-string CJK 937,884.
 - **Source review:** 13 collated, 2 partial/failed, 2 witness-unavailable.
@@ -72,19 +72,24 @@ Canonical project tracker for `56eli/translatechan` / Fake Chan Factory.
 - **Translations:** 209 corpus slots; 2 verified quotations; 21 matrix registers.
 - **Locators:** 4192/4192 case-level; 6 document-level seeds.
 - **Lineage/indexes:** 60 masters; 31 terms; 24 gongan entries.
-- **Known stub gaps:** cases-only reader for non-case shapes; Gallery placeholder;
-  Account is a local UI gate only; comparative/provenance rooms not yet ported;
-  no real-browser evidence for the stub.
+- **Reader port (2026-11-12):** the stub reader renders every validated corpus
+  shape present (cases, sections, stanzas, Wumenguan preface/epilogue) with pinyin,
+  per-unit locators, provenance notes, and disclosed English registers. Verified
+  locally under a Node DOM shim: all 17 works render.
+- **Known stub gaps:** Gallery placeholder; Account is a local UI gate only;
+  comparative-matrix/gongan research rooms not yet ported; no real-browser CI
+  evidence for the stub (local DOM-shim render evidence only).
 
 ## 5. Immediate next task
 
 Port functionality into the owner stub in small, owner-visible slices:
 
-1. make the reader handle all validated corpus shapes, not only `cases`;
-2. surface the five separate data ledgers and provenance notes honestly;
-3. port comparative, gongan, and locator/research surfaces as needed;
-4. replace placeholder Gallery/Account behavior or label it clearly;
-5. add real-browser evidence for the new stub, not the retired DOM.
+1. Reader shape parity — DONE 2026-11-12 (all validated shapes render).
+2. Reader disclosure of provenance notes and the five ledgers — DONE 2026-11-12;
+   a dedicated ledger/research view remains optional.
+3. Port comparative, gongan, and locator/research surfaces as needed.
+4. Replace placeholder Gallery/Account behavior or label it clearly.
+5. Add real-browser evidence for the new stub, not the retired DOM.
 
 Do not satisfy these by recreating `app.js`/`app.css`/`app_data.js` or the old
 smoke-test contract.

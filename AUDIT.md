@@ -51,10 +51,11 @@ Zhaozhou's former T1987 claim is false: T1987 is the Caoshan record.
 
 ### P2 — stub port and evidence
 
-4. The stub reader handles `cases` only; sections/dialogues/stanzas/chapters and
-   other validated shapes need porting.
-5. Provenance notes and the five separate ledgers must be surfaced honestly in
-   the stub.
+4. Reader shape parity is DONE (2026-11-12): the stub renders cases, sections,
+   stanzas, and Wumenguan preface/epilogue; all 17 works render under a Node DOM
+   shim. Remaining: comparative-matrix/gongan research rooms.
+5. Provenance notes, coverage, locators, and disclosed English registers are now
+   surfaced in the reader; a dedicated five-ledger view remains optional.
 6. Comparative matrix, gongan index, and locator/research surfaces are not yet
    ported into the stub.
 7. Gallery is placeholder; Account is local UI only.

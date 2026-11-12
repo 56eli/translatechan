@@ -9,8 +9,8 @@
 | Phase | Scope | Status |
 |---|---|---|
 | 0 | Layout demolition/reset | Complete on session branch, 2026-11-12 |
-| 1 | Stub reader parity for validated corpus shapes | Next |
-| 2 | Honest disclosure/provenance surfaces in stub | Next |
+| 1 | Stub reader parity for validated corpus shapes | Complete on session branch, 2026-11-12 |
+| 2 | Honest disclosure/provenance surfaces in stub | Reader disclosure done 2026-11-12 |
 | 3 | Comparative/gongan/locator research surfaces | Planned |
 | 4 | Real-browser evidence and owner review | Planned |
 | 5 | Corpus growth/remediation under preservation gates | Ongoing |
@@ -26,10 +26,11 @@
 
 ## Phase 1 — stub reader parity
 
-- [ ] Render all validated corpus shapes: cases, sections, dialogues, stanzas,
-  chapters, five-ranks/sample records where present.
-- [ ] Preserve pagination/navigation behavior without restoring the old shell.
-- [ ] Keep source Chinese, pinyin, and disclosed English registers honest.
+- [x] Render every validated corpus shape present in the corpus: cases, sections,
+  stanzas, and Wumenguan preface/epilogue (2026-11-12, verified under a Node DOM
+  shim — all 17 works render). The unit collector is shape-driven.
+- [x] Preserve pagination/navigation behavior without restoring the old shell.
+- [x] Keep source Chinese, pinyin, and disclosed English registers honest.
 
 **Phase 2 — `12/17 complete`** is the current corpus completion measurement, not a
 UI completion claim. Completion requires explicit status, collated W1 evidence,
@@ -43,10 +44,11 @@ W1 evidence: **17 documents, 127 flagged source fields**. Authoritative register
 `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json`. Historical register:
 `sessions/COLLATION_REGISTER_2026-09-09.json` (2026-09-09).
 
-- [ ] Surface document-level W1 status and coverage notes.
-- [ ] Surface passage-level `recension_note`, `editorial_note`, `cbeta_note`
-  without concatenating their meanings.
-- [ ] Keep rights review separate from collation and edition verification.
+- [x] Surface document-level W1 status and coverage notes (reader, 2026-11-12).
+- [x] Surface passage-level `recension_note`, `editorial_note`, `cbeta_note`
+  without concatenating their meanings (reader, 2026-11-12).
+- [x] Keep rights review separate from collation and edition verification
+  (reader disclosure line, 2026-11-12).
 
 Current measured English layer: **2 verified corpus quotation slots across 2 texts + 2 verified Matrix entries**.
 

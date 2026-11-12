@@ -16,6 +16,7 @@ main{max-width:1180px;margin:0 auto;padding:18px}h1{font-weight:500;margin:.2em 
 .tag{font-size:12px;padding:1px 8px;border:1px solid var(--line);border-radius:99px;white-space:nowrap}.ok{color:var(--ok);border-color:var(--ok)}.wn{color:var(--warn);border-color:var(--warn)}
 .wiki{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px}.wiki h2{border-bottom:1px solid var(--line);font-weight:500;margin-top:1.4em}.info{order:2;align-self:start}.info td:first-child{color:var(--mut)}
 .src{font-size:1.35em;letter-spacing:.05em;margin:.4em 0}.case{padding:14px 0;border-bottom:1px dotted var(--line)}.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}.gal svg{width:100%;background:var(--bg);border-radius:8px}
+.tr{margin:.5em 0;font-size:14px}.tr summary{cursor:pointer;color:var(--acc)}.trrow{padding:6px 0;border-top:1px dotted var(--line)}.trrow p{margin:.3em 0}
 @media(max-width:800px){.lin,.wiki{grid-template-columns:1fr}.lin aside{order:-1;position:static}.info{order:0}}
 </style></head><body>
 <header><a class="brand" href="#lineage"><span class="ring"></span><b>禪宗法脈</b></a>
@@ -45,10 +46,32 @@ main.innerHTML=`<p><a href="#lineage">← Lineage</a></p><div class="wiki"><div>
 <table class="card info"><tr><td>Dates</td><td>${e(m.dates)}</td></tr><tr><td>Era</td><td>${e(m.era)}</td></tr><tr><td>School</td><td>${e(m.school)}</td></tr><tr><td>Place</td><td>${e(m.location)}</td></tr><tr><td>Teacher</td><td>${m.teacher?L(m.teacher):"—"}</td></tr><tr><td>Heirs</td><td>${(m.disciples||[]).map(L).join(", ")||"—"}</td></tr><tr><td>CBETA</td><td>${e(m.cbeta_id)}</td></tr></table></div>`}
 function vLib(){const u=user(),rows=MF.filter(i=>u||i.source_review_status=="collated_to_claimed_witness");
 main.innerHTML=`<h1>閱藏堂 <small>Library index</small></h1><p class="mut">Public view lists only works collated to their claimed witness. ${u?"Signed in: all works, including unreviewed, are shown.":"Sign in to see works still under review."}</p><div class="sc card"><table><tr><th>Work<th>CBETA<th>Completion<th>Source review</tr>${rows.map(i=>`<tr><td><a href="#read-${i.key}">${e(i.title)}</a><td>${e(i.cbeta)}<td>${e(i.completion_status).replace(/_/g," ")}<td>${badge(i.source_review_status)}</tr>`).join("")}</table></div>`}
+const TR_STATUS={verified_quotation:["Verified quotation","ok"],reconstruction_unverified:["Reconstruction · unverified","wn"],ai_draft:["AI draft","wn"]};
+function trBadge(st){const t=TR_STATUS[st]||[st||"unknown","wn"];return `<span class="tag ${t[1]}">${e(t[0])}</span>`}
+function renderTrans(t){if(!t||typeof t!="object")return "";const ks=Object.keys(t);if(!ks.length)return "";
+return `<details class="tr"><summary>English registers · ${ks.length} (disclosed)</summary>${ks.map(k=>{const r=t[k]||{};const s=r.source?`<div class="mut" style="font-size:12px">${e(r.source.work||"")}${r.source.edition?" · "+e(r.source.edition):""}${r.source.reference?" · "+e(r.source.reference):""}</div>`:"";return `<div class="trrow"><div><b>${e(k)}</b> ${trBadge(r.status)}</div>${s}<p>${e(r.text)}</p></div>`}).join("")}</details>`}
+function renderNotes(o){return ["recension_note","editorial_note","cbeta_note"].map(k=>o[k]?`<p class="mut" style="font-size:12px">ℹ️ ${e(o[k])}</p>`:"").join("")}
+function renderDialogue(dl){return (dl||[]).map(d=>`<div class="src"><span class="mut" style="font-size:12px">${e(d.speaker)}</span><br>${e(d.zh)}${d.pinyin?`<div class="mut" style="font-size:13px">${e(d.pinyin)}</div>`:""}${renderNotes(d)}${renderTrans(d.translations)}</div>`).join("")}
+function renderLocator(loc){if(!loc)return "";const r=loc.reference||loc.page_line||(Array.isArray(loc.lb_range)?loc.lb_range.join("–"):loc.lb_range);return r?`<span class="mut" style="font-size:12px">${e(r)}</span>`:""}
+function renderUnit(u){const num=u.case_num||u.stanza_num;
+const head=`${num?`<span class="mut" style="font-size:12px">#${e(num)}</span> `:""}${u.title_zh?`<b>${e(u.title_zh)}</b> `:""}${u.title_en?`<span class="mut">${e(u.title_en)}</span>`:""}${u.kind?` <span class="tag">${e(u.kind)}</span>`:""}`;
+let body="";
+if(u.pointer_zh)body+=`<p class="mut">${e(u.pointer_zh)}</p>`;
+if(u.pointer_en)body+=`<p class="mut" style="font-size:13px"><span class="tag wn">Project English · unverified</span> ${e(u.pointer_en)}</p>`;
+if(u.dialogue)body+=renderDialogue(u.dialogue);
+else if(u.zh)body+=`<div class="src">${e(u.zh)}${u.pinyin?`<div class="mut" style="font-size:13px">${e(u.pinyin)}</div>`:""}</div>`;
+if(u.commentary_zh)body+=`<p>${e(u.commentary_zh)}</p>`;
+if(u.verse_zh)body+=`<p class="mut">${e(u.verse_zh)}</p>`;
+if(u.verse_commentary_zh)body+=`<p class="mut" style="font-size:13px">${e(u.verse_commentary_zh)}</p>`;
+if(u.verse_en)body+=`<p class="mut" style="font-size:13px"><span class="tag wn">Project English · unverified</span> ${e(u.verse_en)}</p>`;
+body+=renderTrans(u.translations)+renderNotes(u);
+return `<div class="case">${head}${body}${renderLocator(u.locator)}</div>`}
+function unitsOf(w){const u=[];["preface","cases","sections","stanzas","epilogue"].forEach(k=>(w[k]||[]).forEach(x=>u.push(x)));return u}
 async function vRead(k){main.innerHTML="<p class=mut>Loading text…</p>";const it=MF.find(i=>i.key==k);let w;try{w=await J("corpus/"+k+".json")}catch(x){main.innerHTML="<p>Text not found.</p>";return}
 if(it&&it.source_review_status!="collated_to_claimed_witness"&&!user()){main.innerHTML="<h1>Under review</h1><p>This work is not yet collated and is not shown publicly. <a href=\"#library\">Back to library</a></p>";return}
-const cs=w.cases||[],P=25,pages=Math.ceil(cs.length/P);pg=Math.min(pg,pages-1);
-main.innerHTML=`<p><a href="#library">← Library</a></p><h1>${e(w.title_zh)} <small>${e(w.title_en)} · ${e(w.cbeta_id)}</small></h1><p>${badge(it&&it.source_review_status)} <span class="mut">${e(w.author_en)} · ${e(w.era)}</span></p><p class="mut">${e(w.overview)}</p><div class="card" style="max-width:900px">${cs.slice(pg*P,pg*P+P).map(c=>`<div class="case"><b>${e(c.title_zh)}</b> <span class="mut">${e(c.title_en)}</span>${(c.dialogue||[]).map(d=>`<p class="src"><span class="mut" style="font-size:12px">${e(d.speaker)}</span><br>${e(d.zh)}</p>`).join("")}${c.commentary_zh?`<p>${e(c.commentary_zh)}</p>`:""}${c.verse_zh?`<p class="mut">${e(c.verse_zh)}</p>`:""}<span class="mut" style="font-size:12px">${e((c.locator||{}).reference||(c.locator||{}).page_line)}</span></div>`).join("")}<p><button ${pg?"":"disabled"} onclick="pg--;vRead('${k}')">← Prev</button> ${pg+1} / ${pages} <button ${pg<pages-1?"":"disabled"} onclick="pg++;vRead('${k}')">Next →</button></p></div>`}
+const us=unitsOf(w),P=25,pages=Math.max(1,Math.ceil(us.length/P));pg=Math.min(Math.max(pg,0),pages-1);
+const docnotes=["coverage_note","cbeta_note","recension_note"].map(n=>w[n]?`<p class="mut" style="font-size:13px">ℹ️ ${e(w[n])}</p>`:"").join("");
+main.innerHTML=`<p><a href="#library">← Library</a></p><h1>${e(w.title_zh)} <small>${e(w.title_en)} · ${e(w.cbeta_id)}</small></h1><p>${badge(it&&it.source_review_status)} <span class="mut">${e(w.author_en)} · ${e(w.era)}</span></p><p class="mut">${e(w.overview)}</p>${docnotes}<p class="mut" style="font-size:12px">English renderings are disclosed AI/register reconstructions unless marked verified quotation; edition verification is not rights approval.</p><div class="card" style="max-width:900px">${us.length?us.slice(pg*P,pg*P+P).map(renderUnit).join(""):"<p class=mut>No readable units in this record.</p>"}<p><button ${pg?"":"disabled"} onclick="pg--;vRead('${k}')">← Prev</button> ${pg+1} / ${pages} <button ${pg<pages-1?"":"disabled"} onclick="pg++;vRead('${k}')">Next →</button></p></div>`}
 function vTerms(q){q=(q||"").toLowerCase();const t=TM.filter(x=>JSON.stringify(x).toLowerCase().includes(q)).slice(0,80);
 main.innerHTML=`<h1>詞林 <small>Terms</small></h1><input id="tq" placeholder="Filter terms…" value="${e(q)}" oninput="vTerms(this.value);var i=$('#tq');i.focus();i.setSelectionRange(99,99)"><div class="sc card" style="margin-top:12px"><table>${t.map(x=>`<tr><td class="src">${e(x.term)}<td><b>${e(x.pinyin)}</b> · ${e(x.literal)}<br>${e(x.definition)}</tr>`).join("")}</table></div>`}
 function vGal(){const a=['<circle cx="100" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="9" stroke-dasharray="300 40" stroke-linecap="round"/>','<path d="M0 150 L50 70 L90 120 L140 50 L200 140 V200 H0Z" fill="currentColor" opacity=".4"/>','<g stroke="currentColor" stroke-width="7" stroke-linecap="round"><path d="M70 200V20M110 200V40M150 200V10"/></g>'];

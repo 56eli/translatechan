@@ -84,9 +84,11 @@ The five non-complete documents are `zhengdao_ge`,
 
 ### Engineering and operations
 
-- The stub reader is cases-only; non-case corpus shapes need porting.
-- Comparative matrix, gongan index, locator/provenance ledgers, and research
-  surfaces need to be ported into the stub without restoring the retired shell.
+- Reader shape parity is done (2026-11-12): cases, sections, stanzas, and
+  Wumenguan preface/epilogue all render, with pinyin, locators, provenance notes,
+  and disclosed English registers.
+- Comparative matrix, gongan index, and dedicated research rooms still need to be
+  ported into the stub without restoring the retired shell.
 - Gallery is placeholder; Account is localStorage UI only, not authentication.
 - No real-browser evidence exists for the current stub.
 - Branch protection/required Quality on `main` remains an owner-side verification

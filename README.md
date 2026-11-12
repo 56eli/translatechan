@@ -28,10 +28,12 @@ It fetches `data/` relative to the page. GitHub Pages publishes `main /docs`, so
 `scripts/build_pages.py` mirrors root `index.html` and `data/` into `docs/`.
 There is no runtime JavaScript bundle and no runtime npm dependency.
 
-Known stub gaps are tracked in [`docs/PROJECT_STATE.md`](./docs/PROJECT_STATE.md):
-the reader is currently cases-only, Gallery is a placeholder, Account is a local
-UI gate only, and the comparative/provenance research surfaces still need to be
-ported into the stub.
+The reader renders every validated corpus shape (cases, sections, stanzas, and
+Wumenguan preface/epilogue) with pinyin, per-unit locators, provenance notes, and
+disclosed English registers. Remaining stub gaps are tracked in
+[`docs/PROJECT_STATE.md`](./docs/PROJECT_STATE.md): Gallery is a placeholder,
+Account is a local UI gate only, and the comparative-matrix/gongan research rooms
+still need to be ported into the stub.
 
 ## Measured corpus status
 
