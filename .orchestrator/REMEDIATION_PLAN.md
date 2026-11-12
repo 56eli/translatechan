@@ -1,5 +1,12 @@
 # W1 Remediation Plan — Adopted Hybrid R-A/R-B/R-C Policy (owner decision 2026-09-09)
 
+> **2026-11-12 layout/build/test boundary:** the owner-uploaded root `index.html` stub is
+> the sole public layout authority. The retired walnut-shell frontend, `app_data.js`
+> bundle, and smoke/browser gates are demolished. Current gates are `AGENTS.md` /
+> `GATE.md`: `validate_data.py`, `build_pages.py`, `test_source_preservation.py`,
+> `test_source_review_rules.py`, `test_pages_contract.py`. Historical wave progress below
+> is source-remediation evidence, not a frontend work order.
+
 **Audience:** the orchestrator agent(s) succeeding this W1 status-model session.
 Everything needed to run this program is in the repository; no chat context is required.
 
@@ -52,9 +59,9 @@ neither sourcing nor honest relabeling is responsible. Rules for the R-A work pa
   T1998A / T1998B + T48n2001 (volume-qualified: T48n2001 is 宏智禪師廣錄, the 默照銘 witness);
   platform_sutra → pick ONE recension per document and re-key or split).
 - **Composite `title_zh` strings:** split into `title_zh` (witness heading only, collating)
-  + a separate display/topic field for project-appended text. Update renderer references
-  (`app.js`) and smoke guards as needed — check `scripts/smoke_test.mjs` expectations
-  before renaming any field.
+  + a separate display/topic field for project-appended text. Update the owner-stub
+  reader references and current data-contract docs as needed; do not restore the retired
+  `app.js`/smoke guards.
 - **Editorial text inside source fields** (e.g. biyanlu cases[95].dialogue[0].zh 「…即在
   評唱所引」): move to a metadata/comment field.
 - **After each document PR:** re-run `scripts/collate_corpus.py` for that document and
@@ -125,21 +132,21 @@ CONFIRMED FACTS AND CONSTRAINTS
 - Flagged fields and their classes are in the register; treat it as ground truth.
 - Never generate source-looking Chinese from model memory; re-key ONLY from the
   extracted CBETA reference text, mechanically.
-- Preserve schema shapes; keep every field the renderer reads (grep app.js first).
+- Preserve schema shapes; keep every field the owner stub/data contract reads.
 CORE OBJECTIVE
 For every flagged field: re-keyed from witness OR explicitly relabeled; register
 re-run for <doc> shows documented residual only.
 EXACT DELIVERABLES
-Modify: data/corpus/<doc>.json (+ derived: app_data.js, docs/ mirror via
-python3 scripts/build_data_bundle.py). Modify: canonical_locators/editorial queues if
+Modify: data/corpus/<doc>.json (+ derived: docs/ mirror via
+python3 scripts/build_pages.py). Modify: canonical_locators/editorial queues if
 locator claims change. Update this plan's wave checklist.
 BRANCH AND TARGET
 Base: main. Sync rule: rebase onto origin/main first; on conflicts halt and report.
 TECHNICAL REQUIREMENTS
 TEST_COMMAND: COLLATION_REFS=<dir> python3 scripts/collate_corpus.py --doc <doc>
 LINT_COMMAND: python3 -m py_compile scripts/*.py
-BUILD_COMMAND: python3 scripts/build_data_bundle.py
-Also: node scripts/smoke_test.mjs ; diff -rq data docs/data ; git diff --check
+BUILD_COMMAND: python3 scripts/build_pages.py
+Also: python3 scripts/test_source_preservation.py ; python3 scripts/test_source_review_rules.py ; python3 scripts/test_pages_contract.py ; diff -rq data docs/data ; git diff --check
 SAFETY AND COMPATIBILITY RULES
 No renderer behavior change beyond data-driven text; no new public claims; do not
 touch other documents; do not weaken validator rules; keep statuses honest
@@ -147,10 +154,9 @@ touch other documents; do not weaken validator rules; keep statuses honest
 CLEANUP RULES
 No scratch scripts, no debug output, no TODOs; only intended files in git status.
 STRICT BOUNDARIES / OUT OF SCOPE
-No app.js redesign, no rights-manifest changes, no scoreboard edits (queued for
-separate PR), no new corpus documents.
+No retired frontend resurrection, no rights-manifest changes, no new corpus documents.
 QUALITY CHECKS
-All five repo gates pass; collation re-run summary in PR description (before/after
+All current repo gates pass; collation re-run summary in PR description (before/after
 flagged counts per class).
 PR DESCRIPTION REQUIREMENTS
 Register before/after table; per-field decisions (re-keyed vs relabeled, with witness
@@ -159,14 +165,14 @@ locators); witness changes; safety statement.
 
 ## 4. Invariants during remediation
 
-- The five repo quality gates must pass on every PR.
+- The current repo quality gates (`AGENTS.md` / `GATE.md`) must pass on every PR.
 - Honest-disclosure contract (AGENTS.md) applies to every edited field.
 - No field may claim witness authority while failing collation.
 - `data/project_metrics.json` CJK totals will change as fields are re-keyed; README/
-  HANDOFF/AUDIT/ROADMAP/index.html guarded metrics must be regenerated in the same PR
+  HANDOFF/AUDIT/ROADMAP guarded metrics must be regenerated in the same PR
   (validator enforces; run `validate_data.py --write-metrics` then rebuild).
 - Keep `.orchestrator/STATE.md`'s task queue current; check off waves here as they merge.
-- **Every provenance label must be visible (2026-09-12, task 011):** a `*_note` key added to `data/corpus/*.json` by any remediation PR is rendered by the reader or listed with its reason in `NOTE_RENDER_EXEMPTIONS` — `scripts/test_source_review_rules.py` §15 enumerates the keys from the data at run time and fails otherwise, because an R-B `editorial_note`, a `recension_note` or a `cbeta_note` citation correction that no reader can see is not a disclosure (49 notes / 1 render site before; 38 rendered note lines after).
+- **Every provenance label must remain in the data and be disclosed publicly:** the retired reader/renderer census gate was demolished with the old layout. A `*_note` key added to `data/corpus/*.json` must be preserved in the data contract and surfaced by the owner-stub disclosure port before a research release is claimed; until then it is a tracked release blocker, not a rendered UI fact.
 
 ## 5. Wave checklist
 
@@ -383,7 +389,9 @@ post-remediation evidence pass.
 
 ## W1 evidence records and the five public ledgers (2026-09-10)
 
-The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
+The data contract keeps **five separate ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
+
+> **2026-11-12 demolition note:** the reader-rendering census figures in this section are historical measurements of the retired reader, not current owner-stub behavior.
 
 > W1 evidence: **17 documents, 127 flagged source fields** (authoritative 2026-09-22 P2 Tier2 batch1 overlay: `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json` — the two purged Tier2 retelling keys restored as measured excerpt seeds (Guiyang 0 of 6, Fayan 1 of 11 source-content fields verbatim; re-key NOT landed) as documents 15 and 16, re-measuring the 14 entries of the 2026-09-21 combined Wumenguan/Linji overlay `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` byte-identically — the re-keyed Gateless Gate T48n2005 as the 13th document and the re-keyed Record of Linji T47n1985 as the 14th, inheriting the 12 entries of the 2026-09-21 enthusiast fulls overlay `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json` verbatim, which itself inherits the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json`, the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of the 2026-09-20 correction overlay `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 4,709 of 4,734 source-content fields collate to their claimed witness, and 3 documents have no collating source-content field at all (the two witness-unavailable seeds plus guiyang_yulu).
 

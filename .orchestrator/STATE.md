@@ -10,7 +10,13 @@
 > Agents update it as a PR deliverable **only** when the task prompt says so;
 > the human operator may also edit it directly.
 
-## Active Milestone
+## Current Demolition State (2026-11-12)
+
+> **Current authority:** the owner-uploaded root `index.html` stub is the sole public layout authority. The rejected walnut-shell frontend, its runtime bundle, and its presentation-pinning smoke/browser gates were demolished. Current build/test authority: `scripts/build_pages.py`, `scripts/test_pages_contract.py`, `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`.
+> **Current W1 evidence:** **17 documents, 127 flagged source fields**; authoritative register `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json`. The historical 622 register figure and superseded 637 report figure are not current active-corpus measurements.
+> **Historical boundary:** everything below this section is historical coordination evidence unless explicitly reaffirmed by the current docs. Old walnut-shell, five-room, bundle, CSP, smoke/browser, and `build_data_bundle.py` commands are retired and must not be executed as current instructions. Dated `.orchestrator/prompts/` and `.orchestrator/stubs/` are historical dispatched work orders, not current layout authority.
+
+## Historical Milestone Log (superseded by `docs/PROJECT_STATE.md`)
 
 **W1 COMPLETE (2026-09-09), CORRECTED (2026-09-10) — full-corpus collation evidence landed and is now reproducible.** Historical record (append-only): `sessions/COLLATION_W1_2026-09-09.md` + `sessions/COLLATION_REGISTER_2026-09-09.json` (34 documents, 622 flagged entries; the report's 637 figure is superseded and was never the register's arithmetic). Authoritative record: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` + `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (35 documents — the 2026-09-10 overlay adds the Shitou Sandokai item the first run never mapped — 630 flagged entries) with `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`. Reference layer is now regenerable from the repository: `scripts/collate_refs.py` implements the extraction rule, pins CBETA XML P5 revision `dbdea41071e1e260ad84b72faefd4587333cf76d`, and verifies every reference digest (33 of 39 byte-identical to the 2026-09-09 manifest; the 6 drifted references change no document verdict). Verdict: only 1 of 35 documents collates 100% to its claimed witness; 22 have no collating source-content field at all (the 2026-09-09 report's tier table narrated 27 under a different denominator); verified fabrications exist inside both former `complete_selected_witness` texts (Wumenguan preface/epilogue/verses, case-23 pointer); Zhaozhou's canonical claim (T1987) is false (T1987 = Caoshan) and the corpus record still carries it — re-pointing is R-A work, deliberately not done here. Title/name metadata is excluded from the content denominator (391 metadata fields measured separately), so `collated_to_claimed_witness` never claims excluded metadata was collated.
 
@@ -138,16 +144,18 @@ Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhao
 
 ## Architectural Invariants
 
-1. **Never generate source-looking Classical Chinese.** Corpus text comes only from recorded authoritative sources (HANDOFF.md §8 workflow).
-2. **N/N representation never establishes completion** — only explicit editorial `completion_status` counts; the validator is the spec.
-3. **Edition verification ≠ rights approval**; both are tracked separately everywhere.
-4. **Internal identifiers stay**: `translatechan_*` localStorage keys, `window.TranslateChan`, `TRANSLATECHAN_DATA`; public brand is "Fake Chan Factory". Humor-forward tone stays.
-5. **Public scope is exactly 5 rooms** (Reader, Matrix, Lineage, Gong'an, Lexicon), smoke-guarded; Translation Studio / Arena Agents / header GitHub link stay out.
-6. **No edits to `.github/workflows/*` without explicit owner approval**; `OPERATIONS.md` is the only record of owner-controlled CI/GitHub-side edits.
-7. **Pipeline order is fixed**: `data/` → `validate_data.py` → `project_metrics.json` → `build_data_bundle.py` → root assets + byte-identical `/docs` mirror. All five quality gates pass before every push.
-8. **Durable memory lives in repo files**, not chat; dated evidence in `sessions/` is immutable.
+1. **Never generate source-looking Classical Chinese.** Corpus text comes only from recorded authoritative sources.
+2. **N/N representation never establishes completion.** `complete_selected_witness` requires `collated_to_claimed_witness` and satisfied unit targets; the validator is the spec.
+3. **Edition verification ≠ rights approval.** Source collation, representation, translation verification, locators, and rights remain separate ledgers.
+4. **Current layout authority is the owner stub.** Root `index.html` is mirrored byte-identically to `docs/index.html`; retired `app.js`/`app.css`/`app_data.js`/`theme-init.js`/old deploy shell stay deleted.
+5. **Pipeline:** `data/` → `validate_data.py` → `project_metrics.json` → `build_pages.py` → `docs/index.html` + `docs/data/` + crawler files. GitHub Pages publishes `main /docs`.
+6. **No edits to `.github/workflows/*` without explicit owner approval.** The 2026-11-12 demolition authorized the Quality update recorded in `OPERATIONS.md` Edit 7.
+7. **Durable memory lives in repo files.** `sessions/` dated evidence is append-only; new dated records supersede old ones.
+8. **Current gates:** Python syntax, `validate_data.py`, `build_pages.py`, `test_source_preservation.py`, `test_source_review_rules.py`, `test_pages_contract.py`, committed-artifact diff, and `git diff --check`.
 
 ## Continuation (cold start) — added 2026-09-13
+
+> **Historical continuation snapshot (2026-09-13):** superseded by the 2026-11-12 demolition state above. Its old gate commands and frozen walnut-shell surface are not current instructions.
 
 > **Why this section exists:** an orchestrator session expires. Everything a successor needs to
 > resume the source-integrity campaign from `main` alone — the prompt channel, the published prompt

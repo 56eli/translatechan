@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # 🏯 Fake Chan Factory — Website Vision (Historical Walnut-Hall Direction)
 
 > **Current direction (2026-08-11):** the walnut foundation remains, but the owner found the implementation too plain/generic, too Chinese-dominant, and later too repetitive in its explanatory copy. The current English-first, progressively disclosed interpretation is documented in [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md); PR #18 merged with green main Quality and Pages deployment.

@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # P2 + P3 Prompt Stubs — Dispatch Ready — main 5982e3e (44 docs, 10 collated, 30 verified lineage, 1 frontier intentional)
 
 Base: main 5982e3e after P3 batch1+2+3+frontier final (20 exact +10 source +1 documented frontier =30 verified, 1 pending dahong→yuelin intentional, 33/35 linked) + P2 Tier2 next Guiyang+Fayan labels (43-ref layer), P2 retry Dazhu+Nanquan enhanced labels, enthusiast 6 full-witness records, all-encompassing roadmap 102 masters snapshot NOT exhaustive target 150-200 open-ended disclaimer 2026-09-21, Oracle VPS 2 OCPU 12GB RAM Ubuntu 24.04 domain nonduality.duckdns.org.

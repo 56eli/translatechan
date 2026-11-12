@@ -102,8 +102,7 @@ Rules
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
 
 Run: python3 scripts/test_source_preservation.py   (exit 0 = preserved)
-Also invoked from scripts/smoke_test.mjs so the CI gate covers it without
-workflow changes.
+Run directly by the Quality workflow.
 """
 
 from __future__ import annotations
@@ -241,7 +240,7 @@ DECLARED_NEW_CORPUS = {
 
 #: Set only for the temporary copy that the nested-`coverage_note` regression runs: the copy
 #: then performs the real comparison but not the regression that spawned it. Nothing else sets
-#: it, so a normal run — including the smoke test — always runs the focused regression.
+#: it, so a normal run always runs the focused regression.
 NESTED_REGRESSION_MARKER = "PRESERVATION_NESTED_REGRESSION"
 
 #: The only corpus paths the W1 work may have touched: exact JSON pointers, per file. The
@@ -1407,7 +1406,7 @@ def main() -> int:
             continue
         if mirror.read_bytes() != path.read_bytes():
             failures.append(f"docs/data/corpus/{path.name} differs from data/corpus/{path.name}; "
-                            "rebuild with scripts/build_data_bundle.py")
+                            "rebuild with scripts/build_pages.py")
 
     compared = len(base_files & current_files)
     permitted_total = sum(len(changes[rel]["permitted"]) for rel in changes)

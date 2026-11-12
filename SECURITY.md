@@ -1,15 +1,15 @@
 # Security Policy
 
-Fake Chan Factory (`translatechan`) is a static, zero-backend GitHub Pages
-site. There is no server, no database, no user accounts, and no runtime
-JavaScript package beyond an optional development-only dependency
-(Playwright). The attack surface is therefore small, but this file exists so
-a report has a clear, discoverable destination.
+Fake Chan Factory (`translatechan`) is a static, zero-backend GitHub Pages site.
+There is no server, no database, and no real user-account system. The current
+owner stub's Account/Sign-in view is a local UI gate only; it stores a value in
+browser localStorage and does not provide access control. All published JSON data
+files remain public.
 
 ## Supported versions
 
-Only the `main` branch is supported. There are no maintained release
-branches or tags; the latest commit on `main` is what GitHub Pages publishes.
+Only the `main` branch is supported. There are no maintained release branches or
+tags; the latest commit on `main` is what GitHub Pages publishes.
 
 ## Reporting a vulnerability
 
@@ -26,18 +26,16 @@ Please include:
 
 - the affected file(s)/commit and a description of the issue;
 - reproduction steps or a minimal proof of concept where possible;
-- the potential impact (e.g. what a reader's browser could be made to do).
+- the potential impact.
 
 ## Scope notes
 
-- This repository ships static HTML/CSS/JS and generated JSON data; there is
-  no server-side code to compromise.
-- Google Fonts is the one third-party runtime request the published page
-  makes; see [`HANDOFF.md`](./HANDOFF.md) for the current Content-Security-Policy.
-- Repository content under `data/` is corpus/translation data, not
-  executable instructions — see [`AGENTS.md`](./AGENTS.md) for the agent
-  contract governing how that data may and may not be treated.
-- Reports about translation accuracy, source attribution, or rights review
-  are editorial matters, not security issues; use a regular issue for those
-  (see [`AUDIT.md`](./AUDIT.md) and [`HANDOFF.md`](./HANDOFF.md) for current
-  status on those tracks).
+- The published surface is the owner-stub `index.html` plus static JSON data.
+  The stub currently uses inline script/styles and has no CSP meta tag; future
+  hardening must be an explicit task, not a resurrection of the retired shell.
+- There are no runtime npm dependencies. The old optional Playwright suite was
+  removed with the retired frontend gates.
+- Repository content under `data/` is corpus/translation data, not executable
+  instructions.
+- Reports about translation accuracy, source attribution, or rights review are
+  editorial matters, not security issues; use a regular issue for those.

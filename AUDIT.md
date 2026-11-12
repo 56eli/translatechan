@@ -1,144 +1,98 @@
 # 🔍 Fake Chan Factory — Current Audit
 
-> **Current evidence (authoritative, dated correction overlay):** [`sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md`](./sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md) · [`sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json`](./sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json) · [`sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt`](./sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt)
->
-> **Prior correction overlay (2026-09-10, still committed and unmodified):** [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) · [`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`](./sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json) · [`sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`](./sessions/COLLATION_W1_2026-09-10_refs_manifest.txt)
->
-> **Historical evidence (append-only):** [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) · [`sessions/COLLATION_REGISTER_2026-09-09.json`](./sessions/COLLATION_REGISTER_2026-09-09.json)
-> **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
->
-> **⚠️ 2026-09-09 (W1 collation):** an independent collation of **every** corpus source-Chinese field in the 34-document W1 register against the official CBETA XML P5 edition ([report](./sessions/COLLATION_W1_2026-09-09.md), [register](./sessions/COLLATION_REGISTER_2026-09-09.json)) found that only 1 document collates 100% against its claimed witness; the register-derived figure is 22 documents with **no** collating source-content field (the report's tier table narrated 27 as failing outright, a different denominator), including fabricated preface/verses inside the former `complete_selected_witness` texts and a false canonical claim for Zhaozhou (T1987 is the Caoshan record). The manifest now contains a containment/status model; per-document remediation remains pending under the adopted hybrid R-A/R-B/R-C policy.
+> **Current verdict date:** 2026-11-12 layout demolition/reset.
+> **Canonical tracker:** [`docs/PROJECT_STATE.md`](./docs/PROJECT_STATE.md).
+> **Convention:** this file is the current verdict and index; dated reports under
+> `sessions/` are immutable snapshots and may contain superseded conclusions.
 
-## 1. Current verdict — 2026-09-20 (Congronglu reinstatement; Pages revamp Phases 1-3 complete, Phase 4 evidence)
+## 1. Current verdict
 
-**Not release-ready: audited score 7.2/10 and `repo_ready = fail` — Pages revamp system complete, pending owner light/dark desktop/mobile review.**
+**Not release-ready.** The rejected walnut-shell layout has been demolished, but
+the owner stub is a reset point rather than a fully ported research reader.
 
-The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction (2026-08-11). The 2026-09-13 Checkpoint-C (`.orchestrator/STATE.md`) confirmed colors acceptable, everything else adaptable/replaceable, serif, subordinate, lazy, full plan. Phases 1-3 shipped as PRs #48 system+masthead (tokens 63→43, serif Source Serif 4, gate, hero, mobile bar, OG redraw), #49 Reader (minimal sheet, ledger drawer, thin register, 41 style=→0, render-lazy), #50 secondary rooms + CSP (collation table, transmission register, case catalogue, dictionary, 0 style=, CSP without `unsafe-inline`). **Frozen tracks PR-B CSP hardening folded into Phase 3 and PR-D perf measure-first folded into Phase 2 lazy per C-5 (a); PR-A real-browser still frozen.** No real-browser evidence exists — owner review on live Pages is Phase4 exit. Dated current-vision doc `WEB_VISION_2026-09-13.md` finalised in this PR.
+Demolition completed on the session branch:
 
-Current generated measurements (main 3a6ae32, after Phases 1-3):
+- retired root/docs frontend assets deleted: `app.css`, `app.js`, `app_data.js`,
+  `theme-init.js`, old social-card assets;
+- old `docs/index.html` shell replaced by the owner-stub mirror;
+- retired presentation gates deleted: `smoke_test.mjs`,
+  `compat_runtime_check.mjs`, `browser_test.mjs`;
+- build replaced by `scripts/build_pages.py`, which publishes stub + JSON only;
+- current docs and Quality workflow repinned to the owner-stub contract;
+- retired design specs marked non-authoritative.
 
-- Corpus: **17 documents**; Source review: **13 collated**, **2 partial/failed**, **2 unavailable**; **12 of 17 documents** are `complete_selected_witness` (the re-keyed Gateless Gate since 2026-09-21; on 2026-09-22 task 058 marked the ten collated, 0-flagged, unit-target-met documents `congronglu`, `chuandenglu_full`, `caoshan_benji`, `huangbo_fayao_full`, `mazu_guanglu_full`, `yunmen_guanglu_full`, `dongshan_yulu_full`, `zhaozhou_yulu_full`, `dahui_yulu_full` and `linji_yulu` after an independent re-verification that each tiles its pinned witness region verbatim and contiguously — [`sessions/P1_COMPLETE_MARKING_2026-09-22.md`](./sessions/P1_COMPLETE_MARKING_2026-09-22.md); the 5 that are not complete are the excerpt seeds `zhengdao_ge`, `hanshan_poems`, `niutou_juezhu` and the two restored seeds `guiyang_yulu`, `fayan_yulu` (2026-09-22 task 059: purged Tier2 keys returned as measured excerpt seeds, 0/6 and 1/11 verbatim, re-key NOT landed, 047-pattern R-B labels)). Biyanlu **100/100 cases**
-Wumenguan **48/48 cases** represented; W1 source-review status: `collated_to_claimed_witness`; the Record of Linji **107/107 sections** re-keyed verbatim from the pinned T47n1985 witness (215/215 measured fields EXACT, 0 flagged); **5 excerpt seeds**.
+Current generated measurements:
+
+- Corpus: **17 documents**; Source review: **13 collated**, **2 partial/failed**, **2 unavailable**; **12 of 17 documents** are `complete_selected_witness`; **5 excerpt seeds**.
+- Biyanlu **100/100 cases**; Wumenguan **48/48 cases** represented; W1 source-review status: `collated_to_claimed_witness`.
 - Source volume: **878,582 content CJK / 937,884 all-string CJK**.
 - Translations: **209 corpus slots**; **2 verified quotations**; **21 matrix registers**; verified-reference coverage **3 recorded / 1 pending**.
-- Locators: **4192/4192 case-level**; **6 document-level seeds**; case anchors do not prove every nested field was collated.
-- Lineage: **60 masters**; **12 controlled `school_key` groups**; **48 edge records + 12 frontiers**; 30 edges are `exact_locator_verified` (including 10 new X68n1315 locators), 11 are `source_verified`, and 7 remain explicitly pending (2026-09-22).
+- Locators: **4192/4192 case-level**; **6 document-level seeds**.
+- Lineage: **60 masters**; **12 controlled `school_key` groups**; **48 edge records + 12 frontiers**.
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
-- Pages system: tokens **43 total** (35 in `:root` + 8 dark overrides, plus 6 scoped composition dials), serif **Source Serif 4** for hook/headings/translations, gate (lintel/directory/beam), sheet (minimal ruled), drawer (About this edition), register (thin static), secondary rooms re-composed (collation table / transmission register / case catalogue / dictionary), **0 `style=` literals** in `index.html` and `app.js`, **4 CSSOM custom-property writes** (`--shell-height`, `--zh-font-size`, `--pop-shift`) as runtime contracts, CSP `style-src 'self' https://fonts.googleapis.com` **without `unsafe-inline`**, **render-lazy** (Reader boot, others first activation), bundle raw 1,925,366 B (~1.84 MB) <2 MB, gzipped 586,529 B — `app_data.js` 1,642,473 B printed by build.
-- Bundle: `app_data.js` and `docs/` are regenerated by `scripts/build_data_bundle.py`, which prints the authoritative byte count at build time.
-- Rights: **12 sources need rights review; 2 need jurisdiction review**.
-- W1 ledgers: The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
-W1 evidence: **17 documents, 127 flagged source fields** (authoritative 2026-09-22 P2 Tier2 batch1 overlay: `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json` — the two purged Tier2 retelling keys restored as measured excerpt seeds (Guiyang 0 of 6, Fayan 1 of 11 source-content fields verbatim; re-key NOT landed) as documents 15 and 16, re-measuring the 14 entries of the 2026-09-21 combined Wumenguan/Linji overlay `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` byte-identically — the re-keyed Gateless Gate T48n2005 as the 13th document and the re-keyed Record of Linji T47n1985 as the 14th, inheriting the 12 entries of the 2026-09-21 enthusiast fulls overlay `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json` verbatim, which itself inherits the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json`, the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of the 2026-09-20 correction overlay `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 4,709 of 4,734 source-content fields collate to their claimed witness, and 3 documents have no collating source-content field at all (the two witness-unavailable seeds plus guiyang_yulu).
-- Wave 1 re-keys (2026-09-10 → 2026-09-11): `wumenguan` (#29) → CBETA T48n2005, `biyanlu_cases` (#30) → T48n2003, `linji_yulu` (#32) → T47n1985, `xinxin_ming` (#34) → T48n2010, each re-keyed verbatim from a pinned, digest-verified witness; `platform_sutra` (#35) provenance-labelled (primary T48n2007 Dunhuang, alternative T48n2008 宗寶) with **zero characters re-keyed**. No document changed status and none became complete.
-- Flagged fields after the campaign: the authoritative 2026-09-21 overlay holds **630**; a fresh collation of `main` as it stood on 2026-09-21 — then 44 documents — reports **486** (that re-run: `COLLATION_REFS=<refs> python3 scripts/collate_corpus.py --require-verified-refs --refs-manifest sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt --new-document …`) — the difference is the four merged re-keys plus the 2026-09-20 Congronglu, Jingde-Chuandeng-Lu, Caoshan Benji and 2026-09-21 full-witness ingests — and the owner ruled on 2026-09-12 that the published post-remediation evidence pass (PR #41) does **not** supersede the register: **630** stays authoritative and **486** stays the recorded measurement of the then-44-document tree. The 2026-09-21 purge removed the retelling documents and the Linji re-key overlay (`sessions/COLLATION_REGISTER_2026-09-21_LINJI.json`) now measures the 13 active documents: 4,557 of 4,566 source-content fields collating, 15 flagged entries, all re-derived by `scripts/validate_data.py`.
-- Witness inventories: [`WITNESS_INVENTORY.md`](./.orchestrator/WITNESS_INVENTORY.md), [`WITNESS_INVENTORY_T48_T51.md`](./.orchestrator/WITNESS_INVENTORY_T48_T51.md), [`WITNESS_INVENTORY_XSERIES.md`](./.orchestrator/WITNESS_INVENTORY_XSERIES.md) — consolidated and ranked in [`PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md).
-- Pages revamp: Phases 1-3 merged (main 3a6ae32), Phase 4 evidence finalised in this PR — README interface, HANDOFF §3-§5, ROADMAP Phase4, dated vision `WEB_VISION_2026-09-13.md`, OPERATIONS Edit1 closed structurally by O-3. Owner light/dark desktop/mobile review pending.
-- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 merged as `63dfe37`; main Quality and Pages deployment passed, and the published text surface was confirmed.
+- Rights: all rights-manifest sources remain human/jurisdiction-review pending.
 
-## 2. Implemented (2026-08-11 session)
+The data contract keeps **five separate ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
 
-1. **English-first visual hierarchy:** brand, navigation, hero, room headings, Reader headings, cases/sections/chapters, lineage, Gong'an, lexicon, and mobile controls now lead with English while retaining smaller source-language labels where useful.
-2. **Distinctive walnut identity:** asymmetric dark-walnut hero, `FC` monogram, edition numbering, proof-stamp motif, structural grain, editorial typography, and a matching Open Graph image.
-3. **Balanced reading typography:** source Chinese default reduced from 1.35rem to 1.2rem; English translation text increased to 1rem.
-4. **Resilience:** bundle-shape validation, visible `role="alert"` recovery panel, reload/reset actions, and top-level initialization recovery.
-5. **Security:** CSP moved before `theme-init.js`; self-only script policy retained.
-6. **Regression coverage:** smoke guards for CSP order, English-first identity/headings, recovery UI, and updated Gong'an/epilogue markup.
-7. **Copy and disclosure cleanup:** removed repetitive hero/Matrix prose and Robo footers; compacted Lineage, Lexicon, verified citations, coverage, and search copy while preserving details on demand.
+W1 evidence: **17 documents, 127 flagged source fields**. Authoritative register:
+`sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json`. Historical register:
+`sessions/COLLATION_REGISTER_2026-09-09.json` (2026-09-09). The historical 637
+report figure is superseded; the historical 622 register figure is historical.
+Zhaozhou's former T1987 claim is false: T1987 is the Caoshan record.
 
-## 3. Implemented (2026-09-09/10 W1 sessions)
+## 2. Active blockers
 
-8. **W1 public-integrity containment:** added manifest-level W1 evidence metadata, explicit per-document source-review statuses, completion/status incompatibility validation, deterministic status counts, and a visible Reader source-review ledger without changing corpus source fields.
-9. **Documentation hygiene:** current claims now distinguish represented units, W1 source collation, edition-verified English quotations, and rights review; dated W1 evidence remains immutable.
+### P1 — content/rights
 
-## 4. Active blockers
+1. Rights review remains human/jurisdiction work; no ledger approves reuse.
+2. Partial/failed and witness-unavailable documents remain contained.
+3. OUT-OF-CBETA sourcing is human work; agents may not fetch/transcribe those
+   witnesses.
 
-### P1 — release blockers
+### P2 — stub port and evidence
 
-1. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
-2. **Source depth:** W1 found only one of the 35 documents in the 2026-09-10 register fully collated to its claimed witness (the 2026-09-20 overlay adds the Congronglu reinstatement as the second) (the historical 2026-09-09 register covered 34 documents); per-document remediation remains incomplete, especially Wumenguan, Xinxin Ming, Biyanlu, Linji, Platform, and excerpt seeds.
+4. Reader shape parity is DONE (2026-11-12): the stub renders cases, sections,
+   stanzas, and Wumenguan preface/epilogue; all 17 works render under a Node DOM
+   shim. Remaining: comparative-matrix/gongan research rooms.
+5. Provenance notes, coverage, locators, and disclosed English registers are now
+   surfaced in the reader; a dedicated five-ledger view remains optional.
+6. Comparative matrix, gongan index, and locator/research surfaces are not yet
+   ported into the stub.
+7. Gallery is placeholder; Account is local UI only.
+8. No real-browser or accessibility evidence exists for the current stub.
 
-### P2 — engineering and operations
+### P3 — operations
 
-3. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI — **PR-A real-browser still frozen**.
-4. **CI coverage — Edit 1 closed structurally by O-3 (2026-09-13).** The old line read “four mirrored deploy assets are omitted”; the structural check `git diff --exit-code -- app_data.js docs data/project_metrics.json` now covers root bundle, entire `docs/` mirror tree and metrics, so theme-init.js, robots.txt, sitemap.xml, og-image.svg are guarded without enumeration. Browser/a11y/link/performance checks are not required. **PR-B CSP hardening folded into Phase 3, PR-D perf measure-first folded into Phase 2 lazy** per Checkpoint-C C-5 (a).
-5. **Performance — PR-D folded.** The complete data global still initializes up front; since Phase 2 hidden rooms defer *rendering* only (first tab activation, C-4 a — option B bundle-splitting not taken, remains open if browser measurements justify it). Bundle raw 1,925,366 B (~1.84 MB) <2 MB, gzipped 586,529 B — measured on main 3a6ae32. **This is the Phase-3 measurement, not today's**: the published bundle has since grown with the 36th corpus document (2026-09-20 Congronglu reinstatement) to raw 2,525,870 B (~2.41 MB) / gzipped 787,454 B for the same four files — the 2 MB tracking line is exceeded, it was never a CI gate, and the current authoritative byte count is the one `scripts/build_data_bundle.py` prints at build time.
-6. **CSP/style debt — closed 2026-09-13 (Pages revamp Phase 3).** This line read “41 JS-generated
-   inline styles still require `style-src 'unsafe-inline'`”; Phase 2 moved those 41 `style=` literals
-   into classes and Phase 3 re-composed the four secondary rooms onto the same vocabulary, so `app.js`
-   and `index.html` now carry **0** `style=` attributes (the smoke test counts the literals and audits
-   every rendered room, the dossier and the lineage chart) and the CSP meta dropped `'unsafe-inline'`
-   from `style-src` to `style-src 'self' https://fonts.googleapis.com`. Four CSSOM custom-property writes remain by design (the measured runtime contracts
-   `--shell-height`, `--zh-font-size`, `--pop-shift`), which `style-src` does not govern. No real-browser
-   evidence exists for the re-composition, so owner review on live Pages is still open.
-7. **Validation depth — partially closed 2026-09-14 (task 008).** `scripts/validate_data.py` now optionally executes `schemas/translatechan-data.schema.json` against every corpus document, matrix translator record, the lineage-verification registry, and the lineage school vocabulary when the `jsonschema` library is installed (warn-only, never a hard dependency, so the validator stays dependency-free by default); it also checks gong'an `cross_refs` case-number references against the Wumenguan/Biyanlu corpus documents they cite and the `evidence_source` enum on every `data/translations/translator_profiles.json` entry. All of these pass cleanly on the current data. Non-case field-level validation is still lighter than case-level validation, and JSON Schema is not wired into CI as a required step (it remains an optional depth check, not a gate).
+9. Required Quality/branch protection on `main` remains owner-side verification.
+10. Botrunner export manifest/ready marker are stale and fail closed; exporter is
+    design-only.
 
-### P3 — polish
+## 3. Verification commands
 
-8. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
-9. Google Fonts remains a third-party runtime request. **Closed 2026-09-14:** [`SECURITY.md`](./SECURITY.md) now exists — minimal disclosure policy, GitHub Security Advisories only, no email intake, `main` is the only supported branch.
-10. **Closed 2026-09-14:** `og-image.png` (1200×630, 71,415 B, deterministically rasterized from `og-image.svg`) now ships alongside the SVG at root and in the `docs/` mirror; `index.html`'s `og:image`/`twitter:image` meta list the PNG first for broad platform compatibility, with the SVG as a secondary `og:image` entry.
-11. Two lineage profiles still lack linked corpus keys: `yangqi_fanghui` and `dahong_zuzheng`. Prajñātāra now links to `chuandenglu_full` case 38 (T51n2076_p0216a19–p0216b20); its historical biography and upstream frontier remain unverified. Ten of 31 internal edges have exact textual locators verified, while 21 await review. These are witness attestations, not independent historical verification. Profile-review tasks remain separate from edge review.
-12. **`docs/audits/` vs `sessions/` split documented 2026-09-14:** `docs/audits/` is a small, curated, Pages-deployable mirror of selected `sessions/` evidence for the public audit trail; `sessions/` is the full append-only evidence record. See `HANDOFF.md` §11 for the full convention.
-
-## 5. Verification
-
-```text
-python3 -m py_compile scripts/*.py      PASS
-python3 scripts/validate_data.py        PASS; 3 documented lineage warnings
-python3 scripts/build_data_bundle.py    PASS; root/docs synchronized
-node scripts/smoke_test.mjs             PASS; 35 renderers, 0 crashes plus W1 status-model checks
-npm audit --package-lock-only           PASS; 0 vulnerabilities
-diff -rq data docs/data                 PASS
-git diff --check                        PASS
-HTML parser / Markdown link scan        PASS
-GitHub branch + PR Quality              PASS (through e6e24bf)
-GitHub main Quality / Pages             PASS (runs 31490146548 / 31490145334)
-npm run test:browser                    SKIP; Chromium unavailable
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py
+python3 scripts/build_pages.py
+python3 scripts/test_source_preservation.py
+python3 scripts/test_source_review_rules.py
+python3 scripts/test_pages_contract.py
+diff -rq data docs/data
+git diff --check
 ```
 
-Chromium download failed with network `ECONNRESET`; apt installation also could not reach package sources. A skipped browser run is not visual or accessibility evidence.
+Do not report the retired smoke/browser suites as current evidence.
 
-## 6. Current score
-
-The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with its aspect table, which calculated to 6.9; this audit corrects the arithmetic and records only evidenced improvements. All `user_score` values remain `null` because the owner supplied qualitative direction, not a numeric score. The scoreboard scoring system was retired on 2026-09-11; no live score file remains to consult.
-
-## 7. Report index
+## 4. Report index
 
 | Date | Report | Scope |
 |---|---|---|
-| 2026-08-11 | [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) | **Current full audit**, owner feedback, English-first walnut redesign, resilience/security fixes |
-| 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) | Secondary-room redesign, storage hotfix, responsive/contrast pass |
-| 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | Containment, behavior fixes, initial walnut shell and Reader |
-| 2026-08-10 | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md) | Earlier architecture/design audit; conclusions superseded where they conflict |
-| 2026-08-08–10 | [`sessions/`](./sessions/) | Historical audit and implementation evidence |
-| 2026-09-20 | [`sessions/COLLATION_W1_2026-09-20_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-20_CORRECTION.md) | **Authoritative correction overlay** (W1): 36th document (Congronglu reinstatement from T48n2004, 100/100 cases, 0 flagged), inherited 35 entries, declared historical-anchor waiver for the new document; supersedes the 2026-09-10 figures for current status |
-| 2026-09-10 | [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) | **Prior correction overlay** (W1): 35th document (Shitou Sandokai), hash-verified reference layer, per-digest provenance; superseded by the 2026-09-20 overlay |
-| 2026-09-09 | [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) | **Independent full-corpus collation vs CBETA XML P5** (W1); per-field register + refs manifest (historical, append-only) |
+| 2026-11-12 | `sessions/LAYOUT_DEMOLITION_2026-11-12.md` | layout demolition/reset evidence |
+| 2026-09-22 | `sessions/COLLATION_W1_2026-09-22_P1_BIYANLU_DIGESTS.md` | authoritative W1 overlay report |
+| 2026-09-09 | `sessions/COLLATION_W1_2026-09-09.md` | historical full-corpus collation |
+| earlier | `sessions/` | append-only historical audit/implementation evidence |
 
-## 8. Maintenance rule
+## 5. Maintenance rule
 
-- Update §§1–6 only when current evidence changes.
-- Add one report-index row per completed audit session.
-- Keep detailed process in dated `sessions/` reports.
+- Update current verdict only when current evidence changes.
+- Add dated evidence under `sessions/`; never edit old session records.
 - Never infer a numeric owner score from feedback, merge, or silence.
-
-> **Measured status refresh 2026-09-21 (P2 Tier2 next, task 056):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 29, `coverage_note` 42, `editorial_note` 65, `recension_note` 14), **32 of 47** rendering beside a passage (the 42 `coverage_note` lines stay ledgered by exemption), **36** documents carrying at least one rendered label — task 056 added 16 dialogue `editorial_note` R-B labels (6 `guiyang_yulu`, 10 `fayan_yulu`), added the `guiyang_yulu` `cbeta_note` and extended the `fayan_yulu` `cbeta_note`, and rewrote 2 `coverage_note` lines (125 → 150); it also corrects this series' previous line, whose `editorial_note` 16 figure undercounted the dialogue-level labels (measured 49 before this task) and whose 125 total was the key-sum, not the measured string count. The W1 register's authoritative flagged total stays 630.
-> **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage, **35** documents carrying at least one label.
-
-> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 12, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **11** documents carrying at least one label. **13 documents, 15 flagged source fields**.
-> **Measured status refresh 2026-09-21 (task P2.9, Linji re-key):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 12, `coverage_note` 11, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **12** documents carrying at least one label. **13 documents, 15 flagged source fields** — the re-keyed Record of Linji (T47n1985, 107 verbatim sections, 215 measured fields, 215 EXACT, 0 flagged) joins as the 13th document.
-> **Measured status refresh 2026-09-21 (tasks P2.8 + P2.9, combined Wumenguan/Linji overlay):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 13, `coverage_note` 12, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **13** documents carrying at least one label. **14 documents, 15 flagged source fields** — the re-keyed Gateless Gate joins as the 13th document beside the re-keyed Record of Linji as the 14th.
-> **Measured status refresh 2026-09-22 (task 059, P2 Tier2 yulu batch1):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 15, `coverage_note` 14, `editorial_note` 16, `recension_note` 0), **32 of 47** rendering beside a passage (the 14 `coverage_note` lines stay ledgered by exemption), **15** documents carrying at least one rendered label — task 059 restores the two purged Tier2 retelling keys as measured excerpt seeds and their task-056 labels come back with the bytes (6 `guiyang_yulu` + 10 `fayan_yulu` dialogue `editorial_note` R-B labels, 2 `coverage_note`, 2 `cbeta_note`), re-measured byte-identically on the pinned layer (guiyang 0 of 6, fayan 1 of 11 source-content fields verbatim — re-key NOT landed). **16 documents, 41 flagged source fields.**
-
-
-<!-- census **47** provenance -->
-
-
-<!-- census **32 of 47** -->
-
-
-<!-- census **16** documents -->
-
-
-<!-- census `cbeta_note` 16 -->

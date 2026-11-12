@@ -1,5 +1,9 @@
 # Changelog — TranslateChan Export Schema
 
+## Layout demolition — 2026-11-12 — export artifacts remain stale / fail-closed
+
+The rejected walnut-shell frontend and its bundle/smoke/browser gates were removed. The Pages build now mirrors the owner stub + authoritative data via `scripts/build_pages.py`. No export schema bump and no exporter implementation: `export_manifest.json` / `export_ready.json` remain stale and must not be imported. Current repository gates: `validate_data.py`, `build_pages.py`, `test_source_preservation.py`, `test_source_review_rules.py`, `test_pages_contract.py`.
+
 ## Export re-issue — 2026-09-22 — after the combined Wumenguan + Linji re-key overlay — `schema_version` stays `1.1`
 
 **Why:** the previous re-issue pinned the 13-document Linji-only tree; corpus has since gained BOTH re-keys as one combined overlay — the re-keyed Gateless Gate (T48n2005, 48 cases, 207/207 EXACT, 0 flagged) and the re-keyed Record of Linji (T47n1985, 107 sections, 215/215 EXACT, 0 flagged) — under the combined authoritative register `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` (14 documents, 15 flagged). The two single-re-key overlays rewrote the same manifest/queue/register surfaces and could not merge sequentially, so this re-issue ships them together.

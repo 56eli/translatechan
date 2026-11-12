@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # 🧘 Fake Chan Factory — UX/UI Improvement Roadmap
 
 > **Status (2026-08-11): historical functional roadmap.** The functional items below are snapshots. Phases A–D, the walnut room layouts, the English-first factory/editorial interpretation, and progressive copy cleanup are implemented. PR #18 merged with green main Quality and Pages deployment; screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).

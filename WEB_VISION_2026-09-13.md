@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # 🎨 Fake Chan Factory — Current Vision (2026-09-13, Pages Revamp Final)
 
 > **Date:** 2026-09-13 — after Checkpoint-C C-1..C-5 and Phases 1-3 merged (PRs #48, #49, #50, main 3a6ae32).

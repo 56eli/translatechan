@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # Stub P2.9 — Linji Yulu proper re-key — most pressing
 
 > **STATUS — COMPLETED 2026-09-21:** the Linji re-key shipped in the combined Wumenguan + Linji overlay — 107 sections tiling the whole 16,366-CJK T47n1985 witness, 215/215 fields EXACT, 0 flagged, `data/corpus/linji_yulu.json` restored, `masters.json` link repaired, 107 `lb`-anchored section locators, queue record #4, evidence at `sessions/COLLATION_REGISTER_2026-09-21_LINJI.json` and the combined `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json`. The rest of this document is the planning record as written.

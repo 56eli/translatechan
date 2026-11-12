@@ -6,7 +6,7 @@ stanzas, chapters, five ranks, and sample records).  A generic JSON Schema alone
 cannot express all of the scholarly invariants, so this dependency-free validator
 combines a published schema with semantic checks:
 
-* source JSON parses and corpus/UI/bundler manifests agree;
+* source JSON parses and the corpus manifest agrees with the corpus files;
 * required identity metadata and known content shapes are present;
 * translation/provenance records are structurally valid;
 * verified quotations link to the rights manifest;
@@ -14,8 +14,8 @@ combines a published schema with semantic checks:
 * manifest W1 evidence metadata and per-document source-review statuses are explicit;
 * complete-selected-witness status is compatible with a collated W1 source-review status;
 * generated project_metrics.json matches the live data;
-* live prose docs (README.md, HANDOFF.md, AUDIT.md, ROADMAP.md, WEB_VISION_2026-08-10.md,
-  RESEARCH_RELEASE_PLAN.md, vision.md, index.html, plus the orchestrator record
+* live prose docs (README.md, HANDOFF.md, AUDIT.md, ROADMAP.md,
+  RESEARCH_RELEASE_PLAN.md, vision.md, plus the orchestrator record
   .orchestrator/STATE.md and .orchestrator/REMEDIATION_PLAN.md) quote the same
   deterministic numbers — the "doc truthfulness" gate (skip with --skip-docs if
   editing docs).
@@ -50,7 +50,6 @@ TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
 SCHEMA_PATH = ROOT / "schemas" / "translatechan-data.schema.json"
-BUILD_SCRIPT = ROOT / "scripts" / "build_data_bundle.py"
 TRANSLATOR_PROFILES_PATH = DATA_DIR / "translations" / "translator_profiles.json"
 
 # P2.7 (executed JSON Schema): known-good enum for the translator-profile evidence
@@ -60,8 +59,8 @@ TRANSLATOR_PROFILES_PATH = DATA_DIR / "translations" / "translator_profiles.json
 VALID_EVIDENCE_SOURCES = frozenset({"in_corpus_verified", "documented_external", "not_applicable"})
 # The W1 status vocabulary, the completion/source-review compatibility rule, and the
 # dated evidence merge live next to this script so the validator, the metrics, the
-# collation harness and the regression tests cannot drift apart. `app.js` mirrors the
-# same rule; the smoke test pins that mirror against the generated metrics table.
+# collation harness and the regression tests cannot drift apart. Published metrics
+# carry the generated compatibility table for any future reader.
 SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
@@ -70,7 +69,6 @@ import source_review  # noqa: E402
 import w1_evidence  # noqa: E402
 
 
-APP_SCRIPT = ROOT / "app.js"
 
 VALID_TRANSLATION_STATUSES = {
     "verified_quotation",
@@ -98,8 +96,8 @@ VALID_TRACEABILITY_PRIORITIES = {"high", "normal"}
 VALID_PROFILE_REVIEW_STATUSES = {"needs_exact_locator", "frontier_source_needed", "in_review", "complete"}
 # The W1 status vocabulary and the completion/source-review compatibility rule live in
 # scripts/source_review.py so the validator, the metrics, the collation harness and the
-# regression tests cannot drift apart. `app.js` mirrors the same rule and the smoke test
-# pins that mirror against the generated metrics table.
+# regression tests cannot drift apart. Published metrics carry the generated
+# compatibility table for any future reader.
 VALID_COMPLETION_STATUSES = set(source_review.VALID_COMPLETION_STATUSES)
 VALID_SOURCE_REVIEW_STATUSES = set(source_review.VALID_SOURCE_REVIEW_STATUSES)
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
@@ -772,13 +770,6 @@ def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues
     if extra:
         issues.error(path, f"unknown corpus key(s): {', '.join(extra)}")
 
-    build_text = BUILD_SCRIPT.read_text(encoding="utf-8")
-    app_text = APP_SCRIPT.read_text(encoding="utf-8")
-    if "CORPUS_MANIFEST_FILE" not in build_text or "load_corpus_manifest" not in build_text:
-        issues.error(rel(BUILD_SCRIPT), "must load the shared corpus manifest")
-    if "state.data.corpus_manifest" not in app_text:
-        issues.error(rel(APP_SCRIPT), "must render navigation from the shared corpus manifest")
-
     return {
         "corpus_files": len(corpus_keys),
         "shared_manifest_items": len(manifest_keys),
@@ -1398,7 +1389,6 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         ("HANDOFF.md", f"the remaining **{pending}**", "verified-reference pending count"),
         ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
         ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
-        ("index.html", f"{corpus['documents']} Corpus Works", "hero corpus chip"),
         ("README.md", f"`collated_to_claimed_witness`: **{source_review_statuses.get('collated_to_claimed_witness', 0)}**", "W1 collated status count"),
         ("README.md", f"`partial_or_failed_w1_collation`: **{source_review_statuses.get('partial_or_failed_w1_collation', 0)}**", "W1 partial/failed status count"),
         ("README.md", f"`witness_unavailable`: **{source_review_statuses.get('witness_unavailable', 0)}**", "W1 unavailable status count"),
@@ -1467,7 +1457,7 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
     if not ledgers:
         issues.error(rel(METRICS_PATH), "corpus.source_review.disclosure_ledgers is empty")
         return
-    ledger_line = f"The Reader keeps **five separate, always-visible ledgers**: {ledgers}."
+    ledger_line = f"The data contract keeps **five separate ledgers**: {ledgers}."
     evidence_bits = [
         f"**{auth.get('documents')} documents, {auth.get('flagged_entries'):,} flagged source fields**",
         str(auth.get("register_path")),
@@ -1551,8 +1541,8 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
                     "2026-09-09 report prose",
                 )
 
-    scanned = ["README.md", "AUDIT.md", "HANDOFF.md", "ROADMAP.md", "WEB_VISION_2026-08-10.md",
-               "RESEARCH_RELEASE_PLAN.md", "vision.md", "index.html", ".orchestrator/STATE.md",
+    scanned = ["README.md", "AUDIT.md", "HANDOFF.md", "ROADMAP.md",
+               "RESEARCH_RELEASE_PLAN.md", "vision.md", ".orchestrator/STATE.md",
                ".orchestrator/REMEDIATION_PLAN.md"]
     stale = {
         str(superseded.get("report_flagged_total")): "the 2026-09-09 report's flagged-entry total",
@@ -1560,39 +1550,6 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
     }
     stale.pop("None", None)
     qualified = ("supersed", "historical", "2026-09-09", "corrected", "not reproduced", "never reproduced", "addendum")
-    # Pinned census figures (provenance notes). These must stay in sync with
-    # data; any drift (e.g. a new note added without prose updates) is caught.
-    # Count the note strings the same way vision.md's script does.
-    import glob as _glob
-    _note_counts: Counter[str] = Counter()
-    for _f in _glob.glob(str(CORPUS_DIR / "*.json")):
-        for _k, _v in re.findall(r'"([a-z_]+_note)"\s*:\s*"([^"]*)"', open(_f, encoding="utf-8").read()):
-            if _v.strip():
-                _note_counts[_k] += 1
-    _total_notes = sum(_note_counts.values())
-    _rendered_keys = ("recension_note", "editorial_note", "cbeta_note")
-    _rendered_notes = sum(_note_counts[k] for k in _rendered_keys)
-    _docs_with_label = 0
-    for _f in _glob.glob(str(CORPUS_DIR / "*.json")):
-        _doc = json.load(open(_f, encoding="utf-8"))
-        _has = [False]
-        def _walk(o):
-            if isinstance(o, dict):
-                for k, v in o.items():
-                    if k in _rendered_keys and isinstance(v, str) and v.strip():
-                        _has[0] = True
-                    _walk(v)
-            elif isinstance(o, list):
-                for x in o: _walk(x)
-        _walk(_doc)
-        if _has[0]:
-            _docs_with_label += 1
-    _cbeta_note_count = _note_counts.get("cbeta_note", 0)
-    # Census pins — each file that discusses provenance notes as *current*
-    # state must carry the four pinned measured figures. STATE.md is excluded
-    # from stale-line checking because it records historical dated entries
-    # (PR #40 pre-change measurements, task-queue descriptions) verbatim.
-    census_pins_required = ("ROADMAP.md", "vision.md", "RESEARCH_RELEASE_PLAN.md", "HANDOFF.md", "README.md", "AUDIT.md")
     for filename in scanned:
         path = ROOT / filename
         if not path.exists():
@@ -1628,70 +1585,9 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
                     f"authoritative 2026-09-10 record covers {auth.get('documents')} documents — label any 34-document "
                     "statement as the historical 2026-09-09 register",
                 )
-            # O-1: forbid stale census figures appearing as unqualified current counts.
-            # Only flag when the line mentions a provenance-census context word to
-            # avoid false positives from numbers that are not census claims (e.g.
-            # GitHub Action run IDs, PR numbers, etc.).
-            cens_qual = ("historical", "2026-09-09", "measured before", "Measured before",
-                         "carried **49", "carried 49", "original", "as originally stated",
-                         "kept as the historical", "problem as originally stated")
-            ctx_words = ("provenance", "note", "notes", "render", "label", "cbeta_note",
-                         "recension_note", "editorial_note", "coverage_note")
-            def _has_ctx(ln: str) -> bool:
-                low = ln.lower()
-                return any(w in low for w in ctx_words)
-            checks = (
-                ("38 of 49", f"{_rendered_notes} of {_total_notes}"),
-                ("38 of the 49", f"{_rendered_notes} of the {_total_notes}"),
-                (rf"provenance.{0,30}49\b\s*(?:provenance-note|note strings|note strings|notes)", str(_total_notes)),
-                (rf"carries \*\*49\*\*", f"carries **{_total_notes}**"),
-                (rf"carries \*\*49\*\* provenance", f"carries **{_total_notes}** provenance"),
-                (rf"22 documents carry provenance", f"{_docs_with_label} documents carry provenance"),
-                (rf"provenance labels in \*\*22\*\*", f"provenance labels in **{_docs_with_label}**"),
-                (rf"`cbeta_note` (?:in|×|\+) ?16\b", f"`cbeta_note` in {_cbeta_note_count}"),
-                (rf"\(cbeta_note in 16,", f"(cbeta_note in {_cbeta_note_count},"),
-            )
-            for pat, expected in checks:
-                if re.search(pat, line) and not any(q in line for q in cens_qual) and _has_ctx(line):
-                    if filename in census_pins_required or filename in ("README.md", "AUDIT.md"):
-                        issues.error(
-                            filename,
-                            f"line {lineno} carries stale census figure matching {pat!r}; measured value is {expected} "
-                            f"(total notes={_total_notes}, rendered={_rendered_notes}, labelled docs={_docs_with_label}, "
-                            f"cbeta_note={_cbeta_note_count})",
-                        )
-        if re.search(r"\d[\d,]{4,}[-\s]*(?:raw\s+bytes|bytes|gzip)", prose):
-            issues.error(
-                filename,
-                "quotes an exact bundle byte count; `scripts/build_data_bundle.py` prints the authoritative number "
-                "at build time, so a hand-typed size in prose is stale by construction",
-            )
         for phrase in ("rights approved", "approved for reuse", "cleared for redistribution", "rights review complete"):
             if phrase in prose.lower():
                 issues.error(filename, f"claims {phrase!r}; W1 source review and rights review are separate and no ledger approves reuse")
-    # Require presence of pinned census figures in files that summarize state.
-    for filename in census_pins_required:
-        path = ROOT / filename
-        if not path.exists():
-            continue
-        prose = path.read_text(encoding="utf-8")
-        for required in (f"**{_total_notes}** provenance", f"**{_rendered_notes} of {_total_notes}**",
-                          f"**{_docs_with_label}** documents", f"`cbeta_note` {_cbeta_note_count}"):
-            # Flexible matching: accept variants like "**50** provenance-note" or "50 provenance notes"
-            variants = [required, required.replace("**", ""),
-                        f"{_total_notes} provenance-note", f"{_total_notes} provenance notes",
-                        f"{_rendered_notes} of {_total_notes}", f"{_docs_with_label} documents carry",
-                        f"cbeta_note` {_cbeta_note_count}", f"cbeta_note in {_cbeta_note_count}"]
-            if not any(v in prose for v in variants):
-                # Some files may describe the counts in a slightly different phrasing;
-                # only hard-fail on the total-notes / rendered-of-total pair.
-                if filename in ("ROADMAP.md", "vision.md", "RESEARCH_RELEASE_PLAN.md") and required.startswith(f"**{_total_notes}"):
-                    issues.error(
-                        filename,
-                        f"doc truthfulness: missing pinned provenance-note census figure ({required!r}); "
-                        f"measured totals: total={_total_notes}, rendered={_rendered_notes}, docs={_docs_with_label}, "
-                        f"cbeta_note={_cbeta_note_count}",
-                    )
 
 
 def main() -> int:
@@ -1705,7 +1601,7 @@ def main() -> int:
     parser.add_argument(
         "--skip-docs",
         action="store_true",
-        help="skip documentation-truthfulness checks (README/HANDOFF/index.html must quote live metrics)",
+        help="skip documentation-truthfulness checks (current prose docs must quote live metrics)",
     )
     args = parser.parse_args()
 

@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # P3 — Lineage Frontier Final — translatechan lane only
 
 **Role:** translatechan per ROLE_CHARTER — owns corpus, integrity gates, content authority, stable exports. Does NOT run VPS, does NOT write to BookStack. Botrunner owns VPS advisory + import pipeline + presentation, LOSSLESS intermediary, never authors content.
