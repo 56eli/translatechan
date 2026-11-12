@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # Dispatch 2026-09-22 — Post 14-doc Law Glaring Issues
 
 Base main 43be5c6 → 718fb9e after rollup: 14 docs (12 collated +2 unavailable), 1 complete wumenguan, 13 partial, 775k CJK, 4092 locators, 7.5M bundle.

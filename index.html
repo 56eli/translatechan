@@ -23,7 +23,7 @@ main{max-width:1180px;margin:0 auto;padding:18px}h1{font-weight:500;margin:.2em 
 <button onclick="var d=document.documentElement;d.dataset.theme=d.dataset.theme=='dark'?'light':'dark'">◐</button></header>
 <main id="m"><p class="mut">Loading…</p></main>
 <script>
-const $=s=>document.querySelector(s),main=$("#m"),J=u=>fetch("../data/"+u).then(r=>r.json());
+const $=s=>document.querySelector(s),main=$("#m"),J=u=>fetch("data/"+u).then(r=>r.json());
 const e=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const user=()=>{try{return localStorage.getItem("tc")}catch(x){return null}};
 const W1={collated_to_claimed_witness:["Collated to witness","ok"],partial_or_failed_w1_collation:["Partial W1 collation","wn"],witness_unavailable:["Witness unavailable","wn"]};
@@ -57,5 +57,5 @@ function vAcc(){const u=user();main.innerHTML=u?`<h1>Workspace <small>${e(u)}</s
 function go(){const h=location.hash.slice(1)||"lineage",i=h.indexOf("-"),k=i<0?h:h.slice(0,i),a=i<0?"":h.slice(i+1);$("#ac2").textContent=user()?"Workspace":"Sign in";
 document.querySelectorAll("#nv a").forEach(x=>x.classList.toggle("on",x.getAttribute("href")=="#"+(k=="master"?"lineage":k=="read"?"library":k)));
 ({lineage:vLin,library:vLib,terms:()=>vTerms(""),gallery:vGal,account:vAcc,master:()=>vMaster(a),read:()=>{pg=0;vRead(a)}}[k]||vLin)();scrollTo(0,0)}
-Promise.all([J("lineage/masters.json"),J("corpus_manifest.json"),J("glossary/chan_terms.json")]).then(r=>{MS=r[0];MF=r[1].items;TM=r[2];addEventListener("hashchange",go);go()}).catch(x=>{main.innerHTML="<p>Could not load ../data/. Serve the repo root (e.g. python3 -m http.server) and open /v2/.</p>"});
+Promise.all([J("lineage/masters.json"),J("corpus_manifest.json"),J("glossary/chan_terms.json")]).then(r=>{MS=r[0];MF=r[1].items;TM=r[2];addEventListener("hashchange",go);go()}).catch(x=>{main.innerHTML="<p>Could not load data/. Serve the repo root or docs/ (e.g. python3 -m http.server) and open index.html.</p>"});
 </script></body></html>

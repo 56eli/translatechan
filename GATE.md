@@ -1,39 +1,49 @@
-# Gate — Integrity Trust Baseline (P0)
+# Gate — Integrity Trust Baseline
 
-This file documents the executable read-only gate that is the official delivery check for TranslateChan.
+This file documents the executable repository gate after the 2026-11-12 layout
+demolition. It protects source data, metrics, preservation, and the owner-stub
+Pages mirror. It does not protect the retired walnut-shell DOM.
 
 ## Official delivery form
 
-- **Form:** `git clone` at the commit pinned in `data/corpus_manifest.json` (`manifest.commit` / `manifest.timestamp` when present, otherwise HEAD) is the official delivery artifact. The Pages bundle `app_data.js` is derived, not authoritative.
-- **Manifest checksums:** every file listed in `data/corpus_manifest.json` must be verified by SHA-256. A manifest nobody verifies proves nothing. The gate must compute `sha256(file)` for each manifest entry and compare to the declared checksum; any mismatch fails closed.
-- **Atomic ready marker:** the manifest's ready marker (when present) must be checked last, after all checksums.
+- Git clone at the commit under review is the delivery artifact.
+- `data/corpus_manifest.json` and the dated W1 evidence records remain the source
+  of truth for corpus identity and source-review status.
+- The Pages artifact is derived: root `index.html` + `data/` are mirrored into
+  `docs/` by `scripts/build_pages.py`. There is no `app_data.js` bundle.
 
 ## Gate execution environment
 
-- **Unprivileged disposable clone:** the gate must be executed in an unprivileged, disposable, network-isolated clone. It must not mutate the source checkout. It must be safe to run as an unprivileged user.
-- **Read-only:** the gate is read-only — it never writes to `data/`, `docs/`, or the manifest. It exits 0 only when all checks pass; any failure exits non-zero.
-- **Stdlib-only:** the gate is stdlib-only (Python standard library). Adding a dependency or network access is a new decision, not an implementation detail. No `pip install`, no network fetch.
-- **Minimum version:** Python 3.11 minimum. Tested set: 3.11, 3.12, 3.13 (CI currently pins 3.12 in `.github/workflows/quality.yml`; 3.11 is the floor, 3.13 is validated locally). Future 3.13 on br1 must not create ambiguity — this file is the source of truth.
-- **Determinism:** `python3 scripts/build_data_bundle.py` run twice must produce byte-identical `app_data.js` and `docs/app_data.js` (SHA-256 identical). `python3 scripts/validate_data.py` must pass.
+- Unprivileged disposable clone, stdlib-only, no network fetch required.
+- Normal validation is read-only. `--write-metrics` is only for legitimate source
+  data changes and must fail closed on blocking errors.
+- Python 3.11 minimum; CI pins Python 3.12.
 
-## Checks performed (fail-closed)
+## Checks performed
 
-1. `python3 -m py_compile scripts/*.py`
-2. `python3 scripts/validate_data.py` (full doc truthfulness, provenance census, W1 source-review, locators, translations)
-3. `python3 scripts/build_data_bundle.py` + `git diff --exit-code -- app_data.js docs/app_data.js docs/data data/project_metrics.json`
-4. `python3 scripts/test_source_preservation.py` (allowlist, no unauthorized Chinese edits)
-5. `python3 scripts/test_source_review_rules.py` (138 checks, including census pins)
-6. `node scripts/smoke_test.mjs` (dependency-free reader smoke)
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py
+python3 scripts/build_pages.py
+python3 scripts/test_source_preservation.py
+python3 scripts/test_source_review_rules.py
+python3 scripts/test_pages_contract.py
+git diff --exit-code -- docs/index.html docs/data docs/robots.txt docs/sitemap.xml docs/.nojekyll data/project_metrics.json
+git diff --check
+```
+
+## Pages contract
+
+- `docs/index.html` is byte-identical to the owner-stub root `index.html`.
+- `docs/data/` is byte-identical to `data/`.
+- Retired frontend assets and legacy presentation gates stay deleted.
+- `scripts/build_pages.py` is deterministic and removes retired deploy files
+  instead of resurrecting them.
 
 ## References
 
-- `data/corpus_manifest.json` — 17 keys (current), source_review, commit/timestamp when present
-- `scripts/validate_data.py` — authoritative validator
-- `.github/workflows/quality.yml` — CI gate (permissions: contents: read, setup-python 3.12)
-- `data/project_metrics.json` — derived metrics, must be stale-checked by validator
-
-## History
-
-- Amendment 2026-09-21 second round: git clone at manifest commit is official delivery; system `python3` for gate, no container.
-- Requirements (a) sha256 verification mandatory, (b) unprivileged disposable stdlib-only read-only, (c) minimum version + tested set documented here.
-
+- `scripts/validate_data.py` — authoritative data/metrics/doc-truthfulness validator.
+- `scripts/test_source_preservation.py` — corpus byte preservation and declared growth.
+- `scripts/test_source_review_rules.py` — W1 evidence/status/metrics regressions.
+- `scripts/test_pages_contract.py` — owner-stub deploy mirror and demolition boundary.
+- `.github/workflows/quality.yml` — CI gate.

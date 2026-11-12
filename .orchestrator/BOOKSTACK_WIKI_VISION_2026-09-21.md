@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # BookStack Wiki Vision — Exhaustive Chan 600-1400 — Wiki + Database + Reference Manifest — 2026-09-21
 
 **Purpose:** Scope out vision assuming we have a full registry of all teachers — we could register and reference all their translated work in English, source their Chinese origin texts, give % of what is published in books and what hasn't been translated yet, put all information on wiki pages (books, teacher cards, lineage trees), then when all is gathered and different translations comparable or missing we could add AI translations — an exhaustive wiki project hosted with BookStack on a VPS.

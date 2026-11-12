@@ -41,7 +41,7 @@ From `scripts/source_review.py`:
   - `complete_selected_witness`
   - `partial_selected_witness`
   - `excerpt_seed`
-  - Rule: `complete_selected_witness` only allowed when W1 is `collated_to_claimed_witness`. Enforced in source_review.py + mirrored in app.js + smoke test. Incompatible degrades to partial but validator rejects.
+  - Rule: `complete_selected_witness` only allowed when W1 is `collated_to_claimed_witness`. Enforced in source_review.py and validate_data.py. Incompatible claims are rejected by the validator; the owner stub must not display a better status than the data.
 
 - `COLLATION_CLASSES` (per field, fixed order):
   - `EXACT`, `REWORDED` — collated
@@ -59,7 +59,7 @@ From `scripts/source_review.py`:
   - Frontier profile — reviewed; exact source locator still pending
   - Frontier profile — exact corpus entry located; biography and teacher frontier remain unverified
 
-- `DISCLOSURE_LEDGERS` (5 separate blocks, must stay visibly separate, app.js labels each with data-ledger, smoke test requires all 5):
+- `DISCLOSURE_LEDGERS` (5 separate semantic categories; the public stub must surface them honestly when ported):
   - `source_collation` — Source collation (W1)
   - `represented_units` — Represented units
   - `translation_edition_verification` — Translation & edition verification
@@ -101,8 +101,8 @@ From `scripts/source_review.py`:
 - **Execution:** unprivileged in disposable clone `/tmp/tc-$COMMIT`, stdlib-only, read-only, no network, no BookStack credentials. Adding a dependency or network access is a new owner decision, not an implementation detail.
 - **Python:** minimum 3.11, tested set 3.11 and 3.12 (CI uses 3.12, br1 system python3 is 3.12.3 accepted without container, future 3.13 must be re-validated and doc updated). No container — system `python3` is official.
 - **Mandatory integrity:** sha256 verification of every file in `export_manifest.json` is mandatory, not optional, plus `export_ready.json` timestamp+commit match — a manifest nobody verifies proves nothing.
-- Secondary: `python3 scripts/build_data_bundle.py` determinism check — two consecutive builds byte-identical, root/docs mirror diff clean.
-- Tertiary: `node scripts/smoke_test.mjs` reader smoke.
+- Secondary repository gate: `python3 scripts/build_pages.py` then `python3 scripts/test_pages_contract.py` — owner-stub/data mirror deterministic and retired assets absent.
+- The retired reader smoke suite is not an export gate.
 - Documented in `docs/GATE.md` — official delivery is git clone at commit pinned in manifest.
 
 ## 7. Tombstones (R7)

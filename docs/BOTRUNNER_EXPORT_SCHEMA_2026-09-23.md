@@ -343,17 +343,17 @@ Any failed step: abort, report, import nothing, notify owner. Steps 1–3 and 5 
 
 ## 7. Gate exit codes for an external consumer (R6 — the documentation gap)
 
-What the law promises, in one table. Exact behavior as implemented at `b8472bd` (`scripts/validate_data.py::main`, `scripts/build_data_bundle.py`, `scripts/smoke_test.mjs`):
+What the law promises, in one table. Exact behavior after the 2026-11-12 layout demolition (`scripts/validate_data.py::main`, `scripts/build_pages.py`, `scripts/test_pages_contract.py`):
 
 | Command | Exit | Meaning for botrunner |
 |---|---|---|
 | `python3 scripts/validate_data.py` | 0 | PASS — safe to publish (`✅ DATA VALIDATION PASSED`, metrics line on stdout) |
 | | 1 | FAIL — do not publish; every finding is an `❌ …` line on stderr plus `Validation failed with N error(s).`; warnings (`⚠️`) are printed but do not fail the run |
 | | 2 | argparse usage error (bad flag) — the gate did not run; treat as FAIL, do not publish. Any uncaught exception (missing file, corrupt JSON) exits 1 with a traceback — also FAIL |
-| `python3 scripts/build_data_bundle.py` | 0 | bundle rebuilt; determinism = two consecutive builds byte-identical (compare sha256 of `app_data.js`) |
-| | ≠0 | exception during build; do not trust the payload mirror |
-| `node scripts/smoke_test.mjs` | 0 | reader smoke passed (`✅ SMOKE TEST PASSED`) |
-| | 1 | N failures printed (`🔴 SMOKE TEST: N failures`); treat as FAIL |
+| `python3 scripts/build_pages.py` | 0 | owner-stub/data Pages mirror rebuilt; retired deploy assets removed |
+| | ≠0 | exception during build; do not trust the repository mirror |
+| `python3 scripts/test_pages_contract.py` | 0 | owner-stub Pages contract passed (mirror equality, deletion permanence, deterministic build) |
+| | 1 | N failures printed; treat as FAIL for repository quality, not as a substitute for export-manifest verification |
 
 Environment contract (unchanged law): run in an unprivileged disposable clone at `export_manifest.json.commit`; stdlib-only, read-only, no network, no BookStack credentials; minimum Python 3.11, tested 3.11/3.12; `--write-metrics` is translatechan-lane only and never part of the consumer gate. Non-zero is publish-not-safe regardless of which script says it.
 
@@ -375,7 +375,7 @@ Decisions this design could not make on the evidence — each with a recommendat
 
 The consumer requirements and answers remain correct in substance; figures moved:
 
-- `TC_EXPORT_CONSUMER_ASSESSMENT_2026-09-21.md`: "44 docs, 8,783,101 B bundle, masters 35, edges 20+10+1=30, 32 partial docs" → now **17 docs, 8,143,493 B** (hash `b68eb436…`), **60 masters, 48 edges (30 exact + 11 source + 7 pending), 2 partial + 2 unavailable** — the 2026-09-21 purge and the Wumenguan/Linji/Biyanlu re-keys happened after its base `5982e3e`. Its "R1 gap: edges matched by pair" and "R2 gap: passages are array indices" both still hold verbatim today (§1, §4).
+- `TC_EXPORT_CONSUMER_ASSESSMENT_2026-09-21.md`: "44 docs, 8,783,101 B bundle, masters 35, edges 20+10+1=30, 32 partial docs" → now **17 docs**, **60 masters, 48 edges (30 exact + 11 source + 7 pending), 2 partial + 2 unavailable**; the old bundle byte figures are historical because the runtime bundle was demolished on 2026-11-12. The 2026-09-21 purge and the Wumenguan/Linji/Biyanlu re-keys happened after its base `5982e3e`. Its "R1 gap: edges matched by pair" and "R2 gap: passages are array indices" both still hold verbatim today (§1, §4).
 - R6 "gap: exit codes not documented for an external consumer" and "recommend publishing `docs/GATE.md`" → already done: `docs/GATE.md` exists on main; §7 completes the table with per-exit codes.
 - `BOTRUNNER_REVIEW_2026-09-21_LAW.md`: "14 docs, 12 exported, manifest lists 12 collated docs" → the root manifest still describes that world; current `EXPORT_SET` is 13 (Biyanlu added by `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json`). The manifest file is the stale artifact (§6), not the ruling.
 - `docs/sample_export.jsonl` is hand-authored and carries defects a generated export would reject: its `master_bodhidharma` cross-refs the purged `bodhidharma_erru`; its `congronglu_case_001` en text is Emperor-Wu/Bodhidharma text (biyanlu's case 1), and its congronglu `completion_status` says `partial_selected_witness` where the manifest says `complete_selected_witness`. §2.2/§2.5/§3.4 mechanisms exist precisely so the *sample of record* becomes generated output; the sample should be regenerated, not patched, in the implementation wave.

@@ -2,8 +2,6 @@
 """Regression tests for the W1 source-review contract (statuses, evidence, metrics).
 
 Run: python3 scripts/test_source_review_rules.py
-(also invoked from scripts/smoke_test.mjs, because the CI workflows run only the node
-smoke test for this repo.)
 
 Every case mutates a *copy* of the repository inputs in a temp directory, so the real
 `data/` tree is never touched, and asserts what `scripts/validate_data.py` must refuse:
@@ -11,17 +9,11 @@ Every case mutates a *copy* of the repository inputs in a temp directory, so the
 * the shipped inputs validate, and their aggregates equal the independently
   recomputed evidence;
 * a complete_selected_witness claim on an uncollated witness fails everywhere
-  (validator, --write-metrics, complete_document_keys, per_text, and the rendered
-  runtime output);
+  (validator, --write-metrics, complete_document_keys, and per_text);
 * a status with no evidence record fails, in both directions;
 * editing a status or an evidence figure without editing the matching evidence fails;
 * --write-metrics with any blocking data error exits nonzero and leaves
   data/project_metrics.json byte-identical (mutation matrix below);
-* every `*_note` provenance key the corpus carries is rendered by the reader or
-  explicitly exempted with a recorded reason, so "someone wrote a label nobody
-  shows" is a red test instead of a silent state (task 011 §4.5). The key list is
-  enumerated from data/corpus/*.json at run time and an orphaned key in a scratch
-  copy of the tree must turn the rule red.
 """
 
 from __future__ import annotations
@@ -56,19 +48,12 @@ class Sandbox:
 
     def __init__(self, label: str) -> None:
         self.root = Path(tempfile.mkdtemp(prefix=f"w1-{label}-"))
-        # Copy the repository (minus VCS, the built bundle, and the Pages mirror) so the
-        # validator sees a real tree: it reads the docs it guards and the build script it
-        # quotes. Nothing is mutated in the working copy.
+        # Copy the repository (minus VCS and the Pages mirror) so the validator sees a
+        # real tree: it reads the docs it guards. Nothing is mutated in the working copy.
         shutil.copytree(
             REPO, self.root, symlinks=True, dirs_exist_ok=True,
-            ignore=shutil.ignore_patterns(".git", "docs", "app_data.js", "node_modules", "__pycache__", ".pytest_cache"),
+            ignore=shutil.ignore_patterns(".git", "docs", "node_modules", "__pycache__", ".pytest_cache"),
         )
-        # The baseline bundle ships into the sandbox: scripts/compat_runtime_check.mjs
-        # renders from it (with an in-memory mutation only). It is never modified here,
-        # and the --write-metrics assertions target data/project_metrics.json, not it.
-        bundle = REPO / "app_data.js"
-        if bundle.is_file():
-            shutil.copy2(bundle, self.root / "app_data.js")
 
     def read(self, relative: str):
         return json.loads((self.root / relative).read_text(encoding="utf-8"))
@@ -480,8 +465,8 @@ def run_replay_conflict_regressions() -> None:
 
 def run_compatibility_regression() -> None:
     """One shared rule end to end: the complete+partial pairing must fail validation,
-    write no metrics, be excluded from complete_documents, be is_complete=false in
-    per_text, and render no completeness claim at runtime."""
+    write no metrics, be excluded from complete_documents, and be is_complete=false
+    in per_text."""
     sandbox = Sandbox("compat")
     try:
         before = sandbox.metrics_text()
@@ -507,228 +492,15 @@ def run_compatibility_regression() -> None:
               "compatibility: per_text.is_complete is false for the pairing")
         check(per_text["hanshan_poems"]["completion_status"] == "complete_selected_witness",
               "compatibility: per_text still reports the (rejected) editorial status, not a silent rewrite")
-
-        # The rendered runtime output for the same pairing must make no completeness claim.
-        node = shutil.which("node")
-        if not node:
-            check(False, "compatibility: node is available to run the runtime check")
-            return
-        runtime = subprocess.run(
-            [node, str(sandbox.root / "scripts" / "compat_runtime_check.mjs"), "hanshan_poems", "witness_unavailable"],
-            cwd=sandbox.root, capture_output=True, text=True, timeout=600,
-        )
-        check(runtime.returncode == 0,
-              "compatibility: runtime output for the pairing has no 'Complete witness', no complete "
-              "mark, and no represented-complete claim")
-        if runtime.returncode != 0:
-            print(runtime.stdout)
-            print(runtime.stderr, file=sys.stderr)
     finally:
         sandbox.cleanup()
 
 
-def run_public_api_check() -> None:
-    app_src = (REPO / "app.js").read_text(encoding="utf-8")
-    check("getSourceReviewStatus" not in app_src,
-          "the removed public API getSourceReviewStatus is not present in app.js")
-    docs_copy = REPO / "docs" / "app.js"
-    if docs_copy.is_file():
-        check("getSourceReviewStatus" not in docs_copy.read_text(encoding="utf-8"),
-              "the removed public API getSourceReviewStatus is not present in docs/app.js")
+def run_repo_hygiene_regression() -> None:
+    """Repository hygiene facts that survive the layout demolition.
 
-
-#: Task 011 §4.5 — the note keys the reader deliberately does NOT render beside a
-#: passage, each with its reason on the record. An exemption is a claim that has to
-#: stay true: the regression below also verifies the key is absent from the
-#: renderer's precedence list and that its recorded alternative home still exists in
-#: app.js, so the list cannot be widened into a get-out-of-jail card for an orphaned
-#: label, nor narrowed without a reviewer seeing the key go red.
-NOTE_RENDER_EXEMPTIONS: dict[str, str] = {
-    "coverage_note": (
-        "Dossier ledger field, not a passage label. It states document-scale coverage "
-        "(e.g. '100/100 case records represented; W1 source-review status: "
-        "partial_or_failed_w1_collation') and already renders once per document as the "
-        "'Reading' row of the represented-units ledger (renderRepresentedUnitsLedger) — "
-        "the same document header the reader uses for every other disclosure. Rendering "
-        "it beside each passage would repeat one document-level statement at every unit "
-        "and would imply it describes that unit. Verified home: the `doc.coverage_note` "
-        "ledger row in app.js."
-    ),
-}
-
-#: The content-render functions that must call the shared note renderer. This is the
-#: render-site map for the node types the corpus actually carries notes on: document
-#: root / front matter / end matter (renderReader) and the case, section, dialogue,
-#: stanza and chapter units with their nested dialogue/verse entries.
-NOTE_RENDER_SITES: tuple[str, ...] = (
-    "renderReader",
-    "renderCaseItem",
-    "renderSectionItem",
-    "renderDialogueItem",
-    "renderStanzaItem",
-    "renderChapterItem",
-)
-
-#: The §3 enumeration rule: a leaf key of exactly this shape is a provenance note.
-NOTE_KEY = re.compile(r"^[a-z_]+_note$")
-
-
-def corpus_note_keys(corpus_dir: Path) -> dict[str, dict]:
-    """Every `[a-z_]+_note` key under `corpus_dir`, with counts, files and node paths.
-
-    Enumerated from the data at run time — never from a constant in this file — so the
-    invariant stays data-driven and cannot be satisfied by editing a list here. Node
-    paths are array-normalized (`$.chapters[].dialogue[]`), which doubles as the
-    render-site map: they name the node types a note can sit on.
-    """
-    found: dict[str, dict] = {}
-
-    def walk(node, path: str, filename: str) -> None:
-        if isinstance(node, dict):
-            for key, value in node.items():
-                if NOTE_KEY.match(key):
-                    entry = found.setdefault(key, {"count": 0, "nodes": Counter(), "files": set()})
-                    entry["count"] += 1
-                    entry["nodes"][path] += 1
-                    entry["files"].add(filename)
-                walk(value, f"{path}.{key}", filename)
-        elif isinstance(node, list):
-            for item in node:
-                walk(item, f"{path}[]", filename)
-
-    for path in sorted(corpus_dir.glob("*.json")):
-        walk(json.loads(path.read_text(encoding="utf-8")), "$", path.name)
-    return found
-
-
-def reader_note_keys(app_src: str) -> list[str]:
-    """The precedence list the one shared note renderer in app.js renders.
-
-    Parsed out of app.js rather than duplicated here: the rendered side of the
-    invariant is whatever the reader actually renders.
-    """
-    declaration = re.search(r"const PROVENANCE_NOTE_KEYS = \[([^\]]*)\]", app_src)
-    return re.findall(r"'([a-z_]+_note)'", declaration.group(1)) if declaration else []
-
-
-def function_source(app_src: str, name: str) -> str:
-    """The source of a top-level `function name(` in app.js, up to the next one."""
-    start = app_src.find(f"function {name}(")
-    if start < 0:
-        return ""
-    end = app_src.find("\n  function ", start + 1)
-    return app_src[start:] if end < 0 else app_src[start:end]
-
-
-def run_provenance_note_render_regression() -> None:
-    """Task 011 §4.5: every corpus `*_note` key is rendered by the reader, or exempted.
-
-    Measured before the fix: 49 provenance notes across 4 keys in data/corpus/*.json
-    and exactly one render site (a verse-level `recension_note` in renderChapterItem),
-    so `cbeta_note` (16 citation corrections, e.g. caoxi_zhuan's "prior 'X1458'
-    wrong — X1458 is 宗門寶積錄"), `editorial_note` (8 witness-attribution labels) and
-    13 of 14 `recension_note` labels (including platform_sutra's root recension
-    ruling) were unreachable. This check makes that state red instead of silent.
-    """
-    app_src = (REPO / "app.js").read_text(encoding="utf-8")
-    keys = corpus_note_keys(REPO / "data" / "corpus")
-    rendered = reader_note_keys(app_src)
-    total_notes = sum(entry["count"] for entry in keys.values())
-
-    check(bool(rendered),
-          "app.js declares the shared note renderer's precedence list (PROVENANCE_NOTE_KEYS)")
-    check(len(rendered) == len(set(rendered)),
-          "the precedence list names each note key once, so keys render on separate lines")
-    check(rendered == ["recension_note", "editorial_note", "cbeta_note"],
-          "precedence is recension_note → editorial_note → cbeta_note (recension provenance, "
-          f"then witness-attribution status, then citation correction) — got {rendered}")
-
-    orphans = sorted(key for key in keys if key not in rendered and key not in NOTE_RENDER_EXEMPTIONS)
-    orphan_detail = "; ".join(
-        f"{key}: {keys[key]['count']} occurrence(s) at {', '.join(sorted(keys[key]['nodes']))} "
-        f"({len(keys[key]['files'])} file(s)) — rendered nowhere and not exempted"
-        for key in orphans
-    )
-    check(not orphans,
-          f"every *_note key in data/corpus/*.json is rendered by the reader or explicitly "
-          f"exempted with a reason ({len(keys)} keys / {total_notes} notes measured)"
-          + (f" — ORPHANED LABEL(S): {orphan_detail}" if orphans else ""))
-
-    for key, reason in sorted(NOTE_RENDER_EXEMPTIONS.items()):
-        check(key in keys,
-              f"the exempted {key} is still present in the corpus (a stale exemption hides nothing)")
-        check(key not in rendered,
-              f"the exempted {key} is not also rendered as a per-passage label")
-        check(len(reason.split()) >= 12,
-              f"the {key} exemption records a reason, not just a key name")
-    check("doc.coverage_note" in app_src and "function renderRepresentedUnitsLedger(" in app_src,
-          "the exempted coverage_note still renders in its recorded home (the Reading ledger row)")
-
-    # One renderer, called at every content site: no per-site copies of the markup,
-    # no new class, and no node type silently skipped.
-    check("function renderProvenanceNoteLine(" in app_src and "function renderProvenanceNotes(" in app_src,
-          "one shared renderer emits every provenance-note line")
-    check(app_src.count("ℹ️ ${escHtml(") == 1,
-          "the muted-note markup exists exactly once, inside the shared renderer "
-          "(no duplicated inline expression, no new CSS class)")
-    for name in NOTE_RENDER_SITES:
-        body = function_source(app_src, name)
-        check(bool(body), f"app.js still has the content-render function {name}")
-        check("renderProvenanceNotes(" in body,
-              f"{name} calls the shared note renderer, so a note-bearing node of that "
-              "type cannot be skipped")
-
-    # Re-derive the measured table on every run (task §1/§3): the counts are read from
-    # the data, so the report cannot drift from the corpus.
-    print("\n  corpus *_note keys measured now (data-driven):")
-    for key in sorted(keys):
-        entry = keys[key]
-        state = ("RENDERED" if key in rendered
-                 else "EXEMPT" if key in NOTE_RENDER_EXEMPTIONS else "ORPHANED")
-        print(f"    {key:16} occurrences={entry['count']:<3} files={len(entry['files']):<3} "
-              f"app.js mentions={app_src.count(key):<3} nodes={', '.join(sorted(entry['nodes']))} "
-              f"-> {state}")
-
-    # Negative case: the rule must bite. An orphaned key is injected into a scratch
-    # copy of the tree (Sandbox), never into the repository's own data/.
-    scratch_relative = "data/corpus/wumenguan.json"
-    sandbox = Sandbox("note-orphan")
-    try:
-        def scratch_orphans() -> list[str]:
-            scratch_keys = corpus_note_keys(sandbox.root / "data" / "corpus")
-            scratch_rendered = reader_note_keys(sandbox.read_text("app.js"))
-            return sorted(key for key in scratch_keys
-                          if key not in scratch_rendered and key not in NOTE_RENDER_EXEMPTIONS)
-
-        # Measured before the injection so the assertion is about the injected key even
-        # when this suite is run from a tree that already carries an orphan.
-        before = scratch_orphans()
-        document = sandbox.read(scratch_relative)
-        document["fabrication_note"] = (
-            "SCRATCH orphan label: proves the §4.5 invariant bites. Never committed."
-        )
-        sandbox.write(scratch_relative, document)
-        after = scratch_orphans()
-        check(after == sorted(set(before) | {"fabrication_note"}) and "fabrication_note" in after,
-              "an orphaned *_note key added to a scratch copy is reported as unrendered "
-              f"(before {before} -> after {after})")
-        check("fabrication_note" not in (REPO / scratch_relative).read_text(encoding="utf-8"),
-              "the negative case mutated only the scratch copy: the repository's corpus is untouched")
-    finally:
-        sandbox.cleanup()
-
-
-def run_web_polish_repo_hygiene_regression() -> None:
-    """Task 008 (web polish bundle): a handful of small repo-hygiene facts that are
-    easy to silently regress because nothing else in this suite looks at them.
-
-    * response_summary.md is disposable and must never be a committed root file
-      (HANDOFF.md §11; .gitignore blocks a future accidental re-add).
+    * response_summary.md is disposable and must never be a committed root file.
     * SECURITY.md exists with a minimal, real disclosure policy.
-    * og-image.png exists at root and in the docs/ mirror, is a real PNG, and
-      is deterministically re-derivable from og-image.svg (rebuilding it must
-      not change the file — proven by construction: the PNG byte content is
-      identical to a fresh call to scripts/build_data_bundle.py's mirror copy).
     * docs/audits/ vs sessions/ is documented (not just present) in HANDOFF.md.
     """
     check(not (REPO / "response_summary.md").exists(),
@@ -742,42 +514,17 @@ def run_web_polish_repo_hygiene_regression() -> None:
         security_text = security_path.read_text(encoding="utf-8")
         check("security/advisories" in security_text or "Security Advisories" in security_text,
               "SECURITY.md points to GitHub Security Advisories")
-        check("@" not in security_text.split("Security Advisories")[0] or True,
-              "SECURITY.md does not require an email-address reporting channel")
         check("no email" in security_text.lower() or "no dedicated security email" in security_text.lower(),
               "SECURITY.md states there is no email intake")
-
-    for og_root in (REPO, REPO / "docs"):
-        png_path = og_root / "og-image.png"
-        check(png_path.is_file(), f"{png_path.relative_to(REPO)} exists")
-        if png_path.is_file():
-            check(png_path.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n",
-                  f"{png_path.relative_to(REPO)} is a real PNG (magic-byte check)")
-            check(png_path.stat().st_size < 100_000,
-                  f"{png_path.relative_to(REPO)} stays under the 100 KB social-card budget "
-                  f"(measured {png_path.stat().st_size:,} B)")
-    root_png = REPO / "og-image.png"
-    docs_png = REPO / "docs" / "og-image.png"
-    if root_png.is_file() and docs_png.is_file():
-        check(root_png.read_bytes() == docs_png.read_bytes(),
-              "root og-image.png and the docs/ mirror are byte-identical")
-
-    build_src = (REPO / "scripts" / "build_data_bundle.py").read_text(encoding="utf-8")
-    check('"og-image.png"' in build_src,
-          "scripts/build_data_bundle.py mirrors og-image.png into docs/ like og-image.svg")
-
-    index_html = (REPO / "index.html").read_text(encoding="utf-8")
-    check(index_html.count('property="og:image"') >= 2 and 'content="https://56eli.github.io/translatechan/og-image.png"' in index_html,
-          "index.html lists a PNG og:image alongside the SVG one")
-    check('name="twitter:image"' in index_html and "og-image.png" in index_html.split('name="twitter:image"')[1].split(">")[0],
-          "index.html's twitter:image points at the PNG fallback")
 
     handoff_text = (REPO / "HANDOFF.md").read_text(encoding="utf-8")
     check(re.search(r"docs/audits.{0,40}vs.{0,10}sessions", handoff_text) is not None
           and "curated" in handoff_text and "append-only evidence record" in handoff_text,
           "HANDOFF.md documents the docs/audits/ vs sessions/ split, not just the path")
     check((REPO / "docs" / "audits").is_dir(),
-          "docs/audits/ still exists as the curated Pages-deployable evidence mirror")
+          "docs/audits/ still exists as the curated evidence mirror")
+
+
 
 
 def main() -> int:
@@ -929,29 +676,18 @@ def main() -> int:
           "the rule restricts only the complete claim, so containment cannot silently downgrade partial states")
     check(source_review.effective_completion_status("complete_selected_witness", source_review.PARTIAL_STATUS)
           == "partial_selected_witness",
-          "incompatible runtime claims degrade to partial instead of rendering as complete")
+          "incompatible completion claims degrade to partial in derived metrics")
 
-    # 9. the five ledgers exist, are named once, and the runtime mirrors them
-    app_src = (REPO / "app.js").read_text(encoding="utf-8")
-    for key, label in source_review.DISCLOSURE_LEDGERS:
-        check(f"'{key}'" in app_src or f'"{key}"' in app_src, f"app.js renders the {key} ledger")
-        check(label in app_src or key == "rights_review", f"app.js carries the {label!r} ledger label")
-    check(app_src.count("data-ledger=") >= 1 and ".ledger-block" in (REPO / "app.css").read_text(encoding="utf-8"),
-          "ledger blocks are styled separately rather than folded into one line")
-    check("function renderDocumentLedgers(" in app_src and "renderRightsLedger(corpusKey)" in app_src,
-          "the Reader renders the five ledgers from one function")
-    check("isCompletionSourceReviewCompatible" in app_src
-          and "completion_compatibility" in app_src,
-          "the runtime reads the generated compatibility table instead of a second rule")
-
-    # 10. the removed public API must stay removed
-    run_public_api_check()
+    # 9. the five disclosure categories remain separate in the data contract
+    check(tuple((entry["key"], entry["label"]) for entry in evidence["disclosure_ledgers"])
+          == source_review.DISCLOSURE_LEDGERS,
+          "published metrics carry the five separate disclosure categories")
 
     # 11. --write-metrics protection matrix: every blocking evidence/data mutation
     #     must fail the run and leave data/project_metrics.json byte-identical.
     run_write_metrics_matrix()
 
-    # 12. the full compatibility regression: validator, metrics functions, and runtime.
+    # 12. the full compatibility regression: validator and metrics functions.
     run_compatibility_regression()
 
     run_partition_and_report_regressions()
@@ -1016,13 +752,8 @@ def main() -> int:
     # 14. documentation truthfulness: the stale "174 extracted reference texts" claim fails.
     run_reference_count_doc_regression()
 
-    # 15. label visibility (task 011 §4.5): every *_note key the corpus carries is
-    #     rendered by the reader or explicitly exempted with a recorded reason.
-    run_provenance_note_render_regression()
-
-    # 16. web polish repo hygiene (task 008): SECURITY.md, PNG fallback, no
-    #     root response_summary.md, docs/audits/ vs sessions/ documented.
-    run_web_polish_repo_hygiene_regression()
+    # 15. repository hygiene that is independent of the retired layout.
+    run_repo_hygiene_regression()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # 🔄 Audit Update — Phase V1 Chinese Chan Hall Hero (2026-08-10)
 
 > **Branch:** `arena/019feaf5-translatechan` · **Commit:** `b0aeb4d` · **Baseline:** `062a1fb` + `8857488` (full audit) + `76630c4` (web vision)  

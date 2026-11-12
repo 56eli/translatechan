@@ -3,10 +3,8 @@
 
 One module owns the contract so the validator, the generated metrics, the collation
 harness, and the tests can never disagree about what a W1 source-review status means.
-The browser runtime mirrors the two rules this module publishes
-(``is_completion_source_review_compatible`` and the status vocabulary) in ``app.js``;
-the smoke test asserts the JS copy against the generated
-``corpus.source_review.completion_compatibility`` table, which is this module's output.
+The published compatibility table is generated from this module; any future reader
+must consume that table rather than invent a second completion rule.
 
 Contract
 --------
@@ -77,8 +75,8 @@ COLLATION_CLASSES = (
     "EMPTY",
 )
 
-#: Five ledgers the public interface must keep visibly separate. `app.js` labels each
-#: rendered disclosure with `data-ledger`; the smoke test requires all five.
+#: Five separate data-disclosure categories. They are semantic ledgers, not a
+#: prescription for a particular HTML layout.
 DISCLOSURE_LEDGERS = (
     ("source_collation", "Source collation (W1)"),
     ("represented_units", "Represented units"),
@@ -89,8 +87,8 @@ DISCLOSURE_LEDGERS = (
 DISCLOSURE_LEDGER_KEYS = tuple(key for key, _ in DISCLOSURE_LEDGERS)
 DISCLOSURE_LEDGER_LABELS = dict(DISCLOSURE_LEDGERS)
 
-#: Rendered under the five blocks: the ledgers answer different questions and an answer to
-#: one must never be read as an answer to another.
+#: The ledgers answer different questions; an answer to one must never be read as an
+#: answer to another.
 LEDGER_SEPARATION_NOTE = "Separate ledgers: none of these answers implies another."
 
 #: Status labels shown to a reader. The exact machine status is always rendered next to
@@ -107,8 +105,8 @@ def is_completion_source_review_compatible(completion_status: Any, source_review
 
     ``complete_selected_witness`` requires ``collated_to_claimed_witness``; every other
     completion status is compatible with any valid source-review status. This is the
-    single definition of the rule; ``app.js`` mirrors it and the smoke test keeps the
-    mirror honest against the generated compatibility table.
+    single definition of the rule; published metrics carry the generated
+    compatibility table for consumers.
     """
     if completion_status != "complete_selected_witness":
         return True
@@ -130,8 +128,8 @@ def effective_completion_status(completion_status: Any, source_review_status: An
     """The completion status a work may actually be represented with.
 
     An incompatible ``complete_selected_witness`` claim degrades to
-    ``partial_selected_witness`` everywhere (metrics, shelf grouping, complete marks,
-    Reader status line) while the validator still rejects the underlying data.
+    ``partial_selected_witness`` in derived metrics and any future consumer while
+    the validator still rejects the underlying data.
     """
     if completion_status == "complete_selected_witness" and not is_completion_source_review_compatible(
         completion_status, source_review_status

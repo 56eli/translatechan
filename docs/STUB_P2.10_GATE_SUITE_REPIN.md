@@ -1,3 +1,5 @@
+> **RETIRED / NON-AUTHORITATIVE (2026-11-12).** This document describes the demolished walnut-shell frontend or its retired build/test gates. It is historical evidence only. The current layout authority is the owner-uploaded root `index.html`; current gates are in `AGENTS.md`, `GATE.md`, and `.github/workflows/quality.yml`. Do not restore `app.js`, `app.css`, `app_data.js`, `theme-init.js`, the old deploy shell, or the retired smoke/browser gates from this file.
+
 # Stub P2.10 — Re-pin the three pinned suites to the 13-document corpus
 
 > **STATUS — COMPLETED 2026-09-21 (combined overlay):** the three pinned suites were repinned to the **14-document** combined corpus in the same branch as the Wumenguan + Linji overlay — `test_source_preservation.py` (base repinned to f1207eaf, both re-keys declared in `DECLARED_NEW_CORPUS`), `test_source_review_rules.py` (AUTH_REGISTER/CORRECTION_REPORT → `COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json`, partition originals 4717/4223) and `smoke_test.mjs` (14-item manifest pin, 12/0/2 counts, WUMENGUAN_LINJI authoritativeEvidence paths, Linji pins). This stub describes the 13-document-era plan as written.

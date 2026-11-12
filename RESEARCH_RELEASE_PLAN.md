@@ -1,123 +1,64 @@
-# Fake Chan Factory Research-Release Plan
+# Research Release Plan
 
-> **Measured correction 2026-09-21 (P2 Tier2 next, task 056):** **47** provenance-note strings, **108 of 150** rendered beside passages, **36** documents, `cbeta_note` **29**; 42 coverage notes remain ledgered. Measured by the gate itself (`validate_data.py`); corrects the lineage-batch-1 baseline line below, whose 125 total was already the key-sum rather than the measured count (measured before this task: 133), and lands with the task-056 corpus-note edits (guiyang_yulu, fayan_yulu).
-> **Measured correction 2026-09-21 (lineage batch 1 baseline):** **47** provenance-note strings, **83 of 125** rendered beside passages, **35** documents, `cbeta_note` **28**; 42 coverage notes remain ledgered. This corrects the task-050 census below without editing corpus data.
-
-> **Purpose:** turn a healthy static reader into a trustworthy, maintainable research corpus without treating generated text, online mirrors, or incomplete locators as scholarly completion.
->
-> **Working rule:** no content expansion may weaken the source, provenance, rights, validation, or deploy contract already in place.
->
-**Refresh 2026-09-21 (task 050, six enthusiast full-witness ingests):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 27, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage (the 42 `coverage_note` lines stay ledgered by exemption), **35** documents carrying at least one label; release blocker 2's presentation half is unchanged by the ingests (six rendered `cbeta_note` lines added, six exempted `coverage_note` lines added). The W1 authoritative record moved 38 → 44 documents with the flagged total unchanged at 630.
-**Refresh 2026-09-20 (Caoshan Benji ingest):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 21, `coverage_note` 36, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage (the 36 `coverage_note` lines stay ledgered by exemption), **29** documents carrying at least one label; release blocker 2's presentation half is unchanged by the ingest (one rendered `cbeta_note` added, one exempted `coverage_note` added). The W1 authoritative record moved 37 → 38 documents with the flagged total unchanged at 630.
-**Refresh 2026-09-20 (full 30-fascicle Jingde Chuandeng Lu ingest):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 20, `coverage_note` 35, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage (the 35 `coverage_note` lines stay ledgered by exemption), **28** documents carrying at least one label; release blocker 2's presentation half is unchanged by the ingest (one rendered `cbeta_note` added, one exempted `coverage_note` added).
-**Refresh 2026-09-20 (Congronglu reinstatement):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 19, `coverage_note` 34, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage (the 34 `coverage_note` lines stay ledgered by exemption), **27** documents carrying at least one label; release blocker 2's presentation half is unchanged by the reinstatement (one rendered `cbeta_note` added, one exempted `coverage_note` added).
-
-> **Refresh 2026-09-17 (sengzhao_zhaolun RE-KEY):** current gate-run totals are **47** provenance-note strings across four keys (`cbeta_note` 18, `recension_note` 14, `coverage_note` 33, `editorial_note` 16); **48 of 81** passage-level strings render at 26 document sites. CJK totals after the re-key are **104,975 content / 111,708 all-string**. The 2026-09-12 baseline block below is kept as the dated record it is.
+> **Current authority:** owner-stub layout + source-integrity gates. The retired
+> walnut-shell release checklist is historical. This plan states what must be true
+> before a research release is claimed.
 
 ## Release standard
 
-A text or translation is only presented at the strongest available status. “Complete,” “verified quotation,” and “source verified” each require auditable evidence—not a plausible web mirror or inferred attribution.
+A release is not ready because a layout merged or a gate passed. It requires:
 
-| Status | Minimum acceptance evidence |
-|---|---|
-| Canonical text unit | Named source/edition, canonical ID, stable locator (case, fascicle/page/line, or TEI ID), revision/source note, and human spot-check record |
-| Verified modern quotation | Exact book/edition, translator, stable page/section reference, wording check, source ID resolving to a rights record, and editorial rights decision |
-| Complete work | All canonical units accounted for against a stated edition/recension, explicit treatment of prefatory/end material and variants, unit-level locators, and validation/smoke coverage |
-| Source-verified lineage edge | Named chart/record, edition and exact locator, editorial note on historiographical status; otherwise retain the visible traditional/pending state |
-| Public release | Quality workflow green, generated assets committed, browser/a11y smoke pass, no unresolved P1 scholarly-disclosure defect, and the four Wave 1 close-out blockers resolved (see the release-blocking checklist below) |
+1. source data validates and metrics are current;
+2. preservation and W1 evidence gates pass;
+3. public surfaces disclose source, translation, locator, and rights states honestly;
+4. rights decisions remain human/jurisdiction work;
+5. real-browser evidence exists for the public surface being released.
 
-## Current baseline (measured 2026-09-12; supersedes the 2026-08-10 containment state)
+## Current corpus baseline
 
-Every figure here is reproducible from `data/project_metrics.json`, `data/corpus_manifest.json` or the named artefact; the commands are in [`ROADMAP.md`](./ROADMAP.md) → Wave 1 source-integrity campaign.
+**12 of 17 documents** are `complete_selected_witness` under the validator rule:
+explicit completion status, `collated_to_claimed_witness`, and satisfied unit
+targets. The five non-complete documents are excerpt seeds: `zhengdao_ge`,
+`hanshan_poems`, `niutou_juezhu`, `guiyang_yulu`, `fayan_yulu`.
 
-- **Platform:** native GitHub Pages from `main /docs`; Quality passes, but `repo_ready` remains fail (audited score 7.2/10, `AUDIT.md` §1) until the P1 blockers below are resolved. No real-browser or screen-reader evidence exists, so no surface may be described as browser-verified.
-- **Corpus:** 16 active documents, **12 of 17 documents** are `complete_selected_witness` — `corpus.complete_documents` lists `caoshan_benji`, `chuandenglu_full`, `congronglu`, `dahui_yulu_full`, `dongshan_yulu_full`, `huangbo_fayao_full`, `linji_yulu`, `mazu_guanglu_full`, `wumenguan`, `yunmen_guanglu_full`, `zhaozhou_yulu_full` (the re-keyed Gateless Gate since 2026-09-21; the other ten marked on 2026-09-22 by task 058 after each was re-verified as a verbatim, contiguous tiling of its pinned witness region — [`sessions/P1_COMPLETE_MARKING_2026-09-22.md`](./sessions/P1_COMPLETE_MARKING_2026-09-22.md)). Completion statuses are **11 `complete_selected_witness`**, **0 `partial_selected_witness`** and **5 `excerpt_seed`** (`zhengdao_ge`, `hanshan_poems`, `niutou_juezhu`, plus `guiyang_yulu` and `fayan_yulu` restored as measured excerpt seeds on 2026-09-22 by task 059). The completion claim is scoped to the pinned extraction rule `cbeta-p5-body-cjk-v1` and to the region each `coverage_note` declares (interlinear `tei:note` apparatus, Congronglu's front matter and inter-case name markers, and the Chuandeng Lu's pre-/post-fascicle matter are disclosed, not claimed). W1 source-review states are **12 `collated_to_claimed_witness`**, **2 `partial_or_failed_w1_collation`** (`guiyang_yulu`, `fayan_yulu`), **2 `witness_unavailable`** (`hanshan_poems`, `niutou_juezhu`).
-  - **Correction of the 2026-08-10 baseline, which is now false as written:** it stated that "Wumenguan and Xinxin Ming are explicitly `complete_selected_witness`". Neither is. W1 containment withdrew those claims (2026-09-09, corrected 2026-09-10) after collation found fabricated preface/verse material inside the former `complete_selected_witness` texts, and the validator now rejects `complete` unless the document is `complete_selected_witness` **and** `collated_to_claimed_witness`. Both documents were subsequently re-keyed to their pinned witnesses (PRs #29, #34) and **neither re-key upgraded its status**.
-  - **Platform Sutra:** a 10-heading excerpt set, not complete, and now labelled rather than re-keyed (PR #35): primary witness T48n2007 (Dunhuang), alternative T48n2008 (宗寶); of 13 source-content fields **1** is verbatim in the primary witness, **3** in the alternative and **9** in neither — those 9 are disclosed as condensed project précis. Zero Chinese characters were rewritten; document content CJK stays 680.
-  - **Congronglu: reinstated 2026-09-20 — 100/100 cases held, 0 flagged.** Absent from the public bundle since 2026-08-10 after generated source-looking placeholders and case-number/page claims were disproved against the authoritative T48n2004 headings; on 2026-09-20 the document was rebuilt from that pinned witness (500/500 source-content fields EXACT, no quarantined record copied) and recorded in the dated 2026-09-20 evidence overlay, whose §4 adjudicates the single reference caveat. It is no longer a target rather than a holding: see §3 and the containment contract.
-- **Source-integrity evidence:** the authoritative W1 record is `sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json` — **17 documents, 127 flagged source fields**, evidence date 2026-09-22 — which re-measures the 14 entries of the 2026-09-21 combined Wumenguan/Linji overlay `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN_LINJI.json` byte-identically and adds the two purged Tier2 keys restored as measured excerpt seeds (Guiyang 0 of 6, Fayan 1 of 11 verbatim; re-key NOT landed), while that overlay inherits the 12 per-document entries of `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json` verbatim and adds both re-keys: the Gateless Gate (48 cases tiling the whole 7,663-CJK T48n2005 witness; 207 fields measured, 207 EXACT, 0 flagged) and the Record of Linji (107 verbatim sections tiling the whole 16,366-CJK T47n1985 fascicle; 215 fields measured, 215 EXACT, 0 flagged), with the 2026-09-09 register retained as append-only historical evidence. **630 is the historical chain's designated figure, not today's measurement:** the 2026-09-21 post-remediation pass measured **486** flagged fields over the 44 documents then present, the difference being the merged re-keys plus the reinstated and newly ingested documents; that figure is historical now, and the 2026-09-21 purge removed the retelling documents. The drop is **not** by itself a completion claim: the 11 `complete_selected_witness` items are separate editorial marks (2026-09-21 for the Gateless Gate, 2026-09-22 for the other ten), each counted by the validator only because the document is `collated_to_claimed_witness` *and* meets its declared unit target — neither restored Tier2 seed is complete. Field-level state: **4,709 of 4,734** source-content fields collate in the register, 3 documents have no collating source-content field, and 4,236 `title_zh`/`name_zh` metadata fields are measured in a separate partition.
-- **Traceability:** 4,092/4,092 declared case records have case locators (100 Congronglu + 1,274 Jingde Chuandeng Lu + 84 Caoshan Benji + the 2,586 units of the six 2026-09-21 full records + 48 Wumenguan cases) across 10 case-level documents; 6 documents remain document-level (4 pre-existing plus the two restored Tier2 seeds) and *Linji* now carries 107 `lb`-anchored section locators read from the pinned T47n1985 witness (the three excerpt seeds carry none). A case-number anchor is not proof that every nested source field was collated — the W1 harness measures the fields, and it is what found the gaps.
-- **Translation disclosure:** 177 corpus quotation slots and 2 Matrix registers are edition-verified; 176/179 verified source records have recorded references and 3 are pending. All **14** rights-manifest sources still require their documented rights/jurisdiction review (13 distinct source ids are referenced by verified quotations). Verification does not itself grant reuse rights or establish public-domain status, and no ledger records a rights decision.
-- **Lineage:** 35 profiles, 31 internal edges — all `traditional_link_pending_exact_locator` — and 4 frontier tasks; no edge should be upgraded without exact source locators.
-- **Disclosure presentation:** the corpus carries **47** provenance notes (`cbeta_note` 17, `recension_note` 14, `coverage_note` 30, `editorial_note` 9) across 34 documents; the reader renders the three passage-level keys at **17** shared-renderer sites — **40 of 70** note strings beside their passages — while the 30 `coverage_note` strings render in the dossier ledger under a recorded exemption. Implemented and gate-guarded by PR #40; no real-browser evidence exists, so it is not browser-verified. Blocker 2 below is ticked on that basis.
+W1 evidence: **17 documents, 127 flagged source fields**. Authoritative register:
+`sessions/COLLATION_REGISTER_2026-09-22_P1_BIYANLU.json`. Historical register:
+`sessions/COLLATION_REGISTER_2026-09-09.json` (2026-09-09). The historical 637
+report figure is superseded; the historical 622 register figure is historical.
+Zhaozhou's former T1987 claim is false: T1987 is the Caoshan record.
 
-## Delivery sequence
+## Release-blocking checklist
 
-### 0 — Release-engineering baseline (complete; maintain continuously)
+- [x] **Post-remediation evidence designation.** The authoritative register chain
+  is pinned and recomputed by `scripts/w1_evidence.py`; `--write-metrics` fails
+  closed on blocking evidence/data errors.
+- [ ] **Stub disclosure port.** The retired renderer was deleted with the old
+  layout. The owner stub must surface provenance notes and the five separate data
+  ledgers before a research release is claimed.
+- [ ] **Owner fabricated-text policy decisions.** Material attested in no pinned
+  reference requires owner ruling: replace from witness, label as project
+  composition, or remove from public set. Not agent-authorisable.
+- [ ] **Human-sourcing queue for OUT-OF-CBETA witnesses.** Acquisition,
+  transcription, and evaluation are human work. Agents may not fetch or transcribe
+  those witnesses.
+- [ ] **Rights review.** All rights-manifest sources remain pending human/jurisdiction
+  review. Edition verification does not approve reuse.
+- [ ] **Real-browser evidence.** No current stub browser/accessibility evidence is
+  on record. A future suite must test the owner stub, not the retired DOM.
 
-- [x] Quality workflow checks Python syntax, semantic data validation, deterministic build output, deploy mirror, and dependency-free renderer smoke coverage.
-- [ ] Enable `main` branch protection requiring the Quality check after an administrator sees its first successful run.
-- [x] Real-browser regression suite **written** (desktop + mobile) — and never executed: no Chromium run is on record (the 2026-08-11 session failed with `ECONNRESET`), so the box is ticked for the suite's existence, not for evidence. `scripts/browser_test.mjs` (Playwright) covers initial load, deep links, mobile corpus chooser/action bar, lazy case loading, case-chip jumps, citation and glossary popovers (pointer + keyboard), ARIA tab navigation, search escaping, CSP console cleanliness, and print view. It is **optional and not part of CI** (it skips gracefully without a browser); run locally with `npm install && npx playwright install chromium && npm run test:browser` before release checks.
-- [ ] Add an accessibility review checklist and resolve keyboard semantics for every interactive control before the next public release. (Keyboard semantics for tabs, glossary terms, lineage nodes/edges, and cards are implemented; a formal screen-reader pass remains.)
+## Source growth workflow
 
-**Exit evidence:** required GitHub check is green on PRs; browser suite covers initial load, deep links, mobile corpus chooser, lazy case loading, source popovers, keyboard interaction, and print view.
+For each new canonical source:
 
-### 1 — Editorial traceability migration (highest scholarly priority)
-
-1. Establish a per-unit editorial worksheet format: source edition/URL or TEI revision, locator, collation date, reviewer, variant note, and confidence/status. The unit pilots are the reference implementation — measured 2026-09-12 in `data/canonical_locators.json`: `biyanlu_cases` 100 unit anchors, `linji_yulu` 74 units, `xinxin_ming` 37 units, every one at `collated_with_normalization`, a status explicitly below human source-checked sign-off.
-2. Migrate the 33 `legacy_document_seed` locators one text at a time. Start with texts already used in the Matrix and Gong’an Index.
-3. Replace the pending verified-quotation references with actual stable references or downgrade the item from verified status. Measured 2026-09-12 the count is **3, not the 5 this plan previously carried** (the validator's own rule: a verified item whose `source.reference` contains `pending`): `zhaozhou_yulu` dialogue units 1 and 2 (`translation book episode/page pending`) and the Matrix's R.H. Blyth register for Wumenguan case 1 (`Case I (Hokuseido print page pending)`). Both `zhaozhou_yulu` references also cite the witness T1987, which is **false** — T1987 is the Caoshan record — so fixing these two means fixing the citation and the pagination together.
-4. Add exact source locators for lineage edges; preserve disputed/traditional distinctions rather than forcing a single genealogy.
-
-**Exit evidence:** no public displayed corpus unit relies only on a document-level seed locator; every verified quotation has a non-pending citation; every lineage edge has an explicit evidence status.
-
-### 2 — Rights and quotation review (parallel to Phase 1)
-
-1. Review each of the **14** modern-translation source records in `data/translations/rights_manifest.json` by jurisdiction, edition, quotation length, and intended public reuse (13 of the 14 are referenced by verified quotations; the manifest is the review unit, not the reference count).
-2. Record a human editorial decision in `rights_manifest.json`; do not mistake online availability for a license.
-3. Prefer public-domain/openly licensed translations for complete comparative registers; use short attributed excerpts for copyrighted works only when approved.
-4. Keep AI/reconstruction labels explicit and never backfill a scholar’s name onto generated text.
-
-**Exit evidence:** every visible modern quotation has a documented editorial decision and a source/reference suitable for its displayed status.
-
-### 3 — Biyanlu as the next content pilot
-
-Biyanlu now has 100 represented case records but still needs its missing source fields and human sign-off. **Wave 1 update (PR #30, 2026-09-11):** all 20 adjudicated W1-flagged content fields were re-keyed verbatim from the pinned, digest-verified T48n2003 witness and every one re-classifies EXACT — content flags 42 → 22, collating content fields 353/395 → 373/395. What remains is the documented residual (22 MINOR fields left by policy, 86 `title_zh` metadata flags, one disclosed unfixed coverage gap at case 42's 垂示), the post-verse 評唱 English, and human sign-off; the document stays `partial_or_failed_w1_collation` until the evidence pass re-adjudicates it.
-
-**Congronglu is not a pilot candidate, and its 100 held cases are representation, not completion.** It was rebuilt from the authoritative T48n2004 TEI under field-level collation (2026-09-20); none of the quarantined generated records was copied back, and every restored case collates against that witness (500/500 source-content fields EXACT, 0 flagged). The 100-case figure in `vision.md` §7 is now a holding *and* still an ambition: human editorial sign-off, the witness's front matter and interlinear 著語 apparatus, and gong'an indexing of the cases are all outstanding.
-
-For each new case:
-
-1. Record the CBETA/edition source and canonical case locator before adding text.
-2. Segment the Chinese conservatively; retain pointer, main case, commentary, and verse as distinct fields.
-3. Add pinyin as a disclosed machine/editorial draft and have a reviewer spot-check proper names and Buddhist terms.
-4. Add only translations with explicit status; verified quotations must meet the rights/source contract.
-5. Add Gong’an index and glossary links where they provide genuine research value.
-6. Run validator, generated metrics, build, smoke suite, and browser checks; commit source plus generated artifacts together.
-
-**Pilot exit evidence:** the first 10 Biyanlu cases are complete against the selected edition, with unit locators and no unlabelled translations. Reassess data model, loading performance, and editorial throughput before scaling to 100 cases.
-
-> ✅ **Pilot milestone (2026-08-08):** cases 1–10 complete (14/100) with CBETA TEI line locators, validator-checked coverage metadata, and regression coverage — the contract held end-to-end. Post-verse 評唱 English and human sign-off on the `collated_with_normalization` anchors remain; cases 11–100 are next.
-
-### 4 — Reader and research UX hardening
-
-- [x] Replace inline `onclick` and clickable non-controls with delegated events/native buttons, then apply a restrictive Content Security Policy (completed 2026-08-08, session `arena/019fe30b`): all generated controls now use `data-*` attributes with a single document-level delegated click handler; the app ships a CSP meta tag with `script-src 'self'`; the smoke suite fails on any reintroduced inline handler attribute.
-- [x] Ensure Enter/Space behavior and ARIA relationships for glossary terms, lineage cards/nodes/edges, tabs, and filters (completed 2026-08-08): Enter/Space opens glossary popovers; tabs are full ARIA `tablist`/`tab`/`tabpanel` with roving tabindex and arrow/Home/End navigation; lineage cards/nodes/edges already carry button semantics and Enter/Space activation.
-- [ ] Add browser/screen-reader checks for citations on hover, focus, and touch (real-browser suite still pending — see Phase 0).
-- [ ] Measure mobile first-load performance before corpus growth makes the monolithic bundle costly; choose lazy per-text data only if evidence justifies the added complexity.
-
-**Exit evidence:** no keyboard-only dead end in public interaction paths; CSP permits no inline event handlers; mobile performance budget is documented and tested.
-
-### 5 — Scale only after the pilot proves the contract
-
-- Complete Biyanlu's missing source fields and human review in editorial batches.
-- Congronglu is **reinstated** (2026-09-20, owner-authorised) from the authoritative T48n2004 TEI under field-level provenance and anti-placeholder gates — the gate set (`scripts/collate_refs.py` + `scripts/collate_corpus.py` + `scripts/test_source_preservation.py`) held, every restored case collates, and none of the quarantined records was copied; the next texts expand under the same contract.
-- Grow the glossary and Gong’an index from collated units, rather than through disconnected bulk additions.
-- Publish periodic data-quality metrics and an editorial changelog.
-
-## Release-blocking checklist — Wave 1 close-out (added 2026-09-12)
-
-Four items gate a research release that the 2026-08-10 checklist did not know about, because the measurement that exposed them landed after it. Each is stated with its evidence source, its exit criterion, and who may act. **None of them is closed by documentation**, and none may be reported as progress by re-wording a status.
-
-- [x] **1. Post-remediation evidence pass — measurement published by PR #41 (2026-09-12); designation half closed 2026-09-20 (task 043).** *Measurement half — done:* the collation re-run over current `main` is committed as `sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json` + `sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md`. *Designation half — closed by the owner-ruled evidence-model extension:* `scripts/w1_evidence.py` now pins the 2026-09-20 overlay as the authoritative record (a dated `w1-correction` that inherits the 2026-09-10 overlay's 35 entries verbatim and adds one measured document), `data/project_metrics.json` is regenerated through the protected `--write-metrics` path, and the gate-pinned figures in `README.md` / `AUDIT.md` / `HANDOFF.md` / `ROADMAP.md` point at the new record. The designated flagged total is unchanged at **630** — the reinstated document contributes no flags — while today's data measures **486**; both are published as what they are, and neither is a completion claim. Evidence: `sessions/COLLATION_W1_2026-09-20_CORRECTION.md` §4.
-- [x] **2. Label visibility in the reader — delivered by PR #40 (2026-09-12, counts refreshed 2026-09-16).** *Problem as originally stated, kept as the historical record:* the corpus carried **47** provenance notes and the reader rendered **one** site — `recension_note` at verse level only, `coverage_note` in the dossier's Reading ledger, while `cbeta_note` (16 fields at PR #40 merge, 17 after PR #43 added `zhaozhou_yulu`'s withdrawal note — including recorded citation corrections such as `caoxi_zhuan`'s note that the prior "X1458" citation was wrong) and `editorial_note` (8 fields — including the labels marking `linji_yulu` sections 71–73 and `xinxin_ming` stanza 31 as project retellings with no witness attribution) were never rendered; `platform_sutra`'s **root** recension note, which discloses that 9 of its 13 source-content fields are project précis, was unreachable. *Exit criteria, each met:* one shared renderer (`renderProvenanceNotes` / `renderProvenanceNoteLine`) reuses the existing muted-note treatment and the `escHtml` path — no new CSS, no redesign, no change to what a note says; it is called at **17** content sites covering every node type that carries a note (document root, preface/epilogue, case, section, dialogue, stanza, chapter and nested verse entries); precedence lives in one constant, `PROVENANCE_NOTE_KEYS` (`recension_note` → `editorial_note` → `cbeta_note`, one line each, never concatenated); the data-driven gate in `scripts/test_source_review_rules.py` §15 enumerates `*_note` keys from `data/corpus/*.json` at run time and fails whenever a key is neither rendered nor on the explained exemption list (`coverage_note`, a dossier ledger field rather than a passage label, is the one exemption, with its reason recorded in `NOTE_RENDER_EXEMPTIONS`); **40 of 70** note strings now render beside a passage and the other 30 ledger by exemption; and the change moved zero data bytes and zero CJK characters (PR #40's own `git diff --stat` shows reader + test plus the build-generated `docs/app.js` mirror; the CJK totals stay **104,564 / 110,252**). *Caveat:* implemented and gate-guarded, but no real-browser or screen-reader run is on record (`scripts/browser_test.mjs` has never executed — no Chromium; the 2026-08-11 attempt failed with `ECONNRESET`), so it is **not browser-verified**. *Who:* agent-executable (reader + test only).
-- [ ] **3. The owner's fabricated-text policy decision.** [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → `## Owner decision required` frames the material attested in no pinned reference (`dahui_hongzhi`'s 默照銘 tail, `guiyang_yulu` 0/6, `yuanwu_letters` 0/2, and the other tier-2 rows) with three options: replace with witness text where the pinned set carries the passage, keep and label as project composition with the witness claim removed, or remove the document from the public set. *Exit:* a recorded owner ruling per document, then the corresponding `LABEL` / `RE-KEY` rows executed one document per PR. *Who:* **owner decision — not agent-authorisable.**
-- [ ] **4. The human-sourcing queue — 31 documents with `OUT-OF-CBETA` witnesses.** Dunhuang P.3018 (`caoxi_zhuan`), P.2125 (`lidai_fabao_ji`), P.2885/S.5619 (`niutou_juezhu`), 趙州錄 editions, the 白頭宮女 recension of the Five Ranks (`dongshan_yulu`), the SBCK/Zokuzōkyō-lineage Hanshan copy, and the rest of the [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) §7 table. *Exit:* a human sequencing decision — which witnesses to acquire, in what order, at whose cost — and then per-document collation against the acquired witness. *Who:* **not agent-authorisable**: no agent may fetch, transcribe or evaluate any of these witnesses, and none of them is in CBETA.
-
-Two further queues are release-relevant without being new blockers, both ranked with a reproduce command per row in `.orchestrator/PHASE2_PLAN.md`:
-
-- the **6 `CITATION` rows — fixed by PR #43 (2026-09-12)**. They were false public claims the data carried, the worst being `zhaozhou_yulu`'s witness claim **T1987, which is false**: T1987 is the **Caoshan** record. The fix is the one this line demanded — the claim simply stopped being said, in `data/corpus/zhaozhou_yulu.json` (including the two verified-quotation `reference` strings), `data/corpus_manifest.json`, the `canonical_locators`/`traceability_queue` seeds and the lineage edge — and it is a **withdrawal, not a re-attribution**: the candidate in-set witness X68n1315 is unverified (a probe with it as the sole witness collates 2 of 19 content fields), so no new witness is asserted as verified and the document goes to the human-sourcing queue.
-- the **51 `LABEL` rows** (27 documents) and **11 `RE-KEY` rows** (10 documents) under the adopted R-A/R-B/R-C policy — text absent from the claimed witness with no older substitute in the pinned set gets an honest note and keeps its text; text the pinned witness does carry gets re-keyed to it. Agent-executable, one document per PR.
+1. Record edition/recension and stable locator before adding text.
+2. Import only from pinned authoritative witnesses; never generate source-looking
+   Chinese.
+3. Segment conservatively and keep pointer/case/commentary/verse distinct.
+4. Add pinyin/English only with explicit disclosure status.
+5. Add locators, provenance notes, and cross-references where genuine.
+6. Run validator, protected metrics write if data changed, build, preservation,
+   W1 rules, and Pages contract.
+7. Commit source, metrics, and generated mirror together.
 
 ## Definition of done for every change
 
@@ -125,30 +66,12 @@ Two further queues are release-relevant without being new blockers, both ranked 
 python3 -m py_compile scripts/*.py
 python3 scripts/validate_data.py --write-metrics  # only when source data changed
 python3 scripts/validate_data.py
-python3 scripts/build_data_bundle.py
-node scripts/smoke_test.mjs
+python3 scripts/build_pages.py
+python3 scripts/test_source_preservation.py
+python3 scripts/test_source_review_rules.py
+python3 scripts/test_pages_contract.py
 diff -rq data docs/data
+git diff --check
 ```
 
-Then commit the source, metrics, bundle, and `/docs` mirror together; push the session branch; require the Quality workflow to pass; and open a PR to `main`.
-
-> **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **32 of 47** rendering beside a passage, **35** documents carrying at least one label.
-
-> **Measured status refresh 2026-09-21 (P2 Tier2 + enthusiast final):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 30, `coverage_note` 42, `editorial_note` 98, `recension_note` 14), **32 of 47** rendering beside a passage, **37** documents carrying at least one label.
-
-> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **11** documents carrying at least one label. **13 documents, 15 flagged source fields**.
-> **Measured status refresh 2026-09-21 (task P2.9, Linji re-key):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 12, `coverage_note` 11, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **12** documents carrying at least one label. **13 documents, 15 flagged source fields** — the re-keyed Record of Linji (T47n1985, 107 verbatim sections, 215 measured fields, 215 EXACT, 0 flagged) joins as the 13th document.
-> **Measured status refresh 2026-09-21 (tasks P2.8 + P2.9, combined Wumenguan/Linji overlay):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 13, `coverage_note` 12, `editorial_note` 0, `recension_note` 0), **32 of 47** rendering beside a passage, **13** documents carrying at least one label. **14 documents, 15 flagged source fields** — the re-keyed Gateless Gate (T48n2005, 48 cases, 207/207 EXACT, 0 flagged) and the re-keyed Record of Linji (T47n1985, 107 sections, 215/215 EXACT, 0 flagged) join as documents 13 and 14.
-> **Measured status refresh 2026-09-22 (task 059, P2 Tier2 yulu batch1):** the corpus carries **47** provenance-note strings across four keys (`cbeta_note` 15, `coverage_note` 14, `editorial_note` 16, `recension_note` 0), **32 of 47** rendering beside a passage (the 14 `coverage_note` lines stay ledgered by exemption), **15** documents carrying at least one rendered label — task 059 restores the two purged Tier2 retelling keys as measured excerpt seeds and their task-056 labels come back with the bytes (6 `guiyang_yulu` + 10 `fayan_yulu` dialogue `editorial_note` R-B labels, 2 `coverage_note`, 2 `cbeta_note`), re-measured byte-identically on the pinned layer (guiyang 0 of 6, fayan 1 of 11 source-content fields verbatim — re-key NOT landed). **16 documents, 41 flagged source fields.**
-
-
-<!-- census **47** provenance -->
-
-
-<!-- census **32 of 47** -->
-
-
-<!-- census **16** documents -->
-
-
-<!-- census `cbeta_note` 16 -->
+Then push the session branch, require Quality to pass, and open a PR to `main`.

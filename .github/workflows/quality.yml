@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  validate-build-smoke:
-    name: Validate data, generated artifacts, and reader
+  validate-build-pages:
+    name: Validate data, source integrity, and Pages mirror
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -27,29 +27,28 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
       - name: Check Python syntax
         run: python3 -m py_compile scripts/*.py
 
       - name: Validate source data and committed metrics
         run: python3 scripts/validate_data.py
 
-      - name: Rebuild generated Pages artifacts
-        run: python3 scripts/build_data_bundle.py
+      - name: Rebuild owner-stub Pages artifacts
+        run: python3 scripts/build_pages.py
 
       - name: Enforce source-preservation allowlist (no unauthorized Chinese edits)
         run: python3 scripts/test_source_preservation.py
 
-      - name: Enforce W1 source-review rule suite (138 checks)
+      - name: Enforce W1 source-review rule suite
         run: python3 scripts/test_source_review_rules.py
 
-      - name: Require generated artifacts and deploy mirror to be committed
-        run: |
-          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json
+      - name: Enforce owner-stub Pages contract
+        run: python3 scripts/test_pages_contract.py
 
-      - name: Run dependency-free reader smoke test
-        run: node scripts/smoke_test.mjs
+      - name: Require generated Pages artifacts and metrics to be committed
+        run: |
+          git add --intent-to-add -- docs/index.html docs/data docs/robots.txt docs/sitemap.xml docs/.nojekyll data/project_metrics.json
+          git diff --exit-code -- docs/index.html docs/data docs/robots.txt docs/sitemap.xml docs/.nojekyll data/project_metrics.json
+
+      - name: Check whitespace
+        run: git diff --check
